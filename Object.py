@@ -16,3 +16,13 @@ class Object:
         """
         self.name = name
         self.action = action
+
+        self.used = False       # Has the object been found/used
+
+    def get_name(self):
+        """Returns the name of the object"""
+        return self.name
+
+    def get_action(self):
+        """Returns the action for the object"""
+        return self.action
