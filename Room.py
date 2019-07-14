@@ -69,7 +69,7 @@ class Room:
         """Return the appropriate description of the Room.
 
         Args:
-            type (str): Type of description needed (long, short, long exit, short exit)
+            description_type (str): Type of description needed (long, short, long exit, short exit)
         Returns:
            str: description of room
         """
