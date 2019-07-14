@@ -3,6 +3,7 @@
 # main_driver.py
 # This file drives the game
 
+import Engine
 
 def main():
     """The driver function for the game."""
@@ -18,5 +19,6 @@ def main():
 
     # Start Game
 
-def print_menu():
-    """Prints menu of options for the room."""
+
+if __name__ == "__main__":
+    main()

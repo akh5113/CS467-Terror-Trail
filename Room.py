@@ -3,6 +3,8 @@
 # Room.py
 # This file defines the Room class
 
+import Object
+
 
 class Room:
     """ This is the base class for all of the Room instances. """
@@ -15,8 +17,8 @@ class Room:
                  south,
                  east,
                  west,
-                 feature1,
-                 feature2):
+                 features,
+                 objects):
         """
         Constructor.
 
@@ -31,6 +33,8 @@ class Room:
             south (Room): Room to the South.
             east (Room): Room to the East.
             west (Room): Room to the West.
+            features (Tuple): Features in a room (immutable)
+            objects (list): objects found in a room
             """
         self.name = name
         self.long_intro = long_intro
@@ -45,8 +49,10 @@ class Room:
         self.west = west
 
         # Features in the Room
-        self.feature1 = feature1
-        self.feature2 = feature2
+        self.features = features
+
+        # Objects in Room
+        self.objects = objects
 
         self.visited = False        # If the room has been visited
         self.completed = False      # If the object/task has been completed in the room
@@ -59,7 +65,7 @@ class Room:
         """
         return self.name
 
-    def get_description(self, type):
+    def get_description(self, description_type):
         """Return the appropriate description of the Room.
 
         Args:
@@ -67,33 +73,14 @@ class Room:
         Returns:
            str: description of room
         """
-        if type == "long_intro":
+        if description_type == "long_intro":
             return self.long_intro
-        elif type == "short_intro":
+        elif description_type == "short_intro":
             return self.short_intro
-        elif type == "long_exit":
+        elif description_type == "long_exit":
             return self.long_exit
-        elif type == "short_exit":
+        elif description_type == "short_exit":
             return self.short_exit
-
-
-    def get_next_room(self, direction):
-        """
-        Gets the room requested
-
-        args:
-            direction (str): the direction of the requested room (north, south, east, west)
-        Returns:
-            self.direction (Room object): returns the room object of the room in the requested direction.
-        """
-        if direction == "north":
-            return self.north
-        elif direction == "south":
-            return self.south
-        elif direction == "east":
-            return self.east
-        else:
-            return self.west
 
     def is_visited(self):
         """ Gives the status if the player has been to the room.
@@ -114,9 +101,6 @@ class Room:
         """
         return self.completed
 
-    def get_menu(self):
-        """Prints menu for the room"""
-
     def get_feature(self, option):
         """Gets the feature of the room to examine.
         Args:
@@ -125,6 +109,22 @@ class Room:
             self.feature: the feature of the room
         """
         if option == 1:
-            return self.feature1
+            return self.features()[0]
         else:
-            return self.feature2
+            return self.features()[1]
+
+    def get_object(self, obj_name):
+        """Gets the object from the room
+
+        Args:
+            obj_name (str): the name of the object found in room
+        Returns:
+            object (Object): the object from the room
+        Raise:
+
+        """
+        for room_object in self.objects:
+            if obj_name == room_object:
+                return room_object
+
+        return "Not an object in this room"
