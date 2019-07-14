@@ -3,7 +3,7 @@
 # Room.py
 # This file defines the Room class
 
-import Object
+from Object import *
 
 
 class Room:
@@ -53,6 +53,9 @@ class Room:
 
         # Objects in Room
         self.objects = objects
+
+        # List of objects in the Room
+        self.objects = []
 
         self.visited = False        # If the room has been visited
         self.completed = False      # If the object/task has been completed in the room
@@ -111,7 +114,15 @@ class Room:
         if option == 1:
             return self.features()[0]
         else:
-            return self.features()[1]
+            return self.feature()[1]
+
+    def add_object(self, obj):
+        """Adds an object to the room"""
+        self.objects.append(obj)
+
+    def remove_object(self, objName):
+        """Removes a specified object from a room"""
+        self.objects[:] = [o for o in self.objects if o.get_name() != objName]
 
     def get_object(self, obj_name):
         """Gets the object from the room

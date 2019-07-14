@@ -1,0 +1,16 @@
+{
+    "roomName": "Mountain",
+    "longIntro": "You’ve followed one of the overgrown trails, as you navigate through the thick brush you think it might be getting clearer up ahead, just a few more steps and woaah! The brush cleared out just enough to see that if you had taken one more step you would have stepped right off the edge of the mountain!\n\nYou stop to catch your breath for a minute, maybe if you go to the top you could possibly see more of the landscape around you and make a plan, just watch your step!",
+    "shortIntro": "That mountain is really high. I bet if you could get to the top of it you might be able to see where you need to go next.",
+    "features": ["View from top", "Bench"],
+    "objects": [
+        {"name": "Climbing Gear"},
+        {"name": "Compass"}
+    ],
+    "north": "",
+    "south": "Cave",
+    "east": "Waterfall",
+    "west": "Terror Trail",
+    "longExit": "You can hear rushing water in the East and you notice what looks like a cave you could explore to the South. Or maybe you want to return to the beginning location you fell in the West.",
+    "shortExit": ""
+}

@@ -3,13 +3,15 @@
 # main_driver.py
 # This file drives the game
 
-import Engine
+import data_import
+
 
 def main():
     """The driver function for the game."""
     # Set up game
 
     # Load files for Rooms
+    rooms = data_import.importRoomData()
 
     # Load files for Objects
 
