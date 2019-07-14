@@ -5,6 +5,7 @@
 
 import data_import
 
+
 def main():
     """The driver function for the game."""
     # Set up game
@@ -20,5 +21,6 @@ def main():
 
     # Start Game
 
-def print_menu():
-    """Prints menu of options for the room."""
+
+if __name__ == "__main__":
+    main()

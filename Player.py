@@ -41,9 +41,11 @@ class Player:
         return self.location
 
     def get_inventory(self):
-        """Retrieve invetory of player.
+        """Required action/verb
+        Retrieve invetory of player.
 
         Returns:
             self.inventory (List): List of objects in the players inventory.
         """
         return self.inventory
+
