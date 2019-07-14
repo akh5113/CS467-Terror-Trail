@@ -4,8 +4,8 @@
     "shortIntro": "You have arrived back at the rocky hillside near terror trail and the tension builds as you realize you’ve lost more time just to end up where you started. It is still unknown which direction will take you back to the trail head so you’ll need to continue searching for a new path to get to shelter before dark. Maybe some of your gear is still lost here?",
     "features": ["Pile of leaves", "Hole"],
     "objects": [
-        {"name": "Flashlight", "action": ""},
-        {"name": "Water Bottle", "action": ""}
+        {"name": "Flashlight"},
+        {"name": "Water Bottle"}
     ],
     "north": "",
     "south": "Glacier",

@@ -6,14 +6,13 @@
 import json
 import glob
 from Room import *
-from Object import *
 
 def initRoom(data):
-    '''
-    Returns a room built with the room json data
+    """
+    Returns a room built with the room json data.
     args:
         data (dict): structure that contains all room data
-    '''
+    """
     name = data['roomName']
     long_intro = data['longIntro']
     short_intro = data['shortIntro']
@@ -30,29 +29,33 @@ def initRoom(data):
 
     return room
 
-def initObject(data):
-    '''
-    Returns a list of objects built with object json data
+def initRoomObjects(data, room):
+    """
+    Returns a list of objects built with object json data.
     args:
         data (dict): structure that contains data of objects within a room
-    '''
+    """
     objectData = data['objects']
-    objects = []
     for o in objectData:
         name = o['name']
-        action = o['action']
-        newObject = Object(name, action)
-        objects.append(newObject)
+        newObject = Object(name, '')  #TODO: empty action for now
+        room.add_object(newObject)
     
-    return objects 
+    return room 
 
-def importData():
+def importRoomData():
+    """
+    Returns a list of Room structures
+    """
+    roomList = []
+
     for roomFile in glob.iglob('Rooms/*.txt'):
         with open(roomFile) as json_file:
             data = json.load(json_file)
 
             room = initRoom(data)
-            objects = initObject(data)
+            room = initRoomObjects(data, room)
 
-            print(room.get_name())
-            print(objects[0].get_name())
+            roomList.append(room)
+
+    return roomList
