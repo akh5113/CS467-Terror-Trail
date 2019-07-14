@@ -11,7 +11,7 @@ def main():
     # Set up game
 
     # Load files for Rooms
-    rooms = data_import.importRoomData()
+    rooms = data_import.import_room_data()
 
     # Load files for Objects
 
