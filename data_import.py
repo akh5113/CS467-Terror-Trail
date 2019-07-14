@@ -22,26 +22,27 @@ def initRoom(data):
     south = data['south']
     east = data['east']
     west = data['west']
-    feature1 = data['features'][0]
-    feature2 = data['features'][1]
+    features = (data['features'][0], data['features'][1])
+    objects = initRoomObjects(data)
 
-    room = Room(name, long_intro, short_intro, long_exit, short_exit, north, south, east, west, feature1, feature2)
+    room = Room(name, long_intro, short_intro, long_exit, short_exit, north, south, east, west, features, objects)
 
     return room
 
-def initRoomObjects(data, room):
+def initRoomObjects(data):
     """
     Returns a list of objects built with object json data.
     args:
         data (dict): structure that contains data of objects within a room
     """
+    objects = []
     objectData = data['objects']
     for o in objectData:
         name = o['name']
-        newObject = Object(name, '')  #TODO: empty action for now
-        room.add_object(newObject)
+        newObject = Object(name, '')  #TODO: figure out actions - empty action for now
+        objects.append(newObject)
     
-    return room 
+    return objects 
 
 def importRoomData():
     """
@@ -54,7 +55,6 @@ def importRoomData():
             data = json.load(json_file)
 
             room = initRoom(data)
-            room = initRoomObjects(data, room)
 
             roomList.append(room)
 
