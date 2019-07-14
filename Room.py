@@ -49,7 +49,7 @@ class Room:
         self.feature1 = feature1
         self.feature2 = feature2
 
-        # Objects in the Rom
+        # List of objects in the Room
         self.objects = []
 
         self.visited = False        # If the room has been visited

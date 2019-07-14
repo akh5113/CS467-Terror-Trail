@@ -1,7 +1,7 @@
 # CS467 - Capstone Project
 # Coast-to-Coast Group: Brittany Dunn, Anne Harris, Polly Sobeck
 # data_import.py
-# This file imports game data into the game data structures
+# This file imports room data into the room data structure
 
 import json
 import glob
