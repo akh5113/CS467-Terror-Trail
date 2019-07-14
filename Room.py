@@ -137,7 +137,7 @@ class Room:
         """Adds an object to the room"""
         self.objects.append(obj)
 
-    def remove_object(self, objName):
+    def remove_object(self, obj_Name):
         """Removes a specified object from a room"""
         self.objects[:] = [o for o in self.objects if o.get_name() != objName]
 
