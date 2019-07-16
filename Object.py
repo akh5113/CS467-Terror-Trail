@@ -8,21 +8,23 @@ class Object:
     """
     Base Class for the Objects in the game.
     """
-    def __init__(self, name, action):
+    def __init__(self, name, additional_actions):
         """Constructor.
         args:
            name (str): name of the object.
            action (str): action of the object.
         """
         self.name = name
-        self.action = action
+
+        self.actions = ["Pick Up", "Drop"]
+        for verb in additional_actions:
+            self.actions.append(verb)
 
         self.used = False       # Has the object been found/used
 
-    def get_name(self):
-        """Returns the name of the object"""
-        return self.name
+    def get_action(self, action_name):
+        """Returns the action for the object
 
-    def get_action(self):
-        """Returns the action for the object"""
+        To be refined
+        """
         return self.action
