@@ -4,6 +4,13 @@
 # This file defines the Room class
 
 from Object import *
+from enum import Enum
+
+
+class RoomType(Enum):
+    START_ROOM = 0
+    MID_ROOM = 1
+    END_ROOM = 2
 
 
 class Room:
@@ -18,7 +25,8 @@ class Room:
                  east,
                  west,
                  features,
-                 objects):
+                 objects,
+                 room_type):
         """
         Constructor.
 
@@ -56,6 +64,8 @@ class Room:
 
         self.visited = False        # If the room has been visited
         self.completed = False      # If the object/task has been completed in the room
+
+        self.room_type = room_type
 
     def get_name(self):
         """Return the Room name.
@@ -111,7 +121,7 @@ class Room:
         if option == 1:
             return self.features()[0]
         else:
-            return self.feature()[1]
+            return self.features()[1]
 
     def get_object(self, obj_name):
         """Gets the object from the room
