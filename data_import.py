@@ -7,7 +7,6 @@ import json
 import glob
 from Room import *
 
-
 def init_room(data):
     """
     Returns a room built with the room json data.
@@ -25,7 +24,7 @@ def init_room(data):
     west = data['west']
     features = (data['features'][0], data['features'][1])
     objects = init_room_objects(data)
-    room_type = RoomType.data['room_type']
+    room_type = data['room_type']
 
     room = Room(name, long_intro, short_intro, long_exit, short_exit, north, south, east, west, features, objects, room_type)
 
@@ -65,5 +64,3 @@ def import_room_data():
             room_list.append(room)
 
     return room_list
-
-import_room_data()
