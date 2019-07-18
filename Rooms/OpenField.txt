@@ -1,0 +1,17 @@
+{
+    "room_name": "Open Field",
+    "long_intro": "",
+    "short_intro": "There seems to be something in the distance. I wonder where this field leads to.",
+    "features": ["Water Feature", "The Sky Getting Darker"],
+    "objects": [
+        {"name": "Water Shoes", "actions": ["Wear", "Put On"]},
+        {"name": "Apples", "actions": ["Eat"]}        
+    ],
+    "north": "Hot Spring",
+    "south": "",
+    "east": "",
+    "west": "Lake",
+    "long_exit": "If you are in need of some water therapy, you’re in luck! Looks like there is a hot spring just North and a Lake West of your location.",
+    "short_exit": "",
+    "room_type": "MID_ROOM"
+}
