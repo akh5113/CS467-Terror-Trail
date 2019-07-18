@@ -44,3 +44,14 @@ def play_game(game1, player1):
     while game1.game_over is False:
         # Get current room
         current_room = player1.location
+
+        # Display health
+
+        # Determine Into to display (short or long)
+        # Display the intro
+
+        # Get user input
+
+        # Call next action
+
+        # Algorithm to determine health

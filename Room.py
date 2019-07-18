@@ -5,6 +5,7 @@
 
 from Object import *
 from enum import Enum
+from Feature import *
 
 
 class RoomType(Enum):
