@@ -26,6 +26,32 @@ class Action(Player):
         self.name = name
         self.kwargs = kwargs
 
+        """Need to double check this syntax"""
+        Player.__init__(self, location)
+
+    def determine_action(self):
+        """Setup a switch type or if statements to call different functions based on action"""
+        if self.name == "go":
+            move_room(self)
+
+    """If action is a movement: go ..."""
+    def move_room(self):
+        """Need to figure out/correct the syntax to access"""
+        """Check that """
+        if self.location.is_valid == True:
+            """Get the next room"""
+            next_room = self.location.get_next_room()
+            self.location = next_room
+
+            """Also will need to add something later about the health"""
+        else:
+            """Some sort of error message that you can't go that way"""
+
+
+
+
+
+
 # class move_north(Action):
     """Required verb/action"""
 
