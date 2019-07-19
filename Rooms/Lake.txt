@@ -6,7 +6,7 @@
     "objects": [
         {"name": "Water", "actions": ["Fill"]},
         {"name": "Fishing Pole", "actions": ["Cast", "Use"]},
-        {"name": "Fish", "actions": ["Catch", "Fish"]}
+        {"name": "Fish", "actions": ["Catch"]}
     ],
     "north": "Campsite",
     "south": "",
