@@ -63,6 +63,7 @@ class Room:
         # Objects in Room
         self.objects = objects
 
+        self.isLocked = False       # If room has required object to enter
         self.visited = False        # If the room has been visited
         self.completed = False      # If the object/task has been completed in the room
 
