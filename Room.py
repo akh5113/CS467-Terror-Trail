@@ -27,7 +27,12 @@ class Room:
                  west,
                  features,
                  objects,
+                 north_exits,
+                 south_exits,
+                 east_exits,
+                 west_exits):
                  room_type):
+
         """
         Constructor.
 
@@ -44,6 +49,10 @@ class Room:
             west (Room): Room to the West.
             features (Tuple): Features in a room (immutable)
             objects (list): objects found in a room
+            north_exits (list): names used to identify room to the North
+            south_exits (list): names used to identify room to the South
+            east_exits (list): names used to identify room to the East
+            west_exits (list): names used to identify room to the West
             """
         self.name = name
         self.long_intro = long_intro
@@ -67,6 +76,11 @@ class Room:
         self.visited = False        # If the room has been visited
         self.completed = False      # If the object/task has been completed in the room
 
+        # Names for all adjacent rooms
+        self.north_exits = north_exits
+        self.short_exits = south_exits
+        self.east_exits = east_exits
+        self.west_exits = west_exits
         self.room_type = RoomType[room_type]
 
     def get_name(self):
@@ -147,4 +161,4 @@ class Room:
 
     def remove_object(self, obj_name):
         """Removes a specified object from a room"""
-        self.objects[:] = [o for o in self.objects if o.get_name() != objName]
+        self.objects[:] = [o for o in self.objects if o.get_name() != obj_name]
