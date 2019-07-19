@@ -1,0 +1,15 @@
+{
+    "room_name": "Geyser",
+    "long_intro": "As you walk into a slightly mars-like landscape a thick fog begins to surround the area. Suddenly a hot stream of water erupts into the sky and it starts to smell a bit like rotten eggs. Ah, this must be Terror Trail’s famous Geyser. Known for its steamy tower of water and stinky mist, people will travel long distances to see this sight.\n\nIt is getting quite late, however, and no one else is here to help but maybe there is something around that could help with finding the way out? There is a small wooden object over closer to the Geyser, might be worth getting a little closer to check it out. Don’t get too close though, that steam is HOT!",
+    "short_intro": "You have made it back to the hot spring! Are you looking for some relaxation time to improve your energy levels or are you trying to find your way home?",
+    "features": ["Geyser", "Sign Post"],
+    "objects": [
+    ],
+    "north": "",
+    "south": "",
+    "east": "Ranger Station",
+    "west": "Hot Spring",
+    "long_exit": "A promising building lies ahead!",
+    "short_exit": "",
+    "room_type": "MID_ROOM"
+}

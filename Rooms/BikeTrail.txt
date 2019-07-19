@@ -1,0 +1,17 @@
+{
+    "room_name": "Bike Trail",
+    "long_intro": "Finally you made it out of that last area. You better keep moving before it gets too dark. This trail seems like it may lead somewhere. You notice a sign that reads “Caution: Trail is for bicycles ONLY”. If only you had a bike you could quickly move through the trail without wasting too much of your energy.",
+    "short_intro": "You’ve come across a bike trail. I wonder where it leads to?  Unfortunately, the trail looks too rough to walk.",
+    "features": ["Large Boudler", "Bush"],
+    "objects": [
+        {"name": "Bicycle", "actions": ["Ride"]},
+        {"name": "Tire", "actions": ["Put On"]}       
+    ],
+    "north": "Cave",
+    "south": "Campsite",
+    "east": "",
+    "west": "Forest",
+    "long_exit": "You can head back up North to the cave or West to the Forest, or you can venture down South where you see a flickering light and some smoke swirling into the sky but you’ll need a bike if you do want to head South.",
+    "short_exit": "",
+    "room_type": "MID_ROOM"
+}
