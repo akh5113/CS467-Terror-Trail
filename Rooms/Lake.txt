@@ -1,0 +1,18 @@
+{
+    "room_name": "Lake",
+    "long_intro": "There appears to be a blinding shimmer coming from an opening in the trees and as you hike forward you realize a magnificent lake lies before you. It is a peaceful scene, though you start to notice how quiet the area is and realize you may be the only human being within several miles. The only sense of human civilization is a small dock with a crate on it but it is several meters out into the water. If only there were some way to get out to the dock.\n\nSeems like some sort of floatation device is the only way to figure out what helpful items might be in that crate. Suddenly, you see a big splash in the water as you see a happy trout jumping up to catch some late afternoon bugs. Would be nice if there were any tools to help catch some of these huge trout that are swimming around.",
+    "short_intro": "You’ve made it back to the lake! There is no sign of human life here, but the trout are still plentiful. Do you have anything to help catch one to ease the hunger you are beginning to feel?",
+    "features": ["Dock", "Crate"],
+    "objects": [
+        {"name": "Water", "actions": ["Fill"]},
+        {"name": "Fishing Pole", "actions": ["Cast", "Use"]},
+        {"name": "Fish", "actions": ["Catch"]}
+    ],
+    "north": "Campsite",
+    "south": "",
+    "east": "Open Field",
+    "west": "",
+    "long_exit": "It looks like there is a green space just East of the lake, I think it’s a big open field over there. Looks like the campfire is still smoldering at the Campsite up North.",
+    "short_exit": "",
+    "room_type": "MID_ROOM"
+}

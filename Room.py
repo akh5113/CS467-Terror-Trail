@@ -67,7 +67,7 @@ class Room:
         self.visited = False        # If the room has been visited
         self.completed = False      # If the object/task has been completed in the room
 
-        self.room_type = room_type
+        self.room_type = RoomType[room_type]
 
     def get_name(self):
         """Return the Room name.

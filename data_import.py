@@ -13,19 +13,20 @@ def init_room(data):
     args:
         data (dict): structure that contains all room data
     """
-    name = data['roomName']
-    long_intro = data['longIntro']
-    short_intro = data['shortIntro']
-    long_exit = data['longExit']
-    short_exit = data['shortExit']
+    name = data['room_name']
+    long_intro = data['long_intro']
+    short_intro = data['short_intro']
+    long_exit = data['long_exit']
+    short_exit = data['short_exit']
     north = data['north']
     south = data['south']
     east = data['east']
     west = data['west']
     features = (data['features'][0], data['features'][1])
     objects = init_room_objects(data)
+    room_type = data['room_type']
 
-    room = Room(name, long_intro, short_intro, long_exit, short_exit, north, south, east, west, features, objects)
+    room = Room(name, long_intro, short_intro, long_exit, short_exit, north, south, east, west, features, objects, room_type)
 
     return room
 
@@ -39,7 +40,13 @@ def init_room_objects(data):
     object_data = data['objects']
     for o in object_data:
         name = o['name']
-        new_object = Object(name, '')  #TODO: figure out actions - empty action for now
+
+        actions = []
+        action_data = o['actions']
+        for a in action_data:
+            actions.append(a)
+            
+        new_object = Object(name, actions)  #TODO: figure out actions - empty action for now
         objects.append(new_object)
     
     return objects 
@@ -57,3 +64,4 @@ def import_room_data():
             room_list.append(room)
 
     return room_list
+
