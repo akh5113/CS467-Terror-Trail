@@ -46,12 +46,14 @@ def play_game(game1, player1):
         current_room = player1.location
 
         # Display health
+        player1.player_status()
 
         # Determine Into to display (short or long)
         # Display the intro
+
 
         # Get user input
 
         # Call next action
 
-        # Algorithm to determine health
+        # Call algorithm to determine health

@@ -31,11 +31,12 @@ class Player:
     def player_status(self):
         """Gives the hunger and thirst levels of a player as a list
 
-        Returns:
+        Prints
             self.hunger (int): Integer representing players hunger levels
             self.thirst (int): Integer representing players thirst levels
         """
-        return [self.hunger, self.thirst]
+        print("Hydration Level: {}/100".format(self.thirst))
+        print("Hunger Level: {}/100".format(self.hunger))
 
     def get_inventory(self):
         """Required action/verb
