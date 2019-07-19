@@ -7,13 +7,13 @@
 class Player:
     """Class to define the player."""
 
-    def __init__(self):
+    def __init__(self, starting_location):
         """Constructor."""
         self.hunger = 100
         self.thirst = 100
         self.inventory = []
         self.alive = True
-        self.location = None    # Current location of the player
+        self.location = starting_location   # Current location of the player
 
     def is_alive(self):
         """Is the player still alive.
@@ -21,24 +21,22 @@ class Player:
         Returns:
             self.alive (Boolean): if the player is alive or not
         """
+        if self.hunger > 0 and self.thirst > 0:
+            self.alive = True
+        else:
+            self.alive = False
+
         return self.alive
 
     def player_status(self):
         """Gives the hunger and thirst levels of a player as a list
 
-        Returns:
+        Prints
             self.hunger (int): Integer representing players hunger levels
             self.thirst (int): Integer representing players thirst levels
         """
-        return [self.hunger, self.thirst]
-
-    def get_location(self):
-        """ What room the current player is in.
-
-        Returns:
-            self.location (Room): The room object the player is currently in.
-        """
-        return self.location
+        print("Hydration Level: {}/100".format(self.thirst))
+        print("Hunger Level: {}/100".format(self.hunger))
 
     def get_inventory(self):
         """Required action/verb
