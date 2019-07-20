@@ -2,7 +2,20 @@
     "room_name": "Hot Spring",
     "long_intro": "You’ve arrived at the relaxing hot springs. Taking a dip sounds pretty tempting and it might help to revive some of your energy to help you make it out of the park. If only you had some water shoes to be able to step foot in these warm pools. You will have to find the faucet so you can fill this personal alpine tub with hot springwater.\n\nWhere there are hot springs must mean there is volcanic activity - the famous Terror Trail Geyser must not be far!",
     "short_intro": "You have made it back to the hot spring! Are you looking for some relaxation time to improve your energy levels or are you trying to find your way home?",
-    "features": ["Faucet", "Hot Spring Tub"],
+    "features": [
+        { 
+            "name": "Faucet",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        },
+        { 
+            "name": "Hot Spring Tub",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        }
+    ],
     "objects": [
     ],
     "north": "",
@@ -11,5 +24,9 @@
     "west": "Campsite",
     "long_exit": "Ah, now that you’ve relaxed in the springs you are feeling energized and are ready to go. Hopefully the next spot is that Famous Geyser, maybe try heading East?",
     "short_exit": "",
+    "north_exits": "",
+    "south_exits": "",
+    "east_exits": "",
+    "west_exits": "",
     "room_type": "MID_ROOM"
 }

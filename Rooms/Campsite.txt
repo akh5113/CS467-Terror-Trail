@@ -2,9 +2,25 @@
     "room_name": "Campsite",
     "long_intro": "You’ve come to a clearing and are not quite sure what you’ve stumbled upon.. You can start to make out some objects and it looks like half-standing tents, and you see a fire that has just quit smoldering, just a whisper of smoke coming from it. People have been here, but when did they leave. Or more importantly, why did they leave so abruptly without taking their belongings?\n\nWell, if they’re not using them, someone might as well? You slowly creep around the abandoned campsite, it seems like you can hear every leaf crunch beneath your slow and steady footsteps. Time to take a look around, with the wind still around you, you think you can hear some rustling off to the other side of the campsite.",
     "short_intro": "Ah, you’ve made it back to the campsite. It looks like it’s still been untouched since you were last here...but maybe you didn’t see a helpful tool the first time around.",
-    "features": ["Tree", "Campfire"],
+    "features": [
+        { 
+            "name": "Tree",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        },
+        { 
+            "name": "Campfire",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        }
+    ],
     "objects": [
-        {"name": "Tent", "actions": ["Pitch"]}
+        {
+            "name": "Tent", 
+            "actions": ["Pitch"]
+        }
     ],
     "north": "Bike Trail",
     "south": "Lake",
@@ -12,5 +28,9 @@
     "west": "",
     "long_exit": "Looking for some water? I think I see a lake just south of here.",
     "short_exit": "",
+    "north_exits": "",
+    "south_exits": "",
+    "east_exits": "",
+    "west_exits": "",
     "room_type": "MID_ROOM"
 }

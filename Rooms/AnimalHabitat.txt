@@ -2,9 +2,25 @@
     "room_name": "Animal Habitat",
     "long_intro": "You arrive at what looks like a huge mound of sticks in a creek. At first you think it is just a pile of debris that has collected from past storms in the area, but then the strange noises that you heard before start up again. You worry that it might be some hungry animal so you quickly look around for anything that might be able to fight off in the case that this unknown creature attacks.\n\nThere doesn’t appear to be anything to help defend yourself, but you see a sign that might have some more information on what the creature is. The sign is in a shady spot so you might need a light source to be able to read what it says.",
     "short_intro": "This looks like some sort of creature’s home. But what creature lives here? You may not want to go too much further until you know.",
-    "features": ["Informational Sign", "Animal in Habitat"],
+    "features": [
+        { 
+            "name": "Informational Sign",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        },
+        { 
+            "name": "Animal in Habitat",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        }
+    ],
     "objects": [
-        {"name": "Flashlight Batteries", "actions": ["Put In"]}
+        { 
+            "name": "Flashlight Batteries", 
+            "actions": ["Put In"]
+        }
     ],
     "north": "Forest",
     "south": "",
@@ -12,5 +28,9 @@
     "west": "",
     "long_exit": "There is a flickering light in you can barely make out in the East but it is too risky to go this way if you can’t figure out what creature was making all those noises. You could always turn around and go back to the forest.",
     "short_exit": "",
+    "north_exits": "",
+    "south_exits": "",
+    "east_exits": "",
+    "west_exits": "",
     "room_type": "MID_ROOM"
 }

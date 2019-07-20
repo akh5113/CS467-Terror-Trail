@@ -2,10 +2,29 @@
     "room_name": "River",
     "long_intro": "That river is rushing fast! You think to yourself how much time you could save if you could travel down it. It’s flowing so fast that you can’t see how deep it is, better not risk trying to swim through it. You can hear the rapids crashing against rocks!\n\nActually it’s not just rocks, there looks like there’s a wooden structure, maybe there might be something helpful there.",
     "short_intro": "It does not look like you’re crossing that river by swimming across. You’ll have to turn back unless there is another way you can cross.",
-    "features": ["Water Rapids", "Dock"],
+    "features": [
+        { 
+            "name": "Water Rapids",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        },
+        { 
+            "name": "Dock",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        }
+    ],
     "objects": [
-        {"name": "Oar", "actions": ["Paddle"]},
-        {"name": "Water", "actions": ["Fill"]}
+        {
+            "name": "Oar", 
+            "actions": ["Paddle"]
+        },
+        {
+            "name": "Water", 
+            "actions": ["Fill"]
+        }
     ],
     "north": "Waterfall",
     "south": "",
@@ -13,5 +32,9 @@
     "west": "Cave",
     "long_exit": "Unless you figure out a way to handle the rapids West of the river, you’re going to have to return North to the waterfall.",
     "short_exit": "",
+    "north_exits": "",
+    "south_exits": "",
+    "east_exits": "",
+    "west_exits": "",
     "room_type": "MID_ROOM"
 }

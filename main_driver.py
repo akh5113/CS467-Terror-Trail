@@ -21,7 +21,7 @@ def main():
 
     # Load files for Objects
 
-    # Load files fo Features
+    # Load files for Features
 
     # Get starting room
     starting_room = None

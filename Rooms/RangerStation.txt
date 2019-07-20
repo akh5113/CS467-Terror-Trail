@@ -2,10 +2,29 @@
     "room_name": "Ranger Station",
     "long_intro": "What is that ahead? It looks like the Ranger Station! There’s a light on inside maybe someone is there who can help you. You walk up to the door only to find it is locked. You knock hoping someone might answer but there is no reply. What are you going to do now?\n\nYou’ve almost given up but you keep looking around hoping maybe you missed something. If you could just get inside then you’d at least have shelter for the night. That’s when you look through a small window and notice a blinking light. What is that? It looks like a radio. If you could only get inside you might be able to radio for help.",
     "short_intro": "It looks like there might be a phone in there. Too bad the door is locked.",
-    "features": ["Lock", "Doormat"],
+    "features": [
+        { 
+            "name": "Lock",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        },
+        { 
+            "name": "Doormat",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        }
+    ],
     "objects": [
-        {"name": "Key", "actions": ["Use"]},
-        {"name": "Radio", "actions": ["Pickup", "Call"]}        
+        {
+            "name": "Key", 
+            "actions": ["Use"]
+        },
+        {
+            "name": "Radio", 
+            "actions": ["Pickup", "Call"]
+        }        
     ],
     "north": "",
     "south": "",
@@ -13,5 +32,9 @@
     "west": "Geyser",
     "long_exit": "You can travel back to the West to the Geyser which you just came from and keep exploring.",
     "short_exit": "",
+    "north_exits": "",
+    "south_exits": "",
+    "east_exits": "",
+    "west_exits": "",
     "room_type": "END_ROOM"
 }
