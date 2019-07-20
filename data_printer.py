@@ -5,6 +5,7 @@
 
 from Room import *
 from Player import *
+from Feature import *
 
 ################################################################
 # helper printing methods for Rooms
@@ -16,7 +17,7 @@ def print_room_intro(room):
     args:
         room (Room): structure that contains all room data
     """
-    if room.visited  == False:
+    if room.visited == False:
         print(room.long_intro)
     else:
         print(room.short_intro)
@@ -41,5 +42,30 @@ def print_health_levels(player):
         player (Player): data for current player
     """
     print("Hunger %s/100" % player.hunger)
-    print("Thist %s/100" % player.thirst)
+    print("Thirst %s/100" % player.thirst)
     print('\n')
+
+def print_inventory(player):
+    """
+    Print hunger and thirst status for player
+    args:
+        player (Player): data for current player
+    """
+    for obj in player.inventory:
+        print(obj)
+    print('\n')
+
+################################################################
+# helper printing methods for Feature
+################################################################
+
+def print_feature_description(feature):
+    """
+    Print description of feature
+    args:
+        feature (Feature): name of the feature
+    """
+    if feature.objects_found() is True:
+        print(feature.description_with_objects)
+    else:
+        print(feature.description_no_objects)
