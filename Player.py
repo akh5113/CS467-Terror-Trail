@@ -15,19 +15,6 @@ class Player:
         self.alive = True
         self.location = starting_location   # Current location of the player
 
-    def is_alive(self):
-        """Is the player still alive.
-
-        Returns:
-            self.alive (Boolean): if the player is alive or not
-        """
-        if self.hunger > 0 and self.thirst > 0:
-            self.alive = True
-        else:
-            self.alive = False
-
-        return self.alive
-
     def player_status(self):
         """Gives the hunger and thirst levels of a player as a list
 
@@ -35,15 +22,28 @@ class Player:
             self.hunger (int): Integer representing players hunger levels
             self.thirst (int): Integer representing players thirst levels
         """
-        print("Hydration Level: {}/100".format(self.thirst))
-        print("Hunger Level: {}/100".format(self.hunger))
+        # Add parameters to calculate hunger
 
-    def get_inventory(self):
-        """Required action/verb
-        Retrieve invetory of player.
+        # Add parameters to calculate thisrt
 
-        Returns:
-            self.inventory (List): List of objects in the players inventory.
+        # Add any other factors that impact health
+
+        # Determine if player is still alive
+        if self.hunger > 0 and self.thirst > 0:
+            self.alive = True
+        else:
+            self.alive = False
+
+    def add_obj_to_inventory(self, obj):
+        """Add an object to the players inventory
+        Args:
+            obj (Object): object to be added to the players inventory list
         """
-        return self.inventory
+        self.inventory.append(obj)
 
+    def remove_obj_from_inventory(self, obj):
+        """Remove object from players inventory
+        Args:
+            obj (Object): object to be removed from the players inventory list
+        """
+        self.inventory.remove(obj)

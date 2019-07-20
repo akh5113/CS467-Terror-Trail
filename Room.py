@@ -30,7 +30,7 @@ class Room:
                  north_exits,
                  south_exits,
                  east_exits,
-                 west_exits):
+                 west_exits,
                  room_type):
 
         """
@@ -60,7 +60,7 @@ class Room:
         self.long_exit = long_exit
         self.short_exit = short_exit
 
-        # What rooms are adjacent
+        # What rooms are adjacent this is an actual Room object
         self.north = north
         self.south = south
         self.east = east
@@ -76,20 +76,13 @@ class Room:
         self.visited = False        # If the room has been visited
         self.completed = False      # If the object/task has been completed in the room
 
-        # Names for all adjacent rooms
+        self.room_type = RoomType[room_type]
+
+        # Names for all adjacent rooms this is a list of strings
         self.north_exits = north_exits
         self.short_exits = south_exits
         self.east_exits = east_exits
         self.west_exits = west_exits
-        self.room_type = RoomType[room_type]
-
-    def get_name(self):
-        """Return the Room name.
-
-        Returns:
-            str: name of the Room
-        """
-        return self.name
 
     def get_description(self, description_type):
         """Return the appropriate description of the Room.
@@ -107,25 +100,6 @@ class Room:
             return self.long_exit
         elif description_type == "short_exit":
             return self.short_exit
-
-    def is_visited(self):
-        """ Gives the status if the player has been to the room.
-
-        Returns:
-             self.visited (Boolean): if the player has visited the room before.
-        """
-        return self.visited
-
-    def is_completed(self):
-        """Gives the status if the room has been completed.
-
-        A rooms completion status is based on if features have been examined and if any objects that needed to be
-        picked up have been.
-
-        Returns:
-            self.completed (Boolean): If the room has been completed
-        """
-        return self.completed
 
     def get_feature(self, option):
         """Gets the feature of the room to examine.
@@ -162,3 +136,19 @@ class Room:
     def remove_object(self, obj_name):
         """Removes a specified object from a room"""
         self.objects[:] = [o for o in self.objects if o.get_name() != obj_name]
+
+    def get_verbs(self):
+        """Compiles all verbs possible in the room by combining the actions associated with objects
+        and the actions associated with the features
+        """
+        verb_list = []
+
+        # get object verbs
+        for o in self.objects:
+            verb_list.append(o.actions)
+
+        # get feature verbs
+        for f in self.features:
+            verb_list.append(f.actions)
+
+        return verb_list
