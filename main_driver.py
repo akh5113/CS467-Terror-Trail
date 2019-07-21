@@ -15,7 +15,6 @@ def main():
     """The driver function for the game."""
     # Load files for Rooms
     rooms = data_import.import_room_data()
-    data_printer.print_all_room_details(rooms)
     
     # Set up game
     new_game = Game(rooms)
