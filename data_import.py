@@ -32,7 +32,22 @@ def init_room(data):
     west_exits = ''
     room_type = data['room_type']
 
-    room = Room(name, long_intro, short_intro, long_exit, short_exit, north, south, east, west, features, objects, north_exits, south_exits, east_exits, west_exits, room_type)
+    room = Room(name, 
+                long_intro, 
+                short_intro, 
+                long_exit, 
+                short_exit, 
+                north, 
+                south, 
+                east, 
+                west, 
+                features, 
+                objects, 
+                north_exits, 
+                south_exits, 
+                east_exits, 
+                west_exits, 
+                room_type)
 
     return room
 
