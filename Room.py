@@ -152,3 +152,33 @@ class Room:
             verb_list.append(f.actions)
 
         return verb_list
+    def get_next_room(self, direction):
+        """
+        Gets the room requested by checking all short form names of a direction
+
+        args:
+            direction (str): the direction of the requested room (north, south, east, west)
+        Returns:
+            self.direction (Room object): returns the room object of the room in the requested direction.
+        """
+        if direction in self.north_exits:
+            return self.north
+        elif direction in self.south_exits:
+            return self.south
+        elif direction in self.east_exits:
+            return self.east
+        elif direction in self.west_exits:
+            return self.west
+        else:
+            return None
+
+    def _is_valid(self, direction):
+        """Returns if the direction specified is valid
+
+        Returns:
+            (boolean) representing if there is a room attached
+            """
+        next_room = self.get_next_room(direction)
+        if next_room is None:
+            return False
+        return True

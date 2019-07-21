@@ -106,7 +106,7 @@ def import_room_data():
     room_list = []
 
     for room_file in glob.iglob('Rooms/*.txt'):
-        with open(room_file) as json_file:
+        with open(room_file, encoding="utf8") as json_file:
             data = json.load(json_file)
             room = init_room(data)
             room_list.append(room)
