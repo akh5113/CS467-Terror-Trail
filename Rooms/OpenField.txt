@@ -32,9 +32,9 @@
     "west": "Lake",
     "long_exit": "If you are in need of some water therapy, you’re in luck! Looks like there is a hot spring just North and a Lake West of your location.",
     "short_exit": "",
-    "north_exits": "",
-    "south_exits": "",
-    "east_exits": "",
-    "west_exits": "",
+    "north_exits": [""],
+    "south_exits": [""],
+    "east_exits": [""],
+    "west_exits": [""],
     "room_type": "MID_ROOM"
 }

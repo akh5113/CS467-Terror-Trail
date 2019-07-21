@@ -32,9 +32,9 @@
     "west": "Geyser",
     "long_exit": "You can travel back to the West to the Geyser which you just came from and keep exploring.",
     "short_exit": "",
-    "north_exits": "",
-    "south_exits": "",
-    "east_exits": "",
-    "west_exits": "",
+    "north_exits": [""],
+    "south_exits": [""],
+    "east_exits": [""],
+    "west_exits": [""],
     "room_type": "END_ROOM"
 }

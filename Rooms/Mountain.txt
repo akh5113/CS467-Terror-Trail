@@ -32,9 +32,9 @@
     "west": "Terror Trail",
     "long_exit": "You can hear rushing water in the East and you notice what looks like a cave you could explore to the South. Or maybe you want to return to the beginning location you fell in the West.",
     "short_exit": "",
-    "north_exits": "",
-    "south_exits": "",
-    "east_exits": "",
-    "west_exits": "",
+    "north_exits": [""],
+    "south_exits": [""],
+    "east_exits": [""],
+    "west_exits": [""],
     "room_type": "MID_ROOM"
 }

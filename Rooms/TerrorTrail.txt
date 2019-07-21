@@ -5,15 +5,15 @@
     "features": [
         { 
             "name": "Pile of leaves",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["dig"],
+            "description1": "Good thing you looked in this pile of leaves - you found your water bottle",
+            "description2": "Nothing else is in this pile of leaves."
         },
         { 
             "name": "Hole",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["look"],
+            "description1": "I see a faint light at the bottom of this hole. Is that your flashlight?",
+            "description2": "Looks like this is an empty hole!"
         }
     ],
     "objects": [
@@ -32,9 +32,9 @@
     "west": "",
     "long_exit": "Time to start figuring out how to get out of here. There appears to be Mountains to your East and is that a Glacier to your South?",
     "short_exit": "",
-    "north_exits": "",
-    "south_exits": "",
-    "east_exits": "",
-    "west_exits": "",
+    "north_exits": [""],
+    "south_exits": ["glacier"],
+    "east_exits": ["mountain"],
+    "west_exits": [""],
     "room_type": "START_ROOM"
 }
