@@ -13,7 +13,7 @@ from Action import *
 
 def main():
     """The driver function for the game."""
-    # Load files for Rooms
+    # Load files for Rooms including Features and Objects within rooms
     rooms = data_import.import_room_data()
     
     # Set up game

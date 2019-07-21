@@ -33,6 +33,12 @@ def move_room(go_to, current_room, rooms):
         return None
 
 def get_room_object(room_name, rooms):
+    """
+    Get full room object from room dictionary based on room name
+    args:
+        room_name (string): the name of the room to retrieve
+        rooms (dict): the dictionary object containing all rooms
+    """
     next_room = None
     for room in rooms:
         if room_name == room.name:
