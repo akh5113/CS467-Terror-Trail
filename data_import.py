@@ -14,17 +14,15 @@ def init_room(data):
         data (dict): structure that contains all room data
     """
     name = data['room_name']
-    print(name)
     long_intro = data['long_intro']
     short_intro = data['short_intro']
     long_exit = data['long_exit']
     short_exit = data['short_exit']
-    north = data['north']
-    south = data['south']
-    east = data['east']
-    west = data['west']
+    north = data['north']   # TODO - this actually needs to be a room object (may need to update after instantiation)
+    south = data['south']   # TODO - this actually needs to be a room object (may need to update after instantiation)
+    east = data['east']     # TODO - this actually needs to be a room object (may need to update after instantiation)
+    west = data['west']     # TODO - this actually needs to be a room object (may need to update after instantiation)
     features = init_room_features(name, data)
-    #features = (data['features'][0], data['features'][1])
     objects = init_room_objects(data)
     north_exits = ''
     south_exits = ''
@@ -109,7 +107,6 @@ def import_room_data():
 
     for room_file in glob.iglob('Rooms/*.txt'):
         with open(room_file) as json_file:
-            print(room_file)
             data = json.load(json_file)
             room = init_room(data)
             room_list.append(room)
