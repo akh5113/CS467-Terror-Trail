@@ -19,12 +19,11 @@ def init_room(data):
     short_intro = data['short_intro']
     long_exit = data['long_exit']
     short_exit = data['short_exit']
-    north = data['north']
-    south = data['south']
-    east = data['east']
-    west = data['west']
+    north = data['north']   # TODO - this actually needs to be a room object
+    south = data['south']   # TODO - this actually needs to be a room object
+    east = data['east']     # TODO - this actually needs to be a room object
+    west = data['west']     # TODO - this actually needs to be a room object
     features = init_room_features(name, data)
-    #features = (data['features'][0], data['features'][1])
     objects = init_room_objects(data)
     north_exits = ''
     south_exits = ''
