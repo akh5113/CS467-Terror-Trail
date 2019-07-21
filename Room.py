@@ -43,10 +43,10 @@ class Room:
             short_intro (str): Shorter description of the room. The user will see this upon reentering a room.
             long_exit (str): Longer description of ways the user can exit a room
             short_exit (str): Shorter description of how the user exits a room
-            north (Room): Room to the North.
-            south (Room): Room to the South.
-            east (Room): Room to the East.
-            west (Room): Room to the West.
+            north (string): Name of room to the North.
+            south (string): Name of room to the South.
+            east (string): Name of room to the East.
+            west (string): Name of room to the West.
             features (Tuple): Features in a room (immutable)
             objects (list): objects found in a room
             north_exits (list): names used to identify room to the North
@@ -60,7 +60,7 @@ class Room:
         self.long_exit = long_exit
         self.short_exit = short_exit
 
-        # What rooms are adjacent this is an actual Room object
+        # What rooms are adjacent to the room
         self.north = north
         self.south = south
         self.east = east

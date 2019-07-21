@@ -18,10 +18,10 @@ def init_room(data):
     short_intro = data['short_intro']
     long_exit = data['long_exit']
     short_exit = data['short_exit']
-    north = data['north']   # TODO - this actually needs to be a room object (may need to update after instantiation)
-    south = data['south']   # TODO - this actually needs to be a room object (may need to update after instantiation)
-    east = data['east']     # TODO - this actually needs to be a room object (may need to update after instantiation)
-    west = data['west']     # TODO - this actually needs to be a room object (may need to update after instantiation)
+    north = data['north']
+    south = data['south']
+    east = data['east']
+    west = data['west']
     features = init_room_features(name, data)
     objects = init_room_objects(data)
     north_exits = init_list(data['north_exits'])
@@ -87,6 +87,11 @@ def init_room_objects(data):
     return objects
 
 def init_list(data):
+    """
+    Returns a list structure for various object types
+    args:
+        data: contains items to be turned into a list
+    """
     list_items = []
     for item in data:
         list_items.append(item)
