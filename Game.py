@@ -34,4 +34,27 @@ class Game:
         """Required action/verb
         Prints the help screen for game
         """
-        print("Help ((to be expanded))")
+        print("----------------------------------- HELP -----------------------------------")
+        print("help                 Lists verbs used throughout the game.")
+        print("go <direction>       Moves player to the Room in the specified direction.")
+        print("move <direction>     Moves player to the Room in the specified direction.")
+        print("take <object>        Acquires object by putting it in player's inventory.")
+        print("look                 States description of the current Room")
+        print("look at              Prints the player's current inventory.")
+        print("savegame             Saves the current state of the game.")
+        print("loadgame             Loads the previously saved game into play.")
+        print("quit                 Exits the game without saving the game state.")
+        print("---------------------------------------------------------------------------_")
+
+    def save_game(self):
+        """Saves the state of the game"""
+        # write data to a file
+
+    def load_game(self):
+        """Loads a saved state of the game"""
+        # load in saved files
+
+    def quit_game(self):
+        """Quits the game without saving the state"""
+        print("Quitting the game without saving the state")
+        self.game_over = True

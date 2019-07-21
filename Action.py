@@ -33,28 +33,37 @@ def move_room(go_to, current_room, rooms):
         return None
 
 def get_room_object(room_name, rooms):
+    next_room = None
     for room in rooms:
         if room_name == room.name:
             next_room = room
     return next_room
+
+def determine_action(action_name, use_on):
+    if action_name == "take":
+        take(use_on)
+    elif action_name == "look":
+        look(use_on)
+    elif action_name == "look at":
+        look_at()
 
 def take(object_name):
     """Required verb/action
     Acquire an object and put it into your inventory
     """
 
-
 def look(name):
     """Required verb/action
     Repeats the long form explination of the room
     """
 
-def look_at(inventory_list):
+def look_at():
     """Requried verb/action
     Look at feature or object, gives a interesting explination of the feature or object.
 
     Allows player to look at objects in their inventory
     """
+    inventory_list = []     # ned to figure out most efficent way to get inventory list
+    print("Items in current inventory:")
     for i in inventory_list:
         print(i.name)
-        print(i.description)

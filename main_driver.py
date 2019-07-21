@@ -52,56 +52,72 @@ def play_game(game1, player1):
         # Display the intro
         data_printer.print_room_intro(current_room)
 
-        # Get user input
-        user_input = input(prompt)
+        # varaible to loop back if invalid input
+        successful_action = False
 
-        # Split user input into command , preposition, object/feature/room
-        split_input = user_input.split()
-        # First is the command
-        command = split_input[0]
-        # Determine if there was a preposition
-        if len(split_input) == 2:
-            # No preposition
-            use_on = split_input[1]
-            preposition = ""
-        # If there is prepostion
-        else:
-            preposition = split_input[1]
-            use_on = split_input[2]
-        
-        # Determine if next action is moving rooms or action within room by checking the command
-        if command == "go" or command == "move":
-            # call move room action function to get next room
-            next_room = move_room(use_on, current_room, game1.rooms)
-            # if no matching room found
-            if next_room == None:
-                # Then invalid command
-                print("Error: not a valid exit. Try again.")
-            # if there is a matching room
-            else:
-                # move player to room
-                player1.location = next_room
-                print("Moved to", player1.location.name)
-                
-        # If action is not changing room, figure out what it is doing
-        else:
-            # Get verbs for the room
-            possible_actions = current_room.get_verbs()
-            # Determine if the action is possible given the objects/features
-            if user_input in possible_actions:
-                determine_action(user_input)
-                # Adding a break here to not get stuck!
-                break
-            else:
-                # If action is not in list of verbs, print error message
-                print("Error: not a valid action. Type <help> to see valid verbs")
+        while successful_action is False:
+            # Get user input
+            user_input = input(prompt)
 
-#Commented out until problem with Room objects is fixed in move_room
-#        # Algorithm to determine health
-#        player1.player_status()
-#
-#        # Check for game status
-#        game1.check_game_status(player1)
+            # Split user input into command , preposition, object/feature/room
+            split_input = user_input.split()
+            # First is the command
+            command = split_input[0]
+            # Determine if there was a preposition
+            if len(split_input) == 2:
+                # No preposition
+                use_on = split_input[1]
+                preposition = ""
+            # If there is prepostion
+            elif len(split_input) == 3:
+                preposition = split_input[1]
+                use_on = split_input[2]
+            # If there is a one word command, others are empty
+            else:
+                use_on = ""
+                preposition = ""
+
+            # Determine if next action is moving rooms or action within room by checking the command
+            if command == "go" or command == "move":
+                # call move room action function to get next room
+                next_room = move_room(use_on, current_room, game1.rooms)
+                # if no matching room found
+                if next_room == None:
+                    # Then invalid command
+                    print("Error: not a valid exit. Try again.")
+                # if there is a matching room
+                else:
+                    # move player to room
+                    player1.location = next_room
+                    print("Moved to", player1.location.name)
+                    successful_action = True
+
+            elif command == "help":
+                game1.help()
+
+            elif command == "quit":
+                game1.quit_game()
+                successful_action = True
+
+            # If action is not changing room, figure out what it is doing
+            else:
+                # Get verbs for the room
+                possible_actions = current_room.get_verbs()
+                # Determine if the action is possible given the objects/features
+                if user_input in possible_actions:
+                    determine_action(command, use_on)
+                    # Adding a break here to not get stuck!
+                    successful_action = True
+                    break
+                else:
+                    # If action is not in list of verbs, print error message
+                    print("Error: not a valid action. Type <help> to see valid verbs")
+
+        # Algorithm to determine health
+        player1.player_status()
+
+        # Check for game status
+        game1.check_game_status(player1)
 
         break   #put temporary break in to prevent infinite loop :)
 

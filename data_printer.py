@@ -6,6 +6,7 @@
 from Room import *
 from Player import *
 from Feature import *
+import textwrap
 
 ################################################################
 # helper printing methods for Rooms
@@ -16,11 +17,17 @@ def print_room_intro(room):
     Print long/short intro based on if room has been visited
     args:
         room (Room): structure that contains all room data
+    source for text wrapper: https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/
     """
+    wrapper = textwrap.TextWrapper(width=60)
     if room.visited == False:
-        print(room.long_intro)
+        words = wrapper.wrap(text=room.long_intro)
+        for w in words:
+            print(w)
     else:
-        print(room.short_intro)
+        words = wrapper.wrap(text=room.short_intro)
+        for w in words:
+            print(w)
     print('\n')
 
 def print_room_exit(room):
@@ -29,7 +36,10 @@ def print_room_exit(room):
     args:
         room (Room): structure that contains all room data
     """
-    print(room.long_exit)
+    wrapper = textwrap.TextWrapper(width=60)
+    words = wrapper.wrap(text=room.long_exit)
+    for w in words:
+        print(w)
 
 # this method is primarily intended for testing
 def print_all_room_details(rooms):
@@ -136,7 +146,12 @@ def print_feature_description(feature):
     args:
         feature (Feature): name of the feature
     """
+    wrapper = textwrap.TextWrapper(width=60)
     if feature.objects_found() is True:
-        print(feature.description_with_objects)
+        words = wrapper.wrap(text=feature.description_with_objects)
+        for w in words:
+            print(w)
     else:
-        print(feature.description_no_objects)
+        words = wrapper.wrap(text=feature.description_no_objects)
+        for w in words:
+            print(w)

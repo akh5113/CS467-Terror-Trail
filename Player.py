@@ -22,9 +22,11 @@ class Player:
             self.hunger (int): Integer representing players hunger levels
             self.thirst (int): Integer representing players thirst levels
         """
-        # Add parameters to calculate hunger
+        # Hunger levels will change by 1 for every move
+        self.hunger -= 1
 
-        # Add parameters to calculate thisrt
+        # Thirst levels will change by 2 for every move
+        self.thirst -= 2
 
         # Add any other factors that impact health
 

@@ -114,7 +114,7 @@ class Room:
             return self.features()[1]
 
     def get_object(self, obj_name):
-        """Gets the object from the room
+        """Get specific object from the room
 
         Args:
             obj_name (str): the name of the object found in room
@@ -141,17 +141,18 @@ class Room:
         """Compiles all verbs possible in the room by combining the actions associated with objects
         and the actions associated with the features
         """
-        verb_list = []
+        object_verb_list = []
+        feature_verb_list = []
 
         # get object verbs
         for o in self.objects:
-            verb_list.append(o.actions)
+            object_verb_list += o.actions
 
         # get feature verbs
         for f in self.features:
-            verb_list.append(f.actions)
+            feature_verb_list += f.actions
 
-        return verb_list
+        return object_verb_list + feature_verb_list
     def get_next_room(self, direction):
         """
         Gets the room requested by checking all short form names of a direction
