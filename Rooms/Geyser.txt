@@ -24,9 +24,9 @@
     "west": "Hot Spring",
     "long_exit": "A promising building lies ahead!",
     "short_exit": "",
-    "north_exits": "",
-    "south_exits": "",
-    "east_exits": "",
-    "west_exits": "",
+    "north_exits": [""],
+    "south_exits": [""],
+    "east_exits": [""],
+    "west_exits": [""],
     "room_type": "MID_ROOM"
 }

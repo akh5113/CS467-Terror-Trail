@@ -7,8 +7,9 @@ from Player import *
 
 class Game:
     """Game engine that runs the game."""
-    def __init__(self):
+    def __init__(self, rooms):
         self.game_over = False
+        self.rooms = rooms
 
     def check_game_status(self, current_player):
         # If the player's thirst or hunger levels have gotten to 0, they have died

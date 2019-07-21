@@ -64,7 +64,6 @@ def print_single_room_details(room):
     print("South: ", room.south)
     print("East: ", room.east)
     print("West: ", room.west)
-
     print("\n")
 
     print("Features:")
@@ -73,8 +72,8 @@ def print_single_room_details(room):
         if len(f.actions) > 0:
             for a in f.actions:
                 print("-", a)
-        print("Desc1: ", f.description_with_objects)
-        print("Desc2: ", f.description_no_objects)
+        print("Desc with Objects: ", f.description_with_objects)
+        print("Desc no Objects: ", f.description_no_objects)
         print("\n")
 
     print("Objects:")
@@ -82,6 +81,23 @@ def print_single_room_details(room):
         print(o.name)
         for a in o.actions:
             print("-", a)
+    print("\n")
+    
+    print("North Exits:")
+    for exit_name in room.north_exits:
+        print("-", exit_name)
+
+    print("South Exits:")
+    for exit_name in room.south_exits:
+        print("-", exit_name)
+
+    print("East Exits:")
+    for exit_name in room.east_exits:
+        print("-", exit_name)
+
+    print("West Exits:")
+    for exit_name in room.west_exits:
+        print("-", exit_name)
 
     print(room.room_type)
     print('---------------------------------------------------')

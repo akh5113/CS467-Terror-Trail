@@ -28,9 +28,9 @@
     "west": "",
     "long_exit": "Looking for some water? I think I see a lake just south of here.",
     "short_exit": "",
-    "north_exits": "",
-    "south_exits": "",
-    "east_exits": "",
-    "west_exits": "",
+    "north_exits": [""],
+    "south_exits": [""],
+    "east_exits": [""],
+    "west_exits": [""],
     "room_type": "MID_ROOM"
 }
