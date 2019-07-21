@@ -24,10 +24,10 @@ def init_room(data):
     west = data['west']     # TODO - this actually needs to be a room object (may need to update after instantiation)
     features = init_room_features(name, data)
     objects = init_room_objects(data)
-    north_exits = ''
-    south_exits = ''
-    east_exits = ''
-    west_exits = ''
+    north_exits = init_list(data['north_exits'])
+    south_exits = init_list(data['south_exits'])
+    east_exits = init_list(data['east_exits'])
+    west_exits = init_list(data['west_exits'])
     room_type = data['room_type']
 
     room = Room(name, 
@@ -59,7 +59,7 @@ def init_room_features(room_name, data):
     feature_data = data['features']
     for feature in feature_data:
         feature_name = feature['name']
-        actions = get_action_list(feature)
+        actions = init_list(feature['actions'])
         desc1 = feature['description1']
         desc2 = feature['description2']
 
@@ -79,25 +79,31 @@ def init_room_objects(data):
     object_data = data['objects']
     for o in object_data:
         name = o['name']
-        actions = get_action_list(o)
+        actions = init_list(o['actions'])
             
         new_object = Object(name, actions)  #TODO: figure out actions - empty action for now
         objects.append(new_object)
     
     return objects
 
-def get_action_list(data):
-    """
-    Returns a list of actions built with object or feature data.
-    args:
-        data (dict): structure that contains the data for list of actions
-    """
-    actions = []
-    action_data = data['actions']
-    for a in action_data:
-        actions.append(a)  
+# def get_action_list(data):
+#     """
+#     Returns a list of actions built with object or feature data.
+#     args:
+#         data (dict): structure that contains the data for list of actions
+#     """
+#     actions = []
+#     action_data = data['actions']
+#     for a in action_data:
+#         actions.append(a)  
 
-    return actions  
+#     return actions  
+
+def init_list(data):
+    list_items = []
+    for item in data:
+        list_items.append(item)
+    return list_items
 
 def import_room_data():
     """

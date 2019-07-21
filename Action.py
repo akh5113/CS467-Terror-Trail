@@ -9,28 +9,34 @@
 #################################################################
 from Room import *
 
-def move_room(go_to, current_room):
+def move_room(go_to, current_room, rooms):
     """Move from current room to the user entered room"""
 #Short exit list checking currently not function, room files missing the info
 #Needs updates to be returning room objects not string 
 
     # Check all possible exit names in north exits
+    # if match found return room object
     if go_to in current_room.north_exits or go_to == current_room.north:
-        # if match found return room name
-        return current_room.north
+        return get_room_object(current_room.north, rooms)
 
     elif go_to in current_room.south_exits or go_to == current_room.south:
-        return current_room.south
+        return get_room_object(current_room.south, rooms)
 
     elif go_to in current_room.east_exits or go_to == current_room.east:
-        return current_room.east
+        return get_room_object(current_room.east, rooms)
 
-    elif go_to in current_room.west or go_to == current_room.west:
-        return current_room.west
+    elif go_to in current_room.west_exits or go_to == current_room.west:
+        return get_room_object(current_room.west, rooms)
     
     else:
         # if no matching room then return none
         return None
+
+def get_room_object(room_name, rooms):
+    for room in rooms:
+        if room_name == room.name:
+            next_room = room
+    return next_room
 
 def take(object_name):
     """Required verb/action

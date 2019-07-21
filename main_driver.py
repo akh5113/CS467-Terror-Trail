@@ -13,15 +13,12 @@ from Action import *
 
 def main():
     """The driver function for the game."""
-    # Set up game
-    new_game = Game()
-
     # Load files for Rooms
     rooms = data_import.import_room_data()
-
-    # Load files for Objects
-
-    # Load files for Features
+    data_printer.print_all_room_details(rooms)
+    
+    # Set up game
+    new_game = Game(rooms)
 
     # Get starting room
     starting_room = None
@@ -76,7 +73,7 @@ def play_game(game1, player1):
         # Determine if next action is moving rooms or action within room by checking the command
         if command == "go" or command == "move":
             # call move room action function to get next room
-            next_room = move_room(use_on,current_room)
+            next_room = move_room(use_on, current_room, game1.rooms)
             # if no matching room found
             if next_room == None:
                 # Then invalid command
@@ -85,7 +82,7 @@ def play_game(game1, player1):
             else:
                 # move player to room
                 player1.location = next_room
-                print("Moved to ", player1.location)
+                print("Moved to", player1.location.name)
                 
         # If action is not changing room, figure out what it is doing
         else:
