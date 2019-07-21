@@ -7,27 +7,30 @@
 #################################################################
 # To be refined when we have decided on our verbs
 #################################################################
+from Room import *
 
-import Player
+def move_room(go_to, current_room):
+    """Move from current room to the user entered room"""
+#Short exit list checking currently not function, room files missing the info
+#Needs updates to be returning room objects not string 
 
-def determine_action(name):
-    """Setup a switch type or if statements to call different functions based on action"""
-    if name == "go":
-        move_room()
+    # Check all possible exit names in north exits
+    if go_to in current_room.north_exits or go_to == current_room.north:
+        # if match found return room name
+        return current_room.north
 
-"""If action is a movement: go ..."""
-def move_room(current_location, next_location):
-    """Need to figure out/correct the syntax to access"""
-    """Check that """
-    if current_location.is_valid(next_location) is True:
-        """Get the next room"""
-        next_room = current_location.get_next_room(next_location)
+    elif go_to in current_room.south_exits or go_to == current_room.south:
+        return current_room.south
 
-        return next_room
+    elif go_to in current_room.east_exits or go_to == current_room.east:
+        return current_room.east
 
-        """Also will need to add something later about the health"""
+    elif go_to in current_room.west or go_to == current_room.west:
+        return current_room.west
+    
     else:
-        """Some sort of error message that you can't go that way"""
+        # if no matching room then return none
+        return None
 
 def take(object_name):
     """Required verb/action
