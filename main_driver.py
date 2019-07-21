@@ -32,7 +32,7 @@ def main():
         print("Error: No Starting Room Set")    # Planning on implementing a better error flag, just using this for now
 
     # Set up player
-    new_player = Player.Player(starting_room)
+    new_player = Player(starting_room)
 
     # Print intro to Game.
     new_game.print_intro()
@@ -59,22 +59,34 @@ def play_game(game1, player1):
         # Get user input
         user_input = input(prompt)
 
-        # Determine if next action is moving rooms or action within room by checking if the users input is in the
-        # list of exits
-        # probably a more elegant way to do this, but using this for now!
-
-        if user_input in current_room.north_exits:
-            player1.location = move_room(current_room, current_room.north)
-
-        elif user_input in current_room.south_exits:
-            player1.location = move_room(current_room, current_room.south)
-
-        elif user_input in current_room.east_exits:
-            player1.location = move_room(current_room, current_room.east)
-
-        elif user_input in current_room.west:
-            player1.location = move_room(current_room, current_room.west)
-
+        # Split user input into command , preposition, object/feature/room
+        split_input = user_input.split()
+        # First is the command
+        command = split_input[0]
+        # Determine if there was a preposition
+        if len(split_input) == 2:
+            # No preposition
+            use_on = split_input[1]
+            preposition = ""
+        # If there is prepostion
+        else:
+            preposition = split_input[1]
+            use_on = split_input[2]
+        
+        # Determine if next action is moving rooms or action within room by checking the command
+        if command == "go" or command == "move":
+            # call move room action function to get next room
+            next_room = move_room(use_on,current_room)
+            # if no matching room found
+            if next_room == None:
+                # Then invalid command
+                print("Error: not a valid exit. Try again.")
+            # if there is a matching room
+            else:
+                # move player to room
+                player1.location = next_room
+                print("Moved to ", player1.location)
+                
         # If action is not changing room, figure out what it is doing
         else:
             # Get verbs for the room
@@ -88,12 +100,13 @@ def play_game(game1, player1):
                 # If action is not in list of verbs, print error message
                 print("Error: not a valid action. Type <help> to see valid verbs")
 
-        # Algorithm to determine health
-        player1.player_status()
+#Commented out until problem with Room objects is fixed in move_room
+#        # Algorithm to determine health
+#        player1.player_status()
+#
+#        # Check for game status
+#        game1.check_game_status(player1)
 
-        # Check for game status
-        game1.check_game_status(player1)
-        
         break   #put temporary break in to prevent infinite loop :)
 
 if __name__ == "__main__":
