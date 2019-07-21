@@ -64,7 +64,6 @@ def print_single_room_details(room):
     print("South: ", room.south)
     print("East: ", room.east)
     print("West: ", room.west)
-
     print("\n")
 
     print("Features:")
@@ -84,7 +83,6 @@ def print_single_room_details(room):
             print("-", a)
     print("\n")
     
-
     print("North Exits:")
     for exit_name in room.north_exits:
         print("-", exit_name)
