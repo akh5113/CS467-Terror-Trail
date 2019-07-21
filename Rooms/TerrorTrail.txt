@@ -2,10 +2,29 @@
     "room_name": "Terror Trail",
     "long_intro": "After hiking through this scenic park for several hours the trail becomes overgrown with curling vines and suddenly you lose your footing resulting in you sliding down a small rocky hill. The tumble made you a bit disoriented and now it is difficult to tell which direction will take you back to the trail head. During your fall your shoes also got a torn on some stray branches and are looking a bit worse for wear. All of your gear also fell out and is strewn about in the area.\n\nThe nerves start to build and it appears you’ll have to start searching for a new route to make it out before it gets too dark because who knows what frightening creatures may lay behind the dense treeline.",
     "short_intro": "You have arrived back at the rocky hillside near terror trail and the tension builds as you realize you’ve lost more time just to end up where you started. It is still unknown which direction will take you back to the trail head so you’ll need to continue searching for a new path to get to shelter before dark. Maybe some of your gear is still lost here?",
-    "features": ["Pile of leaves", "Hole"],
+    "features": [
+        { 
+            "name": "Pile of leaves",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        },
+        { 
+            "name": "Hole",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        }
+    ],
     "objects": [
-        {"name": "Flashlight", "actions": ["Turn On"]},
-        {"name": "Water Bottle", "actions": ["Fill"]}
+        {
+            "name": "Flashlight", 
+            "actions": ["Turn On"]
+        },
+        {
+            "name": "Water Bottle", 
+            "actions": ["Fill"]
+        }
     ],
     "north": "",
     "south": "Glacier",
@@ -13,5 +32,9 @@
     "west": "",
     "long_exit": "Time to start figuring out how to get out of here. There appears to be Mountains to your East and is that a Glacier to your South?",
     "short_exit": "",
+    "north_exits": "",
+    "south_exits": "",
+    "east_exits": "",
+    "west_exits": "",
     "room_type": "START_ROOM"
 }

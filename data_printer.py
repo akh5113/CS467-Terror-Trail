@@ -31,6 +31,61 @@ def print_room_exit(room):
     """
     print(room.long_exit)
 
+# this method is primarily intended for testing
+def print_all_room_details(rooms):
+    """
+    Print all room details
+    args:
+        rooms (dict): dict structure that contains all rooms
+    """  
+    for room in rooms:
+        print_single_room_details(room)
+
+# this method is primarily intended for testing
+def print_single_room_details(room):
+    """
+    Print details for a single room
+    args:
+        rooms (dict): dict structure that contains all rooms
+    """  
+    print("Room Name: ", room.name)
+    print("\n")
+    
+    print("Long Intro: ", room.long_intro)
+    print("\n")
+
+    print("Short Intro: ", room.short_intro)
+    print("\n")
+
+    print("Long Exit: ", room.long_exit)
+    print("\n")
+
+    print("North: ", room.north)
+    print("South: ", room.south)
+    print("East: ", room.east)
+    print("West: ", room.west)
+
+    print("\n")
+
+    print("Features:")
+    for f in room.features:
+        print("Name: ", f.feature_name)
+        if len(f.actions) > 0:
+            for a in f.actions:
+                print("-", a)
+        print("Desc1: ", f.description_with_objects)
+        print("Desc2: ", f.description_no_objects)
+        print("\n")
+
+    print("Objects:")
+    for o in room.objects:
+        print(o.name)
+        for a in o.actions:
+            print("-", a)
+
+    print(room.room_type)
+    print('---------------------------------------------------')
+
 ################################################################
 # helper printing methods for Player
 ################################################################

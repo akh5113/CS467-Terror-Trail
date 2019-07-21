@@ -2,10 +2,29 @@
     "room_name": "Glacier",
     "long_intro": "As you trek across the trail, it begins to get very cold, all the sudden you’ve come across a glacier! You slowly start to step, shuffling your feet and immediately slip! Your feet fly from under you and you hit the ice!\n\nAfter a few deep breaths, you seem to be okay, but you definitely can’t get across this in the shoes you’re wearing. You shuffle back to where the ice starts and you see a sign.",
     "short_intro": "This glacier sure is slippery. You won’t be able to cross it without the proper equipment.",
-    "features": ["Warning Sign", "Anchor"],
+    "features": [
+        { 
+            "name": "Warning Sign",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        },
+        { 
+            "name": "Anchor",
+            "actions": [""],
+            "description1": "",
+            "description2": ""
+        }
+    ],
     "objects": [
-        {"name": "Shoes", "actions": ["Wear", "Put on"]},
-        {"name": "Rope", "actions": ["Secure"]}
+        {
+            "name": "Shoes", 
+            "actions": ["Wear", "Put on"]
+        },
+        {
+            "name": "Rope", 
+            "actions": ["Secure"]
+        }
     ],
     "north": "Terror Trail",
     "south": "Forest",
@@ -13,5 +32,9 @@
     "west": "",
     "long_exit": "If you can figure out a way to cross the glacier you will be able to travel East or South otherwise you’re going to have to turn back and return to where you fell.",
     "short_exit": "",
+    "north_exits": "",
+    "south_exits": "",
+    "east_exits": "",
+    "west_exits": "",
     "room_type": "MID_ROOM"
 }

@@ -14,6 +14,7 @@ def init_room(data):
         data (dict): structure that contains all room data
     """
     name = data['room_name']
+    print(name)
     long_intro = data['long_intro']
     short_intro = data['short_intro']
     long_exit = data['long_exit']
@@ -22,13 +23,53 @@ def init_room(data):
     south = data['south']
     east = data['east']
     west = data['west']
-    features = (data['features'][0], data['features'][1])
+    features = init_room_features(name, data)
+    #features = (data['features'][0], data['features'][1])
     objects = init_room_objects(data)
+    north_exits = ''
+    south_exits = ''
+    east_exits = ''
+    west_exits = ''
     room_type = data['room_type']
 
-    room = Room(name, long_intro, short_intro, long_exit, short_exit, north, south, east, west, features, objects, room_type)
+    room = Room(name, 
+                long_intro, 
+                short_intro, 
+                long_exit, 
+                short_exit, 
+                north, 
+                south, 
+                east, 
+                west, 
+                features, 
+                objects, 
+                north_exits, 
+                south_exits, 
+                east_exits, 
+                west_exits, 
+                room_type)
 
     return room
+
+def init_room_features(room_name, data):
+    """
+    Returns a list of features built with room data.
+    args:
+        data (dict): structure that contains all room data
+    """
+    features = []
+    feature_data = data['features']
+    for feature in feature_data:
+        feature_name = feature['name']
+        actions = get_action_list(feature)
+        desc1 = feature['description1']
+        desc2 = feature['description2']
+
+        new_feature = Feature(room_name, feature_name, actions, desc1, desc2)
+        features.append(new_feature)
+
+    return features
+
 
 def init_room_objects(data):
     """
@@ -40,16 +81,25 @@ def init_room_objects(data):
     object_data = data['objects']
     for o in object_data:
         name = o['name']
-
-        actions = []
-        action_data = o['actions']
-        for a in action_data:
-            actions.append(a)
+        actions = get_action_list(o)
             
         new_object = Object(name, actions)  #TODO: figure out actions - empty action for now
         objects.append(new_object)
     
-    return objects 
+    return objects
+
+def get_action_list(data):
+    """
+    Returns a list of actions built with object or feature data.
+    args:
+        data (dict): structure that contains the data for list of actions
+    """
+    actions = []
+    action_data = data['actions']
+    for a in action_data:
+        actions.append(a)  
+
+    return actions  
 
 def import_room_data():
     """
@@ -59,6 +109,7 @@ def import_room_data():
 
     for room_file in glob.iglob('Rooms/*.txt'):
         with open(room_file) as json_file:
+            print(room_file)
             data = json.load(json_file)
             room = init_room(data)
             room_list.append(room)

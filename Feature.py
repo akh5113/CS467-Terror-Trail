@@ -9,7 +9,7 @@ class Feature:
         """Constructor.
 
         Args:
-            room_name (Room): The Room ojbect the feature is in.
+            room_name (Room): The Room object the feature is in.
             feature_name (str): The name of the feature.
             actions (str, list):  A list of the possible actions/verbs for this feature.
             description1 (str): A description if there are objects still to be interacted with.
