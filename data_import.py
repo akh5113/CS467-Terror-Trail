@@ -14,7 +14,6 @@ def init_room(data):
         data (dict): structure that contains all room data
     """
     name = data['room_name']
-    print(name)
     long_intro = data['long_intro']
     short_intro = data['short_intro']
     long_exit = data['long_exit']
@@ -108,7 +107,6 @@ def import_room_data():
 
     for room_file in glob.iglob('Rooms/*.txt'):
         with open(room_file) as json_file:
-            print(room_file)
             data = json.load(json_file)
             room = init_room(data)
             room_list.append(room)
