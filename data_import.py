@@ -86,19 +86,6 @@ def init_room_objects(data):
     
     return objects
 
-# def get_action_list(data):
-#     """
-#     Returns a list of actions built with object or feature data.
-#     args:
-#         data (dict): structure that contains the data for list of actions
-#     """
-#     actions = []
-#     action_data = data['actions']
-#     for a in action_data:
-#         actions.append(a)  
-
-#     return actions  
-
 def init_list(data):
     list_items = []
     for item in data:
