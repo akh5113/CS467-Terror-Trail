@@ -32,7 +32,7 @@ def main():
         print("Error: No Starting Room Set")    # Planning on implementing a better error flag, just using this for now
 
     # Set up player
-    new_player = Player(starting_room)
+    new_player = Player.Player(starting_room)
 
     # Print intro to Game.
     new_game.print_intro()
