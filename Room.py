@@ -80,7 +80,7 @@ class Room:
 
         # Names for all adjacent rooms this is a list of strings
         self.north_exits = north_exits
-        self.short_exits = south_exits
+        self.south_exits = south_exits
         self.east_exits = east_exits
         self.west_exits = west_exits
 
