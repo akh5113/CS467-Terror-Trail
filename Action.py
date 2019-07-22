@@ -7,6 +7,7 @@
 #################################################################
 # To be refined when we have decided on our verbs
 #################################################################
+import data_printer
 from Room import *
 
 def move_room(go_to, current_room, rooms, player1):
@@ -294,10 +295,13 @@ def take(object_name):
     Acquire an object and put it into your inventory
     """
 
-def look(name):
+def look(current_room):
     """Required verb/action
     Repeats the long form explination of the room
+    args:
+        current_room(Room): current player location
     """
+    data_printer.print_room_long(current_room)
 
 def look_at():
     """Requried verb/action

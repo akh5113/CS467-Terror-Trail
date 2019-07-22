@@ -61,7 +61,6 @@ def play_game(game1, player1):
         while successful_action is False:
             # Get user input
             user_input = input(prompt)
-
             # Split user input into command , preposition, object/feature/room
             split_input = user_input.split()
             # First is the command
@@ -80,7 +79,7 @@ def play_game(game1, player1):
                 use_on = ""
                 preposition = ""
 
-            # Determine if next action is moving rooms or action within room by checking the command
+            # If action is moving rooms
             basic_move_cmds = ["go","move","walk","exit","travel","cross"]
             if command in basic_move_cmds:
                 # call move room action function to get next room
@@ -96,13 +95,21 @@ def play_game(game1, player1):
                     print("Moved to", player1.location.name)
                     successful_action = True
 
+            # If action is help
             elif command == "help":
                 game1.help()
 
+            # If action is quit
             elif command == "quit":
                 game1.quit_game()
                 successful_action = True
 
+            # If action is look
+            elif command == "look":
+                # call function to print long form explanation of the room
+                look(current_room)
+                successful_action = True
+            
             # If action is not changing room, figure out what it is doing
             else:
                 # Get verbs for the room

@@ -29,6 +29,20 @@ def print_room_intro(room):
         for w in words:
             print(w)
     print('\n')
+    
+def print_room_long(room):
+    """
+    Prints the long form explanation of the room
+    args:
+        room (Room): structure that contains all room data
+    source for text wrapper: https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/
+    """
+    wrapper = textwrap.TextWrapper(width=60)
+
+    words = wrapper.wrap(text=room.long_intro)
+    for w in words:
+        print(w)
+    print('\n')    
 
 def print_room_exit(room):
     """
