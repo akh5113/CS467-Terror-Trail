@@ -1,4 +1,4 @@
-# CS467 - Capstone Project
+# CS467 - Capstone Project 
 # Coast-to-Coast Group: Brittany Dunn, Anne Harris, Polly Sobeck
 # Action.py
 # This file defines the Action class, subclass of the Player class
@@ -9,28 +9,115 @@
 #################################################################
 from Room import *
 
-def move_room(go_to, current_room, rooms):
-    """Move from current room to the user entered room"""
-#Short exit list checking currently not function, room files missing the info
-#Needs updates to be returning room objects not string 
+def move_room(go_to, current_room, rooms, player1):
+    """
+    Get net room object to move to from current room to the user entered room
+    args:
+        go_to(string): name of room user wants to move to
+        current_room(Room): room player is currently in
+        rooms(dict): dictionary object containing all rooms
+        player1(Player): current player(used to access inventory)
+    """
 
-    # Check all possible exit names in north exits
-    # if match found return room object
+    # Exits which require objects to move to
+    restricted_rooms = ["Waterfall","River","Cave","Forest","Bike Trail","Campsite"]
+
+    # Set next_room to None
+    next_room = None
+    
+    # Check if the go_to room is a possible exit, if so make it the next_room
     if go_to in current_room.north_exits or go_to == current_room.north:
-        return get_room_object(current_room.north, rooms)
+        next_room = get_room_object(current_room.north, rooms)
 
     elif go_to in current_room.south_exits or go_to == current_room.south:
-        return get_room_object(current_room.south, rooms)
+        next_room = get_room_object(current_room.south, rooms)
 
     elif go_to in current_room.east_exits or go_to == current_room.east:
-        return get_room_object(current_room.east, rooms)
+        next_room = get_room_object(current_room.east, rooms)
 
     elif go_to in current_room.west_exits or go_to == current_room.west:
-        return get_room_object(current_room.west, rooms)
+        next_room = get_room_object(current_room.west, rooms)
+    
+    # Check if next room_room is None
+    if next_room == None:
+        return None
+    
+    # Check if the next_room is a restricted room
+    if next_room.name in restricted_rooms:
+        # Check the restriction
+        next_room = check_room_restriction(current_room,next_room,player1)
+    
+    # Return the room. Will be None if there was an issue
+    return next_room
+
+def check_room_restriction(current_room,next_room,player1):
+    """
+    Verify the room can be accessed using the objects in inventory
+    args:
+        current_room(Room): room player is currently in
+        next_room(Room): room player wants to move to
+        player1(Player): current player(used to access inventory)
+    """
+    if next_room.name == "Waterfall":
+        # Check if current_room is river
+        if current_room.name == "River":
+            # if yes, check inventory for raft
+            if check_inventory(player1,"Raft"):
+                # if player has raft, ask if they want to use
+                print("Would you like to use your raft to travel to the Waterfall?")
+                use_raft = input(">>>")
+                yes_raft = ["yes","Yes","YES","Y","y"]
+                # if they want to use the raft
+                if use_raft in yes_raft:
+                    print("You have decided to use your raft to travel from the River to the Waterfall.")
+                    # return waterfall
+                    return next_room
+                #if they don't want to use the raft, then no movement
+                print("You have decided not to use your raft right now.")
+                return None
+            # if they don't have a raft in inventory
+            else:
+               # can't travel this way
+               print("It looks like you need something to travel from the River to the Waterfall. You should do some more exploring")
+               return None
+        # If current room isn't the river
+        else:
+            # they can travel to waterfall without raft
+            return next_room    
+    elif next_room.name == "River":
+        #TODO
+        return next_room
+    
+    elif next_room.name == "Cave":
+        #TODO
+        return next_room 
+    elif next_room.name == "Forest":
+        #TODO
+        return next_room
+    
+    elif next_room.name == "Bike Trail":
+        #TODO
+        return next_room    
+    
+    elif next_room.name == "Campsite":
+        #TODO
+        return next_room    
     
     else:
-        # if no matching room then return none
         return None
+ 
+def check_inventory(player1,object_name):
+    """
+    Return if an object is in a player's invetory
+    args:
+        player1(Player): current player
+        object_name(string): object to check inventory for
+    """
+    for i in player1.inventory:
+        if object_name == i.name:
+            return True
+    else:
+        return False
 
 def get_room_object(room_name, rooms):
     """
