@@ -23,7 +23,7 @@ class Feature:
         self.viewed = False
 
     def objects_found(self):
-        """ """
+        """Checks to see if object is in room """
         if not self.room_name.objects:
             return False
         else:
