@@ -6,7 +6,7 @@
         { 
             "name": "Pile of leaves",
             "actions": ["dig"],
-            "description1": "Good thing you looked in this pile of leaves - you found your water bottle",
+            "description1": "Good thing you looked in this pile of leaves - you found your water bottle!",
             "description2": "Nothing else is in this pile of leaves."
         },
         { 

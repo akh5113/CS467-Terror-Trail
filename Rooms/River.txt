@@ -5,15 +5,15 @@
     "features": [
         { 
             "name": "Water Rapids",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Cross", "Look at"],
+            "description1": "The rapids are rough, you'll need a raft and an oar to cross. The water here may be helpful though.",
+            "description2": "Looks like you can finally cross with your raft and oar, but be careful!"
         },
         { 
             "name": "Dock",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Search"],
+            "description1": "There is a lot of old boat junk lying around - maybe that oar could be helpful.",
+            "description2": "Nothing else on the dock could help with getting home."
         }
     ],
     "objects": [
@@ -32,9 +32,9 @@
     "west": "Cave",
     "long_exit": "Unless you figure out a way to handle the rapids West of the river, you’re going to have to return North to the waterfall.",
     "short_exit": "",
-    "north_exits": [""],
+    "north_exits": ["waterfall"],
     "south_exits": [""],
     "east_exits": [""],
-    "west_exits": [""],
+    "west_exits": ["cave", "rapids", "water rapids"],
     "room_type": "MID_ROOM"
 }
