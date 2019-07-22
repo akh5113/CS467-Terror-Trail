@@ -43,10 +43,7 @@ def play_game(game1, player1):
 
     while game1.game_over is False:
         # Get current room
-        #current_room = player1.location
-        
-        #temp change for testing purposes
-        current_room = get_room_object("River",game1.rooms)
+        current_room = player1.location
 
         # Display health
         data_printer.print_health_levels(player1)
@@ -61,7 +58,6 @@ def play_game(game1, player1):
         while successful_action is False:
             # Get user input
             user_input = input(prompt)
-
             # Split user input into command , preposition, object/feature/room
             split_input = user_input.split()
             # First is the command
@@ -80,9 +76,9 @@ def play_game(game1, player1):
                 use_on = ""
                 preposition = ""
 
-            # Determine if next action is moving rooms or action within room by checking the command
+            # If action is moving rooms
             basic_move_cmds = ["go","move","walk","exit","travel","cross"]
-            if command in basic_move_cmds:
+            if command.lower() in basic_move_cmds:
                 # call move room action function to get next room
                 next_room = move_room(use_on, current_room, game1.rooms, player1)
                 # if no matching room found
@@ -96,13 +92,31 @@ def play_game(game1, player1):
                     print("Moved to", player1.location.name)
                     successful_action = True
 
-            elif command == "help":
+            # If action is help
+            elif command.lower() == "help":
                 game1.help()
 
-            elif command == "quit":
+            # If action is quit
+            elif command.lower() == "quit":
                 game1.quit_game()
                 successful_action = True
 
+            # If action is look
+            elif command.lower() == "look" and preposition == "":
+                # call function to print long form explanation of the room
+                look(current_room)
+                successful_action = True
+            
+            # If action is look at
+            elif command.lower() == "look" and preposition.lower() == "at":
+                # call function to explain feature or object
+                if look_at(use_on,player1,current_room,game1.rooms):
+                    successful_action = True
+                # if look at not sucessful
+                else:
+                    print("What you're trying to look at isn't here. Try looking at something else")
+                    successful_action = False
+                    
             # If action is not changing room, figure out what it is doing
             else:
                 # Get verbs for the room

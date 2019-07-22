@@ -3,6 +3,7 @@
 # Feature.py
 # This file defines the Feature class, a subclass of Room
 
+from Action import *
 
 class Feature:
     def __init__(self, room_name, feature_name, actions, description1, description2):
@@ -22,9 +23,17 @@ class Feature:
         self.description_no_objects = description2
         self.viewed = False
 
-    def objects_found(self):
-        """Checks to see if object is in room """
-        if not self.room_name.objects:
+
+    def objects_found(self,rooms):
+        """ """
+        the_room = get_room_object(self.room_name,rooms)
+        if not the_room.objects:
             return False
         else:
             return True
+
+    def print_description(self,rooms):
+        if self.objects_found(rooms):
+            print(self.description_with_objects)
+        else:
+            print(self.description_no_objects)
