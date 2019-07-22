@@ -255,7 +255,23 @@ def check_room_restriction(current_room,next_room,player1):
     # None of the above
     else:
         return None
- 
+
+
+def determine_action(player1, action_name, use_on):
+    """If the action is not a move action, determines what action fucntion needs to be called
+    and passes the approrpiate arguments
+    args:
+        player1 (Player): current player
+        action_name (str): The action (command) from the user input
+        use_on (str): the object/feature/room the action is taken on
+    """
+    if action_name == "take":
+        take(use_on)
+    elif action_name == "look":
+        look(use_on)
+    elif action_name == "look at":
+        look_at(player1)
+
 def check_inventory(player1,object_name):
     """
     Return if an object is in a player's invetory
@@ -282,14 +298,6 @@ def get_room_object(room_name, rooms):
             next_room = room
     return next_room
 
-def determine_action(action_name, use_on):
-    if action_name == "take":
-        take(use_on)
-    elif action_name == "look":
-        look(use_on)
-    elif action_name == "look at":
-        look_at()
-
 def take(object_name):
     """Required verb/action
     Acquire an object and put it into your inventory
@@ -303,7 +311,9 @@ def look(current_room):
     """
     data_printer.print_room_long(current_room)
 
+
 def look_at(item,player1,room,rooms):
+
     """Requried verb/action
     Look at feature or object or inventory, gives a interesting explination of the feature or object.
     args:
@@ -311,6 +321,7 @@ def look_at(item,player1,room,rooms):
         player1(Player): player used to access inventory
         room(Room): player's current location
     """
+
     # if player wants to view inventory
     if item.lower() == "inventory":
         # Show player their current inventory
@@ -342,7 +353,3 @@ def look_at(item,player1,room,rooms):
                 return True 
         # if item is not in room or inventory
         return False
-                
-    
-    
-

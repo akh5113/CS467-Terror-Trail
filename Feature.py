@@ -23,6 +23,7 @@ class Feature:
         self.description_no_objects = description2
         self.viewed = False
 
+
     def objects_found(self,rooms):
         """ """
         the_room = get_room_object(self.room_name,rooms)
