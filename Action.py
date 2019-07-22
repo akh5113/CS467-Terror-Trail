@@ -27,16 +27,16 @@ def move_room(go_to, current_room, rooms, player1):
     next_room = None
     
     # Check if the go_to room is a possible exit, if so make it the next_room
-    if go_to in current_room.north_exits or go_to == current_room.north:
+    if go_to.lower() in current_room.north_exits or go_to == current_room.north:
         next_room = get_room_object(current_room.north, rooms)
 
-    elif go_to in current_room.south_exits or go_to == current_room.south:
+    elif go_to.lower() in current_room.south_exits or go_to == current_room.south:
         next_room = get_room_object(current_room.south, rooms)
 
-    elif go_to in current_room.east_exits or go_to == current_room.east:
+    elif go_to.lower() in current_room.east_exits or go_to == current_room.east:
         next_room = get_room_object(current_room.east, rooms)
 
-    elif go_to in current_room.west_exits or go_to == current_room.west:
+    elif go_to.lower() in current_room.west_exits or go_to == current_room.west:
         next_room = get_room_object(current_room.west, rooms)
     
     # Check if next room_room is None
@@ -303,13 +303,46 @@ def look(current_room):
     """
     data_printer.print_room_long(current_room)
 
-def look_at():
+def look_at(item,player1,room,rooms):
     """Requried verb/action
-    Look at feature or object, gives a interesting explination of the feature or object.
-
-    Allows player to look at objects in their inventory
+    Look at feature or object or inventory, gives a interesting explination of the feature or object.
+    args:
+        item(string): what the user wants to look at
+        player1(Player): player used to access inventory
+        room(Room): player's current location
     """
-    inventory_list = []     # ned to figure out most efficent way to get inventory list
-    print("Items in current inventory:")
-    for i in inventory_list:
-        print(i.name)
+    # if player wants to view inventory
+    if item.lower() == "inventory":
+        # Show player their current inventory
+        print("Items in current inventory:")
+        for i in player1.inventory:
+            print(i.name)
+            
+    # if player wants to view an object or feature
+    else:
+        # Check if a feature of room
+        for feature in room.features:
+            if item.capitalize() == feature.feature_name:
+                # if feautre is part of the current room
+                feature.print_description(rooms)
+                return True
+        # Check if object in room
+        for object in room.objects:
+            if item.capitalize() == object.name:
+                # if object is in room
+                #TODO once objects have descriptions print them
+                print("This will print a object in a room's description")
+                return True
+        # Check if object in inventory
+        for obj in player1.inventory:
+            if item.capitalize() == obj.name:
+                # if object is in inventory
+                #TODO once objects have descriptions print them
+                print("This will print a object in a player's inventory description")
+                return True 
+        # if item is not in room or inventory
+        return False
+                
+    
+    
+
