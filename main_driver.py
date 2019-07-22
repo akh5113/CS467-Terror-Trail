@@ -81,7 +81,7 @@ def play_game(game1, player1):
                 preposition = ""
 
             # Determine if next action is moving rooms or action within room by checking the command
-            basic_move_cmds = ["go","move","walk","exit"]
+            basic_move_cmds = ["go","move","walk","exit","travel","cross"]
             if command in basic_move_cmds:
                 # call move room action function to get next room
                 next_room = move_room(use_on, current_room, game1.rooms, player1)
