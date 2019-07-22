@@ -43,7 +43,10 @@ def play_game(game1, player1):
 
     while game1.game_over is False:
         # Get current room
-        current_room = player1.location
+        #current_room = player1.location
+        
+        #temp change for testing purposes
+        current_room = get_room_object("River",game1.rooms)
 
         # Display health
         data_printer.print_health_levels(player1)
@@ -78,13 +81,14 @@ def play_game(game1, player1):
                 preposition = ""
 
             # Determine if next action is moving rooms or action within room by checking the command
-            if command == "go" or command == "move":
+            basic_move_cmds = ["go","move","walk","exit","travel","cross"]
+            if command in basic_move_cmds:
                 # call move room action function to get next room
-                next_room = move_room(use_on, current_room, game1.rooms)
+                next_room = move_room(use_on, current_room, game1.rooms, player1)
                 # if no matching room found
-                if next_room == None:
+                if next_room == None: 
                     # Then invalid command
-                    print("Error: not a valid exit. Try again.")
+                    print("It doesn't look like you currently can or want to go that way. Try a different exit.")
                 # if there is a matching room
                 else:
                     # move player to room
