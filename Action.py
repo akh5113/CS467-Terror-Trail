@@ -341,15 +341,14 @@ def look_at(item,player1,room,rooms):
         for object in room.objects:
             if item.capitalize() == object.name:
                 # if object is in room
-                #TODO once objects have descriptions print them
-                print("This will print a object in a room's description")
+                print(object.description)
                 return True
         # Check if object in inventory
         for obj in player1.inventory:
             if item.capitalize() == obj.name:
                 # if object is in inventory
                 #TODO once objects have descriptions print them
-                print("This will print a object in a player's inventory description")
+                print(obj.description)
                 return True 
         # if item is not in room or inventory
         return False
