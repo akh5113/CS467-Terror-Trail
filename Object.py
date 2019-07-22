@@ -23,9 +23,3 @@ class Object:
 
         self.used = False       # Has the object been found/used
 
-    def get_action(self, action_name):
-        """Returns the action for the object
-
-        To be refined
-        """
-        return self.action

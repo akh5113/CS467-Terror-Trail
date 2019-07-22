@@ -257,7 +257,7 @@ def check_room_restriction(current_room,next_room,player1):
         return None
 
 
-def determine_action(player1, action_name, use_on):
+def determine_action(player1, action_name, use_on, current_room):
     """If the action is not a move action, determines what action fucntion needs to be called
     and passes the approrpiate arguments
     args:
@@ -270,20 +270,7 @@ def determine_action(player1, action_name, use_on):
     elif action_name == "look":
         look(use_on)
     elif action_name == "look at":
-        look_at(player1)
-
-def check_inventory(player1,object_name):
-    """
-    Return if an object is in a player's invetory
-    args:
-        player1(Player): current player
-        object_name(string): object to check inventory for
-    """
-    for i in player1.inventory:
-        if object_name == i.name:
-            return True
-    else:
-        return False
+        look_at(use_on, player1, current_room)
 
 def get_room_object(room_name, rooms):
     """
@@ -320,6 +307,9 @@ def look_at(item,player1,room,rooms):
         item(string): what the user wants to look at
         player1(Player): player used to access inventory
         room(Room): player's current location
+
+    #TODO: I'm not sure if the viewing object or feature should be implemented here, even though the verb makes sense,
+    # based on the specs I think we should implement it as a different function
     """
 
     # if player wants to view inventory
@@ -334,7 +324,7 @@ def look_at(item,player1,room,rooms):
         # Check if a feature of room
         for feature in room.features:
             if item.capitalize() == feature.feature_name:
-                # if feautre is part of the current room
+                # if feature is part of the current room
                 feature.print_description(rooms)
                 return True
         # Check if object in room
@@ -347,7 +337,6 @@ def look_at(item,player1,room,rooms):
         for obj in player1.inventory:
             if item.capitalize() == obj.name:
                 # if object is in inventory
-                #TODO once objects have descriptions print them
                 print(obj.description)
                 return True 
         # if item is not in room or inventory

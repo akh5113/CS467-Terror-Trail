@@ -123,7 +123,7 @@ def play_game(game1, player1):
                 possible_actions = current_room.get_verbs()
                 # Determine if the action is possible given the objects/features
                 if user_input in possible_actions:
-                    determine_action(player1, command, use_on)
+                    determine_action(player1, command, use_on, current_room)
                     # Adding a break here to not get stuck!
                     successful_action = True
                     break

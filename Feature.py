@@ -33,6 +33,9 @@ class Feature:
             return True
 
     def print_description(self,rooms):
+        """Prints the description of the room based on if it has objects that interact with it, or if those
+        objects have been removed
+        """
         if self.objects_found(rooms):
             print(self.description_with_objects)
         else:
