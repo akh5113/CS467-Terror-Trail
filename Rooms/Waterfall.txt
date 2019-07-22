@@ -6,14 +6,14 @@
         { 
             "name": "Behind Waterfall",
             "actions": [""],
-            "description1": "",
-            "description2": ""
+            "description1": "Looks like an old raft lies here - this may be helpful if you have to navigate the waters.",
+            "description2": "There is nothing else behind the waterfall."
         },
         { 
             "name": "Front of Falls",
             "actions": [""],
-            "description1": "",
-            "description2": ""
+            "description1": "There is a lot of water here. I think this may lead to the river.",
+            "description2": "It is still pretty wet in front of the falls."
         }
     ],
     "objects": [
@@ -26,15 +26,15 @@
             "actions": ["Fill"]
         }
     ],
-    "north": "Waterfall",
-    "south": "",
+    "north": "",
+    "south": "River",
     "east": "",
-    "west": "Cave",
-    "long_exit": "Unless you figure out a way to handle the rapids West of the river, you’re going to have to return North to the waterfall.",
+    "west": "Mountain",
+    "long_exit": "You see a river South of the waterfall but you’re not going to be able to travel it without a raft. Maybe you should turn back and explore the mountains in the West more.",
     "short_exit": "",
     "north_exits": [""],
-    "south_exits": [""],
+    "south_exits": ["river", "rapids"],
     "east_exits": [""],
-    "west_exits": [""],
+    "west_exits": ["mountain"],
     "room_type": "MID_ROOM"
 }
