@@ -49,3 +49,16 @@ class Player:
             obj (Object): object to be removed from the players inventory list
         """
         self.inventory.remove(obj)
+
+    def check_inventory(self, object_name):
+        """
+        Return if an object is in a player's invetory
+        args:
+            player1(Player): current player
+            object_name(string): object to check inventory for
+        """
+        for i in self.inventory:
+            if object_name == i.name:
+                return True
+        else:
+            return False
