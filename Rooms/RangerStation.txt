@@ -19,12 +19,12 @@
     "objects": [
         {
             "name": "Key", 
-            "description" : "",
+            "description" : "This key may be your ticket home! Hopefully it is the correct key for the lock.",
             "actions": ["Use"]
         },
         {
             "name": "Radio", 
-            "description" : "",
+            "description": "This radio can help you reach someone. Call the radio to find out.",
             "actions": ["Pickup", "Call"]
         }        
     ],

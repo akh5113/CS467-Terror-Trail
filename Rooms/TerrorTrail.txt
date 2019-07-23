@@ -19,12 +19,12 @@
     "objects": [
         {
             "name": "Flashlight", 
-            "description": "Better grab this flashlight, don't want to get lost in the dark@",
+            "description": "Better grab this flashlight, don't want to get lost in the dark.",
             "actions": ["Turn On"]
         },
         {
             "name": "Water Bottle", 
-            "description": "This water bottle will be necessary to stay hydrated while you find your way back",
+            "description": "This water bottle will be necessary to stay hydrated while you find your way back.",
             "actions": ["Fill"]
         }
     ],

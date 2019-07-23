@@ -19,17 +19,17 @@
     "objects": [
         {
             "name": "Water", 
-            "description": "",
+            "description": "Use this water to fill your water bottle.",
             "actions": ["Fill"]
         },
         {
             "name": "Fishing Pole", 
-            "description": "",
+            "description": "Cast this fishing pole and maybe some fish will begin to bite.",
             "actions": ["Cast", "Use"]
         },
         {
             "name": "Fish", 
-            "description": "",
+            "description": "What is that splashing around? Looks like there is a huge trout in the water!",
             "actions": ["Catch"]
         }
     ],

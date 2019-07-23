@@ -12,19 +12,19 @@
         {
             "name": "Cave Art",
             "actions": ["Look at", "View"],
-            "description1": "Here lies a map of the park! North is the mountain, south is a bike trail, east is the raging river, and west is the glacier.",
+            "description1": "Here lies a map of the park, though it looks like it may not be complete...",
             "description2": "You've already viewed the map."
         }
     ],
     "objects": [
         {
             "name": "Water", 
-            "description": "",
+            "description": "Use this water to fill your water bottle.",
             "actions": ["Fill"]
         },
         {
             "name": "Map of Park", 
-            "description": "",
+            "description": "North: Mountain; South: Bike trail; East: Raging river; West: Glacier.",
             "actions": ["Read"]
         }
     ],
@@ -36,7 +36,7 @@
     "short_exit": "",
     "north_exits": ["mountain"],
     "south_exits": ["bike trail", "trail"],
-    "east_exits": ["river", "rapids", "river rapids"],
+    "east_exits": ["river", "rapids", "river rapids", "raging river"],
     "west_exits": ["glacier"],
     "room_type": "MID_ROOM"
 }

@@ -19,7 +19,7 @@
     "objects": [
         { 
             "name": "Flashlight Batteries", 
-            "description": "",
+            "description": "These batteries will be needed if you don't want you flashlight to die.",
             "actions": ["Put In"]
         }
     ],

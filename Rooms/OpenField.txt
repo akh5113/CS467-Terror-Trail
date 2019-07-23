@@ -19,12 +19,12 @@
     "objects": [
         {
             "name": "Water Shoes", 
-            "description" : "",
+            "description" : "You may want to save these shoes for any other strange water areas you encounter down the road.",
             "actions": ["Wear", "Put On"]
         },
         {
             "name": "Apples", 
-            "description": "",
+            "description": "These bright red apples are just what you need to feed your hunger.",
             "actions": ["Eat"]
         }        
     ],

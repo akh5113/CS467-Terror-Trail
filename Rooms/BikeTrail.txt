@@ -19,12 +19,12 @@
     "objects": [
         {
             "name": "Bicycle", 
-            "description": "",
+            "description": "Thank goodness someone left this bike behind, if you don't find a tire you won't be able to ride it.",
             "actions": ["Ride"]
         },
         {
             "name": "Tire", 
-            "description": "",
+            "description": "This tire must go with a broken bike.",
             "actions": ["Put On"]
         }       
     ],

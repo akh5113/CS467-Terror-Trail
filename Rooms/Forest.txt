@@ -19,7 +19,7 @@
     "objects": [
         {
             "name": "Berries", 
-            "description": "",
+            "description": "If those birds ate the berries, they must be safe for humans...right?",
             "actions": ["Eat"]
         }
     ],

@@ -19,12 +19,12 @@
     "objects": [
         {
             "name": "Raft", 
-            "description": "",
+            "description": "This raft could be helpful for crossing rapids, but you will need an oar to steer.",
             "actions": ["Launch"]
         },
         {
             "name": "Water", 
-            "description": "",
+            "description": "Use the water from the falls to fill your water bottle.",
             "actions": ["Fill"]
         }
     ],

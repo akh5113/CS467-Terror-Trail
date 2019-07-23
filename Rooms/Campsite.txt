@@ -19,7 +19,7 @@
     "objects": [
         {
             "name": "Tent", 
-            "description": "",
+            "description": "You may need to use this tent if you can't make it out before dark.",
             "actions": ["Pitch"]
         }
     ],

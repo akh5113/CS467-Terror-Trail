@@ -19,12 +19,12 @@
     "objects": [
         {
             "name": "Shoes", 
-            "description": "",
+            "description": "These must be special ice shoes, they have some sharp spikes on the bottom so be careful!",
             "actions": ["Wear", "Put on"]
         },
         {
             "name": "Rope", 
-            "description": "",
+            "description": "This rope must be helpful for getting across the glacier safely.",
             "actions": ["Secure"]
         }
     ],
