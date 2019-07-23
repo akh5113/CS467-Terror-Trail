@@ -51,6 +51,11 @@ def play_game(game1, player1):
         # Determine Into to display (short or long) - PS: I moved this logic into the method for printing intros?
         # Display the intro
         data_printer.print_room_intro(current_room)
+        # Display exit info so user knows how to exit
+        data_printer.print_room_exit(current_room)
+
+        # Set room to visited
+        current_room.visited = True
 
         # varaible to loop back if invalid input
         successful_action = False
@@ -76,6 +81,7 @@ def play_game(game1, player1):
                 use_on = ""
                 preposition = ""
 
+            
 
             # If action is moving rooms
             basic_move_cmds = ["go","move","walk","exit","travel","cross"]
@@ -127,7 +133,7 @@ def play_game(game1, player1):
                     determine_action(player1, command, use_on, current_room)
                     # Adding a break here to not get stuck!
                     successful_action = True
-                    break
+                    # break
                 else:
                     # If action is not in list of verbs, print error message
                     print("Error: not a valid action. Type <help> to see valid verbs")
@@ -138,7 +144,7 @@ def play_game(game1, player1):
         # Check for game status
         game1.check_game_status(player1)
 
-        break   #put temporary break in to prevent infinite loop :)
+        # break   #put temporary break in to prevent infinite loop :)
 
 if __name__ == "__main__":
     main()

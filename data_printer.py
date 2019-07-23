@@ -20,7 +20,7 @@ def print_room_intro(room):
     source for text wrapper: https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/
     """
     wrapper = textwrap.TextWrapper(width=60)
-    if room.visited == False:
+    if room.visited is False:
         words = wrapper.wrap(text=room.long_intro)
         for w in words:
             print(w)
@@ -54,6 +54,7 @@ def print_room_exit(room):
     words = wrapper.wrap(text=room.long_exit)
     for w in words:
         print(w)
+    print("\n")
 
 # this method is primarily intended for testing
 def print_all_room_details(rooms):
