@@ -5,15 +5,15 @@
     "features": [
         { 
             "name": "Informational Sign",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Read"],
+            "description1": "It's too dark to make out the sign, maybe these flashlight batteries will help.",
+            "description2": "'A beaver den lies ahead, though their noises may be alarming, they are gentle creatures - feel free to step closer to observe.'"
         },
         { 
-            "name": "Animal in Habitat",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "name": "Animal Habitat",
+            "actions": ["Observe", "View"],
+            "description1": "Without reading the sign you may not want to get too close to the noisy creature.",
+            "description2": "Ah a beaver! All those strange noises must have been it chomping on wood for it's home."
         }
     ],
     "objects": [
@@ -28,9 +28,9 @@
     "west": "",
     "long_exit": "There is a flickering light in you can barely make out in the East but it is too risky to go this way if you can’t figure out what creature was making all those noises. You could always turn around and go back to the forest.",
     "short_exit": "",
-    "north_exits": [""],
+    "north_exits": ["forest"],
     "south_exits": [""],
-    "east_exits": [""],
+    "east_exits": ["campsite", "flickering light"],
     "west_exits": [""],
     "room_type": "MID_ROOM"
 }

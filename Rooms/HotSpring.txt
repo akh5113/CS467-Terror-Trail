@@ -5,15 +5,15 @@
     "features": [
         { 
             "name": "Faucet",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Inspect", "Turn On"],
+            "description1": "Looks like you need to turn this faucet on to fill the tub with water!",
+            "description2": "Turn the faucet on to enjoy some time in the hot tub."
         },
         { 
             "name": "Hot Spring Tub",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Go in", "Swim in"],
+            "description1": "Oh the water looks nice! Make sure you get on your water shoes before you go in!",
+            "description2": "Ready for a relaxing dip?"
         }
     ],
     "objects": [
@@ -25,8 +25,8 @@
     "long_exit": "Ah, now that you’ve relaxed in the springs you are feeling energized and are ready to go. Hopefully the next spot is that Famous Geyser, maybe try heading East?",
     "short_exit": "",
     "north_exits": [""],
-    "south_exits": [""],
-    "east_exits": [""],
-    "west_exits": [""],
+    "south_exits": ["open field", "green space"],
+    "east_exits": ["geyser"],
+    "west_exits": ["campsite", "smoke", "flickering light"],
     "room_type": "MID_ROOM"
 }

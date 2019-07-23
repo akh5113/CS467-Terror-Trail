@@ -1,19 +1,19 @@
 {
     "room_name": "Open Field",
-    "long_intro": "",
+    "long_intro": "What a nice sight this big open field is - finally some space out of the trees. Though you begin to notice the sky, maybe if you take a good look you'll be able to tell how much daylight you have.\n\nThere is a water feature with some trees around it, maybe there will be something helpful there to find your way out!",
     "short_intro": "There seems to be something in the distance. I wonder where this field leads to.",
     "features": [
         { 
             "name": "Water Feature",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Walk to"],
+            "description1": "This water feature is a little stream with some apple trees around it. There are some water shoes that someone might have lost upstream.",
+            "description2": "The bubbling water feature is relaxing to listen to."
         },
         { 
             "name": "The Sky Getting Darker",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Observe", "View"],
+            "description1": "It appears to be getting late, you might want to hurry to get out of the park before you starve or get too thirsty. Quickly look around for something that might be helpful.",
+            "description2": "The sky looks even darker now!"
         }
     ],
     "objects": [
@@ -32,9 +32,9 @@
     "west": "Lake",
     "long_exit": "If you are in need of some water therapy, you’re in luck! Looks like there is a hot spring just North and a Lake West of your location.",
     "short_exit": "",
-    "north_exits": [""],
+    "north_exits": ["hot spring"],
     "south_exits": [""],
     "east_exits": [""],
-    "west_exits": [""],
+    "west_exits": ["lake"],
     "room_type": "MID_ROOM"
 }

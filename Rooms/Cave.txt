@@ -7,7 +7,7 @@
             "name": "Dripping Sound",
             "actions": ["Search", "Examine"],
             "description1": "Looks like you found a natural spring. Feeling thirsty? This has to be the best water around!",
-            "description2": "The spring is all dried up."
+            "description2": "You've already gotten water from here - the dripping water is all dried up."
         },
         {
             "name": "Cave Art",

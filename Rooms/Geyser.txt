@@ -5,15 +5,15 @@
     "features": [
         { 
             "name": "Geyser",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["View"],
+            "description1": "Its getting pretty steamy and as you get close another stream of water spews into the air!",
+            "description2": "This geyser is pretty stinky"
         },
         { 
             "name": "Sign Post",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["View", "Read"],
+            "description1": "'Ranger Station: 1 mile East'",
+            "description2": "'Ranger Station: 1 mile East'"
         }
     ],
     "objects": [
@@ -26,7 +26,7 @@
     "short_exit": "",
     "north_exits": [""],
     "south_exits": [""],
-    "east_exits": [""],
-    "west_exits": [""],
+    "east_exits": ["ranger station", "promising building"],
+    "west_exits": ["hot spring"],
     "room_type": "MID_ROOM"
 }

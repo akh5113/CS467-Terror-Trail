@@ -5,15 +5,15 @@
     "features": [
         { 
             "name": "Large Boudler",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Search"],
+            "description1": "Hey a bike is over here! It looks like the tire is missing. Maybe it is around here somewhere? I thought I saw something over by the bush.",
+            "description2": "Alas, you finally are able to venture down this bike path to see where it leads. The path is a little bumpy but without a bike it would have been impossible to maneuver through and not to mention much slower and more tiring."
         },
         { 
             "name": "Bush",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Look In", "Search"],
+            "description1": "There seems to be something rubbery hidden in this bush! Ah a bike tire! I bet this could be helpful.",
+            "description2": "Alas, you finally are able to venture down this bike path to see where it leads. The path is a little bumpy but without a bike it would have been impossible to maneuver through and not to mention much slower and more tiring."
         }
     ],
     "objects": [
@@ -32,9 +32,9 @@
     "west": "Forest",
     "long_exit": "You can head back up North to the cave or West to the Forest, or you can venture down South where you see a flickering light and some smoke swirling into the sky but you’ll need a bike if you do want to head South.",
     "short_exit": "",
-    "north_exits": [""],
-    "south_exits": [""],
+    "north_exits": ["cave"],
+    "south_exits": ["campsite", "flickering light", "smoke"],
     "east_exits": [""],
-    "west_exits": [""],
+    "west_exits": ["forest"],
     "room_type": "MID_ROOM"
 }
