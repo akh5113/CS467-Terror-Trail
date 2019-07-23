@@ -19,6 +19,7 @@
     "objects": [
         {
             "name": "Berries", 
+            "description": "",
             "actions": ["Eat"]
         }
     ],

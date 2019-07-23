@@ -19,10 +19,12 @@
     "objects": [
         {
             "name": "Bicycle", 
+            "description": "",
             "actions": ["Ride"]
         },
         {
             "name": "Tire", 
+            "description": "",
             "actions": ["Put On"]
         }       
     ],

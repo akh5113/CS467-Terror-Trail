@@ -19,10 +19,12 @@
     "objects": [
         {
             "name": "Raft", 
+            "description": "",
             "actions": ["Launch"]
         },
         {
             "name": "Water", 
+            "description": "",
             "actions": ["Fill"]
         }
     ],

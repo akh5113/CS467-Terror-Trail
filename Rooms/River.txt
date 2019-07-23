@@ -19,10 +19,12 @@
     "objects": [
         {
             "name": "Oar", 
+            "description" : "",
             "actions": ["Paddle"]
         },
         {
             "name": "Water", 
+            "description": "",
             "actions": ["Fill"]
         }
     ],

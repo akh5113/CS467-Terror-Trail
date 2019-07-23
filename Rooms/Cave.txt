@@ -19,10 +19,12 @@
     "objects": [
         {
             "name": "Water", 
+            "description": "",
             "actions": ["Fill"]
         },
         {
             "name": "Map of Park", 
+            "description": "",
             "actions": ["Read"]
         }
     ],

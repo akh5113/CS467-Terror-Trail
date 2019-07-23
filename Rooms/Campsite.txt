@@ -19,6 +19,7 @@
     "objects": [
         {
             "name": "Tent", 
+            "description": "",
             "actions": ["Pitch"]
         }
     ],

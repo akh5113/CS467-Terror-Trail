@@ -19,10 +19,12 @@
     "objects": [
         {
             "name": "Climbing Gear", 
+            "description": "",
             "actions": ["Secure"]
         },
         {
             "name": "Compass", 
+            "description": "",
             "actions": ["Read"]
         }
     ],

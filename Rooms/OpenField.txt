@@ -19,10 +19,12 @@
     "objects": [
         {
             "name": "Water Shoes", 
+            "description" : "",
             "actions": ["Wear", "Put On"]
         },
         {
             "name": "Apples", 
+            "description": "",
             "actions": ["Eat"]
         }        
     ],

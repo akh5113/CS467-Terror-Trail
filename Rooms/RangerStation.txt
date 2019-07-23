@@ -19,10 +19,12 @@
     "objects": [
         {
             "name": "Key", 
+            "description" : "",
             "actions": ["Use"]
         },
         {
             "name": "Radio", 
+            "description" : "",
             "actions": ["Pickup", "Call"]
         }        
     ],

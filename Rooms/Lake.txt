@@ -19,14 +19,17 @@
     "objects": [
         {
             "name": "Water", 
+            "description": "",
             "actions": ["Fill"]
         },
         {
             "name": "Fishing Pole", 
+            "description": "",
             "actions": ["Cast", "Use"]
         },
         {
             "name": "Fish", 
+            "description": "",
             "actions": ["Catch"]
         }
     ],
