@@ -94,7 +94,8 @@ def init_list(data):
     """
     list_items = []
     for item in data:
-        list_items.append(item)
+        if item != "":
+            list_items.append(item)
     return list_items
 
 def import_room_data():

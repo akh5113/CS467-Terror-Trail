@@ -68,13 +68,14 @@ def play_game(game1, player1):
                 use_on = split_input[1]
                 preposition = ""
             # If there is prepostion
-            elif len(split_input) == 3:
+            elif len(split_input) > 2:
                 preposition = split_input[1]
-                use_on = split_input[2]
+                use_on = ' '.join(split_input[2:])
             # If there is a one word command, others are empty
             else:
                 use_on = ""
                 preposition = ""
+
 
             # If action is moving rooms
             basic_move_cmds = ["go","move","walk","exit","travel","cross"]
