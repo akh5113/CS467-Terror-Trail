@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Behind Waterfall",
-            "actions": [""],
+            "actions": ["Check"],
             "description1": "Looks like an old raft lies here - this may be helpful if you have to navigate the waters.",
             "description2": "There is nothing else behind the waterfall."
         },
         { 
             "name": "Front of Falls",
-            "actions": [""],
+            "actions": ["Check", "Navigate"],
             "description1": "There is a lot of water here. I think this may lead to the river.",
             "description2": "It is still pretty wet in front of the falls."
         }
@@ -19,10 +19,12 @@
     "objects": [
         {
             "name": "Raft", 
+            "description": "This raft could be helpful for crossing rapids, but you will need an oar to steer.",
             "actions": ["Launch"]
         },
         {
             "name": "Water", 
+            "description": "Use the water from the falls to fill your water bottle.",
             "actions": ["Fill"]
         }
     ],

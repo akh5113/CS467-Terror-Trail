@@ -6,23 +6,25 @@
         { 
             "name": "Warning Sign",
             "actions": [""],
-            "description1": "",
-            "description2": ""
+            "description1": "'WARNING! The path across the glacier is extremely dangerous. Do NOT cross without proper equipment and use of anchor!'",
+            "description2": "'WARNING! The path across the glacier is extremely dangerous. Do NOT cross without proper equipment and use of anchor!'"
         },
         { 
             "name": "Anchor",
             "actions": [""],
-            "description1": "",
-            "description2": ""
+            "description1": "This anchor would be helpful to cross but only if you have some good shoes and rope.",
+            "description2": "Looks like your ready to use the anchor. Attach rope and get your shoes ready to be able to cross."
         }
     ],
     "objects": [
         {
             "name": "Shoes", 
+            "description": "These must be special ice shoes, they have some sharp spikes on the bottom so be careful!",
             "actions": ["Wear", "Put on"]
         },
         {
             "name": "Rope", 
+            "description": "This rope must be helpful for getting across the glacier safely.",
             "actions": ["Secure"]
         }
     ],
@@ -32,9 +34,9 @@
     "west": "",
     "long_exit": "If you can figure out a way to cross the glacier you will be able to travel East or South otherwise you’re going to have to turn back and return to where you fell.",
     "short_exit": "",
-    "north_exits": [""],
-    "south_exits": [""],
-    "east_exits": [""],
+    "north_exits": ["terror trail", "beginning", "fell", "fall"],
+    "south_exits": ["forest"],
+    "east_exits": ["cave"],
     "west_exits": [""],
     "room_type": "MID_ROOM"
 }

@@ -5,20 +5,21 @@
     "features": [
         { 
             "name": "Tree",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Look behind"],
+            "description1": "There is a nice tent here, seems like too nice of a tent for someone wanting to ditch it completely...",
+            "description2": "Looks like you have already picked up everything in this camp area."
         },
         { 
             "name": "Campfire",
             "actions": [""],
-            "description1": "",
-            "description2": ""
+            "description1": "This campire is still smoldering. The people who were here left so quickly I bet there is something useful here.",
+            "description2": "It looks like the smoke is dwindling - a sign that you should probably get out of here soon too."
         }
     ],
     "objects": [
         {
             "name": "Tent", 
+            "description": "You may need to use this tent if you can't make it out before dark.",
             "actions": ["Pitch"]
         }
     ],
@@ -26,11 +27,11 @@
     "south": "Lake",
     "east": "Animal Habitat",
     "west": "",
-    "long_exit": "Looking for some water? I think I see a lake just south of here.",
+    "long_exit": "Looking for some water? I think I see a body of water just south of here.",
     "short_exit": "",
-    "north_exits": [""],
-    "south_exits": [""],
-    "east_exits": [""],
+    "north_exits": ["bike trail"],
+    "south_exits": ["lake", "body of water"],
+    "east_exits": ["animal habitat", "odd noises", "noises"],
     "west_exits": [""],
     "room_type": "MID_ROOM"
 }

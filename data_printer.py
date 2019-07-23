@@ -103,6 +103,7 @@ def print_single_room_details(room):
     print("Objects:")
     for o in room.objects:
         print(o.name)
+        print(o.description)
         for a in o.actions:
             print("-", a)
     print("\n")

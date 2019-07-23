@@ -19,10 +19,12 @@
     "objects": [
         {
             "name": "Oar", 
+            "description" : "Used with a raft, this oar will help with crossing dangerous rapids.",
             "actions": ["Paddle"]
         },
         {
             "name": "Water", 
+            "description": "Use the water from the river to fill your water bottle.",
             "actions": ["Fill"]
         }
     ],

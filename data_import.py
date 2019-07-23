@@ -79,9 +79,10 @@ def init_room_objects(data):
     object_data = data['objects']
     for o in object_data:
         name = o['name']
+        description = o['description']
         actions = init_list(o['actions'])
             
-        new_object = Object(name, actions)  #TODO: figure out actions - empty action for now
+        new_object = Object(name, description, actions)
         objects.append(new_object)
     
     return objects
@@ -94,7 +95,8 @@ def init_list(data):
     """
     list_items = []
     for item in data:
-        list_items.append(item)
+        if item != "":
+            list_items.append(item)
     return list_items
 
 def import_room_data():

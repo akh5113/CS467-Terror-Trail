@@ -1,24 +1,25 @@
 {
     "room_name": "Forest",
     "long_intro": "The vegetation is beginning to become more and more dense as you make your way through the forest. The forest is lush with trees, bushes, and various mushrooms. Maybe there is something to eat here?\n\nSquaaaackk!\n\nYou hear the scream of a large bird as it swoops over your head towards one of the bushes and begins to nibble on something in the bush then it soars away. Your stomach starts to rumble and you realize it has been sometime since you have had a meal. Seems like this bird had the right idea. Make sure the bird isn’t coming back before you start to check out that bush though.",
-    "short_intro": "You’ve made it back to the lush Forest. The bird seems to be gone, but you still may be able to acquire some more food resources from the plants in the area as long as nothing else has gotten to it first.",
+    "short_intro": "You’ve made it back to the lush Forest. The bird seems to be gone, but you still may be able to acquire some more food resources from the plants in the area as long as the bird doesn't fly back, I'd check the sky first.",
     "features": [
         { 
             "name": "Bush",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Pick"],
+            "description1": "This bush is filled with berries, might want to take some before that bird (or another creature) comes back.",
+            "description2": "You ate all of the berries here!"
         },
         { 
             "name": "The Sky",
-            "actions": [""],
-            "description1": "",
-            "description2": ""
+            "actions": ["Look up"],
+            "description1": "The bird is flying off into the distance -- the area appears to be clear now.",
+            "description2": "I don't see any birds around here, I wonder if all the berries got eaten?"
         }
     ],
     "objects": [
         {
             "name": "Berries", 
+            "description": "If those birds ate the berries, they must be safe for humans...right?",
             "actions": ["Eat"]
         }
     ],
@@ -29,8 +30,8 @@
     "long_exit": "There appears to be some sort of trail to the East but you also hear some odd noises in the distance south.",
     "short_exit": "",
     "north_exits": [""],
-    "south_exits": [""],
-    "east_exits": [""],
+    "south_exits": ["animal habitat", "odd noises", "noises"],
+    "east_exits": ["bike trail", "trail"],
     "west_exits": [""],
     "room_type": "MID_ROOM"
 }
