@@ -57,10 +57,10 @@ def play_game(game1, player1):
         # Set room to visited
         current_room.visited = True
 
-        # varaible to loop back if invalid input
-        successful_action = False
+        # varaible to loop back if invalid input or if player has not moved rooms
+        moved_rooms = False
 
-        while successful_action is False:
+        while moved_rooms is False:
             # Get user input
             user_input = input(prompt)
             # Split user input into command , preposition, object/feature/room
@@ -90,12 +90,13 @@ def play_game(game1, player1):
                 if next_room == None: 
                     # Then invalid command
                     print("It doesn't look like you currently can or want to go that way. Try a different exit.")
+                    moved_rooms = False
                 # if there is a matching room
                 else:
                     # move player to room
                     player1.location = next_room
                     print("Moved to", player1.location.name)
-                    successful_action = True
+                    moved_rooms = True
 
             # If action is help
             elif command.lower() == "help":
@@ -104,39 +105,32 @@ def play_game(game1, player1):
             # If action is quit
             elif command.lower() == "quit":
                 game1.quit_game()
-                successful_action = True
+                break
 
             # If action is look
             elif command.lower() == "look" and preposition == "":
                 # call function to print long form explanation of the room
                 look(current_room)
-                successful_action = True
+                moved_rooms = False
             
             # If action is look at
             elif command.lower() == "look" and preposition.lower() == "at":
                 # call function to explain feature or object
-                if look_at(use_on,player1,current_room,game1.rooms):
-                    successful_action = True
-                # if look at not sucessful
-                else:
+                if not look_at(use_on,player1,current_room,game1.rooms):
                     print("What you're trying to look at isn't here. Try looking at something else")
-                    successful_action = False
+                moved_rooms = False
 
             # If action is take
             elif command.lower() in ["take", "add", "pick up"]:
                 # Call function to add object to inventory
-                if take(current_room, player1, use_on):
-                    successful_action = True
-                else:
+                if not take(current_room, player1, use_on):
                     print("That object is not in this room.")
-                    successful_action = False
+                moved_rooms = False
 
             # if action is to look at inventory
             elif command.lower() == "inventory":
-                if inventory(player1):
-                    successful_action = True
-                else:
-                    successful_action = False
+                inventory(player1)
+                moved_rooms = False
                     
             # If action is not changing room, figure out what it is doing
             else:

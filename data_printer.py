@@ -142,16 +142,6 @@ def print_health_levels(player):
     print("Thirst %s/100" % player.thirst)
     print('\n')
 
-def print_inventory(player):
-    """
-    Print hunger and thirst status for player
-    args:
-        player (Player): data for current player
-    """
-    for obj in player.inventory:
-        print(obj)
-    print('\n')
-
 ################################################################
 # helper printing methods for Feature
 ################################################################

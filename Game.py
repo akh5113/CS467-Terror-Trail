@@ -12,9 +12,12 @@ class Game:
         self.rooms = rooms
 
     def check_game_status(self, current_player):
+        if self.game_over is True:
+            print("Game Over")
         # If the player's thirst or hunger levels have gotten to 0, they have died
-        if current_player.alive is False:
+        elif current_player.alive is False:
             self.game_over = True
+            print("You died, game over")
         # If the player made it to the END_ROOM room type, they have won
         # Note: this will probably change as we develop the game, keeping it simple for now
         elif current_player.location.room_type is 2:

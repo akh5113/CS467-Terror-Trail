@@ -360,5 +360,5 @@ def inventory(player):
         print("There are no objects in your inventory.")
     else:
         for obj in player.inventory:
-            print(obj)
+            print(obj.name)
 
