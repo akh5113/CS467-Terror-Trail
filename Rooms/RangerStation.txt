@@ -37,6 +37,6 @@
     "north_exits": [""],
     "south_exits": [""],
     "east_exits": [""],
-    "west_exits": ["geyser"],
+    "west_exits": ["west", "geyser"],
     "room_type": "END_ROOM"
 }

@@ -34,9 +34,9 @@
     "west": "Forest",
     "long_exit": "You can head back up North to the cave or West to the Forest, or you can venture down South where you see a flickering light and some smoke swirling into the sky but you’ll need a bike if you do want to head South.",
     "short_exit": "",
-    "north_exits": ["cave"],
-    "south_exits": ["campsite", "flickering light", "smoke"],
+    "north_exits": ["north", "cave"],
+    "south_exits": ["south", "campsite", "flickering light", "smoke"],
     "east_exits": [""],
-    "west_exits": ["forest"],
+    "west_exits": ["west", "forest"],
     "room_type": "MID_ROOM"
 }

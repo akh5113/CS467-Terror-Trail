@@ -34,9 +34,9 @@
     "west": "Cave",
     "long_exit": "Unless you figure out a way to handle the rapids West of the river, you’re going to have to return North to the waterfall.",
     "short_exit": "",
-    "north_exits": ["waterfall"],
+    "north_exits": ["north", "waterfall"],
     "south_exits": [""],
     "east_exits": [""],
-    "west_exits": ["cave", "rapids", "water rapids"],
+    "west_exits": ["west", "cave", "rapids", "water rapids"],
     "room_type": "MID_ROOM"
 }
