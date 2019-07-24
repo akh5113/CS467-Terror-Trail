@@ -10,6 +10,58 @@
 import data_printer
 from Room import *
 
+def determine_action(rooms, player1, current_room, command, preposition, use_on):
+    """Takes user input and determines which action it will send the appropriate arguments to
+    Args:
+        rooms (list): List of rooms in the game
+        player1 (Player): current player
+        current_room (Room): current location of player
+        command (str): verb to use to determine action
+        preposition (str):
+        use_on (str): object or feature to use the action on
+    """
+    # If action is moving rooms
+    basic_move_cmds = ["go", "move", "walk", "exit", "travel", "cross"]
+    if command.lower() in basic_move_cmds:
+        # call move room action function to get next room
+        next_room = move_room(use_on, current_room, rooms, player1)
+        # if no matching room found
+        if next_room is None:
+            # Then invalid command
+            print("It doesn't look like you currently can or want to go that way. Try a different exit.")
+            return False
+        # if there is a matching room
+        else:
+            # move player to room
+            player1.location = next_room
+            print("Moved to", player1.location.name)
+            return True
+
+    # If action is look
+    elif command.lower() == "look" and preposition == "":
+        # call function to print long form explanation of the room
+        look(current_room)
+        return False
+
+    # If action is look at
+    elif command.lower() == "look" and preposition.lower() == "at":
+        # call function to explain feature or object
+        if not look_at(use_on, player1, current_room, rooms):
+            print("What you're trying to look at isn't here. Try looking at something else")
+            return False
+
+    # If action is take
+    elif command.lower() in ["take", "add", "pick up"]:
+        # Call function to add object to inventory
+        if not take(current_room, player1, use_on):
+            print("That object is not in this room.")
+        return False
+
+    # if action is to look at inventory
+    elif command.lower() == "inventory":
+        inventory(player1)
+        return False
+
 def move_room(go_to, current_room, rooms, player1):
     """
     Get next room object to move to from current room to the user entered room
@@ -255,22 +307,6 @@ def check_room_restriction(current_room,next_room,player1):
     # None of the above
     else:
         return None
-
-
-def determine_action(player1, action_name, use_on, current_room):
-    """If the action is not a move action, determines what action fucntion needs to be called
-    and passes the approrpiate arguments
-    args:
-        player1 (Player): current player
-        action_name (str): The action (command) from the user input
-        use_on (str): the object/feature/room the action is taken on
-    """
-    if action_name == "take":
-        take(use_on)
-    elif action_name == "look":
-        look(use_on)
-    elif action_name == "look at":
-        look_at(use_on, player1, current_room)
 
 def get_room_object(room_name, rooms):
     """

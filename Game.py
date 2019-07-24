@@ -4,12 +4,18 @@
 # This file defines the Engine of the game
 
 from Player import *
+from Room import *
 
 class Game:
     """Game engine that runs the game."""
     def __init__(self, rooms):
         self.game_over = False
         self.rooms = rooms
+
+        # Verbs to be used within game
+        self.verbs = ["inventory", "look", "look at", "go", "move", "take"]
+        # Add additional
+        self.get_additional_verbs()
 
     def check_game_status(self, current_player):
         if self.game_over is True:
@@ -26,6 +32,15 @@ class Game:
         # Otherwise, game is still in play
         else:
             self.game_over = False
+
+    def get_additional_verbs(self):
+        """Takes all verbs possible for the game and adds them to a list
+        Used to determine if user input is correct.
+        """
+        #TODO: Need to remove duplicate verbs
+        for room in self.rooms:
+            self.verbs += room.get_verbs()
+        print(self.verbs)
 
     @staticmethod
     def print_intro():

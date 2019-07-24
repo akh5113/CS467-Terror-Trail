@@ -81,25 +81,11 @@ def play_game(game1, player1):
                 use_on = ""
                 preposition = ""
 
-            # If action is moving rooms
-            basic_move_cmds = ["go","move","walk","exit","travel","cross"]
-            if command.lower() in basic_move_cmds:
-                # call move room action function to get next room
-                next_room = move_room(use_on, current_room, game1.rooms, player1)
-                # if no matching room found
-                if next_room == None: 
-                    # Then invalid command
-                    print("It doesn't look like you currently can or want to go that way. Try a different exit.")
-                    moved_rooms = False
-                # if there is a matching room
-                else:
-                    # move player to room
-                    player1.location = next_room
-                    print("Moved to", player1.location.name)
-                    moved_rooms = True
-
+            ############################################################################
+            # DETERMINE ACTION
+            ############################################################################
             # If action is help
-            elif command.lower() == "help":
+            if command.lower() == "help":
                 game1.help()
 
             # If action is quit
@@ -107,44 +93,13 @@ def play_game(game1, player1):
                 game1.quit_game()
                 break
 
-            # If action is look
-            elif command.lower() == "look" and preposition == "":
-                # call function to print long form explanation of the room
-                look(current_room)
-                moved_rooms = False
-            
-            # If action is look at
-            elif command.lower() == "look" and preposition.lower() == "at":
-                # call function to explain feature or object
-                if not look_at(use_on,player1,current_room,game1.rooms):
-                    print("What you're trying to look at isn't here. Try looking at something else")
-                moved_rooms = False
-
-            # If action is take
-            elif command.lower() in ["take", "add", "pick up"]:
-                # Call function to add object to inventory
-                if not take(current_room, player1, use_on):
-                    print("That object is not in this room.")
-                moved_rooms = False
-
-            # if action is to look at inventory
-            elif command.lower() == "inventory":
-                inventory(player1)
-                moved_rooms = False
-                    
-            # If action is not changing room, figure out what it is doing
+            # Determine if the action is possible given the objects/features
+            #TODO determine verbs for this for specific room instead of whole game verbs
+            if command in game1.verbs:
+                moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
             else:
-                # Get verbs for the room
-                possible_actions = current_room.get_verbs()
-                # Determine if the action is possible given the objects/features
-                if user_input in possible_actions:
-                    determine_action(player1, command, use_on, current_room)
-                    # Adding a break here to not get stuck!
-                    successful_action = True
-                    # break
-                else:
-                    # If action is not in list of verbs, print error message
-                    print("Error: not a valid action. Type <help> to see valid verbs")
+                # If action is not in list of verbs, print error message
+                print("Error: not a valid action. Type <help> to see valid verbs")
 
         # Algorithm to determine health
         player1.player_status()
