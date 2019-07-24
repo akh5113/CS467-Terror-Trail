@@ -81,8 +81,6 @@ def play_game(game1, player1):
                 use_on = ""
                 preposition = ""
 
-            
-
             # If action is moving rooms
             basic_move_cmds = ["go","move","walk","exit","travel","cross"]
             if command.lower() in basic_move_cmds:
@@ -122,6 +120,22 @@ def play_game(game1, player1):
                 # if look at not sucessful
                 else:
                     print("What you're trying to look at isn't here. Try looking at something else")
+                    successful_action = False
+
+            # If action is take
+            elif command.lower() in ["take", "add", "pick up"]:
+                # Call function to add object to inventory
+                if take(current_room, player1, use_on):
+                    successful_action = True
+                else:
+                    print("That object is not in this room.")
+                    successful_action = False
+
+            # if action is to look at inventory
+            elif command.lower() == "inventory":
+                if inventory(player1):
+                    successful_action = True
+                else:
                     successful_action = False
                     
             # If action is not changing room, figure out what it is doing

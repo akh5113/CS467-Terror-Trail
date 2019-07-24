@@ -64,7 +64,7 @@ def check_room_restriction(current_room,next_room,player1):
         # Check if current_room is river
         if current_room.name == "River":
             # if yes, check inventory for raft
-            if check_inventory(player1,"Raft"):
+            if player1.check_inventory("Raft"):
                 # if player has raft, ask if they want to use
                 print("Would you like to use your raft to travel to the Waterfall?")
                 use_raft = input(">>>")
@@ -91,7 +91,7 @@ def check_room_restriction(current_room,next_room,player1):
         # Check if current room is Waterfall
         if current_room.name == "Waterfall":
             # if yes, check inventory for raft
-            if check_inventory(player1,"Raft"):
+            if player1.check_inventory("Raft"):
                 # if player has raft, ask if they want to use
                 print("Would you like to use your raft to travel to the River?")
                 use_raft = input(">>>")
@@ -108,7 +108,7 @@ def check_room_restriction(current_room,next_room,player1):
             else:
                # can't travel this way
                print("It looks like you need something to travel from the Waterfall to the River. You should do some more exploring")
-               return No
+               return None
         # If current room isn't the waterfall
         else:
             # they can travel to river without raft
@@ -118,7 +118,7 @@ def check_room_restriction(current_room,next_room,player1):
         # Check if current room is River
         if current_room.name == "River":
             # if yes, check inventory for raft and oar
-            if check_inventory(player1,"Raft") and check_inventory(player1,"Oar"):
+            if player1.check_inventory("Raft") and player1.check_inventory("Oar"):
                 # if player has raft and oar, ask if they want to use
                 print("Would you like to use your raft and oar to travel to the Cave?")
                 use_raft_oar = input(">>>")
@@ -139,7 +139,7 @@ def check_room_restriction(current_room,next_room,player1):
         # Check if current room is Glacier
         elif current_room.name == "Glacier":
             # if yes, check inventory for shoes and rope
-            if check_inventory(player1,"Shoes") and check_inventory(player1,"Rope"):
+            if player1.check_inventory("Shoes") and player1.check_inventory("Rope"):
                 # if player has shoes and rope, ask if they want to use
                 print("Would you like to put on your shoes and use  the rope to travel to the Cave?")
                 use_shoes_rope = input(">>>")
@@ -166,7 +166,7 @@ def check_room_restriction(current_room,next_room,player1):
         # Check if current room is Glacier
         if current_room.name == "Glacier":
             # if yes, check inventory for shoes and rope
-            if check_inventory(player1,"Shoes") and check_inventory(player1,"Rope"):
+            if player1.check_inventory("Shoes") and player1.check_inventory("Rope"):
                 # if player has shoes and rope, ask if they want to use
                 print("Would you like to put on your shoes and use  the rope to travel to the Forest?")
                 use_shoes_rope = input(">>>")
@@ -193,7 +193,7 @@ def check_room_restriction(current_room,next_room,player1):
         # Check if current room is Bike Trail
         if current_room.name == "Bike Trail":
             # if yes, check inventory for biek
-            if check_inventory(player1,"Bike"):
+            if player1.check_inventory("Bike"):
                 # if player has bike, ask if they want to use
                 print("Would you like to bike to the Campsite?")
                 use_bike = input(">>>")
@@ -229,7 +229,7 @@ def check_room_restriction(current_room,next_room,player1):
         # Check if current room is Campsite
         if current_room.name == "Campsite":
             # if yes, check inventory for biek
-            if check_inventory(player1,"Bike"):
+            if player1.check_inventory("Bike"):
                 # if player has bike, ask if they want to use
                 print("Would you like to bike to the beginning of the Bike Trail?")
                 use_bike = input(">>>")
@@ -285,10 +285,24 @@ def get_room_object(room_name, rooms):
             next_room = room
     return next_room
 
-def take(object_name):
+def take(room, player, object_name):
     """Required verb/action
     Acquire an object and put it into your inventory
+
+    Args:
+        room (Room): current room of the game
+        player (Player): player who's inventory the object will be added to
+        object_name (str): The name of the object to be added
+    Returns:
+        Boolean: true if the object was found in the room, False if not
     """
+    for obj in room.objects:
+        if obj.name == object_name:
+            player.add_obj_to_inventory(obj)
+            print("{} has been added to your inventory".format(object_name))
+            return True
+
+    return False
 
 def look(current_room):
     """Required verb/action
@@ -298,7 +312,6 @@ def look(current_room):
     """
     data_printer.print_room_long(current_room)
 
-
 def look_at(item,player1,room,rooms):
 
     """Requried verb/action
@@ -307,9 +320,6 @@ def look_at(item,player1,room,rooms):
         item(string): what the user wants to look at
         player1(Player): player used to access inventory
         room(Room): player's current location
-
-    #TODO: I'm not sure if the viewing object or feature should be implemented here, even though the verb makes sense,
-    # based on the specs I think we should implement it as a different function
     """
 
     # if player wants to view inventory
@@ -341,3 +351,14 @@ def look_at(item,player1,room,rooms):
                 return True 
         # if item is not in room or inventory
         return False
+
+def inventory(player):
+    """Required verb
+    Prints the contents of the players inventory
+    """
+    if len(player.inventory) == 0:
+        print("There are no objects in your inventory.")
+    else:
+        for obj in player.inventory:
+            print(obj)
+
