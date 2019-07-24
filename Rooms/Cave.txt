@@ -34,9 +34,9 @@
     "west": "Glacier",
     "long_exit": "Do you want to continue South and explore the cave or are you too scared and want to return North to the mountains?",
     "short_exit": "",
-    "north_exits": ["mountain"],
-    "south_exits": ["bike trail", "trail"],
-    "east_exits": ["river", "rapids", "river rapids", "raging river"],
-    "west_exits": ["glacier"],
+    "north_exits": ["north", "mountain"],
+    "south_exits": ["south", "bike trail", "trail"],
+    "east_exits": ["east", "river", "rapids", "river rapids", "raging river"],
+    "west_exits": ["west", "glacier"],
     "room_type": "MID_ROOM"
 }
