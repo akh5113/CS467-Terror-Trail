@@ -48,7 +48,7 @@ def play_game(game1, player1):
         # Display health
         data_printer.print_health_levels(player1)
 
-        # Determine Into to display (short or long) - PS: I moved this logic into the method for printing intros?
+        # Determine Into to display (short or long)
         # Display the intro
         data_printer.print_room_intro(current_room)
         # Display exit info so user knows how to exit
@@ -67,15 +67,15 @@ def play_game(game1, player1):
             split_input = user_input.split()
             # First is the command
             command = split_input[0]
-            # Determine if there was a preposition
-            if len(split_input) == 2:
-                # No preposition
-                use_on = split_input[1]
-                preposition = ""
-            # If there is prepostion
-            elif len(split_input) > 2:
-                preposition = split_input[1]
-                use_on = ' '.join(split_input[2:])
+
+            if len(split_input) >= 2:
+                # If there is prepostion
+                if (split_input[1] in ["at", "in", "on", "up"]):
+                    preposition = split_input[1]
+                    use_on = ' '.join(split_input[2:])
+                else:
+                    use_on = ' '.join(split_input[1:])
+                    preposition = ""
             # If there is a one word command, others are empty
             else:
                 use_on = ""
@@ -116,7 +116,9 @@ def play_game(game1, player1):
                 # Determine if the action is possible given the objects/features
                 #TODO determine verbs for this for specific room instead of whole game verbs
                 if command in game1.verbs:
-                    moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
+                    determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
+                    if (current_room.name != player1.location.name):
+                        moved_rooms = True
                 else:
                     # If action is not in list of verbs, print error message
                     print("Error: not a valid action. Type <help> to see valid verbs")
@@ -127,8 +129,6 @@ def play_game(game1, player1):
 
         # Check for game status
         game1.check_game_status(player1)
-
-        # break   #put temporary break in to prevent infinite loop :)
 
 if __name__ == "__main__":
     main()

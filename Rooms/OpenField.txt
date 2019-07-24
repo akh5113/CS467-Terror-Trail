@@ -4,13 +4,13 @@
     "short_intro": "There seems to be something in the distance. I wonder where this field leads to.",
     "features": [
         { 
-            "name": "Water Feature",
+            "name": "Water feature",
             "actions": ["Walk to"],
             "description1": "This water feature is a little stream with some apple trees around it. There are some water shoes that someone might have lost upstream.",
             "description2": "The bubbling water feature is relaxing to listen to."
         },
         { 
-            "name": "The Sky Getting Darker",
+            "name": "The sky getting darker",
             "actions": ["Observe", "View"],
             "description1": "It appears to be getting late, you might want to hurry to get out of the park before you starve or get too thirsty. Quickly look around for something that might be helpful.",
             "description2": "The sky looks even darker now!"
@@ -18,7 +18,7 @@
     ],
     "objects": [
         {
-            "name": "Water Shoes", 
+            "name": "Water shoes", 
             "description" : "You may want to save these shoes for any other strange water areas you encounter down the road.",
             "actions": ["Wear", "Put On"]
         },

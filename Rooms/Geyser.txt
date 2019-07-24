@@ -10,7 +10,7 @@
             "description2": "This geyser is pretty stinky!"
         },
         { 
-            "name": "Sign Post",
+            "name": "Sign post",
             "actions": ["View", "Read"],
             "description1": "'Ranger Station: 1 mile East'",
             "description2": "'Ranger Station: 1 mile East'"

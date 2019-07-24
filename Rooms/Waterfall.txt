@@ -4,13 +4,13 @@
     "short_intro": "The now familiar rushing sound accompanied by a thick mist surrounds you. You’ve found your way back to the waterfall. The visibility has only gotten worse from earlier, but you feel more comfortable here as you work your way across the slick landscape.",
     "features": [
         { 
-            "name": "Behind Waterfall",
+            "name": "Behind waterfall",
             "actions": ["Check"],
             "description1": "Looks like an old raft lies here - this may be helpful if you have to navigate the waters.",
             "description2": "There is nothing else behind the waterfall."
         },
         { 
-            "name": "Front of Falls",
+            "name": "Front of waterfall",
             "actions": ["Check", "Navigate"],
             "description1": "There is a lot of water here. I think this may lead to the river.",
             "description2": "It is still pretty wet in front of the falls."

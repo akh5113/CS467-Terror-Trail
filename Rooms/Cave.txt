@@ -1,16 +1,16 @@
 {
     "room_name": "Cave",
-    "long_intro": "You have arrived at a cave and immediately begin to feel the freezing cold draft of air coming up from deep in the earth. At first this appears to be a potential spot to make camp if you can’t make it out before sunset, but the freezing air is beginning to numb your fingers and you begin to wonder if staying here will give you hypothermia. The air is also damp and it must be due to the light dripping sound that you hear off to the side.\n\nWhoosh!\n\nSuddenly, an icy blast of air blows up from deep in the cave and it nearly knocks you on your feet but as you gain your balance you see a faint image behind a large boulder in the cave, could that image have some helpful information in it?",
+    "long_intro": "You have arrived at a cave and immediately begin to feel the freezing cold draft of air coming up from deep in the earth. At first this appears to be a potential spot to make camp if you can’t make it out before sunset, but the freezing air is beginning to numb your fingers and you begin to wonder if staying here will give you hypothermia. The air is also damp and it must be due to the light dripping sound that you hear off to the side.\n\nWhoosh!\n\nSuddenly, an icy blast of air blows up from deep in the cave and it nearly knocks you on your feet but as you gain your balance you see some cave art behind a large boulder in the cave, could that image have some helpful information in it?",
     "short_intro": "The cave still feels like a freezer but as the day wears on staying here seems more and more tempting as there may be other resources here. At least you would be sheltered from the strange creatures that may walk the park outside.",
     "features": [
         { 
-            "name": "Dripping Sound",
+            "name": "Dripping sound",
             "actions": ["Search", "Examine"],
             "description1": "Looks like you found a natural spring. Feeling thirsty? This has to be the best water around!",
             "description2": "You've already gotten water from here - the dripping water is all dried up."
         },
         {
-            "name": "Cave Art",
+            "name": "Cave art",
             "actions": ["Look at", "View"],
             "description1": "Here lies a map of the park, though it looks like it may not be complete...",
             "description2": "You've already viewed the map."
@@ -23,7 +23,7 @@
             "actions": ["Fill"]
         },
         {
-            "name": "Map of Park", 
+            "name": "Map of park", 
             "description": "North: Mountain; South: Bike trail; East: Raging river; West: Glacier.",
             "actions": ["Read"]
         }

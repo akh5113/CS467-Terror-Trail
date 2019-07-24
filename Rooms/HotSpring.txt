@@ -10,7 +10,7 @@
             "description2": "Turn the faucet on to enjoy some time in the hot tub."
         },
         { 
-            "name": "Hot Spring Tub",
+            "name": "Hot spring tub",
             "actions": ["Go in", "Swim in"],
             "description1": "Oh the water looks nice! Make sure you get on your water shoes before you go in!",
             "description2": "Ready for a relaxing dip?"

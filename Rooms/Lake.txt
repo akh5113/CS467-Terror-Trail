@@ -23,7 +23,7 @@
             "actions": ["Fill"]
         },
         {
-            "name": "Fishing Pole", 
+            "name": "Fishing pole", 
             "description": "Cast this fishing pole and maybe some fish will begin to bite.",
             "actions": ["Cast", "Use"]
         },

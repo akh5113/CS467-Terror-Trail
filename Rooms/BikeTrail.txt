@@ -4,7 +4,7 @@
     "short_intro": "You’ve come across a bike trail. I wonder where it leads to?  Unfortunately, the trail looks too rough to walk.",
     "features": [
         { 
-            "name": "Large Boudler",
+            "name": "Boulder",
             "actions": ["Search"],
             "description1": "Hey a bike is over here! It looks like the tire is missing. Maybe it is around here somewhere? I thought I saw something over by the bush.",
             "description2": "Alas, you finally are able to venture down this bike path to see where it leads. The path is a little bumpy but without a bike it would have been impossible to maneuver through and not to mention much slower and more tiring."
@@ -18,7 +18,7 @@
     ],
     "objects": [
         {
-            "name": "Bicycle", 
+            "name": "Bike", 
             "description": "Thank goodness someone left this bike behind, if you don't find a tire you won't be able to ride it.",
             "actions": ["Ride"]
         },
