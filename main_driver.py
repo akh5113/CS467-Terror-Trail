@@ -94,10 +94,12 @@ def play_game(game1, player1):
             # If action is help
             if command.lower() == "help":
                 game1.help()
+                moved_rooms = False
 
             # if action is savegame
             elif command.lower() == "savegame":
                 game1.save_game()
+                moved_rooms = False
 
             elif command.lower() == "loadgame":
                 game1.load_game()
@@ -118,6 +120,7 @@ def play_game(game1, player1):
                 else:
                     # If action is not in list of verbs, print error message
                     print("Error: not a valid action. Type <help> to see valid verbs")
+                    moved_rooms = False
 
             # Calculate players new health with each move
             player1.player_status()
