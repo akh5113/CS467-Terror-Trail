@@ -347,9 +347,12 @@ def take(room, player, object_name):
         Boolean: true if the object was found in the room, False if not
     """
     for obj in room.objects:
-        if obj.name == object_name:
+        if obj.name.lower() == object_name.lower():
+            #add object to inventory
             player.add_obj_to_inventory(obj)
-            print("{} has been added to your inventory".format(object_name))
+            #remove object from room
+            room.remove_object(obj.name)
+            print("{} has been added to your inventory".format(object_name.capitalize()))
             return True
 
     return False

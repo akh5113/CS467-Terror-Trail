@@ -135,7 +135,7 @@ class Room:
 
     def remove_object(self, obj_name):
         """Removes a specified object from a room"""
-        self.objects[:] = [o for o in self.objects if o.get_name() != obj_name]
+        self.objects[:] = [o for o in self.objects if o.name != obj_name]
 
     def get_verbs(self):
         """Compiles all verbs possible in the room by combining the actions associated with objects
