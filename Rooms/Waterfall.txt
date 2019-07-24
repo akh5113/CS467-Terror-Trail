@@ -10,7 +10,7 @@
             "description2": "There is nothing else behind the waterfall."
         },
         { 
-            "name": "Front of falls",
+            "name": "Front of waterfall",
             "actions": ["Check", "Navigate"],
             "description1": "There is a lot of water here. I think this may lead to the river.",
             "description2": "It is still pretty wet in front of the falls."
