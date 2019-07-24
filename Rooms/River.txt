@@ -4,7 +4,7 @@
     "short_intro": "It does not look like you’re crossing that river by swimming across. You’ll have to turn back unless there is another way you can cross.",
     "features": [
         { 
-            "name": "Water Rapids",
+            "name": "Water rapids",
             "actions": ["Cross", "Look at"],
             "description1": "The rapids are rough, you'll need a raft and an oar to cross. The water here may be helpful though.",
             "description2": "Looks like you can finally cross with your raft and oar, but be careful!"
@@ -13,7 +13,7 @@
             "name": "Dock",
             "actions": ["Search"],
             "description1": "There is a lot of old boat junk lying around - maybe that oar could be helpful.",
-            "description2": "Nothing else on the dock could help with getting home."
+            "description2": "Nothing else on the dock will help with getting home."
         }
     ],
     "objects": [

@@ -10,7 +10,7 @@
             "description2": "This is just a bench."
         },
         { 
-            "name": "View from Top",
+            "name": "View from top",
             "actions": ["Look", "Study"],
             "description1": "Looks like there may be a waterfall and a cave...but what direction are they? Look around for objects that may help!",
             "description2": "This compass is helpful! The waterfall is due east and the cave is just south of here."
@@ -18,7 +18,7 @@
     ],
     "objects": [
         {
-            "name": "Climbing Gear", 
+            "name": "Climbing gear", 
             "description": "This is some high end climbing gear, I wonder why some one left this up here...",
             "actions": ["Secure"]
         },

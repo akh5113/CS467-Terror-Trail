@@ -40,6 +40,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
             # move player to room
             player1.location = next_room
             print("Moved to", player1.location.name)
+            print("\n")
             return True
 
     #######################################################################################################
