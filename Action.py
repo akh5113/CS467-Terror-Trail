@@ -9,6 +9,7 @@
 #################################################################
 import data_printer
 from Room import *
+from Player import *
 
 def determine_action(rooms, player1, current_room, command, preposition, use_on):
     """Takes user input and determines which action it will send the appropriate arguments to
@@ -19,8 +20,12 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
         command (str): verb to use to determine action
         preposition (str):
         use_on (str): object or feature to use the action on
+    Returns:
+        Boolean: If the action resulted in the player moving a room
     """
-    # If action is moving rooms
+    #######################################################################################################
+    # ACTION = MOVING ROOMS
+    #######################################################################################################
     basic_move_cmds = ["go", "move", "walk", "exit", "travel", "cross"]
     if command.lower() in basic_move_cmds:
         # call move room action function to get next room
@@ -37,27 +42,35 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
             print("Moved to", player1.location.name)
             return True
 
-    # If action is look
+    #######################################################################################################
+    # ACTION = LOOK
+    #######################################################################################################
     elif command.lower() == "look" and preposition == "":
         # call function to print long form explanation of the room
         look(current_room)
         return False
 
-    # If action is look at
+    #######################################################################################################
+    # ACTION = LOOK AT
+    #######################################################################################################
     elif command.lower() == "look" and preposition.lower() == "at":
         # call function to explain feature or object
         if not look_at(use_on, player1, current_room, rooms):
             print("What you're trying to look at isn't here. Try looking at something else")
             return False
 
-    # If action is take
+    #######################################################################################################
+    # ACTION = TAKE
+    #######################################################################################################
     elif command.lower() in ["take", "add", "pick up"]:
         # Call function to add object to inventory
         if not take(current_room, player1, use_on):
             print("That object is not in this room.")
         return False
 
-    # if action is to look at inventory
+    #######################################################################################################
+    # ACTION = INVENTORY
+    #######################################################################################################
     elif command.lower() == "inventory":
         inventory(player1)
         return False
@@ -92,7 +105,7 @@ def move_room(go_to, current_room, rooms, player1):
         next_room = get_room_object(current_room.west, rooms)
     
     # Check if next room_room is None
-    if next_room == None:
+    if next_room is None:
         return None
     
     # Check if the next_room is a restricted room
@@ -110,6 +123,7 @@ def check_room_restriction(current_room,next_room,player1):
         current_room(Room): room player is currently in
         next_room(Room): room player wants to move to
         player1(Player): current player(used to access inventory)
+    #TODO possibly implement this under Room.py as a class function???
     """
     # Waterfall next room
     if next_room.name == "Waterfall":
@@ -266,7 +280,7 @@ def check_room_restriction(current_room,next_room,player1):
         # Check if current room is Animal Habitat
         if current_room.name == "Animal Habitat":
             # Check if the room has not been completed
-            if current_room.completed == False:
+            if current_room.completed is False:
                 # Animal hasn't been discovered yet
                 print("You should really find out what animal lives here before going that way.")
                 return None
@@ -374,10 +388,10 @@ def look_at(item,player1,room,rooms):
                 feature.print_description(rooms)
                 return True
         # Check if object in room
-        for object in room.objects:
-            if item.capitalize() == object.name:
+        for o in room.objects:
+            if item.capitalize() == o.name:
                 # if object is in room
-                print(object.description)
+                print(o.description)
                 return True
         # Check if object in inventory
         for obj in player1.inventory:

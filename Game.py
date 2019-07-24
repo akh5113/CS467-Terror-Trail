@@ -40,12 +40,12 @@ class Game:
         #TODO: Need to remove duplicate verbs
         for room in self.rooms:
             self.verbs += room.get_verbs()
-        print(self.verbs)
 
     @staticmethod
     def print_intro():
         """Prints the welcome statement for the game."""
         print("Welcome to the Terror Trail. ((to be expanded))")
+        print("\n")
 
     @staticmethod
     def help():

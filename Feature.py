@@ -25,7 +25,7 @@ class Feature:
 
 
     def objects_found(self,rooms):
-        """ """
+        """Searches for object within the room"""
         the_room = get_room_object(self.room_name,rooms)
         if not the_room.objects:
             return False

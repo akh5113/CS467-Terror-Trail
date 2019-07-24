@@ -153,6 +153,7 @@ class Room:
             feature_verb_list += f.actions
 
         return object_verb_list + feature_verb_list
+
     def get_next_room(self, direction):
         """
         Gets the room requested by checking all short form names of a direction

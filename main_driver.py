@@ -82,27 +82,45 @@ def play_game(game1, player1):
                 preposition = ""
 
             ############################################################################
+            #
             # DETERMINE ACTION
+            #
             ############################################################################
+
+            ############################################################################
+            # Commands related to the game and not player action
+            ############################################################################
+
             # If action is help
             if command.lower() == "help":
                 game1.help()
+
+            # if action is savegame
+            elif command.lower() == "savegame":
+                game1.save_game()
+
+            elif command.lower() == "loadgame":
+                game1.load_game()
 
             # If action is quit
             elif command.lower() == "quit":
                 game1.quit_game()
                 break
 
-            # Determine if the action is possible given the objects/features
-            #TODO determine verbs for this for specific room instead of whole game verbs
-            if command in game1.verbs:
-                moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
+            ############################################################################
+            # Commands related to player action and not game state
+            ############################################################################
             else:
-                # If action is not in list of verbs, print error message
-                print("Error: not a valid action. Type <help> to see valid verbs")
+                # Determine if the action is possible given the objects/features
+                #TODO determine verbs for this for specific room instead of whole game verbs
+                if command in game1.verbs:
+                    moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
+                else:
+                    # If action is not in list of verbs, print error message
+                    print("Error: not a valid action. Type <help> to see valid verbs")
 
-        # Algorithm to determine health
-        player1.player_status()
+            # Calculate players new health with each move
+            player1.player_status()
 
         # Check for game status
         game1.check_game_status(player1)
