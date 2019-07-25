@@ -24,8 +24,8 @@
         }
     ],
     "north": "",
-    "south": "Animal Habitat",
-    "east": "Bike Trail",
+    "south": "Animal habitat",
+    "east": "Bike trail",
     "west": "",
     "long_exit": "There appears to be some sort of trail to the East but you also hear some odd noises in the distance south.",
     "short_exit": "",
