@@ -14,7 +14,7 @@ class Game:
         self.rooms = rooms
 
         # Verbs to be used within game
-        self.verbs = ["inventory", "look", "look at", "go", "move", "take"]
+        self.verbs = ["inventory", "look", "look at", "go", "move", "take", "health"]
         # Add additional
         self.get_additional_verbs()
 
@@ -55,6 +55,7 @@ class Game:
         print("look                         States description of the current Room")
         print("look at <object/feature>     Gives explanation of object or feature")
         print("inventory                    Lists the contents of players inventory")
+        print("health                       Displays the player's current hunger and thrist levels")
         print("savegame                     Saves the current state of the game.")
         print("loadgame                     Loads the previously saved game into play.")
         print("quit                         Exits the game without saving the game state.")

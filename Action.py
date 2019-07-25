@@ -76,6 +76,14 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
         inventory(player1)
         return False
 
+    #######################################################################################################
+    # ACTION = HEALTH
+    #######################################################################################################
+    elif command.lower() == "health":
+        data_printer.print_health_levels(player1)
+        return False
+
+    
 def move_room(go_to, current_room, rooms, player1):
     """
     Get next room object to move to from current room to the user entered room
