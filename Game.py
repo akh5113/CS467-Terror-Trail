@@ -14,7 +14,7 @@ class Game:
         self.rooms = rooms
 
         # Verbs to be used within game
-        self.verbs = ["inventory", "look", "look at", "go", "move", "take", "health"]
+        self.verbs = ["inventory", "look", "look at", "go", "move", "take"]
         # Add additional
         self.get_additional_verbs()
 
@@ -73,3 +73,7 @@ class Game:
         """Quits the game without saving the state"""
         print("Quitting the game without saving the state")
         self.game_over = True
+
+    def health_status(self, player1):
+        """Prints the player's current hunger and thrist levels"""
+        data_printer.print_health_levels(player1)
