@@ -1,5 +1,5 @@
 {
-    "room_name": "Open Field",
+    "room_name": "Open field",
     "long_intro": "What a nice sight this big open field is - finally some space out of the trees. Though you begin to notice the sky, maybe if you take a good look you'll be able to tell how much daylight you have.\n\nThere is a water feature with some trees around it, maybe there will be something helpful there to find your way out!",
     "short_intro": "There seems to be something in the distance. I wonder where this field leads to.",
     "features": [
@@ -28,7 +28,7 @@
             "actions": ["Eat"]
         }        
     ],
-    "north": "Hot Spring",
+    "north": "Hot spring",
     "south": "",
     "east": "",
     "west": "Lake",

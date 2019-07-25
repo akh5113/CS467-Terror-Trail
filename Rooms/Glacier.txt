@@ -28,7 +28,7 @@
             "actions": ["Secure"]
         }
     ],
-    "north": "Terror Trail",
+    "north": "Terror trail",
     "south": "Forest",
     "east": "Cave",
     "west": "",
