@@ -70,8 +70,9 @@ def play_game(game1, player1):
         # Set room to visited
         current_room.visited = True
 
-        # varaible to loop back if invalid input or if player has not moved rooms
+        # variable to loop back if invalid input or if player has not moved rooms
         moved_rooms = False
+        
 
         while moved_rooms is False:
             # Get user input
@@ -109,19 +110,25 @@ def play_game(game1, player1):
                 game1.help()
                 moved_rooms = False
 
-            # if action is savegame
+            # If action is savegame
             elif command.lower() == "savegame":
                 game1.save_game()
                 moved_rooms = False
 
+            # If action is loadame
             elif command.lower() == "loadgame":
                 game1.load_game()
 
+            # If action is health
+            elif command.lower() == "health":
+                game1.health_status(player1)
+                
             # If action is quit
             elif command.lower() == "quit":
                 game1.quit_game()
                 break
-
+                
+                
             ############################################################################
             # Commands related to player action and not game state
             ############################################################################
@@ -132,13 +139,32 @@ def play_game(game1, player1):
                     determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
                     if (current_room.name != player1.location.name):
                         moved_rooms = True
+                    # Calculate players new health with each move
+                    # TODO need to determine how each action affects health
+                    # TODO may want to move to actions aftering deciding how actions affect health levels
+                    # currently an incorrect room choice will decrease health
+                    # currently moved here to prevent non-action commands or incorrect cmds from decresing health
+                    player1.player_status()        
+                    
                 else:
-                    # If action is not in list of verbs, print error message
-                    print("Error: not a valid action. Type <help> to see valid verbs")
-                    moved_rooms = False
+                    # Check command was not an exit name
+                    for room in game1.rooms:
+                        if command.lower() in room.east_exits or command.lower() in room.west_exits or command.lower() in room.north_exits or command.lower() in room.south_exits:
+                            # change command to use_on
+                            use_on = command
+                            # change command to go
+                            command = "go"
+                            # call move_room function in actions to get next room
+                            next_room = move_room(use_on,current_room, game1.rooms, player1)
+                            # call moved_locations to try to move to that room
+                            moved_rooms = moved_locations(next_room,player1)
+                    
+                    # If action is not in list of verbs or an exit name, print error message
+                    if moved_rooms == False:
+                        print("Error: not a valid action. Type <help> to see valid verbs")
+                    else:
+                       player1.player_status()  
 
-            # Calculate players new health with each move
-            player1.player_status()
 
         # Check for game status
         game1.check_game_status(player1)
