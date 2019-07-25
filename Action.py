@@ -63,7 +63,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = TAKE
     #######################################################################################################
-    elif command.lower() in ["take", "add", "pick up"]:
+    elif command.lower() in ["take", "add", "pick up", "grab"]:
         # Call function to add object to inventory
         if not take(current_room, player1, use_on):
             print("That object is not in this room.")
