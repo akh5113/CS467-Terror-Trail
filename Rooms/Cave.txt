@@ -29,10 +29,10 @@
         }
     ],
     "north": "Mountain",
-    "south": "Bike Trail",
+    "south": "Bike trail",
     "east": "River",
     "west": "Glacier",
-    "long_exit": "Do you want to continue South and explore the cave or are you too scared and want to return North to the mountains?",
+    "long_exit": "Do you want to continue South and explore the cave or are you too scared and want to return North to the mountain?",
     "short_exit": "",
     "north_exits": ["north", "mountain"],
     "south_exits": ["south", "bike trail", "trail"],

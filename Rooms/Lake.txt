@@ -35,7 +35,7 @@
     ],
     "north": "Campsite",
     "south": "",
-    "east": "Open Field",
+    "east": "Open field",
     "west": "",
     "long_exit": "It looks like there is a green space just East of the lake, I think it’s a big open field over there. Looks like the campfire is still smoldering at the Campsite up North.",
     "short_exit": "",
