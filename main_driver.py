@@ -36,15 +36,13 @@ def main():
         # Set up player
         new_player = Player(starting_room)
 
-        # Print intro to Game.
-        new_game.print_intro()
-
         # Start Game
         play_game(new_game, new_player)
 
     elif main_menu_input in ["loadgame", "load game"]:
         #TODO implement loading of saved state
         # play_game(loaded_gme, loaded_player)
+        print("not yet implemented")    #temporary
         exit()  #temporary
 
     else:

@@ -19,7 +19,7 @@ def print_room_intro(room):
         room (Room): structure that contains all room data
     source for text wrapper: https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/
     """
-    wrapper = textwrap.TextWrapper(width=100)
+    wrapper = textwrap.TextWrapper(width=90, break_long_words=False,replace_whitespace=False)
     if room.visited is False:
         words = wrapper.wrap(text=room.long_intro)
         for w in words:
@@ -37,7 +37,7 @@ def print_room_long(room):
         room (Room): structure that contains all room data
     source for text wrapper: https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/
     """
-    wrapper = textwrap.TextWrapper(width=100)
+    wrapper = textwrap.TextWrapper(width=90, break_long_words=False,replace_whitespace=False)
 
     words = wrapper.wrap(text=room.long_intro)
     for w in words:
@@ -50,7 +50,7 @@ def print_room_exit(room):
     args:
         room (Room): structure that contains all room data
     """
-    wrapper = textwrap.TextWrapper(width=100)
+    wrapper = textwrap.TextWrapper(width=90,break_long_words=False,replace_whitespace=False)
     words = wrapper.wrap(text=room.long_exit)
     for w in words:
         print(w)
@@ -155,7 +155,7 @@ def print_feature_description(feature):
     args:
         feature (Feature): name of the feature
     """
-    wrapper = textwrap.TextWrapper(width=100)
+    wrapper = textwrap.TextWrapper(width=90,break_long_words=False,replace_whitespace=False)
     if feature.objects_found() is True:
         words = wrapper.wrap(text=feature.description_with_objects)
         for w in words:
@@ -170,15 +170,15 @@ def print_feature_description(feature):
 ################################################################
 def print_intro():
     """Prints the welcome statement for the game."""
-    intro = "Welcome to the Terror Trail! You've tumbled and lost your way, now you need to make it back" \
-            "to the ranger station before it's too late. You're hungry, you're thirsty, and you don't know" \
-            "where you are. But if you look closely you might just find some items to help you find your" \
+    intro = "Welcome to the Terror Trail! You've tumbled and lost your way, now you need to make it back " \
+            "to the ranger station before it's too late. You're hungry, you're thirsty, and you don't know " \
+            "where you are. But if you look closely you might just find some items to help you find your " \
             "way back to the ranger station."
     prompt1 = "Do you dare see if you can make it out?"
     prompt2 = "You can start a new game, load game, or quit."
     newline = "\n"
 
-    wrapper = textwrap.TextWrapper(width=100)
+    wrapper = textwrap.TextWrapper(width=90,break_long_words=False,replace_whitespace=False)
     words = wrapper.wrap(text=intro)
     for w in words:
         print(w)
