@@ -46,7 +46,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = LOOK
     #######################################################################################################
-    elif command.lower() == "look" and preposition == "":
+    elif command.lower() == "look" and preposition == "" and use_on == "":
         # call function to print long form explanation of the room
         look(current_room)
         return False
@@ -54,7 +54,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = LOOK AT
     #######################################################################################################
-    elif command.lower() == "look" and preposition.lower() == "at":
+    elif command.lower() == "look" and use_on != "":
         # call function to explain feature or object
         if not look_at(use_on, player1, current_room, rooms):
             print("What you're trying to look at isn't here. Try looking at something else")
