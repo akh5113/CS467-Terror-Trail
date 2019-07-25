@@ -160,7 +160,7 @@ def play_game(game1, player1):
                             moved_rooms = moved_locations(next_room,player1)
                     
                     # If action is not in list of verbs or an exit name, print error message
-                    if moved_rooms == False:
+                    if command != "go" and moved_rooms == False:
                         print("Error: not a valid action. Type <help> to see valid verbs")
                     else:
                        player1.player_status()  
