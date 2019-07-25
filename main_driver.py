@@ -147,9 +147,23 @@ def play_game(game1, player1):
                     player1.player_status()        
                     
                 else:
-                    # If action is not in list of verbs, print error message
-                    print("Error: not a valid action. Type <help> to see valid verbs")
-                    moved_rooms = False
+                    # Check command was not an exit name
+                    for room in game1.rooms:
+                        if command.lower() in room.east_exits or command.lower() in room.west_exits or command.lower() in room.north_exits or command.lower() in room.south_exits:
+                            # change command to use_on
+                            use_on = command
+                            # change command to go
+                            command = "go"
+                            # call move_room function in actions to get next room
+                            next_room = move_room(use_on,current_room, game1.rooms, player1)
+                            # call moved_locations to try to move to that room
+                            moved_rooms = moved_locations(next_room,player1)
+                    
+                    # If action is not in list of verbs or an exit name, print error message
+                    if moved_rooms == False:
+                        print("Error: not a valid action. Type <help> to see valid verbs")
+                    else:
+                       player1.player_status()  
 
 
         # Check for game status

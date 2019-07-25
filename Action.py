@@ -30,18 +30,10 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     if command.lower() in basic_move_cmds:
         # call move room action function to get next room
         next_room = move_room(use_on, current_room, rooms, player1)
-        # if no matching room found
-        if next_room is None:
-            # Then invalid command
-            print("It doesn't look like you currently can or want to go that way. Try a different exit.")
-            return False
-        # if there is a matching room
-        else:
-            # move player to room
-            player1.location = next_room
-            print("Moved to", player1.location.name)
-            print("\n")
-            return True
+        
+        # call moved_locations to check if it was possible to move to the next room
+        moved_locations(next_room,player1)
+
 
     #######################################################################################################
     # ACTION = LOOK
@@ -324,6 +316,27 @@ def check_room_restriction(current_room,next_room,player1):
     # None of the above
     else:
         return None
+
+def moved_locations(next_room,player1):
+    """
+    Determine if next room can be moved to
+    args:
+        next_room (Room): next room to try to move to
+        player1 (Player): the current Player
+    """
+    
+    # if no matching room found
+    if next_room is None:
+        # Then invalid command
+        print("It doesn't look like you currently can or want to go that way. Try a different exit.")
+        return False
+    # if there is a matching room
+    else:
+        # move player to room
+        player1.location = next_room
+        print("Moved to", player1.location.name)
+        print("\n")
+        return True
 
 def get_room_object(room_name, rooms):
     """
