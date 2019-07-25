@@ -25,7 +25,7 @@
         {
             "name": "Water bottle", 
             "description": "This water bottle will be necessary to stay hydrated while you find your way back.",
-            "actions": ["Fill"]
+            "actions": ["Fill", "Drink"]
         }
     ],
     "north": "",

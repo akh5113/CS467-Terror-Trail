@@ -13,28 +13,43 @@ from Action import *
 
 def main():
     """The driver function for the game."""
-    # Load files for Rooms including Features and Objects within rooms
-    rooms = data_import.import_room_data()
-    
-    # Set up game
-    new_game = Game(rooms)
-
-    # Get starting room
-    starting_room = None
-    for room in rooms:
-        if room.room_type == RoomType.START_ROOM:
-            starting_room = room
-    if starting_room is None:
-        print("Error: No Starting Room Set")    # Planning on implementing a better error flag, just using this for now
-
-    # Set up player
-    new_player = Player(starting_room)
-
     # Print intro to Game.
-    new_game.print_intro()
+    data_printer.print_intro()
+    main_menu_input = input(">>>")
 
-    # Start Game
-    play_game(new_game, new_player)
+    # Determine how to start game
+    if main_menu_input == "new game":
+        # Load files for Rooms including Features and Objects within rooms
+        rooms = data_import.import_room_data()
+
+        # Set up game
+        new_game = Game(rooms)
+
+        # Get starting room
+        starting_room = None
+        for room in rooms:
+            if room.room_type == RoomType.START_ROOM:
+                starting_room = room
+        if starting_room is None:
+            print("Error: No Starting Room Set")    # Planning on implementing a better error flag, just using this for now
+
+        # Set up player
+        new_player = Player(starting_room)
+
+        # Print intro to Game.
+        new_game.print_intro()
+
+        # Start Game
+        play_game(new_game, new_player)
+
+    elif main_menu_input in ["loadgame", "load game"]:
+        #TODO implement loading of saved state
+        # play_game(loaded_gme, loaded_player)
+        exit()  #temporary
+
+    else:
+        print("Goodbye!")
+        exit()
 
 
 def play_game(game1, player1):

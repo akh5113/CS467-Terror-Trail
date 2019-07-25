@@ -416,3 +416,21 @@ def inventory(player):
         for obj in player.inventory:
             print(obj.name)
 
+def fill(player):
+    """Fills players water bottle if it's in their inventory"""
+    if "water bottle" not in player.inventory:
+        print("Uh Oh! You don't have your water bottle!")
+    else:
+        print("This will help keep you hydrated as you find your way.")
+    return False
+
+def drink(player):
+    """Player drinks from water bottle. Increases "thirst" health by 10 pts"""
+    if "water bottle" not in player.inventory:
+        print("Uh Oh! You don't have your water bottle!")
+    #TODO implement elif for if your water bottle isn't filled
+    else:
+        print("Refreshing! That will help you go the extra mile. Just don't"
+              "forget to fill it back up!")
+        player.thirst += 10
+    return False
