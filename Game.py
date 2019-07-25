@@ -56,6 +56,7 @@ class Game:
         print("look at <object/feature>     Gives explanation of object or feature")
         print("inventory                    Lists the contents of players inventory")
         print("health                       Displays the player's current hunger and thrist levels")
+        print("exit                         Displays the possible exits from a room.")
         print("savegame                     Saves the current state of the game.")
         print("loadgame                     Loads the previously saved game into play.")
         print("quit                         Exits the game without saving the game state.")
@@ -77,3 +78,15 @@ class Game:
     def health_status(self, player1):
         """Prints the player's current hunger and thrist levels"""
         data_printer.print_health_levels(player1)
+    
+    def list_exit(self,room):
+        """Prints all the possible exit names"""
+        print("Possible exits from", room.name, ":")
+        for exit in room.east_exits:
+            print(exit)
+        for exit in room.west_exits:
+            print(exit)
+        for exit in room.north_exits:
+            print(exit)
+        for exit in room.south_exits:
+            print(exit)

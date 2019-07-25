@@ -123,6 +123,10 @@ def play_game(game1, player1):
             elif command.lower() == "health":
                 game1.health_status(player1)
                 
+            # If action is exit
+            elif command.lower() == "exit":
+                game1.list_exit(player1.location)
+                
             # If action is quit
             elif command.lower() == "quit":
                 game1.quit_game()
