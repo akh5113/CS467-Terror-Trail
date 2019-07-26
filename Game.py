@@ -38,9 +38,16 @@ class Game:
         """Takes all verbs possible for the game and adds them to a list
         Used to determine if user input is correct.
         """
-        #TODO: Need to remove duplicate verbs
         for room in self.rooms:
             self.verbs += room.get_verbs()
+
+        # Remove duplicate verbs
+        dups_removed = []
+        for verb in self.verbs:
+            if verb not in dups_removed:
+                dups_removed.append(verb)
+
+        self.verbs = dups_removed
 
     @staticmethod
     def help():
