@@ -20,12 +20,12 @@
         {
             "name": "Water", 
             "description": "Use this water to fill your water bottle.",
-            "actions": ["Fill"]
+            "actions": ["fill"]
         },
         {
             "name": "Map of park", 
             "description": "North: Mountain; South: Bike trail; East: Raging river; West: Glacier.",
-            "actions": ["Read"]
+            "actions": ["read"]
         }
     ],
     "north": "Mountain",

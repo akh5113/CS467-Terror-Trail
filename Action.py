@@ -92,7 +92,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = RIDE
     #######################################################################################################
-    elif command.lower in ["ride"]:
+    elif command.lower() in ["ride"]:
         ride(player1)
         return False
 
@@ -261,8 +261,8 @@ def inventory(player):
 
 def fill(player):
     """Fills players water bottle if it's in their inventory"""
-    if player.check_inventory("Water Bottle"):
-        wb = player.get_object("Water Bottle")
+    if player.check_inventory("Water bottle"):
+        wb = player.get_object("Water bottle")
         if wb.used is False:
             wb.used = True
             print("This will help keep you hydrated as you find your way.")
@@ -273,8 +273,8 @@ def fill(player):
 
 def drink(player):
     """Player drinks from water bottle. Increases "thirst" health by 10 pts"""
-    if player.check_inventory("Water Bottle"):
-        wb = player.get_object("Water Bottle")
+    if player.check_inventory("Water bottle"):
+        wb = player.get_object("Water bottle")
         if wb.used is True:
             print("Refreshing! That will help you go the extra mile. Just don't"
                   "forget to fill it back up!")
