@@ -54,8 +54,15 @@ class Game:
         print("take <object>                Acquires object by putting it in player's inventory.")
         print("look                         States description of the current Room")
         print("look at <object/feature>     Gives explanation of object or feature")
+        print("fill                         If 'Water Bottle' is in player's inventory, fill to be able to "
+              "                             drink from.")
+        print("drink                        If 'Water Bottle' is in player's inventory and it has been filled,"
+              "                             drink to increase players hydration levels.")
+        print("turn on                      If 'Flashlight' is in player's inventory, turns flashlight on to be used.")
+        print("put on                       Puts on object if in player's inventory.")
+        print("ride                         Rides bike if in player's inventory")
         print("inventory                    Lists the contents of players inventory")
-        print("health                       Displays the player's current hunger and thrist levels")
+        print("health                       Displays the player's current energy and hydration levels")
         print("exit                         Displays the possible exits from a room.")
         print("savegame                     Saves the current state of the game.")
         print("loadgame                     Loads the previously saved game into play.")

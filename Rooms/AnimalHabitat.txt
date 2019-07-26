@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Informational sign",
-            "actions": ["Read"],
+            "actions": ["read"],
             "description1": "It's too dark to make out the sign, maybe these flashlight batteries will help.",
             "description2": "'A beaver den lies ahead, though their noises may be alarming, they are gentle creatures - feel free to step closer to observe.'"
         },
         { 
             "name": "Animal habitat",
-            "actions": ["Observe", "View"],
+            "actions": ["observe", "view"],
             "description1": "Without reading the sign you may not want to get too close to the noisy creature.",
             "description2": "Ah a beaver! All those strange noises must have been it chomping on wood for it's home."
         }

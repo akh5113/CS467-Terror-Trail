@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Lock",
-            "actions": ["Unlock"],
+            "actions": ["unlock"],
             "description1": "Just your luck the door is locked tight. I wonder if there is a spare key around here somewhere?",
             "description2": "I think you can use a key to get in here now!"
         },
         { 
             "name": "Doormat",
-            "actions": ["Look under"],
+            "actions": ["look under"],
             "description1": "Not the most sneaky way to hide a key, but it sure is lucky for you that it was here!",
             "description2": "There is nothing left under this doormat."
         }
@@ -20,12 +20,12 @@
         {
             "name": "Key", 
             "description" : "This key may be your ticket home! Hopefully it is the correct key for the lock.",
-            "actions": ["Use"]
+            "actions": ["use"]
         },
         {
             "name": "Radio", 
             "description": "This radio can help you reach someone. Call the radio to find out.",
-            "actions": ["Pickup", "Call"]
+            "actions": ["pickup", "call"]
         }        
     ],
     "north": "",

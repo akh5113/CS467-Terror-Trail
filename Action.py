@@ -33,7 +33,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
         
         # call moved_locations to check if it was possible to move to the next room
         moved_locations(next_room,player1)
-
+        return True
 
     #######################################################################################################
     # ACTION = LOOK
@@ -46,7 +46,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = LOOK AT
     #######################################################################################################
-    elif command.lower() == "look" and use_on != "":
+    elif command.lower() == "look" and use_on != "" or command.lower in ["observe", "read", "view", "search", "examine"]:
         # call function to explain feature or object
         if not look_at(use_on, player1, current_room, rooms):
             print("What you're trying to look at isn't here. Try looking at something else")
@@ -66,6 +66,41 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     elif command.lower() == "inventory":
         inventory(player1)
+        return False
+
+    #######################################################################################################
+    # ACTION = INVENTORY
+    #######################################################################################################
+    elif command.lower() in ["wear", "put on"]:
+        wear(player1)
+        return False
+
+    #######################################################################################################
+    # ACTION = FILL
+    #######################################################################################################
+    elif command.lower() in ["fill"]:
+        fill(player1)
+        return False
+
+    #######################################################################################################
+    # ACTION = DRINK
+    #######################################################################################################
+    elif command.lower() in ["drink"]:
+        drink(player1)
+        return False
+
+    #######################################################################################################
+    # ACTION = PUT ON
+    #######################################################################################################
+    elif command.lower() in ["wear", "put on"]:
+        put_on(player1, use_on)
+        return False
+
+    #######################################################################################################
+    # ACTION = RIDE
+    #######################################################################################################
+    elif command.lower in ["ride"]:
+        ride(player1)
         return False
 
 
@@ -172,6 +207,8 @@ def look(current_room):
     Repeats the long form explination of the room
     args:
         current_room(Room): current player location
+    Returns:
+        if user moved rooms
     """
     data_printer.print_room_long(current_room)
 
@@ -225,21 +262,70 @@ def inventory(player):
         for obj in player.inventory:
             print(obj.name)
 
+#######################################################################################################
+# OBJECT ACTIONS
+#######################################################################################################
+
 def fill(player):
     """Fills players water bottle if it's in their inventory"""
-    if "water bottle" not in player.inventory:
-        print("Uh Oh! You don't have your water bottle!")
+    if player.check_inventory("Water Bottle"):
+        wb = player.get_object("Water Bottle")
+        if wb.used is False:
+            wb.used = True
+            print("This will help keep you hydrated as you find your way.")
+        else:
+            print("You're bottle is already full!")
     else:
-        print("This will help keep you hydrated as you find your way.")
-    return False
+        print("Uh Oh! You don't have your water bottle!")
 
 def drink(player):
     """Player drinks from water bottle. Increases "thirst" health by 10 pts"""
-    if "water bottle" not in player.inventory:
-        print("Uh Oh! You don't have your water bottle!")
-    #TODO implement elif for if your water bottle isn't filled
+    if player.check_inventory("Water Bottle"):
+        wb = player.get_object("Water Bottle")
+        if wb.used is True:
+            print("Refreshing! That will help you go the extra mile. Just don't"
+                  "forget to fill it back up!")
+            player.hydration += 10
+            data_printer.print_health_levels(player)
+        else:
+            print("Oh no! You forgot to fill your bottle! Looks like you need to find water.")
     else:
-        print("Refreshing! That will help you go the extra mile. Just don't"
-              "forget to fill it back up!")
-        player.thirst += 10
-    return False
+        print("Uh Oh! You don't have your water bottle!")
+
+def put_on(player, obj):
+    """For player to put on shoe if they exist in inventory"""
+    if player.check_inventory(obj):
+        inv_obj = player.get_object(obj)
+        if inv_obj.used is True:
+            print("You've already put on this!")
+        else:
+            print("Ahh good decision to put on {}".format(obj))
+            inv_obj.used = True
+
+    else:
+        print("You don't have any {} to put on!".format(obj))
+
+def turn_on(player):
+    """Turn on flashlight"""
+    if player.check_inventory("Flashlight"):
+        flashlight = player.get_object("Flashlight")
+        # Check f
+
+def ride(player):
+    """Allows player to ride bike """
+    # Check for bike in inventory
+    if player.check_inventory("Bike"):
+        bike = player.get_object("Bike")
+        # Check for tire in inventory
+        if player.check_inventory("Tire"):
+            tire = player.get_object("Tire")
+            if tire.used is True:
+                print("You're really movin now!")
+                bike.used = True
+            else:
+                print("You have a tire, you just need to put it on!")
+        else:
+            print("You need to find a tire and put it on before you can ride!")
+    else:
+        print("You need to find a bike before you can ride it!")
+

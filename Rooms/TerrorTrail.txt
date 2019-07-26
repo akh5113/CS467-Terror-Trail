@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Pile of leaves",
-            "actions": ["dig"],
+            "actions": ["look at"],
             "description1": "Good thing you looked in this pile of leaves - you found your water bottle!",
             "description2": "Nothing else is in this pile of leaves."
         },
         { 
             "name": "Hole",
-            "actions": ["look"],
+            "actions": ["look at"],
             "description1": "I see a faint light at the bottom of this hole. Is that your flashlight?",
             "description2": "Looks like this is an empty hole!"
         }

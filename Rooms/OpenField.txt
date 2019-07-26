@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Water feature",
-            "actions": ["Walk to"],
+            "actions": ["walk to"],
             "description1": "This water feature is a little stream with some apple trees around it. There are some water shoes that someone might have lost upstream.",
             "description2": "The bubbling water feature is relaxing to listen to."
         },
         { 
             "name": "The sky getting darker",
-            "actions": ["Observe", "View"],
+            "actions": ["observe", "view"],
             "description1": "It appears to be getting late, you might want to hurry to get out of the park before you starve or get too thirsty. Quickly look around for something that might be helpful.",
             "description2": "The sky looks even darker now!"
         }
@@ -20,12 +20,12 @@
         {
             "name": "Water shoes", 
             "description" : "You may want to save these shoes for any other strange water areas you encounter down the road.",
-            "actions": ["Wear", "Put On"]
+            "actions": ["wear", "put on"]
         },
         {
             "name": "Apples", 
             "description": "These bright red apples are just what you need to feed your hunger.",
-            "actions": ["Eat"]
+            "actions": ["eat"]
         }        
     ],
     "north": "Hot spring",

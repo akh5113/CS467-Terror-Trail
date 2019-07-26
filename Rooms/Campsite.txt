@@ -5,7 +5,7 @@
     "features": [
         { 
             "name": "Tree",
-            "actions": ["Look behind"],
+            "actions": ["look behind"],
             "description1": "There is a nice tent here, seems like too nice of a tent for someone wanting to ditch it completely...",
             "description2": "Looks like you have already picked up everything in this camp area."
         },

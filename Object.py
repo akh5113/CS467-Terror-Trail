@@ -12,6 +12,7 @@ class Object:
         """Constructor.
         args:
            name (str): name of the object.
+           description (str): description of the object
            action (str): action of the object.
         """
         self.name = name
@@ -22,4 +23,5 @@ class Object:
             self.actions.append(verb)
 
         self.used = False       # Has the object been found/used
+
 

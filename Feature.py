@@ -18,9 +18,13 @@ class Feature:
         """
         self.room_name = room_name
         self.feature_name = feature_name
-        self.actions = actions             # List
         self.description_with_objects = description1
         self.description_no_objects = description2
+
+        self.actions = ["look at"]
+        for a in actions:
+            self.actions.append(a)
+
         self.viewed = False
 
 

@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Faucet",
-            "actions": ["Inspect", "Turn On"],
+            "actions": ["inspect", "turn on"],
             "description1": "Looks like you need to turn this faucet on to fill the tub with water!",
             "description2": "Turn the faucet on to enjoy some time in the hot tub."
         },
         { 
             "name": "Hot spring tub",
-            "actions": ["Go in", "Swim in"],
+            "actions": ["go in", "swim in"],
             "description1": "Oh the water looks nice! Make sure you get on your water shoes before you go in!",
             "description2": "Ready for a relaxing dip?"
         }

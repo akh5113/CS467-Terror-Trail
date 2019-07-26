@@ -4,7 +4,7 @@
     "short_intro": "This glacier sure is slippery. You won’t be able to cross it without the proper equipment.",
     "features": [
         { 
-            "name": "Warning sign",
+            "name": "Sign",
             "actions": [""],
             "description1": "'WARNING! The path across the glacier is extremely dangerous. Do NOT cross without proper equipment and use of anchor!'",
             "description2": "'WARNING! The path across the glacier is extremely dangerous. Do NOT cross without proper equipment and use of anchor!'"

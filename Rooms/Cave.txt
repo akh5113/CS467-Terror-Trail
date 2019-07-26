@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Dripping sound",
-            "actions": ["Search", "Examine"],
+            "actions": ["search", "examine"],
             "description1": "Looks like you found a natural spring. Feeling thirsty? This has to be the best water around!",
             "description2": "You've already gotten water from here - the dripping water is all dried up."
         },
         {
             "name": "Cave art",
-            "actions": ["Look at", "View"],
+            "actions": ["look at", "view"],
             "description1": "Here lies a map of the park, though it looks like it may not be complete...",
             "description2": "You've already viewed the map."
         }
