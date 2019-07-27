@@ -28,7 +28,6 @@
     "east": "Animal Habitat",
     "west": "",
     "long_exit": "Looking for some water? I think I see a body of water just south of here.",
-    "short_exit": "",
     "north_exits": ["north", "bike trail"],
     "south_exits": ["south", "lake", "body of water"],
     "east_exits": ["east", "animal habitat", "odd noises", "noises"],

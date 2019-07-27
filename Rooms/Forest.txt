@@ -28,7 +28,6 @@
     "east": "Bike Trail",
     "west": "",
     "long_exit": "There appears to be some sort of trail to the East but you also hear some odd noises in the distance south.",
-    "short_exit": "",
     "north_exits": [""],
     "south_exits": ["south", "animal habitat", "odd noises", "noises"],
     "east_exits": ["east", "bike trail", "trail"],

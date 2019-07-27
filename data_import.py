@@ -19,7 +19,6 @@ def init_room(data):
     long_intro = data['long_intro']
     short_intro = data['short_intro']
     long_exit = data['long_exit']
-    short_exit = data['short_exit']
     north = data['north']
     south = data['south']
     east = data['east']
@@ -36,7 +35,6 @@ def init_room(data):
                 long_intro, 
                 short_intro, 
                 long_exit, 
-                short_exit, 
                 north, 
                 south, 
                 east, 

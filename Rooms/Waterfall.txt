@@ -33,7 +33,6 @@
     "east": "",
     "west": "Mountain",
     "long_exit": "You see a river South of the waterfall but you’re not going to be able to travel it without a raft. Maybe you should turn back and explore the mountains in the West more.",
-    "short_exit": "",
     "north_exits": [""],
     "south_exits": ["south", "river", "rapids"],
     "east_exits": [""],
