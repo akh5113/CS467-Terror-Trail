@@ -20,12 +20,6 @@ class Game:
         self.get_additional_verbs()
 
     def check_game_status(self, current_player):
-        if self.game_over is True:
-            print("Game Over")
-        # If the player's thirst or hunger levels have gotten to 0, they have died
-        elif current_player.alive is False:
-            self.game_over = True
-            print("You died, game over")
         # If the player made it to the END_ROOM room type, they have won
         # TODO this will probably change as we develop the game, keeping it simple for now
         if current_player.check_inventory("Key"):
@@ -33,6 +27,12 @@ class Game:
             if key.used is True and current_player.location.room_type is RoomType.END_ROOM:
                 print("YOU WON")
                 self.game_over = True
+        elif self.game_over is True:
+            print("Game Over")
+        # If the player's thirst or hunger levels have gotten to 0, they have died
+        elif current_player.alive is False:
+            self.game_over = True
+            print("You died, game over")
         # Otherwise, game is still in play
         else:
             self.game_over = False
