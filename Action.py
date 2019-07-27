@@ -49,7 +49,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
         # call function to explain feature or object
         if not look_at(use_on, player1, current_room, rooms):
             print("What you're trying to look at isn't here. Try looking at something else")
-            return False
+        return False
 
     #######################################################################################################
     # ACTION = TAKE
@@ -232,6 +232,11 @@ def look_at(item,player1,room,rooms):
             if item.capitalize() == feature.feature_name:
                 # if feature is part of the current room
                 feature.print_description(rooms)
+                # mark the item as viewed
+                feature.viewed = True
+                # call function to check if room has been completed
+                room.check_room_completion()
+
                 return True
         # Check if object in room
         for o in room.objects:

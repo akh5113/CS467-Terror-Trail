@@ -108,9 +108,9 @@ class Room:
             self.feature: the feature of the room
         """
         if option == 1:
-            return self.features()[0]
+            return self.features[0]
         else:
-            return self.features()[1]
+            return self.features[1]
 
     def get_object(self, obj_name):
         """Get specific object from the room
@@ -184,6 +184,14 @@ class Room:
             return False
         return True
 
+    def check_room_completion(self):
+        # Check if the feature is in that room
+        f1 = self.features[0]
+        f2 = self.features[1]
+        if f1.viewed and f2.viewed:
+            self.completed = True
+        else:
+            self.completed = False
 
     def check_room_restriction(self,next_room,player1):
         """
@@ -243,7 +251,7 @@ class Room:
 #        else:
             # they can travel to river without raft
  #           return next_room
-        
+
         # Cave next room  and River Current Room
         elif next_room.name == "Cave" and self.name == "River":
             # if yes, check inventory for raft and oar
@@ -311,11 +319,8 @@ class Room:
                 return None
             else:
                 return next_room
-            # If current isn't the Bike Trail or Animal Habitat
- #           else:
-                # they can travel to the Campsite without extra equipment
-#                return next_room
-        # Bike Trail next room
+
+        # Bike Trail next room and Campsite current room
         # Restriction: must have bike and tire in inventory and tire must be used
         elif next_room.name == "Bike trail" and self.name == "Campsite":
             # Call Ride function to check inventory
