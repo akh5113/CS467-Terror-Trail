@@ -6,6 +6,7 @@
 from Player import *
 from Room import *
 import textwrap
+import pickle
 
 class Game:
     """Game engine that runs the game."""
@@ -60,13 +61,16 @@ class Game:
         print("quit                         Exits the game without saving the game state.")
         print("-------------------------------------------------------------------------------------")
 
-    def save_game(self):
-        """Saves the state of the game"""
+    def save_game(self, player, game):
+        """
+        Saves the state of the game.
+        Args:
+            player (Player): The player object in the last saved state.
+            game (Game): The game object in the last saved state.
+        """
         # write data to a file
-
-    def load_game(self):
-        """Loads a saved state of the game"""
-        # load in saved files
+        pickle.dump(player, open("saved_player.txt", "wb"))
+        pickle.dump(game, open("saved_game.txt", "wb"))
 
     def quit_game(self):
         """Quits the game without saving the state"""
