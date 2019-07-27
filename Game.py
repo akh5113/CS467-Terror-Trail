@@ -66,10 +66,11 @@ class Game:
               "                             drink from.")
         print("drink                        If 'Water Bottle' is in player's inventory and it has been filled,"
               "                             drink to increase players hydration levels.")
-        print("turn on                      If 'Flashlight' is in player's inventory, turns flashlight on to be used.")
-        print("put on                       Puts on object if in player's inventory.")
+        print("turn on <object>             If 'Flashlight' is in player's inventory, turns flashlight on to be used.")
+        print("put on <object>              Puts on object if in player's inventory.")
         print("ride                         Rides bike if in player's inventory")
         print("inventory                    Lists the contents of players inventory")
+        print("secure <object>              If 'Rope' is in player's inventory, secures Rope to cross glacier")
         print("health                       Displays the player's current energy and hydration levels")
         print("exit                         Displays the possible exits from a room.")
         print("savegame                     Saves the current state of the game.")

@@ -95,6 +95,15 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
         ride(player1)
         return False
 
+    #######################################################################################################
+    # ACTION = SECURE
+    #######################################################################################################
+    elif command.lower() in ["secure", "attach"]:
+        secure(player1, use_on)
+        return False
+
+    else:
+        return False #TODO change to error message
 
     
 def move_room(go_to, current_room, rooms, player1):
@@ -106,10 +115,6 @@ def move_room(go_to, current_room, rooms, player1):
         rooms(dict): dictionary object containing all rooms
         player1(Player): current player(used to access inventory)
     """
-
-    # Exits which require objects to move to
-    # restricted_rooms = ["Waterfall","River","Cave","Forest","Bike Trail","Campsite"]
-
     # Set next_room to None
     next_room = None
 
@@ -131,9 +136,6 @@ def move_room(go_to, current_room, rooms, player1):
         return None
     
     # Check if the next_room is a restricted room
-    #    if next_room.name in restricted_rooms:
-    #        # Check the restriction
-    #        next_room = current_room.check_room_restriction(next_room,player1)
     if next_room.restricted is True:
         next_room = current_room.check_room_restriction(next_room, player1)
 
@@ -307,6 +309,10 @@ def turn_on(player):
 
 def ride(player):
     """Allows player to ride bike
+    Args:
+        player (Player): player in the game
+    Returns:
+        bool: if the player can successfully ride a bike
     TODO: incorporate this more with moving rooms
     """
     # Check for bike in inventory
@@ -329,3 +335,20 @@ def ride(player):
         print("You need to find a bike before you can ride it!")
         return False
 
+def secure(player, obj):
+    """Allows player to secure object
+    Args:
+        player (Player): player of the game
+        obj (str): object to secure
+    Returns:
+        bool: if the player successfully secured the object
+    """
+    # check for object in inventory
+    if player.check_inventory(obj.capitalize()):
+        returned_obj = player.get_object(obj.capitalize())
+        returned_obj.used = True
+        print("The rope has been secured.")
+        return True
+    else:
+        print("You don't have {} to secure.".format(obj))
+        return False
