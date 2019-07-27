@@ -14,6 +14,7 @@ In this exciting command line game you will experience a descriptive storyline f
 
 ## How to Play
 1. Clone or download the source code.
-2. Via command line enter the following code snippet:
+2. Set console window width to a minimum of 90 characters.
+3. Via command line enter the following code snippet:
 
         python3 main_driver.py
