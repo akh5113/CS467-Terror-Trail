@@ -27,7 +27,7 @@ class Game:
             self.game_over = True
             print("You died, game over")
         # If the player made it to the END_ROOM room type, they have won
-        # Note: this will probably change as we develop the game, keeping it simple for now
+        # TODO this will probably change as we develop the game, keeping it simple for now
         elif current_player.location.room_type is 2:
             print("YOU WON")
             self.game_over = True

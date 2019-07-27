@@ -11,7 +11,7 @@ import data_printer
 from Room import *
 from Player import *
 
-def determine_action(rooms, player1, current_room, command, preposition, use_on):
+def determine_action(game, rooms, player1, current_room, command, preposition, use_on):
     """Takes user input and determines which action it will send the appropriate arguments to
     Args:
         rooms (list): List of rooms in the game
@@ -108,6 +108,13 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     elif command.lower() in ["eat"]:
         eat(player1, use_on)
         return False
+
+    #######################################################################################################
+    # ACTION = UNLOCK
+    #######################################################################################################
+    elif command.lower() in ["unlock"]:
+        unlock(player1, current_room, game)
+        return True
     else:
         return False #TODO change to error message
 
@@ -377,3 +384,11 @@ def eat(player, obj):
         player.remove_obj_from_inventory(food)
     else:
         print("You don't have {} in your inventory! Hope you find some soon!")
+
+
+def unlock(player, room, game):
+    """Player unlocks door with key, has won game"""
+    #TODO implement this ending the game
+    if player.check_inventory("Key") and room.name == "Ranger Station":
+        print("You did it! You made it inside!")
+        game.game_over = True
