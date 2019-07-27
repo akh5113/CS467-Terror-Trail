@@ -85,14 +85,14 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = PUT ON
     #######################################################################################################
-    elif command.lower() in ["wear", "put on"]:
+    elif command.lower() in ["wear", "put"]:
         put_on(player1, use_on)
         return False
 
     #######################################################################################################
     # ACTION = RIDE
     #######################################################################################################
-    elif command.lower() in ["ride"]:
+    elif command.lower() in ["ride", "bike"]:
         ride(player1)
         return False
 

@@ -25,7 +25,7 @@
         {
             "name": "Tire", 
             "description": "This tire must go with a broken bike.",
-            "actions": ["put on"]
+            "actions": ["put on", "put"]
         }       
     ],
     "north": "Cave",
@@ -37,5 +37,6 @@
     "south_exits": ["south", "campsite", "flickering light", "smoke"],
     "east_exits": [""],
     "west_exits": ["west", "forest"],
-    "room_type": "MID_ROOM"
+    "room_type": "MID_ROOM",
+    "restricted": true
 }

@@ -30,7 +30,8 @@ class Room:
                  south_exits,
                  east_exits,
                  west_exits,
-                 room_type):
+                 room_type,
+                 restricted):
 
         """
         Constructor.
@@ -51,6 +52,8 @@ class Room:
             south_exits (list): names used to identify room to the South
             east_exits (list): names used to identify room to the East
             west_exits (list): names used to identify room to the West
+            room_type (enum): to determine if the room is a start, mid, or ending room
+            restricted (bool): if the room requires objects to enter
             """
         self.name = name
         self.long_intro = long_intro
@@ -69,11 +72,12 @@ class Room:
         # Objects in Room
         self.objects = objects
 
-        self.isLocked = False       # If room has required object to enter
         self.visited = False        # If the room has been visited
         self.completed = False      # If the object/task has been completed in the room
 
         self.room_type = RoomType[room_type]
+
+        self.restricted = restricted    # If room has required object to enter
 
         # Names for all adjacent rooms this is a list of strings
         self.north_exits = north_exits
@@ -322,20 +326,21 @@ class Room:
         elif next_room.name == "Campsite":
             # Check if current room is Bike Trail
             if self.name == "Bike Trail":
-                # if yes, check inventory for biek
-                if player1.check_inventory("Bike"):
-                    # if player has bike, ask if they want to use
-                    print("Would you like to bike to the Campsite?")
+                # if yes, check inventory for bike and tire and that the tire's been used
+                if player1.check_inventory("Bike") and player1.check_inventory("Tire"):
+                    # if player has bike and tire, ask if they want to use
+                    print("The only way to get to the campsite is to ride your bike.")
                     use_bike = input(">>>")
-                    yes_bike = ["yes","Yes","YES","Y","y"]
+                    if use_bike == "ride":
+                        ride(player1)
                     # if they want to use the bike
-                    if use_bike in yes_bike:
-                        print("You have decided to ride your bike down the Bike Trail to the Campsite.")
+                    # if use_bike in yes_bike:
+                    #    print("You have decided to ride your bike down the Bike Trail to the Campsite.")
                         # return campsite
-                        return next_room
+                    #    return next_room
                     #if they don't want to use the bike, then no movement
-                    print("You have decided not to use your bike right now.")
-                    return None
+                    #print("You have decided not to use your bike right now.")
+                    #return None
                 # if they don't have a bike in inventory
                 else:
                    # can't travel this way

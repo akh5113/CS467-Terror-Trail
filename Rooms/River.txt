@@ -37,5 +37,6 @@
     "south_exits": [""],
     "east_exits": [""],
     "west_exits": ["west", "cave", "rapids", "water rapids"],
-    "room_type": "MID_ROOM"
+    "room_type": "MID_ROOM",
+    "restricted": true
 }

@@ -15,47 +15,59 @@ def main():
     """The driver function for the game."""
     # Print intro to Game.
     data_printer.print_intro()
-    main_menu_input = input(">>>")
 
     # Determine how to start game
-    if main_menu_input == "new game":
-        # Load files for Rooms including Features and Objects within rooms
-        rooms = data_import.import_room_data()
+    valid_choice = False
+    while valid_choice is False:
+        main_menu_input = input(">>>")
+        if main_menu_input == "new game":
+            valid_choice = True
+            # Load files for Rooms including Features and Objects within rooms
+            rooms = data_import.import_room_data()
 
-        # Set up game
-        new_game = Game(rooms)
+            # Set up game
+            new_game = Game(rooms)
 
-        # Get starting room
-        starting_room = None
-        for room in rooms:
-            if room.room_type == RoomType.START_ROOM:
-                starting_room = room
-        if starting_room is None:
-            print("Error: No Starting Room Set")    # Planning on implementing a better error flag, just using this for now
+            # Get starting room
+            starting_room = None
+            for room in rooms:
+                if room.room_type == RoomType.START_ROOM:
+                    starting_room = room
+            if starting_room is None:
+                print("Error: No Starting Room Set")    # Planning on implementing a better error flag, just using this for now
 
-        # Set up player
-        new_player = Player(starting_room)
+            # Set up player
+            new_player = Player(starting_room)
 
-        # Start Game
-        play_game(new_game, new_player)
+            # Start Game
+            play_game(new_game, new_player)
 
-    elif main_menu_input in ["loadgame", "load game"]:
+        elif main_menu_input in ["loadgame", "load game"]:
+            valid_choice = True
 
-        # Load Saved Player Data
-        loaded_player = data_import.load_player()
+            # Load Saved Player Data
+            loaded_player = data_import.load_player()
 
-        # Load Saved Game Data
-        loaded_game = data_import.load_game()
+            # Load Saved Game Data
+            loaded_game = data_import.load_game()
 
-        print("Game resumed!")
+            print("Game resumed!")
 
-        # Play game with saved player and game data
-        play_game(loaded_game, loaded_player)
-        exit()  #temporary
+            # Play game with saved player and game data
+            play_game(loaded_game, loaded_player)
+            exit()  #temporary
 
-    else:
-        print("Goodbye!")
-        exit()
+        elif main_menu_input == "quit":
+            valid_choice = True
+            print("Goodbye!")
+            exit()
+
+        else:
+            valid_choice = False
+            print("Please enter a valid command:"
+                  " <new game>"
+                  " <load game>"
+                  " <quit>")
 
 
 def play_game(game1, player1):
@@ -115,6 +127,9 @@ def play_game(game1, player1):
                 use_on = ""
                 preposition = ""
 
+            print("command = {}".format(command))
+            print("preposition = {}".format(preposition))
+            print("use_on = {}".format(use_on))
             ############################################################################
             #
             # DETERMINE ACTION
@@ -165,7 +180,6 @@ def play_game(game1, player1):
                 # Determine if the action is possible given the objects/features
                 #TODO determine verbs for this for specific room instead of whole game verbs
                 if command in game1.verbs:
-                    print(game1.verbs)
                     moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
                     valid_action = True
                     

@@ -42,5 +42,6 @@
     "south_exits": [""],
     "east_exits": ["east", "green space", "open field"],
     "west_exits": [""],
-    "room_type": "MID_ROOM"
+    "room_type": "MID_ROOM",
+    "restricted": false
 }

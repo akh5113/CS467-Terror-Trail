@@ -32,5 +32,6 @@
     "south_exits": ["south", "lake", "body of water"],
     "east_exits": ["east", "animal habitat", "odd noises", "noises"],
     "west_exits": [""],
-    "room_type": "MID_ROOM"
+    "room_type": "MID_ROOM",
+    "restricted": true
 }

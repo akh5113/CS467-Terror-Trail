@@ -32,5 +32,6 @@
     "south_exits": ["south", "animal habitat", "odd noises", "noises"],
     "east_exits": ["east", "bike trail", "trail"],
     "west_exits": [""],
-    "room_type": "MID_ROOM"
+    "room_type": "MID_ROOM",
+    "restricted": true
 }

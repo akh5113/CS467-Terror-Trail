@@ -37,5 +37,6 @@
     "south_exits": ["south", "cave"],
     "east_exits": ["east", "waterfall", "rushing water"],
     "west_exits": ["west", "terror trail", "beginning", "fell", "fall"],
-    "room_type": "MID_ROOM"
+    "room_type": "MID_ROOM",
+    "restricted": false
 }
