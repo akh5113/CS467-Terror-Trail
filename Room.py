@@ -252,7 +252,7 @@ class Room:
             # they can travel to river without raft
  #           return next_room
 
-        # Cave next room  and River Current Room
+        # Cave next room and River Current Room
         elif next_room.name == "Cave" and self.name == "River":
             # if yes, check inventory for raft and oar
             if player1.check_inventory("Raft") and player1.check_inventory("Oar"):

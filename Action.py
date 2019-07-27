@@ -102,10 +102,15 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
         secure(player1, use_on)
         return False
 
+    #######################################################################################################
+    # ACTION = EAT
+    #######################################################################################################
+    elif command.lower() in ["eat"]:
+        eat(player1, use_on)
+        return False
     else:
         return False #TODO change to error message
 
-    
 def move_room(go_to, current_room, rooms, player1):
     """
     Get next room object to move to from current room to the user entered room
@@ -357,3 +362,18 @@ def secure(player, obj):
     else:
         print("You don't have {} to secure.".format(obj))
         return False
+
+def eat(player, obj):
+    """Player eats object to increase engery.
+    Once player has eaten object it is removed from inventory
+    """
+    if player.check_inventory(obj.capitalize()):
+        food = player.get_object(obj.capitalize())
+        food.used = True # possibly unnecessary but keeping it right now for clarity
+        # Increase players energy
+        player.energy += 20     # Possibly change depending on food
+        print("YUM! The {} was just what you needed to help you get the extra mile.".format(obj.capitalize()))
+        # Remove food from inventory
+        player.remove_obj_from_inventory(food)
+    else:
+        print("You don't have {} in your inventory! Hope you find some soon!")

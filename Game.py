@@ -68,6 +68,7 @@ class Game:
               "                             drink to increase players hydration levels.")
         print("turn on <object>             If 'Flashlight' is in player's inventory, turns flashlight on to be used.")
         print("put on <object>              Puts on object if in player's inventory.")
+        print("eat <object>                 Increases players energy levels.")
         print("ride                         Rides bike if in player's inventory")
         print("inventory                    Lists the contents of players inventory")
         print("secure <object>              If 'Rope' is in player's inventory, secures Rope to cross glacier")
