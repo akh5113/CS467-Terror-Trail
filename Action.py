@@ -32,8 +32,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
         next_room = move_room(use_on, current_room, rooms, player1)
         
         # call moved_locations to check if it was possible to move to the next room
-        moved_locations(next_room,player1)
-        return True
+        return moved_locations(next_room,player1)
 
     #######################################################################################################
     # ACTION = LOOK
@@ -109,11 +108,11 @@ def move_room(go_to, current_room, rooms, player1):
     """
 
     # Exits which require objects to move to
-    restricted_rooms = ["Waterfall","River","Cave","Forest","Bike Trail","Campsite"]
+    # restricted_rooms = ["Waterfall","River","Cave","Forest","Bike Trail","Campsite"]
 
     # Set next_room to None
     next_room = None
-    
+
     # Check if the go_to room is a possible exit, if so make it the next_room
     if go_to.lower() in current_room.north_exits or go_to == current_room.north:
         next_room = get_room_object(current_room.north, rooms)
@@ -132,10 +131,12 @@ def move_room(go_to, current_room, rooms, player1):
         return None
     
     # Check if the next_room is a restricted room
-    if next_room.name in restricted_rooms:
-        # Check the restriction
-        next_room = current_room.check_room_restriction(next_room,player1)
-    
+    #    if next_room.name in restricted_rooms:
+    #        # Check the restriction
+    #        next_room = current_room.check_room_restriction(next_room,player1)
+    if next_room.restricted is True:
+        next_room = current_room.check_room_restriction(next_room, player1)
+
     # Return the room. Will be None if there was an issue
     return next_room
 
@@ -287,8 +288,8 @@ def drink(player):
 
 def put_on(player, obj):
     """For player to put on shoe if they exist in inventory"""
-    if player.check_inventory(obj):
-        inv_obj = player.get_object(obj)
+    if player.check_inventory(obj.capitalize()):
+        inv_obj = player.get_object(obj.capitalize())
         if inv_obj.used is True:
             print("You've already put on this!")
         else:
@@ -305,7 +306,9 @@ def turn_on(player):
         # Check f
 
 def ride(player):
-    """Allows player to ride bike """
+    """Allows player to ride bike
+    TODO: incorporate this more with moving rooms
+    """
     # Check for bike in inventory
     if player.check_inventory("Bike"):
         bike = player.get_object("Bike")
@@ -315,10 +318,14 @@ def ride(player):
             if tire.used is True:
                 print("You're really movin now!")
                 bike.used = True
+                return True
             else:
                 print("You have a tire, you just need to put it on!")
+                return False
         else:
             print("You need to find a tire and put it on before you can ride!")
+            return False
     else:
         print("You need to find a bike before you can ride it!")
+        return False
 

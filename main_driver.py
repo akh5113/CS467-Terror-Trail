@@ -90,6 +90,11 @@ def play_game(game1, player1):
         # Get current room
         current_room = player1.location
 
+        #print current room
+        print("****************************************************")
+        print("You are in the {}".format(current_room.name))
+        print("****************************************************")
+
         # Display health
         data_printer.print_health_levels(player1)
 
@@ -127,9 +132,6 @@ def play_game(game1, player1):
                 use_on = ""
                 preposition = ""
 
-            print("command = {}".format(command))
-            print("preposition = {}".format(preposition))
-            print("use_on = {}".format(use_on))
             ############################################################################
             #
             # DETERMINE ACTION
