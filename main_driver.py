@@ -6,6 +6,7 @@
 import sys
 import data_import
 import data_printer
+import time
 from Player import *
 from Game import *
 from Room import *
@@ -47,11 +48,13 @@ def main():
         # Load Saved Game Data
         loaded_game = data_import.load_game()
 
-        print("Game resumed!")
-
-        # Play game with saved player and game data
-        play_game(loaded_game, loaded_player)
-        exit()  #temporary
+        if (not loaded_game or not loaded_player ):
+            print("Error: Unable to load game!")
+            exit()
+        else:
+            print("Game resumed!")
+            # Play game with saved player and game data
+            play_game(loaded_game, loaded_player)
 
     else:
         print("Goodbye!")
@@ -84,6 +87,7 @@ def play_game(game1, player1):
         # Determine Into to display (short or long)
         # Display the intro
         data_printer.print_room_intro(current_room)
+
         # Display exit info so user knows how to exit
         data_printer.print_room_exit(current_room)
 
@@ -135,9 +139,16 @@ def play_game(game1, player1):
                 game1.save_game(player1)
                 moved_rooms = False
 
-            # If action is loadame
+            # If action is loadgame
             elif command.lower() == "loadgame":
-                game1.load_game()
+                game1 = data_import.load_game()
+                player1 = data_import.load_player()
+
+                if (not game1 or not player1):
+                    print("Error: Unable to load game!")
+                else:
+                    print("Game resumed!")
+
 
             # If action is health
             elif command.lower() == "health":
