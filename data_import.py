@@ -6,7 +6,6 @@
 import json
 import glob
 import pickle
-import os
 from Room import *
 
 def init_room(data):
