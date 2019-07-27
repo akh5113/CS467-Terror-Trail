@@ -1,17 +1,17 @@
 {
-    "room_name": "Open Field",
+    "room_name": "Open field",
     "long_intro": "What a nice sight this big open field is - finally some space out of the trees. Though you begin to notice the sky, maybe if you take a good look you'll be able to tell how much daylight you have.\n\nThere is a water feature with some trees around it, maybe there will be something helpful there to find your way out!",
     "short_intro": "There seems to be something in the distance. I wonder where this field leads to.",
     "features": [
         { 
             "name": "Water feature",
-            "actions": ["Walk to"],
+            "actions": ["walk to"],
             "description1": "This water feature is a little stream with some apple trees around it. There are some water shoes that someone might have lost upstream.",
             "description2": "The bubbling water feature is relaxing to listen to."
         },
         { 
             "name": "The sky getting darker",
-            "actions": ["Observe", "View"],
+            "actions": ["observe", "view"],
             "description1": "It appears to be getting late, you might want to hurry to get out of the park before you starve or get too thirsty. Quickly look around for something that might be helpful.",
             "description2": "The sky looks even darker now!"
         }
@@ -20,15 +20,15 @@
         {
             "name": "Water shoes", 
             "description" : "You may want to save these shoes for any other strange water areas you encounter down the road.",
-            "actions": ["Wear", "Put On"]
+            "actions": ["wear", "put on"]
         },
         {
             "name": "Apples", 
             "description": "These bright red apples are just what you need to feed your hunger.",
-            "actions": ["Eat"]
+            "actions": ["eat"]
         }        
     ],
-    "north": "Hot Spring",
+    "north": "Hot spring",
     "south": "",
     "east": "",
     "west": "Lake",

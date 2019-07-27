@@ -1,17 +1,17 @@
 {
-    "room_name": "Terror Trail",
+    "room_name": "Terror trail",
     "long_intro": "After hiking through this scenic park for several hours the trail becomes overgrown with curling vines and suddenly you lose your footing resulting in you sliding down a small rocky hill. The tumble made you a bit disoriented and now it is difficult to tell which direction will take you back to the trail head. During your fall your shoes also got a torn on a pile of leaves and sticks and are looking a bit worse for wear. All of your gear also fell out and is strewn about in holes around you.\n\nThe nerves start to build and it appears you’ll have to start searching for a new route to make it out before it gets too dark because who knows what frightening creatures may lay behind the dense treeline.",
     "short_intro": "You have arrived back at the rocky hillside near terror trail and the tension builds as you realize you’ve lost more time just to end up where you started. It is still unknown which direction will take you back to the trail head so you’ll need to continue searching for a new path to get to shelter before dark. Maybe check the hole for your gear?",
     "features": [
         { 
             "name": "Pile of leaves",
-            "actions": ["dig"],
+            "actions": ["look at"],
             "description1": "Good thing you looked in this pile of leaves - you found your water bottle!",
             "description2": "Nothing else is in this pile of leaves."
         },
         { 
             "name": "Hole",
-            "actions": ["look"],
+            "actions": ["look at"],
             "description1": "I see a faint light at the bottom of this hole. Is that your flashlight?",
             "description2": "Looks like this is an empty hole!"
         }
@@ -20,19 +20,24 @@
         {
             "name": "Flashlight", 
             "description": "Better grab this flashlight, don't want to get lost in the dark.",
-            "actions": ["Turn On"]
+            "actions": ["turn on"]
         },
         {
             "name": "Water bottle", 
             "description": "This water bottle will be necessary to stay hydrated while you find your way back.",
-            "actions": ["Fill", "Drink"]
+            "actions": ["fill", "drink"]
         }
     ],
     "north": "",
     "south": "Glacier",
     "east": "Mountain",
     "west": "",
+<<<<<<< HEAD
     "long_exit": "Time to start figuring out how to get out of here. There appears to be Mountains to your East and is that a Glacier to your South?",
+=======
+    "long_exit": "Time to start figuring out how to get out of here. There appears to be a Mountain to your East and is that a Glacier to your South?",
+    "short_exit": "",
+>>>>>>> master
     "north_exits": [""],
     "south_exits": ["south", "glacier"],
     "east_exits": ["east", "mountain"],

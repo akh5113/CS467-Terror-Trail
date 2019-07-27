@@ -1,17 +1,17 @@
 {
-    "room_name": "Animal Habitat",
+    "room_name": "Animal habitat",
     "long_intro": "You arrive at what looks like a huge mound of sticks in a creek. At first you think it is just a pile of debris that has collected from past storms in the area, but then the strange noises that you heard before start up again. You worry that it might be some hungry animal so you quickly look around for anything that might be able to fight off in the case that this unknown creature attacks.\n\nThere doesn’t appear to be anything to help defend yourself, but you see a sign that might have some more information on what the creature is. The sign is in a shady spot so you might need a light source to be able to read what it says.",
     "short_intro": "This looks like some sort of creature’s home. But what creature lives here? You may not want to go too much further until you know.",
     "features": [
         { 
             "name": "Informational sign",
-            "actions": ["Read"],
+            "actions": ["read"],
             "description1": "It's too dark to make out the sign, maybe these flashlight batteries will help.",
             "description2": "'A beaver den lies ahead, though their noises may be alarming, they are gentle creatures - feel free to step closer to observe.'"
         },
         { 
             "name": "Animal habitat",
-            "actions": ["Observe", "View"],
+            "actions": ["observe", "view"],
             "description1": "Without reading the sign you may not want to get too close to the noisy creature.",
             "description2": "Ah a beaver! All those strange noises must have been it chomping on wood for it's home."
         }

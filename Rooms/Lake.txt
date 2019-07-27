@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Dock",
-            "actions": ["Go on"],
+            "actions": ["go on"],
             "description1": "This rickety old dock just appears to have a crate on it, but maybe you can use something to catch some fish from here?",
             "description2": "Looks like all that is left on the dock is this old fishing crate."
         },
         { 
             "name": "Crate",
-            "actions": ["Open"],
+            "actions": ["open"],
             "description1": "This must be a fisherman's secret stash. A fishing pole was store here, I bet they won't mind if you borrow it for a bit.",
             "description2": "This is just an old empty fishing crate."
         }
@@ -20,22 +20,22 @@
         {
             "name": "Water", 
             "description": "Use this water to fill your water bottle.",
-            "actions": ["Fill"]
+            "actions": ["gill"]
         },
         {
             "name": "Fishing pole", 
             "description": "Cast this fishing pole and maybe some fish will begin to bite.",
-            "actions": ["Cast", "Use"]
+            "actions": ["cast", "use"]
         },
         {
             "name": "Fish", 
             "description": "What is that splashing around? Looks like there is a huge trout in the water!",
-            "actions": ["Catch"]
+            "actions": ["catch"]
         }
     ],
     "north": "Campsite",
     "south": "",
-    "east": "Open Field",
+    "east": "Open field",
     "west": "",
     "long_exit": "It looks like there is a green space just East of the lake, I think it’s a big open field over there. Looks like the campfire is still smoldering at the Campsite up North.",
     "north_exits": ["north", "campsite", "smoke", "flickering light"],

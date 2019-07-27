@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Behind waterfall",
-            "actions": ["Check"],
+            "actions": ["check"],
             "description1": "Looks like an old raft lies here - this may be helpful if you have to navigate the waters.",
             "description2": "There is nothing else behind the waterfall."
         },
         { 
             "name": "Front of waterfall",
-            "actions": ["Check", "Navigate"],
+            "actions": ["check", "navigate"],
             "description1": "There is a lot of water here. I think this may lead to the river.",
             "description2": "It is still pretty wet in front of the falls."
         }
@@ -20,19 +20,24 @@
         {
             "name": "Raft", 
             "description": "This raft could be helpful for crossing rapids, but you will need an oar to steer.",
-            "actions": ["Launch"]
+            "actions": ["launch"]
         },
         {
             "name": "Water", 
             "description": "Use the water from the falls to fill your water bottle.",
-            "actions": ["Fill"]
+            "actions": ["fill"]
         }
     ],
     "north": "",
     "south": "River",
     "east": "",
     "west": "Mountain",
+<<<<<<< HEAD
     "long_exit": "You see a river South of the waterfall but you’re not going to be able to travel it without a raft. Maybe you should turn back and explore the mountains in the West more.",
+=======
+    "long_exit": "You see a river South of the waterfall but you’re not going to be able to travel it without a raft. Maybe you should turn back and explore the mountain in the West more.",
+    "short_exit": "",
+>>>>>>> master
     "north_exits": [""],
     "south_exits": ["south", "river", "rapids"],
     "east_exits": [""],

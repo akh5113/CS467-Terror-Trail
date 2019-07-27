@@ -139,10 +139,10 @@ def print_health_levels(player):
         player (Player): data for current player
     """
     print('\n')
-    print("|--------------|")
-    print("|Hunger %s/100|" % player.hunger)
-    print("|Thirst %s/100|" % player.thirst)
-    print("|--------------|")
+    print("+-----------------+")
+    print("|Energy %s/100   |" % player.energy)
+    print("|Hydration %s/100|" % player.hydration)
+    print("+-----------------+")
     print('\n')
 
 ################################################################

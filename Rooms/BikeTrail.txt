@@ -1,17 +1,17 @@
 {
-    "room_name": "Bike Trail",
+    "room_name": "Bike trail",
     "long_intro": "Finally you made it out of that last area. You better keep moving before it gets too dark. This trail seems like it may lead somewhere. You notice a sign that reads “Caution: Trail is for bicycles ONLY”. If only you had a bike you could quickly move through the trail without wasting too much of your energy.",
     "short_intro": "You’ve come across a bike trail. I wonder where it leads to?  Unfortunately, the trail looks too rough to walk.",
     "features": [
         { 
             "name": "Boulder",
-            "actions": ["Search"],
+            "actions": ["search"],
             "description1": "Hey a bike is over here! It looks like the tire is missing. Maybe it is around here somewhere? I thought I saw something over by the bush.",
             "description2": "Alas, you finally are able to venture down this bike path to see where it leads. The path is a little bumpy but without a bike it would have been impossible to maneuver through and not to mention much slower and more tiring."
         },
         { 
             "name": "Bush",
-            "actions": ["Look In", "Search"],
+            "actions": ["search"],
             "description1": "There seems to be something rubbery hidden in this bush! Ah a bike tire! I bet this could be helpful.",
             "description2": "Alas, you finally are able to venture down this bike path to see where it leads. The path is a little bumpy but without a bike it would have been impossible to maneuver through and not to mention much slower and more tiring."
         }
@@ -20,12 +20,12 @@
         {
             "name": "Bike", 
             "description": "Thank goodness someone left this bike behind, if you don't find a tire you won't be able to ride it.",
-            "actions": ["Ride"]
+            "actions": ["ride"]
         },
         {
             "name": "Tire", 
             "description": "This tire must go with a broken bike.",
-            "actions": ["Put On"]
+            "actions": ["put on"]
         }       
     ],
     "north": "Cave",

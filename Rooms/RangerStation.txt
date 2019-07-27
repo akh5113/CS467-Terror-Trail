@@ -1,17 +1,17 @@
 {
-    "room_name": "Ranger Station",
+    "room_name": "Ranger station",
     "long_intro": "What is that ahead? It looks like the Ranger Station! There’s a light on inside maybe someone is there who can help you. You walk up to the door only to find it is locked. You knock hoping someone might answer but there is no reply. What are you going to do now?\n\nYou’ve almost given up but you keep looking around hoping maybe you missed something. If you could just get inside then you’d at least have shelter for the night. That’s when you look through a small window and notice a blinking light. What is that? It looks like a radio. If you could only get inside you might be able to radio for help.",
     "short_intro": "It looks like there might be a phone in there. Too bad the door is locked.",
     "features": [
         { 
             "name": "Lock",
-            "actions": ["Unlock"],
+            "actions": ["unlock"],
             "description1": "Just your luck the door is locked tight. I wonder if there is a spare key around here somewhere?",
             "description2": "I think you can use a key to get in here now!"
         },
         { 
             "name": "Doormat",
-            "actions": ["Look under"],
+            "actions": ["look under"],
             "description1": "Not the most sneaky way to hide a key, but it sure is lucky for you that it was here!",
             "description2": "There is nothing left under this doormat."
         }
@@ -20,12 +20,12 @@
         {
             "name": "Key", 
             "description" : "This key may be your ticket home! Hopefully it is the correct key for the lock.",
-            "actions": ["Use"]
+            "actions": ["use"]
         },
         {
             "name": "Radio", 
             "description": "This radio can help you reach someone. Call the radio to find out.",
-            "actions": ["Pickup", "Call"]
+            "actions": ["pickup", "call"]
         }        
     ],
     "north": "",

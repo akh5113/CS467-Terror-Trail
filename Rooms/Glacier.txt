@@ -4,7 +4,7 @@
     "short_intro": "This glacier sure is slippery. You won’t be able to cross it without the proper equipment.",
     "features": [
         { 
-            "name": "Warning sign",
+            "name": "Sign",
             "actions": [""],
             "description1": "'WARNING! The path across the glacier is extremely dangerous. Do NOT cross without proper equipment and use of anchor!'",
             "description2": "'WARNING! The path across the glacier is extremely dangerous. Do NOT cross without proper equipment and use of anchor!'"
@@ -20,15 +20,15 @@
         {
             "name": "Shoes", 
             "description": "These must be special ice shoes, they have some sharp spikes on the bottom so be careful!",
-            "actions": ["Wear", "Put on"]
+            "actions": ["wear", "put on"]
         },
         {
             "name": "Rope", 
             "description": "This rope must be helpful for getting across the glacier safely.",
-            "actions": ["Secure"]
+            "actions": ["secure"]
         }
     ],
-    "north": "Terror Trail",
+    "north": "Terror trail",
     "south": "Forest",
     "east": "Cave",
     "west": "",

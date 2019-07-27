@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Dripping sound",
-            "actions": ["Search", "Examine"],
+            "actions": ["search", "examine"],
             "description1": "Looks like you found a natural spring. Feeling thirsty? This has to be the best water around!",
             "description2": "You've already gotten water from here - the dripping water is all dried up."
         },
         {
             "name": "Cave art",
-            "actions": ["Look at", "View"],
+            "actions": ["look at", "view"],
             "description1": "Here lies a map of the park, though it looks like it may not be complete...",
             "description2": "You've already viewed the map."
         }
@@ -20,16 +20,16 @@
         {
             "name": "Water", 
             "description": "Use this water to fill your water bottle.",
-            "actions": ["Fill"]
+            "actions": ["fill"]
         },
         {
             "name": "Map of park", 
             "description": "North: Mountain; South: Bike trail; East: Raging river; West: Glacier.",
-            "actions": ["Read"]
+            "actions": ["read"]
         }
     ],
     "north": "Mountain",
-    "south": "Bike Trail",
+    "south": "Bike trail",
     "east": "River",
     "west": "Glacier",
     "long_exit": "Do you want to continue South and explore the cave or are you too scared and want to return North to the mountains?",

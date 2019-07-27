@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Geyser",
-            "actions": ["View"],
+            "actions": ["view"],
             "description1": "Its getting pretty steamy and as you get close another stream of water spews into the air!",
             "description2": "This geyser is pretty stinky!"
         },
         { 
             "name": "Sign post",
-            "actions": ["View", "Read"],
+            "actions": ["view", "read"],
             "description1": "'Ranger Station: 1 mile East'",
             "description2": "'Ranger Station: 1 mile East'"
         }
@@ -20,9 +20,9 @@
     ],
     "north": "",
     "south": "",
-    "east": "Ranger Station",
-    "west": "Hot Spring",
-    "long_exit": "A promising building lies east of here!",
+    "east": "Ranger station",
+    "west": "Hot spring",
+    "long_exit": "A promising building lies ahead!",
     "north_exits": [""],
     "south_exits": [""],
     "east_exits": ["east", "ranger station", "building", "promising building"],

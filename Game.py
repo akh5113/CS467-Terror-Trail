@@ -39,9 +39,16 @@ class Game:
         """Takes all verbs possible for the game and adds them to a list
         Used to determine if user input is correct.
         """
-        #TODO: Need to remove duplicate verbs
         for room in self.rooms:
             self.verbs += room.get_verbs()
+
+        # Remove duplicate verbs
+        dups_removed = []
+        for verb in self.verbs:
+            if verb not in dups_removed:
+                dups_removed.append(verb)
+
+        self.verbs = dups_removed
 
     @staticmethod
     def help():
@@ -55,7 +62,16 @@ class Game:
         print("take <object>                Acquires object by putting it in player's inventory.")
         print("look                         States description of the current Room")
         print("look at <object/feature>     Gives explanation of object or feature")
+        print("fill                         If 'Water Bottle' is in player's inventory, fill to be able to "
+              "                             drink from.")
+        print("drink                        If 'Water Bottle' is in player's inventory and it has been filled,"
+              "                             drink to increase players hydration levels.")
+        print("turn on                      If 'Flashlight' is in player's inventory, turns flashlight on to be used.")
+        print("put on                       Puts on object if in player's inventory.")
+        print("ride                         Rides bike if in player's inventory")
         print("inventory                    Lists the contents of players inventory")
+        print("health                       Displays the player's current energy and hydration levels")
+        print("exit                         Displays the possible exits from a room.")
         print("savegame                     Saves the current state of the game.")
         print("loadgame                     Loads the previously saved game into play.")
         print("quit                         Exits the game without saving the game state.")
@@ -76,3 +92,19 @@ class Game:
         """Quits the game without saving the state"""
 
         self.game_over = True
+
+    def health_status(self, player1):
+        """Prints the player's current hunger and thrist levels"""
+        data_printer.print_health_levels(player1)
+    
+    def list_exit(self,room):
+        """Prints all the possible exit names"""
+        print("Possible exits from", room.name, ":")
+        for exit in room.east_exits:
+            print(exit)
+        for exit in room.west_exits:
+            print(exit)
+        for exit in room.north_exits:
+            print(exit)
+        for exit in room.south_exits:
+            print(exit)

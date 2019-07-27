@@ -59,7 +59,19 @@ def main():
 
 
 def play_game(game1, player1):
-    """To Be Refined"""
+    """Implement the game workflow and checks for game ending.
+        1. Gets the players current room status
+        2. Displays the health of the player
+        4. Prints either long or short into
+        5. Prints exits
+        6. Sets the room to visited
+        7. While the user has not moved rooms, enter while loop
+            a. prompt the user and get input
+            b. split input
+            c. determine if action effects game or player and call appropriate function
+            d. calculate players health
+        8. Check the game status
+    """
     prompt = ">>>"
 
     while game1.game_over is False:
@@ -78,8 +90,9 @@ def play_game(game1, player1):
         # Set room to visited
         current_room.visited = True
 
-        # varaible to loop back if invalid input or if player has not moved rooms
+        # variable to loop back if invalid input or if player has not moved rooms
         moved_rooms = False
+        
 
         while moved_rooms is False:
             # Get user input
@@ -117,14 +130,23 @@ def play_game(game1, player1):
                 game1.help()
                 moved_rooms = False
 
-            # if action is savegame
+            # If action is savegame
             elif command.lower() == "savegame":
                 game1.save_game(player1)
                 moved_rooms = False
 
+            # If action is loadame
             elif command.lower() == "loadgame":
                 game1.load_game()
 
+            # If action is health
+            elif command.lower() == "health":
+                game1.health_status(player1)
+                
+            # If action is exit
+            elif command.lower() == "exit":
+                game1.list_exit(player1.location)
+                
             # If action is quit
             elif command.lower() == "quit":
                 user_input = input("Would you like to save before quitting?")
@@ -133,24 +155,45 @@ def play_game(game1, player1):
                     
                 game1.quit_game()
                 break
-
+                
+                
             ############################################################################
             # Commands related to player action and not game state
             ############################################################################
             else:
+                valid_action = False
                 # Determine if the action is possible given the objects/features
                 #TODO determine verbs for this for specific room instead of whole game verbs
                 if command in game1.verbs:
-                    determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
-                    if (current_room.name != player1.location.name):
-                        moved_rooms = True
+                    print(game1.verbs)
+                    moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
+                    valid_action = True
+                    
                 else:
-                    # If action is not in list of verbs, print error message
+                    # Check command was not an exit name
+                    for room in game1.rooms:
+                        if command.lower() in room.east_exits or command.lower() in room.west_exits or \
+                                command.lower() in room.north_exits or command.lower() in room.south_exits:
+                            # change command to use_on
+                            use_on = command
+                            # change command to go
+                            command = "go"
+                            # call move_room function in actions to get next room
+                            next_room = move_room(use_on,current_room, game1.rooms, player1)
+                            # call moved_locations to try to move to that room
+                            moved_rooms = moved_locations(next_room,player1)
+                            valid_action = True
+                    
+                # If action is not in list of verbs or an exit name, print error message
+                if valid_action is False:
                     print("Error: not a valid action. Type <help> to see valid verbs")
-                    moved_rooms = False
 
-            # Calculate players new health with each move
-            player1.player_status()
+                # Calculate players new health with each move
+                # TODO need to determine how each action affects health
+                # TODO may want to move to actions aftering deciding how actions affect health levels
+                # currently an incorrect room choice will decrease health
+                # currently moved here to prevent non-action commands or incorrect cmds from decresing health
+                player1.player_status()
 
         # Check for game status
         game1.check_game_status(player1)

@@ -9,8 +9,8 @@ class Player:
 
     def __init__(self, starting_location):
         """Constructor."""
-        self.hunger = 100
-        self.thirst = 100
+        self.energy = 100 # previously hunger
+        self.hydration  = 100
         self.inventory = []
         self.alive = True
         self.location = starting_location   # Current location of the player
@@ -19,19 +19,19 @@ class Player:
         """Gives the hunger and thirst levels of a player as a list
 
         Prints
-            self.hunger (int): Integer representing players hunger levels
-            self.thirst (int): Integer representing players thirst levels
+            self.energy (int): Integer representing players hunger levels
+            self.hydration (int): Integer representing players thirst levels
         """
-        # Hunger levels will change by 1 for every move
-        self.hunger -= 1
+        # Energy levels will change by 1 for every move
+        self.energy -= 1
 
         # Thirst levels will change by 2 for every move
-        self.thirst -= 2
+        self.hydration -= 2
 
         # Add any other factors that impact health
 
         # Determine if player is still alive
-        if self.hunger > 0 and self.thirst > 0:
+        if self.energy > 0 and self.hydration > 0:
             self.alive = True
         else:
             self.alive = False
@@ -62,3 +62,9 @@ class Player:
                 return True
         else:
             return False
+
+    def get_object(self, object_name):
+        """Returns the Object object if in the player's inventory"""
+        for i in self.inventory:
+            if object_name == i.name:
+                return i

@@ -5,13 +5,13 @@
     "features": [
         { 
             "name": "Bush",
-            "actions": ["Pick"],
+            "actions": ["pick"],
             "description1": "This bush is filled with berries, might want to take some before that bird (or another creature) comes back.",
             "description2": "You ate all of the berries here!"
         },
         { 
             "name": "The sky",
-            "actions": ["Look up"],
+            "actions": ["look up"],
             "description1": "The bird is flying off into the distance -- the area appears to be clear now.",
             "description2": "I don't see any birds around here, I wonder if all the berries got eaten?"
         }
@@ -20,12 +20,12 @@
         {
             "name": "Berries", 
             "description": "If those birds ate the berries, they must be safe for humans...right?",
-            "actions": ["Eat"]
+            "actions": ["eat"]
         }
     ],
     "north": "",
-    "south": "Animal Habitat",
-    "east": "Bike Trail",
+    "south": "Animal habitat",
+    "east": "Bike trail",
     "west": "",
     "long_exit": "There appears to be some sort of trail to the East but you also hear some odd noises in the distance south.",
     "north_exits": [""],
