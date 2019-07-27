@@ -28,9 +28,11 @@ class Game:
             print("You died, game over")
         # If the player made it to the END_ROOM room type, they have won
         # TODO this will probably change as we develop the game, keeping it simple for now
-        elif current_player.location.room_type is 2:
-            print("YOU WON")
-            self.game_over = True
+        if current_player.check_inventory("Key"):
+            key = current_player.get_object("Key")
+            if key.used is True and current_player.location.room_type is RoomType.END_ROOM:
+                print("YOU WON")
+                self.game_over = True
         # Otherwise, game is still in play
         else:
             self.game_over = False
@@ -69,6 +71,7 @@ class Game:
         print("turn on <object>             If 'Flashlight' is in player's inventory, turns flashlight on to be used.")
         print("put on <object>              Puts on object if in player's inventory.")
         print("eat <object>                 Increases players energy levels.")
+        print("unlock                       Unlocks door")
         print("ride                         Rides bike if in player's inventory")
         print("inventory                    Lists the contents of players inventory")
         print("secure <object>              If 'Rope' is in player's inventory, secures Rope to cross glacier")
