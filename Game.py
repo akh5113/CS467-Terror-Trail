@@ -61,7 +61,7 @@ class Game:
         print("quit                         Exits the game without saving the game state.")
         print("-------------------------------------------------------------------------------------")
 
-    def save_game(self, player, game):
+    def save_game(self, player):
         """
         Saves the state of the game.
         Args:
@@ -70,9 +70,9 @@ class Game:
         """
         # write data to a file
         pickle.dump(player, open("saved_player.txt", "wb"))
-        pickle.dump(game, open("saved_game.txt", "wb"))
+        pickle.dump(self, open("saved_game.txt", "wb"))
 
     def quit_game(self):
         """Quits the game without saving the state"""
-        print("Quitting the game without saving the state")
+
         self.game_over = True

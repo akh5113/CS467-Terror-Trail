@@ -119,7 +119,7 @@ def play_game(game1, player1):
 
             # if action is savegame
             elif command.lower() == "savegame":
-                game1.save_game(player1, game1)
+                game1.save_game(player1)
                 moved_rooms = False
 
             elif command.lower() == "loadgame":
@@ -127,6 +127,10 @@ def play_game(game1, player1):
 
             # If action is quit
             elif command.lower() == "quit":
+                user_input = input("Would you like to save before quitting?")
+                if user_input in ["yes","Yes","YES","Y","y"]:
+                    game1.save_game(player1)
+                    
                 game1.quit_game()
                 break
 
