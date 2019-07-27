@@ -33,7 +33,6 @@
     "east": "",
     "west": "Cave",
     "long_exit": "Unless you figure out a way to handle the rapids West of the river, you’re going to have to return North to the waterfall.",
-    "short_exit": "",
     "north_exits": ["north", "waterfall"],
     "south_exits": [""],
     "east_exits": [""],

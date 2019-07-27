@@ -33,7 +33,6 @@
     "east": "Cave",
     "west": "",
     "long_exit": "If you can figure out a way to cross the glacier you will be able to travel East or South otherwise you’re going to have to turn back and return to where you fell.",
-    "short_exit": "",
     "north_exits": ["north", "terror trail", "beginning", "fell", "fall"],
     "south_exits": ["south", "forest"],
     "east_exits": ["east", "cave"],

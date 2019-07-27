@@ -5,6 +5,7 @@
 
 import json
 import glob
+import pickle
 from Room import *
 
 def init_room(data):
@@ -17,7 +18,6 @@ def init_room(data):
     long_intro = data['long_intro']
     short_intro = data['short_intro']
     long_exit = data['long_exit']
-    short_exit = data['short_exit']
     north = data['north']
     south = data['south']
     east = data['east']
@@ -34,7 +34,6 @@ def init_room(data):
                 long_intro, 
                 short_intro, 
                 long_exit, 
-                short_exit, 
                 north, 
                 south, 
                 east, 
@@ -113,3 +112,16 @@ def import_room_data():
 
     return room_list
 
+def load_game():
+    """Returns a Game object with the last saved game data"""
+    # load in saved files
+    loaded_game = pickle.load(open("saved_game.txt", "rb"))
+
+    return loaded_game
+
+def load_player():
+    """Returns a Player object with the last saved player data"""
+    # load in saved files
+    loaded_player = pickle.load(open("saved_player.txt", "rb"))
+
+    return loaded_player

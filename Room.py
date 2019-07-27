@@ -20,7 +20,6 @@ class Room:
                  long_intro,
                  short_intro,
                  long_exit,
-                 short_exit,
                  north,
                  south,
                  east,
@@ -42,7 +41,6 @@ class Room:
                     time they enter a room.
             short_intro (str): Shorter description of the room. The user will see this upon reentering a room.
             long_exit (str): Longer description of ways the user can exit a room
-            short_exit (str): Shorter description of how the user exits a room
             north (string): Name of room to the North.
             south (string): Name of room to the South.
             east (string): Name of room to the East.
@@ -58,7 +56,6 @@ class Room:
         self.long_intro = long_intro
         self.short_intro = short_intro
         self.long_exit = long_exit
-        self.short_exit = short_exit
 
         # What rooms are adjacent to the room
         self.north = north
@@ -98,8 +95,6 @@ class Room:
             return self.short_intro
         elif description_type == "long_exit":
             return self.long_exit
-        elif description_type == "short_exit":
-            return self.short_exit
 
     def get_feature(self, option):
         """Gets the feature of the room to examine.

@@ -28,7 +28,6 @@
     "east": "Campsite",
     "west": "",
     "long_exit": "There is a flickering light in you can barely make out in the East but it is too risky to go this way if you can’t figure out what creature was making all those noises. You could always turn around and go back to the forest.",
-    "short_exit": "",
     "north_exits": ["north", "forest"],
     "south_exits": [""],
     "east_exits": ["east", "campsite", "flickering light"],

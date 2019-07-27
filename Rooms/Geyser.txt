@@ -23,7 +23,6 @@
     "east": "Ranger station",
     "west": "Hot spring",
     "long_exit": "A promising building lies ahead!",
-    "short_exit": "",
     "north_exits": [""],
     "south_exits": [""],
     "east_exits": ["east", "ranger station", "building", "promising building"],

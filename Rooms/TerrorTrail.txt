@@ -33,7 +33,6 @@
     "east": "Mountain",
     "west": "",
     "long_exit": "Time to start figuring out how to get out of here. There appears to be a Mountain to your East and is that a Glacier to your South?",
-    "short_exit": "",
     "north_exits": [""],
     "south_exits": ["south", "glacier"],
     "east_exits": ["east", "mountain"],

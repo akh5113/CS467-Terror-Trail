@@ -40,9 +40,17 @@ def main():
         play_game(new_game, new_player)
 
     elif main_menu_input in ["loadgame", "load game"]:
-        #TODO implement loading of saved state
-        # play_game(loaded_gme, loaded_player)
-        print("not yet implemented")    #temporary
+
+        # Load Saved Player Data
+        loaded_player = data_import.load_player()
+
+        # Load Saved Game Data
+        loaded_game = data_import.load_game()
+
+        print("Game resumed!")
+
+        # Play game with saved player and game data
+        play_game(loaded_game, loaded_player)
         exit()  #temporary
 
     else:
@@ -124,7 +132,7 @@ def play_game(game1, player1):
 
             # If action is savegame
             elif command.lower() == "savegame":
-                game1.save_game()
+                game1.save_game(player1)
                 moved_rooms = False
 
             # If action is loadame
@@ -141,6 +149,10 @@ def play_game(game1, player1):
                 
             # If action is quit
             elif command.lower() == "quit":
+                user_input = input("Would you like to save before quitting?")
+                if user_input in ["yes","Yes","YES","Y","y"]:
+                    game1.save_game(player1)
+                    
                 game1.quit_game()
                 break
                 
