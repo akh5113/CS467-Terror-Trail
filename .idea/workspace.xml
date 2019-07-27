@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc74a1f8-8359-4307-8649-9421742b34c6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Action.py" beforeDir="false" afterPath="$PROJECT_DIR$/Action.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Room.py" beforeDir="false" afterPath="$PROJECT_DIR$/Room.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,8 +67,8 @@
       <file leaf-file-name="Room.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Room.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="300" column="52" lean-forward="true" selection-start-line="300" selection-start-column="52" selection-end-line="300" selection-end-column="52" />
+            <state relative-caret-position="-863">
+              <caret line="245" column="8" selection-start-line="245" selection-start-column="8" selection-end-line="245" selection-end-column="8" />
               <folding>
                 <element signature="e#138#158#0" expanded="true" />
               </folding>
@@ -247,12 +244,12 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.111328125" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.111328125" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Python Console" order="16" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.19172414" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.64" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="15" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -646,8 +643,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Room.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="300" column="52" lean-forward="true" selection-start-line="300" selection-start-column="52" selection-end-line="300" selection-end-column="52" />
+        <state relative-caret-position="-863">
+          <caret line="245" column="8" selection-start-line="245" selection-start-column="8" selection-end-line="245" selection-end-column="8" />
           <folding>
             <element signature="e#138#158#0" expanded="true" />
           </folding>

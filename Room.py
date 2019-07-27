@@ -243,6 +243,7 @@ class Room:
 #        else:
             # they can travel to river without raft
  #           return next_room
+        
         # Cave next room  and River Current Room
         elif next_room.name == "Cave" and self.name == "River":
             # if yes, check inventory for raft and oar
@@ -264,8 +265,9 @@ class Room:
                # can't travel this way
                print("It looks like you need some things to travel from the River to the Cave. You should do some more exploring")
                return None
-        # Cave next room and Glacier next room
-        elif next_room.name == "Cave" and self.name == "Glacier":
+
+        # Cave or Forest next room and Glacier current room
+        elif (next_room.name == "Cave" or next_room.name == "Forest") and self.name == "Glacier":
             #check for objects in inventory
             if player1.check_inventory("Shoes") and player1.check_inventory("Rope"):
                 # check if object has been used
@@ -289,27 +291,7 @@ class Room:
             else:
                 print("You need to find rope and shoes before you can get to the Cave")
                 return None
-        # Forest next room
-        elif next_room.name == "Forest" and self.name == "Glacier":
-            # if yes, check inventory for shoes and rope
-            if player1.check_inventory("Shoes") and player1.check_inventory("Rope"):
-                # if player has shoes and rope, ask if they want to use
-                print("Would you like to put on your shoes and use  the rope to travel to the Forest?")
-                use_shoes_rope = input(">>>")
-                yes_shoes_rope = ["yes","Yes","YES","Y","y"]
-                # if they want to use the raft
-                if use_shoes_rope in yes_shoes_rope:
-                    print("You have decided to put on your shoes and use the rope to cross the Glacier to the Forest.")
-                    # return Forest
-                    return next_room
-                #if they don't want to use the shoes and rope, then no movement
-                print("You have decided not to use your shoes and rope right now.")
-                return None
-            # if they don't have a raft in inventory
-            else:
-               # can't travel this way
-               print("It looks like you need some things to travel from the Glacier to the Forest. You should do some more exploring")
-               return None
+
         # Campsite next room and current room bike trail
         elif next_room.name == "Campsite" and self.name == "Bike trail":
             # Call Ride funcion to check inventory
