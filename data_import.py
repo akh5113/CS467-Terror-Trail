@@ -117,13 +117,13 @@ def import_room_data():
 def load_game():
     """Returns a Game object with the last saved game data"""
     # load in saved files
-    loaded_game = pickle.load(open("saved_game.txt", "rb"))
-
-    return loaded_game
+    if glob.glob("saved_game.txt"):
+        loaded_game = pickle.load(open("saved_game.txt", "rb"))
+        return loaded_game
 
 def load_player():
     """Returns a Player object with the last saved player data"""
     # load in saved files
-    loaded_player = pickle.load(open("saved_player.txt", "rb"))
-
-    return loaded_player
+    if glob.glob('saved_player.txt'):
+        loaded_player = pickle.load(open("saved_player.txt", "rb"))
+        return loaded_player
