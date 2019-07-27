@@ -27,5 +27,6 @@
     "south_exits": [""],
     "east_exits": ["east", "ranger station", "building", "promising building"],
     "west_exits": ["west", "hot spring", "hot springs"],
-    "room_type": "MID_ROOM"
+    "room_type": "MID_ROOM",
+    "restricted": false
 }

@@ -27,5 +27,6 @@
     "south_exits": ["south", "open field", "green space"],
     "east_exits": ["east", "terror trail geyser", "geyser"],
     "west_exits": ["west", "campsite", "smoke", "flickering light"],
-    "room_type": "MID_ROOM"
+    "room_type": "MID_ROOM",
+    "restricted": false
 }

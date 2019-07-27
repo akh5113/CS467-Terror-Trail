@@ -37,5 +37,6 @@
     "south_exits": ["south", "glacier"],
     "east_exits": ["east", "mountain"],
     "west_exits": [""],
-    "room_type": "START_ROOM"
+    "room_type": "START_ROOM",
+    "restricted": false
 }

@@ -32,8 +32,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
         next_room = move_room(use_on, current_room, rooms, player1)
         
         # call moved_locations to check if it was possible to move to the next room
-        moved_locations(next_room,player1)
-        return True
+        return moved_locations(next_room,player1)
 
     #######################################################################################################
     # ACTION = LOOK
@@ -50,7 +49,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
         # call function to explain feature or object
         if not look_at(use_on, player1, current_room, rooms):
             print("What you're trying to look at isn't here. Try looking at something else")
-            return False
+        return False
 
     #######################################################################################################
     # ACTION = TAKE
@@ -85,19 +84,40 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = PUT ON
     #######################################################################################################
-    elif command.lower() in ["wear", "put on"]:
+    elif command.lower() in ["wear", "put"]:
         put_on(player1, use_on)
         return False
 
     #######################################################################################################
     # ACTION = RIDE
     #######################################################################################################
-    elif command.lower() in ["ride"]:
+    elif command.lower() in ["ride", "bike"]:
         ride(player1)
         return False
 
+    #######################################################################################################
+    # ACTION = SECURE
+    #######################################################################################################
+    elif command.lower() in ["secure", "attach"]:
+        secure(player1, use_on)
+        return False
 
-    
+    #######################################################################################################
+    # ACTION = EAT
+    #######################################################################################################
+    elif command.lower() in ["eat"]:
+        eat(player1, use_on)
+        return False
+
+    #######################################################################################################
+    # ACTION = UNLOCK
+    #######################################################################################################
+    elif command.lower() in ["unlock"]:
+        return unlock(player1, current_room)
+
+    else:
+        return False #TODO change to error message
+
 def move_room(go_to, current_room, rooms, player1):
     """
     Get next room object to move to from current room to the user entered room
@@ -107,13 +127,9 @@ def move_room(go_to, current_room, rooms, player1):
         rooms(dict): dictionary object containing all rooms
         player1(Player): current player(used to access inventory)
     """
-
-    # Exits which require objects to move to
-    restricted_rooms = ["Waterfall","River","Cave","Forest","Bike Trail","Campsite"]
-
     # Set next_room to None
     next_room = None
-    
+
     # Check if the go_to room is a possible exit, if so make it the next_room
     if go_to.lower() in current_room.north_exits or go_to == current_room.north:
         next_room = get_room_object(current_room.north, rooms)
@@ -132,10 +148,9 @@ def move_room(go_to, current_room, rooms, player1):
         return None
     
     # Check if the next_room is a restricted room
-    if next_room.name in restricted_rooms:
-        # Check the restriction
-        next_room = current_room.check_room_restriction(next_room,player1)
-    
+    if next_room.restricted is True:
+        next_room = current_room.check_room_restriction(next_room, player1)
+
     # Return the room. Will be None if there was an issue
     return next_room
 
@@ -229,6 +244,11 @@ def look_at(item,player1,room,rooms):
             if item.capitalize() == feature.feature_name:
                 # if feature is part of the current room
                 feature.print_description(rooms)
+                # mark the item as viewed
+                feature.viewed = True
+                # call function to check if room has been completed
+                room.check_room_completion()
+
                 return True
         # Check if object in room
         for o in room.objects:
@@ -287,8 +307,8 @@ def drink(player):
 
 def put_on(player, obj):
     """For player to put on shoe if they exist in inventory"""
-    if player.check_inventory(obj):
-        inv_obj = player.get_object(obj)
+    if player.check_inventory(obj.capitalize()):
+        inv_obj = player.get_object(obj.capitalize())
         if inv_obj.used is True:
             print("You've already put on this!")
         else:
@@ -305,7 +325,13 @@ def turn_on(player):
         # Check f
 
 def ride(player):
-    """Allows player to ride bike """
+    """Allows player to ride bike
+    Args:
+        player (Player): player in the game
+    Returns:
+        bool: if the player can successfully ride a bike
+    TODO: incorporate this more with moving rooms
+    """
     # Check for bike in inventory
     if player.check_inventory("Bike"):
         bike = player.get_object("Bike")
@@ -315,10 +341,58 @@ def ride(player):
             if tire.used is True:
                 print("You're really movin now!")
                 bike.used = True
+                return True
             else:
                 print("You have a tire, you just need to put it on!")
+                return False
         else:
             print("You need to find a tire and put it on before you can ride!")
+            return False
     else:
         print("You need to find a bike before you can ride it!")
+        return False
 
+def secure(player, obj):
+    """Allows player to secure object
+    Args:
+        player (Player): player of the game
+        obj (str): object to secure
+    Returns:
+        bool: if the player successfully secured the object
+    """
+    # check for object in inventory
+    if player.check_inventory(obj.capitalize()):
+        returned_obj = player.get_object(obj.capitalize())
+        returned_obj.used = True
+        print("The rope has been secured.")
+        return True
+    else:
+        print("You don't have {} to secure.".format(obj))
+        return False
+
+def eat(player, obj):
+    """Player eats object to increase engery.
+    Once player has eaten object it is removed from inventory
+    """
+    if player.check_inventory(obj.capitalize()):
+        food = player.get_object(obj.capitalize())
+        food.used = True # possibly unnecessary but keeping it right now for clarity
+        # Increase players energy
+        player.energy += 20     # Possibly change depending on food
+        print("YUM! The {} was just what you needed to help you get the extra mile.".format(obj.capitalize()))
+        # Remove food from inventory
+        player.remove_obj_from_inventory(food)
+    else:
+        print("You don't have {} in your inventory! Hope you find some soon!")
+
+
+def unlock(player, room):
+    """Player unlocks door with key, has won game"""
+    if player.check_inventory("Key") and room.name == "Ranger station":
+        key = player.get_object("Key")
+        key.used = True
+        print("You did it! You made it inside!")
+        return True
+    else:
+        print("Unable to use key")
+        return False

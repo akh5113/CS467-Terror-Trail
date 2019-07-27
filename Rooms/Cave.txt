@@ -37,5 +37,6 @@
     "south_exits": ["south", "bike trail", "trail"],
     "east_exits": ["east", "river", "rapids", "river rapids", "raging river"],
     "west_exits": ["west", "glacier"],
-    "room_type": "MID_ROOM"
+    "room_type": "MID_ROOM",
+    "restricted": true
 }

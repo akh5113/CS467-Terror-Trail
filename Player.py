@@ -36,6 +36,9 @@ class Player:
         else:
             self.alive = False
 
+        if self.energy <= 25 or self.hydration <= 25:
+            print("You're starting to get a little lightheaded, better find some water or food.")
+
     def add_obj_to_inventory(self, obj):
         """Add an object to the players inventory
         Args:

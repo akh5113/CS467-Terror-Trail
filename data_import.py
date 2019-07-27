@@ -29,6 +29,7 @@ def init_room(data):
     east_exits = init_list(data['east_exits'])
     west_exits = init_list(data['west_exits'])
     room_type = data['room_type']
+    restricted = data['restricted']
 
     room = Room(name, 
                 long_intro, 
@@ -44,7 +45,8 @@ def init_room(data):
                 south_exits, 
                 east_exits, 
                 west_exits, 
-                room_type)
+                room_type,
+                restricted)
 
     return room
 

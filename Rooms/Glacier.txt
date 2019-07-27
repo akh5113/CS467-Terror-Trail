@@ -37,5 +37,6 @@
     "south_exits": ["south", "forest"],
     "east_exits": ["east", "cave"],
     "west_exits": [""],
-    "room_type": "MID_ROOM"
+    "room_type": "MID_ROOM",
+    "restricted": false
 }
