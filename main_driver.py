@@ -166,7 +166,6 @@ def play_game(game1, player1):
                 else:
                     print("Game resumed!")
 
-
             # If action is health
             elif command.lower() == "health":
                 game1.health_status(player1)
@@ -182,8 +181,7 @@ def play_game(game1, player1):
                     game1.save_game(player1)
                     
                 game1.quit_game()
-                break
-                
+                break        
                 
             ############################################################################
             # Commands related to player action and not game state
