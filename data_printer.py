@@ -7,6 +7,7 @@ from Room import *
 from Player import *
 from Feature import *
 import textwrap
+SCREEN_WIDTH = 90
 
 ################################################################
 # helper printing methods for Rooms
@@ -19,7 +20,7 @@ def print_room_intro(room):
         room (Room): structure that contains all room data
     source for text wrapper: https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/
     """
-    wrapper = textwrap.TextWrapper(width=90, break_long_words=False,replace_whitespace=False)
+    wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH, break_long_words=False,replace_whitespace=False)
     if room.visited is False:
         words = wrapper.wrap(text=room.long_intro)
         for w in words:
@@ -37,7 +38,7 @@ def print_room_long(room):
         room (Room): structure that contains all room data
     source for text wrapper: https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/
     """
-    wrapper = textwrap.TextWrapper(width=90, break_long_words=False,replace_whitespace=False)
+    wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH, break_long_words=False,replace_whitespace=False)
 
     words = wrapper.wrap(text=room.long_intro)
     for w in words:
@@ -50,7 +51,7 @@ def print_room_exit(room):
     args:
         room (Room): structure that contains all room data
     """
-    wrapper = textwrap.TextWrapper(width=90,break_long_words=False,replace_whitespace=False)
+    wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH,break_long_words=False,replace_whitespace=False)
     words = wrapper.wrap(text=room.long_exit)
     for w in words:
         print(w)
@@ -155,7 +156,7 @@ def print_feature_description(feature):
     args:
         feature (Feature): name of the feature
     """
-    wrapper = textwrap.TextWrapper(width=90,break_long_words=False,replace_whitespace=False)
+    wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH,break_long_words=False,replace_whitespace=False)
     if feature.objects_found() is True:
         words = wrapper.wrap(text=feature.description_with_objects)
         for w in words:
@@ -178,7 +179,7 @@ def print_intro():
     prompt2 = "You can start a new game, load game, or quit."
     newline = "\n"
 
-    wrapper = textwrap.TextWrapper(width=90,break_long_words=False,replace_whitespace=False)
+    wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH,break_long_words=False,replace_whitespace=False)
     words = wrapper.wrap(text=intro)
     for w in words:
         print(w)
