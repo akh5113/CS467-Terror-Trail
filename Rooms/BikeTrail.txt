@@ -1,6 +1,6 @@
 {
     "room_name": "Bike trail",
-    "long_intro": "Finally you made it out of that last area. You better keep moving before it gets too dark. This trail seems like it may lead somewhere. You notice a sign that reads “Caution: Trail is for bicycles ONLY”. If only you had a bike you could quickly move through the trail without wasting too much of your energy.",
+    "long_intro": "Finally you made it out of that last area. You better keep moving before it gets too dark. This trail seems like it may lead somewhere. You notice a sign that reads “Caution: Trail is for bicycles ONLY”. If only you had a bike you could quickly move through the trail without wasting too much of your energy.\n\nLook around the area maybe there is something in the bush or boulder that lie here.",
     "short_intro": "You’ve come across a bike trail. I wonder where it leads to?  Unfortunately, the trail looks too rough to walk.",
     "features": [
         { 

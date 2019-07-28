@@ -92,6 +92,7 @@ class Game:
         # write data to a file
         pickle.dump(player, open("saved_player.txt", "wb"))
         pickle.dump(self, open("saved_game.txt", "wb"))
+        print("Gave saved!")
 
     def quit_game(self):
         """Quits the game without saving the state"""
