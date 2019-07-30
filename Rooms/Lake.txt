@@ -21,7 +21,7 @@
             "name": "Water", 
             "description": "Use this water to fill your water bottle.",
             "original_feature": "",
-            "actions": ["gill"]
+            "actions": ["fill"]
         },
         {
             "name": "Fishing pole", 
@@ -33,7 +33,7 @@
             "name": "Fish", 
             "description": "What is that splashing around? Looks like there is a huge trout in the water!",
             "original_feature": "Dock",
-            "actions": ["catch"]
+            "actions": ["catch", "eat"]
         }
     ],
     "north": "Campsite",

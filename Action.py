@@ -45,7 +45,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = LOOK AT
     #######################################################################################################
-    elif command.lower() == "look" and use_on != "" or command.lower in ["observe", "read", "view", "search", "examine"]:
+    elif command.lower() == "look" and use_on != "" or command.lower in ["observe", "read", "view", "search", "examine", "check"]:
         # call function to explain feature or object
         if not look_at(use_on, player1, current_room, rooms):
             print("What you're trying to look at isn't here. Try looking at something else")
