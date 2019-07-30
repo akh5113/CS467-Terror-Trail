@@ -220,7 +220,7 @@ class Room:
             # if they don't have a raft in inventory
             else:
                # can't travel this way
-               print("It looks like you need something to travel from the River to the Waterfall. You should do some more exploring")
+               data_printer.word_wrap("It looks like you need something to travel from the River to the Waterfall. You should do some more exploring")
                return None
             # If current room isn't the river
  #           else:
@@ -245,7 +245,7 @@ class Room:
             # if they don't have a raft in inventory
             else:
                # can't travel this way
-               print("It looks like you need something to travel from the Waterfall to the River. You should do some more exploring")
+               data_printer.word_wrap("It looks like you need something to travel from the Waterfall to the River. You should do some more exploring.")
                return None
             # If current room isn't the waterfall
 #        else:
@@ -271,7 +271,7 @@ class Room:
             # if they don't have a raft in inventory
             else:
                # can't travel this way
-               print("It looks like you need some things to travel from the River to the Cave. You should do some more exploring")
+               data_printer.word_wrap("It looks like you need some things to travel from the River to the Cave. You should do some more exploring.")
                return None
 
         # Cave or Forest next room and Glacier current room
@@ -284,9 +284,9 @@ class Room:
                 if rope.used and shoes.used:
                     return next_room
                 elif rope.used and not shoes.used:
-                    print("You're rope is secure, but you need to put on something to help from slipping across.")
+                    data_printer.word_wrap("You're rope is secure, but you need to put on something to help from slipping across.")
                 elif not rope.used and shoes.used:
-                    print("You won't slip, but you'll never make it across without some rope secured")
+                    print("You won't slip, but you'll never make it across without some rope secured.")
                 else:
                     print("You need to secure a rope and put on shoes before you can cross.")
                 return None

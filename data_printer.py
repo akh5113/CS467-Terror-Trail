@@ -177,7 +177,7 @@ def set_width():
     global SCREEN_WIDTH 
     error = "Please enter a valid width."
 
-    print("Set a window width between 70 and 100 characters. Default width is %d." % SCREEN_WIDTH)
+    print("Set a window width between 80 and 100 characters. Default width is %d." % SCREEN_WIDTH)
     valid = False
     while True:
         screen_width_input = input(">>>")
@@ -185,7 +185,7 @@ def set_width():
             break
         try:
             width = int(screen_width_input)
-            if width >= 70 and width <= 100:
+            if width >= 80 and width <= 100:
                 SCREEN_WIDTH = int(width)
                 break
             else:
@@ -201,7 +201,7 @@ def word_wrap(text_to_print):
     """
     Print text using a text wrapper 
     args:
-        text_to_print (string): structure that contains all room data
+        text_to_print (string): text to be printed using the text wrapper
     source for text wrapper: https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/
     """
     wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH, break_long_words=False, replace_whitespace=False)
