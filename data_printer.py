@@ -18,17 +18,13 @@ def print_room_intro(room):
     Print long/short intro based on if room has been visited
     args:
         room (Room): structure that contains all room data
-    source for text wrapper: https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/
     """
-    wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH, break_long_words=False,replace_whitespace=False)
     if room.visited is False:
-        words = wrapper.wrap(text=room.long_intro)
-        for w in words:
-            print(w)
+        word_wrap(room.long_intro)
+
     else:
-        words = wrapper.wrap(text=room.short_intro)
-        for w in words:
-            print(w)
+        word_wrap(room.short_intro)
+
     print('\n')
     
 def print_room_long(room):
@@ -36,13 +32,8 @@ def print_room_long(room):
     Prints the long form explanation of the room
     args:
         room (Room): structure that contains all room data
-    source for text wrapper: https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/
     """
-    wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH, break_long_words=False,replace_whitespace=False)
-
-    words = wrapper.wrap(text=room.long_intro)
-    for w in words:
-        print(w)
+    word_wrap(room.long_intro)
     print('\n')    
 
 def print_room_exit(room):
@@ -51,10 +42,7 @@ def print_room_exit(room):
     args:
         room (Room): structure that contains all room data
     """
-    wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH,break_long_words=False,replace_whitespace=False)
-    words = wrapper.wrap(text=room.long_exit)
-    for w in words:
-        print(w)
+    word_wrap(room.long_exit)
     print("\n")
 
 # this method is primarily intended for testing
@@ -72,7 +60,7 @@ def print_single_room_details(room):
     """
     Print details for a single room
     args:
-        rooms (dict): dict structure that contains all rooms
+        room (dict): structure that contains all room data
     """  
     print("Room Name: ", room.name)
     print("\n")
@@ -156,15 +144,10 @@ def print_feature_description(feature):
     args:
         feature (Feature): name of the feature
     """
-    wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH,break_long_words=False,replace_whitespace=False)
     if feature.objects_found() is True:
-        words = wrapper.wrap(text=feature.description_with_objects)
-        for w in words:
-            print(w)
+        word_wrap(feature.description_with_objects)
     else:
-        words = wrapper.wrap(text=feature.description_no_objects)
-        for w in words:
-            print(w)
+        word_wrap(feature.description_no_objects)
 
 ################################################################
 # helper printing methods for Game introduction
@@ -179,12 +162,22 @@ def print_intro():
     prompt2 = "You can start a new game, load game, or quit."
     newline = "\n"
 
-    wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH,break_long_words=False,replace_whitespace=False)
-    words = wrapper.wrap(text=intro)
-    for w in words:
-        print(w)
+    word_wrap(intro)
 
     print(newline)
     print(prompt1)
     print(prompt2)
     print(newline)
+
+
+def word_wrap(text_to_print):
+    """
+    Print text using a text wrapper 
+    args:
+        text_to_print (string): structure that contains all room data
+    source for text wrapper: https://www.geeksforgeeks.org/textwrap-text-wrapping-filling-python/
+    """
+    wrapper = textwrap.TextWrapper(width=SCREEN_WIDTH, break_long_words=False, replace_whitespace=False)
+    words = wrapper.wrap(text=text_to_print)
+    for w in words:
+        print(w)
