@@ -114,6 +114,13 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     elif command.lower() in ["unlock"]:
         return unlock(player1, current_room)
 
+    #######################################################################################################
+    # ACTION = DROP
+    #######################################################################################################
+    elif command.lower() in ["drop", "leave", "abandon"]:
+        drop(player1, current_room, use_on)
+        return False
+
     else:
         return False #TODO change to error message
 
@@ -430,3 +437,16 @@ def unlock(player, room):
     else:
         print("Unable to use key")
         return False
+
+def drop(player, room, obj_name):
+    """drops the object in the current room"""
+    # Check if object is in Player's inventory
+    if player.check_inventory(obj_name.capitalize()):
+        # get Object type
+        players_object = player.get_object(obj_name.capitalize())
+        # add back to room object list
+        room.add_object(players_object)
+        # remove from players inventory
+        player.remove_obj_from_inventory(players_object)
+    else:
+        print("You don't have {} in your inventory.".format(obj_name))

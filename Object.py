@@ -18,7 +18,7 @@ class Object:
         self.name = name
         self.description = description
 
-        self.actions = ["pick up", "drop", "take", "add"]
+        self.actions = ["pick up", "drop", "take", "add", "leave", "abandon"]
         for verb in additional_actions:
             self.actions.append(verb)
 
