@@ -205,6 +205,11 @@ def take(rooms, room, player, object_name):
     Returns:
         Boolean: true if the object was found in the room, False if not
     """
+    # Check for max number of objects
+    if len(player.inventory) >= 5:
+        print("Woah woah you can't carry that much! You must pick something to drop before adding anything else.")
+        return False
+    # If they don't have a full inventory
     for obj in room.objects:
         if obj.name.lower() == object_name.lower():
             # Get the original feature the object was seen in
@@ -448,5 +453,6 @@ def drop(player, room, obj_name):
         room.add_object(players_object)
         # remove from players inventory
         player.remove_obj_from_inventory(players_object)
+        print("{} has been drop in the {}".format(obj_name, room.name))
     else:
         print("You don't have {} in your inventory.".format(obj_name))

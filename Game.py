@@ -73,6 +73,7 @@ class Game:
         print("eat <object>                 Increases players energy levels.")
         print("unlock                       Unlocks door")
         print("ride                         Rides bike if in player's inventory")
+        print("drop                         Drops item in current room if item is in Player's inventory")
         print("inventory                    Lists the contents of players inventory")
         print("secure <object>              If 'Rope' is in player's inventory, secures Rope to cross glacier")
         print("health                       Displays the player's current energy and hydration levels")
