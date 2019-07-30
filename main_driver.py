@@ -59,6 +59,9 @@ def main():
                 print("Game resumed!")
                 # Play game with saved player and game data
                 play_game(loaded_game, loaded_player)
+        
+        elif main_menu_input == "set width":
+            data_printer.set_width()
 
         elif main_menu_input == "quit":
             valid_choice = True

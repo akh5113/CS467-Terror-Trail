@@ -7,6 +7,7 @@ from Room import *
 from Player import *
 from Feature import *
 import textwrap
+
 SCREEN_WIDTH = 90
 
 ################################################################
@@ -159,7 +160,7 @@ def print_intro():
             "where you are. But if you look closely you might just find some items to help you find your " \
             "way back to the ranger station."
     prompt1 = "Do you dare see if you can make it out?"
-    prompt2 = "You can start a new game, load game, or quit."
+    prompt2 = "You can start a new game, load game, set width, or quit."
     newline = "\n"
 
     word_wrap(intro)
@@ -169,6 +170,32 @@ def print_intro():
     print(prompt2)
     print(newline)
 
+def set_width():
+    """
+    Allow the user to set the console window width for playing the game.
+    """
+    global SCREEN_WIDTH 
+    error = "Please enter a valid width."
+
+    print("Set a window width between 70 and 100 characters. Default width is %d." % SCREEN_WIDTH)
+    valid = False
+    while True:
+        screen_width_input = input(">>>")
+        if screen_width_input.lower() == "default":
+            break
+        try:
+            width = int(screen_width_input)
+            if width >= 70 and width <= 100:
+                SCREEN_WIDTH = int(width)
+                break
+            else:
+                print(error)
+        except ValueError:
+            print(error)
+
+    print("\n")
+    print("Game width set to width of %d, please adjust window size!" % SCREEN_WIDTH)
+    print("You can start a new game, load game, set width, or quit.")
 
 def word_wrap(text_to_print):
     """
