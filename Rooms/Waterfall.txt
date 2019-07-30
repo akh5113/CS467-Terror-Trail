@@ -20,11 +20,13 @@
         {
             "name": "Raft", 
             "description": "This raft could be helpful for crossing rapids, but you will need an oar to steer.",
+            "original_feature": "Behind waterfall",
             "actions": ["launch"]
         },
         {
             "name": "Water", 
             "description": "Use the water from the falls to fill your water bottle.",
+            "original_feature": "Front of waterfall",
             "actions": ["fill"]
         }
     ],

@@ -20,11 +20,13 @@
         {
             "name": "Water shoes", 
             "description" : "You may want to save these shoes for any other strange water areas you encounter down the road.",
+            "original_feature": "Water feature",
             "actions": ["wear", "put on"]
         },
         {
             "name": "Apples", 
             "description": "These bright red apples are just what you need to feed your hunger.",
+            "original_feature": "The sky getting darker",
             "actions": ["eat"]
         }        
     ],

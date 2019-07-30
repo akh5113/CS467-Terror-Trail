@@ -99,11 +99,9 @@ class Game:
 
         self.game_over = True
 
-
     def health_status(self, player1):
         """Prints the player's current hunger and thrist levels"""
         data_printer.print_health_levels(player1)
-
 
     def list_exit(self,room):
         """Prints all the possible exit names"""
@@ -117,7 +115,6 @@ class Game:
         for exit in room.south_exits:
             print(exit)
 
-
     def get_room_restrictions(self):
         """Returns list of rooms that have restrictions to enter thme"""
         restricted_rooms = []
@@ -126,3 +123,12 @@ class Game:
                 restricted_rooms.append(room)
 
         return restricted_rooms
+
+    def get_all_features(self):
+        """Returns list of all features in the game"""
+        features = []
+        for room in self.rooms:
+            features.append(room.get_feature(1))
+            features.append(room.get_feature(2))
+
+        return features

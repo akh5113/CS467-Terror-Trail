@@ -20,11 +20,13 @@
         {
             "name": "Key", 
             "description" : "This key may be your ticket home! Hopefully it is the correct key for the lock.",
+            "original_feature": "Doormat",
             "actions": ["use"]
         },
         {
             "name": "Radio", 
             "description": "This radio can help you reach someone. Call the radio to find out.",
+            "original_feature": "",
             "actions": ["pickup", "call"]
         }        
     ],

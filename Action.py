@@ -56,8 +56,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     elif command.lower() in ["take", "add", "pick up", "grab"]:
         # Call function to add object to inventory
-        if not take(current_room, player1, use_on):
-            print("That object is not in this room.")
+        success = take(rooms, current_room, player1, use_on)
         return False
 
     #######################################################################################################
@@ -188,7 +187,7 @@ def get_room_object(room_name, rooms):
             next_room = room
     return next_room
 
-def take(room, player, object_name):
+def take(rooms, room, player, object_name):
     """Required verb/action
     Acquire an object and put it into your inventory
 
@@ -201,14 +200,49 @@ def take(room, player, object_name):
     """
     for obj in room.objects:
         if obj.name.lower() == object_name.lower():
-            #add object to inventory
-            player.add_obj_to_inventory(obj)
-            #remove object from room
-            room.remove_object(obj.name)
-            print("{} has been added to your inventory".format(object_name.capitalize()))
-            return True
+            # Get the original feature the object was seen in
+            og_feature_str = obj.original_feature
+            # if there is no feature needed to add the object, add to inventory
+            if og_feature_str == "":
+                # add object to inventory
+                player.add_obj_to_inventory(obj)
+                # remove object from room
+                room.remove_object(obj.name)
+                print("{} has been added to your inventory".format(object_name.capitalize()))
+                return True
+            # If there is a feature associated with the object
+            else:
+                # Get the feature object
+                for room_feat in get_all_features(rooms):
+                    if room_feat.feature_name == og_feature_str:
+                        og_feature = room_feat
+                        # If original feature has been viewed, it can be added to their inventory
+                        if og_feature.viewed is True:
+                            #add object to inventory
+                            player.add_obj_to_inventory(obj)
+                            #remove object from room
+                            room.remove_object(obj.name)
+                            print("{} has been added to your inventory".format(object_name.capitalize()))
+                            return True
+                        else:
+                            print("You're getting close to the {}, but you need to look at {} first.".format(obj.name.lower(),
+                                                                                                             og_feature.feature_name.lower()))
+                            return False
 
+    print("That object is not in this room.")
     return False
+
+
+def get_all_features(rooms):
+    """ Helper function
+    Returns list of all features in the game"""
+    all_features = []
+    for room in rooms:
+        all_features.append(room.get_feature(1))
+        all_features.append(room.get_feature(2))
+
+    return all_features
+
 
 def look(current_room):
     """Required verb/action

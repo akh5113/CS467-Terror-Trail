@@ -20,6 +20,7 @@
         {
             "name": "Berries", 
             "description": "If those birds ate the berries, they must be safe for humans...right?",
+            "original_feature": "Bush",
             "actions": ["eat"]
         }
     ],

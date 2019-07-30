@@ -20,16 +20,19 @@
         {
             "name": "Water", 
             "description": "Use this water to fill your water bottle.",
+            "original_feature": "",
             "actions": ["gill"]
         },
         {
             "name": "Fishing pole", 
             "description": "Cast this fishing pole and maybe some fish will begin to bite.",
+            "original_feature": "Crate",
             "actions": ["cast", "use"]
         },
         {
             "name": "Fish", 
             "description": "What is that splashing around? Looks like there is a huge trout in the water!",
+            "original_feature": "Dock",
             "actions": ["catch"]
         }
     ],

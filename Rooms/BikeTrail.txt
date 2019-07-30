@@ -20,11 +20,13 @@
         {
             "name": "Bike", 
             "description": "Thank goodness someone left this bike behind, if you don't find a tire you won't be able to ride it.",
+            "original_feature": "Boulder",
             "actions": ["ride"]
         },
         {
             "name": "Tire", 
             "description": "This tire must go with a broken bike.",
+            "original_feature": "Bush",
             "actions": ["put on", "put"]
         }       
     ],

@@ -8,7 +8,7 @@ class Object:
     """
     Base Class for the Objects in the game.
     """
-    def __init__(self, name, description, additional_actions):
+    def __init__(self, name, description, original_feature, additional_actions):
         """Constructor.
         args:
            name (str): name of the object.
@@ -21,6 +21,8 @@ class Object:
         self.actions = ["pick up", "drop", "take", "add"]
         for verb in additional_actions:
             self.actions.append(verb)
+
+        self.original_feature = original_feature
 
         self.used = False       # Has the object been found/used
 

@@ -20,11 +20,13 @@
         {
             "name": "Oar", 
             "description" : "Used with a raft, this oar will help with crossing dangerous rapids.",
+            "original_feature": "Dock",
             "actions": ["paddle"]
         },
         {
             "name": "Water", 
             "description": "Use the water from the river to fill your water bottle.",
+            "original_feature": "Water rapids",
             "actions": ["fill"]
         }
     ],

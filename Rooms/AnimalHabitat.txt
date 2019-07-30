@@ -20,6 +20,7 @@
         { 
             "name": "Flashlight batteries", 
             "description": "These batteries will be needed if you don't want you flashlight to die.",
+            "original_feature": "Informational sign",
             "actions": ["Put In"]
         }
     ],

@@ -20,11 +20,13 @@
         {
             "name": "Climbing gear", 
             "description": "This is some high end climbing gear, I wonder why some one left this up here...",
+            "original_feature": "View from top",
             "actions": ["secure"]
         },
         {
             "name": "Compass", 
             "description": "This compass is saying that you have travelled east of where you first fell.",
+            "original_feature": "Bench",
             "actions": ["read"]
         }
     ],

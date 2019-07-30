@@ -81,9 +81,10 @@ def init_room_objects(data):
     for o in object_data:
         name = o['name']
         description = o['description']
+        original_feature = o['original_feature']
         actions = init_list(o['actions'])
             
-        new_object = Object(name, description, actions)
+        new_object = Object(name, description, original_feature, actions)
         objects.append(new_object)
     
     return objects

@@ -20,11 +20,13 @@
         {
             "name": "Flashlight", 
             "description": "Better grab this flashlight, don't want to get lost in the dark.",
+            "original_feature": "Hole",
             "actions": ["turn on"]
         },
         {
             "name": "Water bottle", 
             "description": "This water bottle will be necessary to stay hydrated while you find your way back.",
+            "original_feature": "Pile of leaves",
             "actions": ["fill", "drink"]
         }
     ],

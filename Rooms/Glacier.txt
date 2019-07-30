@@ -20,11 +20,13 @@
         {
             "name": "Shoes", 
             "description": "These must be special ice shoes, they have some sharp spikes on the bottom so be careful!",
+            "original_feature": "Sign",
             "actions": ["wear", "put on"]
         },
         {
             "name": "Rope", 
             "description": "This rope must be helpful for getting across the glacier safely.",
+            "original_feature": "Anchor",
             "actions": ["secure"]
         }
     ],
