@@ -25,9 +25,11 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     """
     #######################################################################################################
     # ACTION = MOVING ROOMS
+    #   Includes Riding bike
     #######################################################################################################
     basic_move_cmds = ["go", "move", "walk", "exit", "travel", "cross"]
-    if command.lower() in basic_move_cmds:
+    bike_move_cmds = ["ride", "bike"]
+    if command.lower() in basic_move_cmds or command.lower() in bike_move_cmds:
         # call move room action function to get next room
         next_room = move_room(use_on, current_room, rooms, player1)
         
@@ -85,13 +87,6 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     elif command.lower() in ["wear", "put"]:
         put_on(player1, use_on)
-        return False
-
-    #######################################################################################################
-    # ACTION = RIDE
-    #######################################################################################################
-    elif command.lower() in ["ride", "bike"]:
-        ride(player1)
         return False
 
     #######################################################################################################
@@ -397,6 +392,7 @@ def ride(player):
     else:
         print("You need to find a bike before you can ride it!")
         return False
+
 
 def secure(player, obj):
     """Allows player to secure object
