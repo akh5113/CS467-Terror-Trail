@@ -25,6 +25,7 @@ def main():
         if main_menu_input == "new game":
             valid_choice = True
 
+            # Enforce only valid console widths
             validate_console_size()
 
             # Load files for Rooms including Features and Objects within rooms
@@ -50,6 +51,7 @@ def main():
         elif main_menu_input in ["loadgame", "load game"]:
             valid_choice = True
 
+            # Enforce only valid console widths
             validate_console_size()
 
             # Load Saved Player Data
