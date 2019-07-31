@@ -73,6 +73,7 @@ def main():
             print("Please enter a valid command:"
                   " <new game>"
                   " <load game>"
+                  " <set width>"
                   " <quit>")
 
 
