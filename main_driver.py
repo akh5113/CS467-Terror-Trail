@@ -7,6 +7,7 @@ import sys
 import data_import
 import data_printer
 import time
+import shutil
 from Player import *
 from Game import *
 from Room import *
@@ -23,6 +24,10 @@ def main():
         main_menu_input = input(">>>")
         if main_menu_input == "new game":
             valid_choice = True
+
+            # Enforce only valid console widths
+            validate_console_size()
+
             # Load files for Rooms including Features and Objects within rooms
             rooms = data_import.import_room_data()
 
@@ -45,6 +50,9 @@ def main():
 
         elif main_menu_input in ["loadgame", "load game"]:
             valid_choice = True
+
+            # Enforce only valid console widths
+            validate_console_size()
 
             # Load Saved Player Data
             loaded_player = data_import.load_player()
@@ -228,6 +236,16 @@ def play_game(game1, player1):
         game1.check_game_status(player1)
         if game1.game_over is True:
             break
+
+def validate_console_size():
+    """
+    Validates that the players console window is between 80 and 100 columns.
+    If invalid, quit game.
+    """
+    width, height = shutil.get_terminal_size(fallback=(90, 24))
+    if width < 80 or width > 100:
+        print("Invalid console width - quitting game.")
+        exit()
 
 if __name__ == "__main__":
     main()
