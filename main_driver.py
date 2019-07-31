@@ -143,6 +143,11 @@ def play_game(game1, player1):
                 else:
                     use_on = ' '.join(split_input[1:])
                     preposition = ""
+            # If second word part of location
+            elif (split_input[1] in ["trail", "habitat", "spring", "field", "station"]):
+                command = ' '.join(split_input[0:])
+                preposition = ""
+                use_on = ""
             # If there is a one word command, others are empty
             else:
                 use_on = ""
