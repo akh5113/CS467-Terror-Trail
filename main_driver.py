@@ -137,14 +137,14 @@ def play_game(game1, player1):
 
             if len(split_input) >= 2:
                 # If there is prepostion
-                if (split_input[1] in ["at", "in", "on", "up"]):
+                if split_input[1] in ["at", "in", "on", "up"]:
                     preposition = split_input[1]
                     use_on = ' '.join(split_input[2:])
                 else:
                     use_on = ' '.join(split_input[1:])
                     preposition = ""
             # If second word part of location
-            elif (split_input[1] in ["trail", "habitat", "spring", "field", "station"]):
+            elif len(split_input) >=2 and split_input[1] in ["trail", "habitat", "spring", "field", "station"]:
                 command = ' '.join(split_input[0:])
                 preposition = ""
                 use_on = ""
