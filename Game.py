@@ -74,6 +74,8 @@ class Game:
         print("unlock                       Unlocks door")
         print("ride <direction>             Rides bike to move to a different Room")
         print("drop                         Drops item in current room if item is in Player's inventory")
+        print("paddle <direction>           Uses the raft, if in players inventory, to travel on the River")
+        print("call                         Calls the Ranger from the Ranger station")
         print("inventory                    Lists the contents of players inventory")
         print("secure <object>              If 'Rope' is in player's inventory, secures Rope to cross glacier")
         print("health                       Displays the player's current energy and hydration levels")
