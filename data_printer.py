@@ -172,7 +172,7 @@ def print_intro():
     print(prompt2 % SCREEN_WIDTH)
     print(prompt3)
     print(prompt4)
-    print(newline)
+    print(newline)  
 
 def set_width():
     """
@@ -181,7 +181,7 @@ def set_width():
     global SCREEN_WIDTH 
     error = "Please enter a valid width."
 
-    print("Set a window width between 80 and 100 characters. Default width is %d." % SCREEN_WIDTH)
+    print("Set a window width between 82 and 100 characters. Default width is %d." % SCREEN_WIDTH)
     valid = False
     while True:
         screen_width_input = input(">>>")
@@ -189,7 +189,7 @@ def set_width():
             break
         try:
             width = int(screen_width_input)
-            if width >= 80 and width <= 100:
+            if width >= 82 and width <= 100:
                 SCREEN_WIDTH = int(width)
                 break
             else:
@@ -200,6 +200,98 @@ def set_width():
     print("\n")
     print("Game width set to width of %d, please adjust window size!" % SCREEN_WIDTH)
     print("You can start a new game, load game, set width, or quit.")
+
+def print_map(rooms):
+    empty_room = "\t\t"
+
+    terror_trail = "Terror trail\t"
+
+    animal_habitat = empty_room
+    bike_trail = empty_room
+    campsite = empty_room
+    cave = empty_room
+    forest = empty_room
+    geyser = empty_room
+    glacier = empty_room
+    hot_spring = empty_room
+    lake = empty_room 
+    mountain = empty_room 
+    open_field = empty_room  
+    ranger_station = empty_room 
+    river = empty_room
+    waterfall = empty_room
+
+    for room in rooms:
+
+        if room.name == "Animal habitat":
+            if room.visited == True:
+                animal_habitat = room.name + ""
+
+        if room.name == "Bike trail":
+            if room.visited == True:
+                bike_trail = room.name + "\t"
+
+        if room.name == "Campsite":
+            if room.visited == True:
+                campsite = room.name + "\t"
+        
+        if room.name == "Cave":
+            if room.visited == True:
+                cave = room.name + "\t\t"
+
+        if room.name == "Forest":
+            if room.visited == True:
+                forest = room.name + "\t"
+
+        if room.name == "Geyser":
+            if room.visited == True:
+                geyser = room.name + "\t"
+
+        if room.name == "Glacier":
+            if room.visited == True:
+                glacier = room.name + "\t"
+
+        if room.name == "Hot spring":
+            if room.visited == True:
+                hot_spring = room.name + "\t"
+
+        if room.name == "Lake":
+            if room.visited == True:
+                lake = room.name + "\t\t"
+
+        if room.name == "Mountain":
+            if room.visited == True:
+                mountain = room.name + "\t"
+
+        if room.name == "Open field":
+            if room.visited == True:
+                open_field = room.name + "\t"
+
+        if room.name == "Ranger station":
+            if room.visited == True:
+                ranger_station = room.name + ""
+
+        if room.name == "River":
+            if room.visited == True:
+                river = room.name + "\t"
+
+        if room.name == "Waterfall":
+            if room.visited == True:
+                waterfall = room.name  + "\t"
+
+    print("Terror Trail Map:")
+    print("|----------------|---------------|---------------|")
+    print("|", terror_trail, "|", mountain, "|", waterfall, "|")
+    print("|----------------|---------------|---------------|")
+    print("|", glacier, "|", cave, "|", river, "|")
+    print("|----------------|---------------|---------------|")
+    print("|", forest, "|", bike_trail, "|")
+    print("|----------------|---------------|---------------|---------------|---------------|")
+    print("|", animal_habitat, "|", campsite, "|", hot_spring, "|", geyser, "|", ranger_station, "|")
+    print("|----------------|---------------|---------------|---------------|---------------|")
+    print(" ", empty_room, "|", lake, "|",open_field, "|")
+    print(" \t\t |---------------|---------------|")
+
 
 def word_wrap(text_to_print):
     """

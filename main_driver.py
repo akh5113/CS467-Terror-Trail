@@ -237,6 +237,9 @@ def play_game(game1, player1):
                 # currently moved here to prevent non-action commands or incorrect cmds from decresing health
                 player1.player_status()
 
+        # print game map
+        # data_printer.print_map(game1.rooms) # TODO remove from here and implement with "view map" action
+
         # Check for game status
         game1.check_game_status(player1)
         if game1.game_over is True:
@@ -244,12 +247,12 @@ def play_game(game1, player1):
 
 def validate_console_size():
     """
-    Validates that the players console window is between 80 and 100 columns
+    Validates that the players console window is between 82 and 100 columns
     and a minimum of 30 rows high.
     If invalid, quit game.
     """
     width, height = shutil.get_terminal_size(fallback=(90, 24))
-    if width < 80 or width > 100:
+    if width < 82 or width > 100:
         print("Invalid console width - quitting game.")
         exit()
     if height < 30:
