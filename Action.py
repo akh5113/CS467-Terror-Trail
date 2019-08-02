@@ -29,7 +29,8 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     basic_move_cmds = ["go", "move", "walk", "exit", "travel", "cross"]
     bike_move_cmds = ["ride", "bike"]
-    if command.lower() in basic_move_cmds or command.lower() in bike_move_cmds:
+    raft_move_cmds = ["launch", "paddle"]
+    if command.lower() in basic_move_cmds or command.lower() in bike_move_cmds or command.lower() in raft_move_cmds:
         # call move room action function to get next room
         next_room = move_room(use_on, current_room, rooms, player1)
         
@@ -107,7 +108,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     # ACTION = UNLOCK
     #######################################################################################################
     elif command.lower() in ["unlock"]:
-        return unlock(player1, current_room)
+        unlock(player1, current_room)
 
     #######################################################################################################
     # ACTION = DROP
@@ -115,6 +116,12 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     elif command.lower() in ["drop", "leave", "abandon"]:
         drop(player1, current_room, use_on)
         return False
+
+    #######################################################################################################
+    # ACTION = CALL
+    #######################################################################################################
+    elif command.lower() in ["call", "radio"]:
+        return call(player1, use_on)
 
     else:
         return False #TODO change to error message
@@ -201,7 +208,7 @@ def take(rooms, room, player, object_name):
         Boolean: true if the object was found in the room, False if not
     """
     # Check for max number of objects
-    if len(player.inventory) >= 5:
+    if len(player.inventory) >= 8:
         print("Woah woah you can't carry that much! You must pick something to drop before adding anything else.")
         return False
     # If they don't have a full inventory
@@ -223,6 +230,7 @@ def take(rooms, room, player, object_name):
                 for room_feat in get_all_features(rooms):
                     if room_feat.feature_name == og_feature_str:
                         og_feature = room_feat
+                        print(og_feature.viewed)
                         # If original feature has been viewed, it can be added to their inventory
                         if og_feature.viewed is True:
                             #add object to inventory
@@ -287,6 +295,7 @@ def look_at(item,player1,room,rooms):
                 feature.print_description(rooms)
                 # mark the item as viewed
                 feature.viewed = True
+                print("feature.viewed = {}".format(feature.viewed))
                 # call function to check if room has been completed
                 room.check_room_completion()
 
@@ -371,7 +380,6 @@ def ride(player):
         player (Player): player in the game
     Returns:
         bool: if the player can successfully ride a bike
-    TODO: incorporate this more with moving rooms
     """
     # Check for bike in inventory
     if player.check_inventory("Bike"):
@@ -433,7 +441,7 @@ def unlock(player, room):
     if player.check_inventory("Key") and room.name == "Ranger station":
         key = player.get_object("Key")
         key.used = True
-        print("You did it! You made it inside!")
+        print("You did it! You made it inside! Go find the radio!")
         return True
     else:
         print("Unable to use key")
@@ -452,3 +460,54 @@ def drop(player, room, obj_name):
         print("{} has been drop in the {}".format(obj_name, room.name))
     else:
         print("You don't have {} in your inventory.".format(obj_name))
+
+def paddle(player, obj1, obj2=None):
+    """Check to see if player can use raft and oar
+    Must use raft to go between river and waterfall
+    Must use raft and oar to go from river to cave
+
+    Args:
+        obj1 = raft
+        obj2 = oar
+    """
+    # Check players inventory
+    if player.check_inventory(obj1):
+        # get raft object
+        raft_obj = player.get_object(obj1.capitalize())
+        raft_obj.used = True
+        if obj2 is not None:
+            # check players inventory for paddle
+            if player.check_inventory(obj2):
+                # get oar object
+                oar_obj = player.get_object(obj2)
+                oar_obj.used = True
+                return True
+            else:
+                print("You have a raft, but an oar will get you down the river!")
+                return False
+        else:
+            print("This raft will help you move a lot faster!")
+            return True
+    else:
+        return False
+
+def call(player, obj):
+    """User calls using the radio"""
+    # check users inventory for key and check key is used
+    if player.check_inventory("Key"):
+        # check if key is used
+        key = player.get_object("Key")
+        if key.used:
+            # get radio object
+            player.add_obj_to_inventory("Radio")
+            radio = player.get_object("Radio")
+            radio.used = True
+            print("You're call for help worked! A ranger is coming!")
+            return True
+        else:
+            print("You have to use the key to get inside!")
+            return False
+
+    else:
+        print("You haven't used your key to get inside!")
+        return False
