@@ -7,7 +7,6 @@ from Room import *
 from Player import *
 from Feature import *
 import textwrap
-import os
 
 SCREEN_WIDTH = 90
 
