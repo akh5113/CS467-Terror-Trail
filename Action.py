@@ -295,7 +295,7 @@ def look_at(item,player1,room,rooms):
                 feature.print_description(rooms)
                 # mark the item as viewed
                 feature.viewed = True
-                print("feature.viewed = {}".format(feature.viewed))
+                # print("feature.viewed = {}".format(feature.viewed))
                 # call function to check if room has been completed
                 room.check_room_completion()
 
