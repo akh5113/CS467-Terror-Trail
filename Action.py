@@ -73,7 +73,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     # ACTION = FILL
     #######################################################################################################
     elif command.lower() in ["fill"]:
-        fill(player1)
+        fill(player1, current_room)
         return False
 
     #######################################################################################################
@@ -350,17 +350,21 @@ def inventory(player):
 # OBJECT ACTIONS
 #######################################################################################################
 
-def fill(player):
+def fill(player, room):
     """Fills players water bottle if it's in their inventory"""
-    if player.check_inventory("Water bottle"):
-        wb = player.get_object("Water bottle")
-        if wb.used is False:
-            wb.used = True
-            print("This will help keep you hydrated as you find your way.")
+    #Check if room has water
+    if room.get_object("Water"):
+        if player.check_inventory("Water bottle"):
+            wb = player.get_object("Water bottle")
+            if wb.used is False:
+                wb.used = True
+                print("Filled! This will help keep you hydrated as you find your way, don't forget to drink!")
+            else:
+                print("You're bottle is already full!")
         else:
-            print("You're bottle is already full!")
+            print("Uh Oh! You don't have your water bottle!")
     else:
-        print("Uh Oh! You don't have your water bottle!")
+        print("There's no water in {}".format(room.name))
 
 def drink(player):
     """Player drinks from water bottle. Increases "thirst" health by 10 pts"""
