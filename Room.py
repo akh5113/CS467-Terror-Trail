@@ -220,21 +220,6 @@ class Room:
             raft_results = paddle(player1, "Raft", "Oar")
             if raft_results:
                 return next_room
-            # if yes, check inventory for raft and oar
-  #          if player1.check_inventory("Raft") and player1.check_inventory("Oar"):
-                # if player has raft and oar, ask if they want to use
-  #              print("Would you like to use your raft and oar to travel to the Cave?")
-  #              use_raft_oar = input(">>>")
-  #              yes_raft_oar = ["yes","Yes","YES","Y","y"]
-                # if they want to use the raft and oar
-  #              if use_raft_oar in yes_raft_oar:
-  #                  print("You have decided to use your raft and to travel from the River to the Cave.")
-                    # return cave
-  #                  return next_room
-                #if they don't want to use the raft, then no movement
-  #              print("You have decided not to use your raft and oar right now.")
-  #             return None
-            # if they don't have a raft in inventory
             else:
                # can't travel this way
                data_printer.word_wrap("It looks like you need some things to travel from the River to the Cave. You should do some more exploring.")
