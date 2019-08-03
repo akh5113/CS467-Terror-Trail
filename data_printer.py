@@ -202,25 +202,33 @@ def set_width():
     print("You can start a new game, load game, set width, or quit.")
 
 def print_map(rooms):
-    empty_room = "\t\t"
+    """
+    When called, this method constructs a map of the game only showing the room
+    names when the room has been visited.
+    """
+    # blank text for if the room has not been visited
+    blank_room = "\t\t"
 
+    # we know terror trail is first room, so will always be visited
     terror_trail = "Terror trail\t"
 
-    animal_habitat = empty_room
-    bike_trail = empty_room
-    campsite = empty_room
-    cave = empty_room
-    forest = empty_room
-    geyser = empty_room
-    glacier = empty_room
-    hot_spring = empty_room
-    lake = empty_room 
-    mountain = empty_room 
-    open_field = empty_room  
-    ranger_station = empty_room + " "
-    river = empty_room
-    waterfall = empty_room
+    # set all other rooms to simply tabs
+    animal_habitat = blank_room
+    bike_trail = blank_room
+    campsite = blank_room
+    cave = blank_room
+    forest = blank_room
+    geyser = blank_room
+    glacier = blank_room
+    hot_spring = blank_room
+    lake = blank_room 
+    mountain = blank_room 
+    open_field = blank_room  
+    ranger_station = blank_room + " "
+    river = blank_room
+    waterfall = blank_room
 
+    # if a room has been visited, set the text for the room to the room name
     for room in rooms:
 
         if room.name == "Animal habitat":
@@ -270,8 +278,6 @@ def print_map(rooms):
         if room.name == "Ranger station":
             if room.visited == True:
                 ranger_station = room.name + ""
-            else:
-                ranger_station
 
         if room.name == "River":
             if room.visited == True:
@@ -291,7 +297,7 @@ def print_map(rooms):
     print("|----------------|---------------|---------------|---------------|----------------|")
     print("|", animal_habitat, "|", campsite, "|", hot_spring, "|", geyser, "|",ranger_station, "|")
     print("|----------------|---------------|---------------|---------------|----------------|")
-    print(" ", empty_room, "|", lake, "|",open_field, "|")
+    print(" ", blank_room, "|", lake, "|",open_field, "|")
     print(" \t\t |---------------|---------------|")
 
 
