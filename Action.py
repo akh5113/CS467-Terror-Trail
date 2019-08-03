@@ -361,8 +361,8 @@ def drink(player):
     if player.check_inventory("Water bottle"):
         wb = player.get_object("Water bottle")
         if wb.used is True:
-            print("Refreshing! That will help you go the extra mile. Just don't"
-                  "forget to fill it back up!")
+            data_printer.word_wrap("Refreshing! That will help you go the extra mile. Just don't"
+                  " forget to fill it back up!")
             player.hydration += 10
             data_printer.print_health_levels(player)
         else:

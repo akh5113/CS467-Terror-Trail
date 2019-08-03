@@ -41,6 +41,6 @@ class Feature:
         objects have been removed
         """
         if self.objects_found(rooms):
-            print(self.description_with_objects)
+            data_printer.word_wrap(self.description_with_objects)
         else:
-            print(self.description_no_objects)
+            data_printer.word_wrap(self.description_no_objects)

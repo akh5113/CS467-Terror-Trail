@@ -160,7 +160,7 @@ def print_intro():
             "where you are. But if you look closely you might just find some items to help you find your " \
             "way back to the ranger station."
     prompt1 = "Do you dare see if you can make it out?"
-    prompt2 = "Console width must be between 80 and 100 characters. Default width is %d."
+    prompt2 = "Console width must be between 85 and 100 characters. Default width is %d."
     prompt3 = "Console height must be a minimum of 30 characters."
     prompt4 = "You can start a new game, load game, set width, or quit."
     newline = "\n"
@@ -172,7 +172,7 @@ def print_intro():
     print(prompt2 % SCREEN_WIDTH)
     print(prompt3)
     print(prompt4)
-    print(newline)  
+    print(newline)
 
 def set_width():
     """
@@ -181,7 +181,7 @@ def set_width():
     global SCREEN_WIDTH 
     error = "Please enter a valid width."
 
-    print("Set a window width between 82 and 100 characters. Default width is %d." % SCREEN_WIDTH)
+    print("Set a window width between 85 and 100 characters. Default width is %d." % SCREEN_WIDTH)
     valid = False
     while True:
         screen_width_input = input(">>>")
@@ -189,7 +189,7 @@ def set_width():
             break
         try:
             width = int(screen_width_input)
-            if width >= 82 and width <= 100:
+            if width >= 85 and width <= 100:
                 SCREEN_WIDTH = int(width)
                 break
             else:
@@ -217,7 +217,7 @@ def print_map(rooms):
     lake = empty_room 
     mountain = empty_room 
     open_field = empty_room  
-    ranger_station = empty_room 
+    ranger_station = empty_room + " "
     river = empty_room
     waterfall = empty_room
 
@@ -270,6 +270,8 @@ def print_map(rooms):
         if room.name == "Ranger station":
             if room.visited == True:
                 ranger_station = room.name + ""
+            else:
+                ranger_station
 
         if room.name == "River":
             if room.visited == True:
@@ -286,9 +288,9 @@ def print_map(rooms):
     print("|", glacier, "|", cave, "|", river, "|")
     print("|----------------|---------------|---------------|")
     print("|", forest, "|", bike_trail, "|")
-    print("|----------------|---------------|---------------|---------------|---------------|")
-    print("|", animal_habitat, "|", campsite, "|", hot_spring, "|", geyser, "|", ranger_station, "|")
-    print("|----------------|---------------|---------------|---------------|---------------|")
+    print("|----------------|---------------|---------------|---------------|----------------|")
+    print("|", animal_habitat, "|", campsite, "|", hot_spring, "|", geyser, "|",ranger_station, "|")
+    print("|----------------|---------------|---------------|---------------|----------------|")
     print(" ", empty_room, "|", lake, "|",open_field, "|")
     print(" \t\t |---------------|---------------|")
 
