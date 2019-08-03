@@ -277,6 +277,8 @@ def look_at(item,player1,room,rooms):
         item(string): what the user wants to look at
         player1(Player): player used to access inventory
         room(Room): player's current location
+    Return:
+        bool: if item was succewssfully viewed
     """
 
     # if player wants to view inventory
@@ -285,6 +287,16 @@ def look_at(item,player1,room,rooms):
         print("Items in current inventory:")
         for i in player1.inventory:
             print(i.name)
+        return True
+
+    elif item.lower() == "map":
+        # Check to see if player has map in inventory
+        if player1.check_inventory(item.capitalize()):
+            data_printer.print_map(rooms)
+            return True
+        else:
+            print("You need to take the map before reading!")
+            return False
             
     # if player wants to view an object or feature
     else:
@@ -499,8 +511,8 @@ def call(player, obj):
         key = player.get_object("Key")
         if key.used:
             # get radio object
-            player.add_obj_to_inventory("Radio")
-            radio = player.get_object("Radio")
+            player.add_obj_to_inventory(obj)
+            radio = player.get_object(obj)
             radio.used = True
             print("You're call for help worked! A ranger is coming!")
             return True
@@ -509,5 +521,5 @@ def call(player, obj):
             return False
 
     else:
-        print("You haven't used your key to get inside!")
+        print("You haven't used the key to get inside!")
         return False

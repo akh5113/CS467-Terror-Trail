@@ -231,14 +231,9 @@ def play_game(game1, player1):
                     print("Error: not a valid action. Type <help> to see valid verbs")
 
                 # Calculate players new health with each move
-                # TODO need to determine how each action affects health
-                # TODO may want to move to actions aftering deciding how actions affect health levels
                 # currently an incorrect room choice will decrease health
                 # currently moved here to prevent non-action commands or incorrect cmds from decresing health
                 player1.player_status()
-
-        # print game map
-        # data_printer.print_map(game1.rooms) # TODO remove from here and implement with "view map" action
 
         # Check for game status
         game1.check_game_status(player1)

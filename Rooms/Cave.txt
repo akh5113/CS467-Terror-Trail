@@ -12,7 +12,7 @@
         {
             "name": "Cave art",
             "actions": ["look at", "view"],
-            "description1": "Here lies a map of the park, though it looks like it may not be complete...",
+            "description1": "Here lies a map of the park, though it looks like it may not be complete... scribble down what you can",
             "description2": "You've already viewed the map."
         }
     ],
@@ -24,7 +24,7 @@
             "actions": ["fill"]
         },
         {
-            "name": "Map of park", 
+            "name": "Map",
             "description": "North: Mountain; South: Bike trail; East: Raging river; West: Glacier.",
             "original_feature": "Cave art",
             "actions": ["read"]
