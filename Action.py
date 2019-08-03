@@ -57,7 +57,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = TAKE
     #######################################################################################################
-    elif command.lower() in ["take", "add", "pick up", "grab"]:
+    elif command.lower() in ["take", "add", "pick", "grab"]:
         # Call function to add object to inventory
         success = take(rooms, current_room, player1, use_on)
         return False
@@ -311,6 +311,12 @@ def look_at(item,player1,room,rooms):
                 feature.print_description(rooms)
                 # mark the item as viewed
                 feature.viewed = True
+                # Check for beaver den - decrease energy
+                if feature.feature_name == "Beaver den":
+                    # Decrease health
+                    data_printer.word_wrap("The beaver ended up keeping it to itself, but it really spooked you and took a lot out of you!")
+                    player1.energy -= 10
+                    data_printer.print_health_levels(player1)
                 # call function to check if room has been completed
                 room.check_room_completion()
 
@@ -377,7 +383,7 @@ def put_on(player, obj):
         if inv_obj.used is True:
             print("You've already put on this!")
         else:
-            print("Ahh good decision to put on {}".format(obj))
+            print("Good decision to put on {}".format(obj))
             inv_obj.used = True
 
     else:

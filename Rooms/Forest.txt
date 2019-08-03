@@ -11,7 +11,7 @@
         },
         { 
             "name": "The sky",
-            "actions": ["look up"],
+            "actions": ["view"],
             "description1": "The bird is flying off into the distance -- the area appears to be clear now.",
             "description2": "I don't see any birds around here, I wonder if all the berries got eaten?"
         }

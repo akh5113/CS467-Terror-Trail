@@ -5,7 +5,7 @@
     "features": [
         { 
             "name": "Water feature",
-            "actions": ["walk to"],
+            "actions": ["view"],
             "description1": "This water feature is a little stream with some apple trees around it. There are some water shoes that someone might have lost upstream.",
             "description2": "The bubbling water feature is relaxing to listen to."
         },
