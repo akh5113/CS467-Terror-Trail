@@ -216,6 +216,7 @@ class Room:
 
         # Cave next room and River Current Room
         elif next_room.name == "Cave" and self.name == "River":
+            print("in restriction checker")
             raft_results = paddle(player1, "Raft", "Oar")
             if raft_results:
                 return next_room

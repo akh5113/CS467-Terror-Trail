@@ -10,7 +10,7 @@
             "description2": "Looks like you can finally cross with your raft and oar, but be careful!"
         },
         { 
-            "name": "Dock",
+            "name": "Wooden structure",
             "actions": ["search"],
             "description1": "There is a lot of old boat junk lying around - maybe that oar could be helpful.",
             "description2": "Nothing else on the dock will help with getting home."
@@ -20,7 +20,7 @@
         {
             "name": "Oar", 
             "description" : "Used with a raft, this oar will help with crossing dangerous rapids.",
-            "original_feature": "Dock",
+            "original_feature": "Wooden structure",
             "actions": ["paddle"]
         },
         {
