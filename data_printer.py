@@ -217,7 +217,7 @@ def print_map(rooms):
     lake = empty_room 
     mountain = empty_room 
     open_field = empty_room  
-    ranger_station = empty_room 
+    ranger_station = empty_room + " "
     river = empty_room
     waterfall = empty_room
 
@@ -270,6 +270,8 @@ def print_map(rooms):
         if room.name == "Ranger station":
             if room.visited == True:
                 ranger_station = room.name + ""
+            else:
+                ranger_station
 
         if room.name == "River":
             if room.visited == True:
@@ -287,7 +289,7 @@ def print_map(rooms):
     print("|----------------|---------------|---------------|")
     print("|", forest, "|", bike_trail, "|")
     print("|----------------|---------------|---------------|---------------|----------------|")
-    print("|", animal_habitat, "|", campsite, "|", hot_spring, "|", geyser, "|", ranger_station, "|")
+    print("|", animal_habitat, "|", campsite, "|", hot_spring, "|", geyser, "|",ranger_station, "|")
     print("|----------------|---------------|---------------|---------------|----------------|")
     print(" ", empty_room, "|", lake, "|",open_field, "|")
     print(" \t\t |---------------|---------------|")
