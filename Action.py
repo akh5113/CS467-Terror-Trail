@@ -211,6 +211,11 @@ def take(rooms, room, player, object_name):
     if len(player.inventory) >= 8:
         print("Woah woah you can't carry that much! You must pick something to drop before adding anything else.")
         return False
+    # Check if object is unable to be picked up
+    stationary_objects = ["cave art", "water"]
+    if object_name.lower() in stationary_objects:
+        print("You can't take {}, try another action".format(object_name))
+        return False
     # If they don't have a full inventory
     for obj in room.objects:
         if obj.name.lower() == object_name.lower():
@@ -230,7 +235,6 @@ def take(rooms, room, player, object_name):
                 for room_feat in get_all_features(rooms):
                     if room_feat.feature_name == og_feature_str:
                         og_feature = room_feat
-                        print(og_feature.viewed)
                         # If original feature has been viewed, it can be added to their inventory
                         if og_feature.viewed is True:
                             #add object to inventory
@@ -307,7 +311,6 @@ def look_at(item,player1,room,rooms):
                 feature.print_description(rooms)
                 # mark the item as viewed
                 feature.viewed = True
-                # print("feature.viewed = {}".format(feature.viewed))
                 # call function to check if room has been completed
                 room.check_room_completion()
 
