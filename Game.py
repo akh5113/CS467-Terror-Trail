@@ -22,9 +22,9 @@ class Game:
     def check_game_status(self, current_player):
         # If the player made it to the END_ROOM room type, they have won
         # TODO this will probably change as we develop the game, keeping it simple for now
-        if current_player.check_inventory("Key"):
-            key = current_player.get_object("Key")
-            if key.used is True and current_player.location.room_type is RoomType.END_ROOM:
+        if current_player.check_inventory("Radio"):
+            radio = current_player.get_object("Radio")
+            if radio.used is True and current_player.location.room_type is RoomType.END_ROOM:
                 print("YOU WON")
                 self.game_over = True
         elif self.game_over is True:
@@ -74,6 +74,8 @@ class Game:
         print("unlock                       Unlocks door")
         print("ride <direction>             Rides bike to move to a different Room")
         print("drop                         Drops item in current room if item is in Player's inventory")
+        print("paddle <direction>           Uses the raft, if in players inventory, to travel on the River")
+        print("call                         Calls the Ranger from the Ranger station")
         print("inventory                    Lists the contents of players inventory")
         print("secure <object>              If 'Rope' is in player's inventory, secures Rope to cross glacier")
         print("health                       Displays the player's current energy and hydration levels")

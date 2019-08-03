@@ -137,12 +137,17 @@ def play_game(game1, player1):
 
             if len(split_input) >= 2:
                 # If there is prepostion
-                if (split_input[1] in ["at", "in", "on", "up"]):
+                if split_input[1] in ["at", "in", "on", "up"]:
                     preposition = split_input[1]
                     use_on = ' '.join(split_input[2:])
                 else:
                     use_on = ' '.join(split_input[1:])
                     preposition = ""
+            # If second word part of location
+            elif len(split_input) >=2 and split_input[1] in ["trail", "habitat", "spring", "field", "station"]:
+                command = ' '.join(split_input[0:])
+                preposition = ""
+                use_on = ""
             # If there is a one word command, others are empty
             else:
                 use_on = ""
@@ -226,14 +231,9 @@ def play_game(game1, player1):
                     print("Error: not a valid action. Type <help> to see valid verbs")
 
                 # Calculate players new health with each move
-                # TODO need to determine how each action affects health
-                # TODO may want to move to actions aftering deciding how actions affect health levels
                 # currently an incorrect room choice will decrease health
                 # currently moved here to prevent non-action commands or incorrect cmds from decresing health
                 player1.player_status()
-
-        # print game map
-        # data_printer.print_map(game1.rooms) # TODO remove from here and implement with "view map" action
 
         # Check for game status
         game1.check_game_status(player1)
