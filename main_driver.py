@@ -208,8 +208,8 @@ def play_game(game1, player1):
             else:
                 valid_action = False
                 # Determine if the action is possible given the objects/features
-                #TODO determine verbs for this for specific room instead of whole game verbs
-                if command in game1.verbs:
+                specific_verbs = game1.get_useable_verbs(current_room, player1)
+                if command.lower() in specific_verbs:
                     moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
                     valid_action = True
                     

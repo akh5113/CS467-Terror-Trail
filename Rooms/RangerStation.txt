@@ -21,7 +21,7 @@
             "name": "Key", 
             "description" : "This key may be your ticket home! Hopefully it is the correct key for the lock.",
             "original_feature": "Doormat",
-            "actions": ["use"]
+            "actions": ["use", "unlock"]
         },
         {
             "name": "Radio", 

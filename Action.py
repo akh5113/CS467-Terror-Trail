@@ -510,21 +510,27 @@ def paddle(player, obj1, obj2=None):
     if player.check_inventory(obj1):
         # get raft object
         raft_obj = player.get_object(obj1.capitalize())
-        raft_obj.used = True
-        if obj2 is not None:
-            # check players inventory for paddle
-            if player.check_inventory(obj2):
-                # get oar object
-                oar_obj = player.get_object(obj2)
-                oar_obj.used = True
-                print("The oar helped you get your raft through the rapids.")
-                return True
+        if "launch" in raft_obj.actions:
+            raft_obj.used = True
+            if obj2 is not None:
+                # check players inventory for paddle
+                if player.check_inventory(obj2):
+                    # get oar object
+                    oar_obj = player.get_object(obj2)
+                    if "paddle" in oar_obj.actions:
+                        oar_obj.used = True
+                        print("The oar helped you get your raft through the rapids.")
+                        return True
+                    else:
+                        print("You can't paddle with {}".format(obj2))
+                else:
+                    print("You have a raft, but an oar will get you down the river!")
+                    return False
             else:
-                print("You have a raft, but an oar will get you down the river!")
-                return False
+                print("This raft will help you move a lot faster!")
+                return True
         else:
-            print("This raft will help you move a lot faster!")
-            return True
+            print("You can't launch a {}".format(obj1))
     else:
         return False
 

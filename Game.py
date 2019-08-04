@@ -70,7 +70,8 @@ class Game:
                      "unlock": "Unlocks door",
                      "ride <direction>": "Rides bike to move to a different Room",
                      "drop": "Drops item in current room if item is in Player's inventory",
-                     "paddle <direction>": "Uses the raft to travel on the River",
+                     "paddle <direction>": "Uses the raft and oar to travel on the River",
+                     "launch <direction": "Uses raft to travel on the Rifer",
                      "call": "Calls the Ranger from the Ranger station",
                      "inventory": "Lists the contents of players inventory",
                      "secure <object>": "Secures object to feature",
@@ -142,3 +143,29 @@ class Game:
             features.append(room.get_feature(2))
 
         return features
+
+    def get_useable_verbs(self, current_room, player):
+        """Returns list of useable verbs
+        Combines actions from objects and features in teh current room as well as players inventory
+        """
+        useable_verbs = ["inventory", "look", "look at", "go", "move", "take"]
+
+        # Features in Room
+        for feature in current_room.features:
+            for action in feature.actions:
+                useable_verbs.append(action)
+        # Objects in Room
+        for obj in current_room.objects:
+            for action in obj.actions:
+                useable_verbs.append(action)
+        # Objects in inventory
+        for inv in player.inventory:
+            for action in inv.actions:
+                useable_verbs.append(action)
+
+        verbs_dups_removed = []
+        for verb in useable_verbs:
+            if verb not in verbs_dups_removed:
+                verbs_dups_removed.append(verb)
+
+        return verbs_dups_removed
