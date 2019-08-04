@@ -248,12 +248,12 @@ def play_game(game1, player1):
 
 def validate_console_size():
     """
-    Validates that the players console window is between 82 and 100 columns
+    Validates that the players console window is between 85 and 100 columns
     and a minimum of 30 rows high.
     If invalid, quit game.
     """
     width, height = shutil.get_terminal_size(fallback=(90, 24))
-    if width < 82 or width > 100:
+    if width < 85 or width > 100:
         print("Invalid console width - quitting game.")
         exit()
     if height < 30:
