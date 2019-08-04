@@ -62,7 +62,7 @@ class Game:
                      "move <direction>": "Moves player to the Room in the specified direction.",
                      "look": "States description of the current Room",
                      "look at <object/feature>": "Gives explanation of object or feature",
-                     "fill": "Fill to be able to drink from.",
+                     "fill": "Fill water bottle to be able to drink from it.",
                      "drink": "Drink from water bottle to increase hydration levels.",
                      "turn on <object>":"Turns flashlight on to be used.",
                      "put on <object>": "Puts on object if in player's inventory.",
