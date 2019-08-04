@@ -271,6 +271,13 @@ class Room:
             else:
                 return next_room
 
+        # Animal Habitat next room and current room Campsite
+        elif (next_room.name == "Animal habitat" and self.name == "Campsite") or \
+                (next_room.name == "Glacier" and self.name == "Forest") or \
+                (next_room.name == "Glacier" and self.name == "Cave"):
+            print("You can't go back this way!")
+            return None
+
         # Bike Trail next room and Campsite current room
         # Restriction: must have bike and tire in inventory and tire must be used
         elif next_room.name == "Bike trail" and self.name == "Campsite":

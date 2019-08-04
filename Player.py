@@ -24,17 +24,17 @@ class Player:
         """
         if moved_rooms:
             # Energy levels will change by 10 for every move
-            self.energy -= 10
+            self.energy -= 5
 
             # Thirst levels will change by 5 for every move
-            self.hydration -= 5
+            self.hydration -= 3
 
         else:
             # Energy levels will change by 10 for non-moving actions
-            self.energy -= 5
+            self.energy -= 2
 
             # Thirst levels will change by 5 for non-moving actions
-            self.hydration -= 3
+            self.hydration -= 1
 
 
         # Determine if player is still alive

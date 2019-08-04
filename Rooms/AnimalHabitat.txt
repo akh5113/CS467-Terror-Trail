@@ -34,5 +34,5 @@
     "east_exits": ["east", "campsite", "flickering light"],
     "west_exits": [""],
     "room_type": "MID_ROOM",
-    "restricted": false
+    "restricted": true
 }
