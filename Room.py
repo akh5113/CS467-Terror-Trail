@@ -234,6 +234,7 @@ class Room:
                 rope = player1.get_object("Rope")
                 shoes = player1.get_object("Shoes")
                 if rope.used and shoes.used:
+                    print("You were able to cross the Glacier without slipping or falling.")
                     return next_room
                 elif rope.used and not shoes.used:
                     data_printer.word_wrap("You're rope is secure, but you need to put on something to help from slipping across.")
