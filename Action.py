@@ -506,6 +506,7 @@ def paddle(player, obj1, obj2=None):
                 # get oar object
                 oar_obj = player.get_object(obj2)
                 oar_obj.used = True
+                print("The oar helped you get your raft through the rapids.")
                 return True
             else:
                 print("You have a raft, but an oar will get you down the river!")

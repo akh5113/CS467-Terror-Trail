@@ -202,6 +202,7 @@ class Room:
             player1(Player): current player(used to access inventory)
         """
         # Waterfall next room and currently in river
+        # River next room and currently in Waterfall
         # Only need Raft
         if next_room.name == "Waterfall" and self.name == "River" or next_room.name == "River" and self.name == "Waterfall":
             print("You must use a raft to travel between the waterfall and the river.")
@@ -211,12 +212,12 @@ class Room:
                 return next_room
             else:
                # can't travel this way
-               data_printer.word_wrap("It looks like you need something to travel from the River to the Waterfall. You should do some more exploring")
+               data_printer.word_wrap("It looks like you need something to travel between the River and the Waterfall. You should do some more exploring")
                return None
 
         # Cave next room and River Current Room
         elif next_room.name == "Cave" and self.name == "River":
-            print("in restriction checker")
+            data_printer.word_wrap("You must use an oar with your raft to navigate the River rapids on the way to the Cave.")
             raft_results = paddle(player1, "Raft", "Oar")
             if raft_results:
                 return next_room
