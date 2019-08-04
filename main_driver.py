@@ -132,8 +132,11 @@ def play_game(game1, player1):
             # Split user input into command , preposition, object/feature/room
             split_input = user_input.split()
             # First is the command
-            command = split_input[0]
-
+            if split_input:
+                command = split_input[0]
+            else:
+                command = "INVALID"
+                
             if len(split_input) >= 2:
                 # If there is prepostion
                 if split_input[1] in ["at", "in", "on", "up"]:
