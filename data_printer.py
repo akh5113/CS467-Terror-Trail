@@ -155,24 +155,22 @@ def print_feature_description(feature):
 ################################################################
 def print_intro():
     """Prints the welcome statement for the game."""
-    intro = "Welcome to the Terror Trail! You've tumbled and lost your way, now you need to make it back " \
+    intro = "\nWelcome to the Terror Trail! You've tumbled and lost your way, now you need to make it back " \
             "to the ranger station before it's too late. You're hungry, you're thirsty, and you don't know " \
             "where you are. But if you look closely you might just find some items to help you find your " \
-            "way back to the ranger station."
-    prompt1 = "Do you dare see if you can make it out?"
+            "way back to the ranger station.\n\n"
+    prompt1 = "Do you dare see if you can make it out?\n"
     prompt2 = "Console width must be between 85 and 100 characters. Default width is %d."
-    prompt3 = "Console height must be a minimum of 30 characters."
-    prompt4 = "You can start a new game, load game, set width, or quit."
-    newline = "\n"
+    prompt3 = "Console height must be a minimum of 30 characters.\n"
+    prompt4 = "You can start a new game, load game, set width, or quit.\n"
 
     word_wrap(intro)
 
-    print(newline)
     print(prompt1)
     print(prompt2 % SCREEN_WIDTH)
     print(prompt3)
     print(prompt4)
-    print(newline)
+
 
 def set_width():
     """

@@ -60,7 +60,7 @@ def main():
             # Load Saved Game Data
             loaded_game = data_import.load_game()
 
-            if (not loaded_game or not loaded_player ):
+            if not loaded_game or not loaded_player:
                 print("Error: Unable to load game!")
                 exit()
             else:
@@ -209,9 +209,15 @@ def play_game(game1, player1):
                 valid_action = False
                 # Determine if the action is possible given the objects/features
                 specific_verbs = game1.get_useable_verbs(current_room, player1)
-                if command.lower() in specific_verbs:
-                    moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
-                    valid_action = True
+                if preposition == "":
+                    if command.lower() in specific_verbs:
+                        moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
+                        valid_action = True
+                elif preposition != "":
+                    full_command = command.lower() + " " + preposition
+                    if full_command in specific_verbs:
+                        moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
+                        valid_action = True
                     
                 else:
                     # Check command was not an exit name

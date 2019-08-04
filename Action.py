@@ -85,10 +85,17 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
         return False
 
     #######################################################################################################
-    # ACTION = PUT ON
+    # ACTION = PUT IN
     #######################################################################################################
-    elif command.lower() in ["wear", "put"]:
-        put_on(player1, use_on)
+    elif command.lower() in ["wear", "put"] and preposition in ["in", "on"]:
+        put(player1, use_on, preposition)
+        return False
+
+    #######################################################################################################
+    # ACTION = TURN ON
+    #######################################################################################################
+    elif command.lower() in ["turn"] and preposition in ["on"]:
+        turn_on(player1, use_on, current_room)
         return False
 
     #######################################################################################################
@@ -379,28 +386,44 @@ def drink(player):
     else:
         print("Uh Oh! You don't have your water bottle!")
 
-def put_on(player, obj):
+def put(player, obj, preposition):
     """For player to put on shoe if they exist in inventory"""
     if player.check_inventory(obj.capitalize()):
         inv_obj = player.get_object(obj.capitalize())
         # Check to see if object is able to be put on
-        if "put on" in inv_obj.actions:
+        if ("put on" in inv_obj.actions) or ("put in" in inv_obj.actions):
             if inv_obj.used is True:
-                print("You've already put on this!")
+                print("You've already put {} {}!".format(preposition, obj))
             else:
-                print("Good decision to put on {}".format(obj))
+                print("Good decision to put {} {}".format(preposition, obj))
                 inv_obj.used = True
         else:
-            print("You can't put on {}".format(obj))
+            print("You can't put {} {}".format(preposition, obj))
 
     else:
-        print("You don't have any {} to put on!".format(obj))
+        print("You don't have any {} to put {}!".format(obj, preposition))
 
-def turn_on(player):
-    """Turn on flashlight"""
-    if player.check_inventory("Flashlight"):
-        flashlight = player.get_object("Flashlight")
-        # Check f
+def turn_on(player, obj, room):
+    """Turn on object"""
+    if player.check_inventory(obj.capitalize()):
+        inv_obj = player.get_object(obj.capitalize())
+        if "turn on" in inv_obj.actions:
+            inv_obj.used = True
+            print("{} is on! This extra help gave you a boost!".format(inv_obj.name))
+            player.energy += 5
+            data_printer.print_health_levels(player)
+        else:
+            print("You can't turn on {}".format(obj))
+    elif not player.check_inventory(obj.capitalize()):
+        # check for feature to turn on
+        for feature in room.features:
+            for action in feature.actions:
+                if action == "turn on":
+                    print("{} is on! This extra help gave you a boost!".format(feature.feature_name))
+                    player.energy += 5
+                    data_printer.print_health_levels(player)
+    else:
+        print("You can't turn on {}".format(obj))
 
 def ride(player):
     """Allows player to ride bike
