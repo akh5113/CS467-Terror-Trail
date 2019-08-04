@@ -383,11 +383,15 @@ def put_on(player, obj):
     """For player to put on shoe if they exist in inventory"""
     if player.check_inventory(obj.capitalize()):
         inv_obj = player.get_object(obj.capitalize())
-        if inv_obj.used is True:
-            print("You've already put on this!")
+        # Check to see if object is able to be put on
+        if "put on" in inv_obj.actions:
+            if inv_obj.used is True:
+                print("You've already put on this!")
+            else:
+                print("Good decision to put on {}".format(obj))
+                inv_obj.used = True
         else:
-            print("Good decision to put on {}".format(obj))
-            inv_obj.used = True
+            print("You can't put on {}".format(obj))
 
     else:
         print("You don't have any {} to put on!".format(obj))
@@ -437,9 +441,12 @@ def secure(player, obj):
     # check for object in inventory
     if player.check_inventory(obj.capitalize()):
         returned_obj = player.get_object(obj.capitalize())
-        returned_obj.used = True
-        print("The {} has been secured.".format(obj))
-        return True
+        if "secure" in returned_obj.actions:
+            returned_obj.used = True
+            print("The {} has been secured.".format(obj))
+            return True
+        else:
+            print("You cannot secure {}".format(obj))
     else:
         print("You don't have {} to secure.".format(obj))
         return False
@@ -450,12 +457,15 @@ def eat(player, obj):
     """
     if player.check_inventory(obj.capitalize()):
         food = player.get_object(obj.capitalize())
-        food.used = True # possibly unnecessary but keeping it right now for clarity
-        # Increase players energy
-        player.energy += 20     # Possibly change depending on food
-        print("YUM! The {} was just what you needed to help you get the extra mile.".format(obj.capitalize()))
-        # Remove food from inventory
-        player.remove_obj_from_inventory(food)
+        if "eat" in food.actions:
+            food.used = True # possibly unnecessary but keeping it right now for clarity
+            # Increase players energy
+            player.energy += 20     # Possibly change depending on food
+            print("YUM! The {} was just what you needed to help you get the extra mile.".format(obj.capitalize()))
+            # Remove food from inventory
+            player.remove_obj_from_inventory(food)
+        else:
+            print("You cannot eat {}".format(obj))
     else:
         print("You don't have {} in your inventory! Hope you find some soon!")
 
