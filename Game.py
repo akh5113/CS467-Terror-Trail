@@ -57,33 +57,40 @@ class Game:
         """Required action/verb
         Prints the help screen for game
         """
+        help_data = {'help': 'Lists verbs used throughout the game.',
+                     "go <direction>": "Moves player to the Room in the specified direction.",
+                     "move <direction>": "Moves player to the Room in the specified direction.",
+                     "look": "States description of the current Room",
+                     "look at <object/feature>": "Gives explanation of object or feature",
+                     "fill": "Fill to be able to drink from.",
+                     "drink": "Drink from water bottle to increase hydration levels.",
+                     "turn on <object>":"Turns flashlight on to be used.",
+                     "put on <object>": "Puts on object if in player's inventory.",
+                     "eat <object>": "Increases players energy levels.",
+                     "unlock": "Unlocks door",
+                     "ride <direction>": "Rides bike to move to a different Room",
+                     "drop": "Drops item in current room if item is in Player's inventory",
+                     "paddle <direction>": "Uses the raft to travel on the River",
+                     "call": "Calls the Ranger from the Ranger station",
+                     "inventory": "Lists the contents of players inventory",
+                     "secure <object>": "Secures object to feature",
+                     "health": "Displays the player's current energy & hydration levels",
+                     "exit": "Displays the possible exits from a room.",
+                     "savegame": "Saves the current state of the game.  ",
+                     "loadgame": "Loads the previously saved game into play.",
+                     "quit": "Exits the game without saving the game state."
+                    }
         print("---------------------------------------- HELP ---------------------------------------")
-        print("help                         Lists verbs used throughout the game.")
-        print("go <direction>               Moves player to the Room in the specified direction.")
-        print("move <direction>             Moves player to the Room in the specified direction.")
-        print("take <object>                Acquires object by putting it in player's inventory.")
-        print("look                         States description of the current Room")
-        print("look at <object/feature>     Gives explanation of object or feature")
-        print("fill                         If 'Water Bottle' is in player's inventory, fill to be able to "
-              "                             drink from.")
-        print("drink                        If 'Water Bottle' is in player's inventory and it has been filled,"
-              "                             drink to increase players hydration levels.")
-        print("turn on <object>             If 'Flashlight' is in player's inventory, turns flashlight on to be used.")
-        print("put on <object>              Puts on object if in player's inventory.")
-        print("eat <object>                 Increases players energy levels.")
-        print("unlock                       Unlocks door")
-        print("ride <direction>             Rides bike to move to a different Room")
-        print("drop                         Drops item in current room if item is in Player's inventory")
-        print("paddle <direction>           Uses the raft, if in players inventory, to travel on the River")
-        print("call                         Calls the Ranger from the Ranger station")
-        print("inventory                    Lists the contents of players inventory")
-        print("secure <object>              If 'Rope' is in player's inventory, secures Rope to cross glacier")
-        print("health                       Displays the player's current energy and hydration levels")
-        print("exit                         Displays the possible exits from a room.")
-        print("savegame                     Saves the current state of the game.")
-        print("loadgame                     Loads the previously saved game into play.")
-        print("quit                         Exits the game without saving the game state.")
-        print("-------------------------------------------------------------------------------------")
+        print("*** Assumes <object> is in Player's inventory ***")
+        for key, value in help_data.items():
+            if len(key)<8:
+                print("{}\t\t\t{}".format(key, value))
+            elif len(key)<16:
+                print("{}\t\t{}".format(key, value))
+            elif len(key)<24:
+                print("{}\t{}".format(key, value))
+            else:
+                print("{} {}".format(key, value))
 
     def save_game(self, player):
         """

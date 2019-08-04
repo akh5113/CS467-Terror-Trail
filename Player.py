@@ -15,20 +15,27 @@ class Player:
         self.alive = True
         self.location = starting_location   # Current location of the player
 
-    def player_status(self):
+    def player_status(self, moved_rooms):
         """Gives the hunger and thirst levels of a player as a list
 
         Prints
             self.energy (int): Integer representing players hunger levels
             self.hydration (int): Integer representing players thirst levels
         """
-        # Energy levels will change by 1 for every move
-        self.energy -= 1
+        if moved_rooms:
+            # Energy levels will change by 10 for every move
+            self.energy -= 10
 
-        # Thirst levels will change by 2 for every move
-        self.hydration -= 2
+            # Thirst levels will change by 5 for every move
+            self.hydration -= 5
 
-        # Add any other factors that impact health
+        else:
+            # Energy levels will change by 10 for non-moving actions
+            self.energy -= 5
+
+            # Thirst levels will change by 5 for non-moving actions
+            self.hydration -= 3
+
 
         # Determine if player is still alive
         if self.energy > 0 and self.hydration > 0:

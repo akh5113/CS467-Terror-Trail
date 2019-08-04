@@ -125,7 +125,6 @@ def play_game(game1, player1):
 
         # variable to loop back if invalid input or if player has not moved rooms
         moved_rooms = False
-        
 
         while moved_rooms is False:
             # Get user input
@@ -233,7 +232,7 @@ def play_game(game1, player1):
                 # Calculate players new health with each move
                 # currently an incorrect room choice will decrease health
                 # currently moved here to prevent non-action commands or incorrect cmds from decresing health
-                player1.player_status()
+                player1.player_status(moved_rooms)
 
         # Check for game status
         game1.check_game_status(player1)
