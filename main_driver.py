@@ -136,8 +136,12 @@ def play_game(game1, player1):
                 command = split_input[0]
             else:
                 command = "INVALID"
-                
-            if len(split_input) >= 2:
+            # If second word part of location
+            if len(split_input) >=2 and split_input[1] in ["trail", "habitat", "spring", "field", "station"]:
+                command = ' '.join(split_input[0:])
+                preposition = ""
+                use_on = ""                
+            elif len(split_input) >= 2:
                 # If there is prepostion
                 if split_input[1] in ["at", "in", "on", "up"]:
                     preposition = split_input[1]
@@ -145,11 +149,7 @@ def play_game(game1, player1):
                 else:
                     use_on = ' '.join(split_input[1:])
                     preposition = ""
-            # If second word part of location
-            elif len(split_input) >=2 and split_input[1] in ["trail", "habitat", "spring", "field", "station"]:
-                command = ' '.join(split_input[0:])
-                preposition = ""
-                use_on = ""
+
             # If there is a one word command, others are empty
             else:
                 use_on = ""
