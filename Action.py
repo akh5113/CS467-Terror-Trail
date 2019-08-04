@@ -179,8 +179,6 @@ def moved_locations(next_room,player1):
     else:
         # move player to room
         player1.location = next_room
-        print("Moved to", player1.location.name)
-        print("\n")
         return True
 
 def get_room_object(room_name, rooms):
