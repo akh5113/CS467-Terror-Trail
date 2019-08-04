@@ -87,7 +87,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = PUT IN
     #######################################################################################################
-    elif command.lower() in ["wear", "put"] and preposition in ["in", "on"]:
+    elif command.lower() in ["wear", "put"] and preposition in ["in", "on", "up"]:
         put(player1, use_on, preposition)
         return False
 
@@ -475,7 +475,7 @@ def secure(player, obj):
         return False
 
 def eat(player, obj):
-    """Player eats object to increase engery.
+    """Player eats object to increase energy.
     Once player has eaten object it is removed from inventory
     """
     if player.check_inventory(obj.capitalize()):
