@@ -48,7 +48,8 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = LOOK AT
     #######################################################################################################
-    elif (command.lower() == "look" and use_on != "") or command.lower() in ["observe", "read", "view", "search", "examine", "check"]:
+    elif (command.lower() == "look" and use_on != "") or command.lower() in \
+            ["observe", "read", "view", "search", "examine", "check"]:
         # call function to explain feature or object
         if not look_at(use_on, player1, current_room, rooms):
             print("What you're trying to look at isn't here. Try looking at something else")
@@ -437,7 +438,7 @@ def secure(player, obj):
     if player.check_inventory(obj.capitalize()):
         returned_obj = player.get_object(obj.capitalize())
         returned_obj.used = True
-        print("The rope has been secured.")
+        print("The {} has been secured.".format(obj))
         return True
     else:
         print("You don't have {} to secure.".format(obj))
@@ -478,6 +479,8 @@ def drop(player, room, obj_name):
         players_object = player.get_object(obj_name.capitalize())
         # add back to room object list
         room.add_object(players_object)
+        # Change item used from True to False
+        players_object.used = False
         # remove from players inventory
         player.remove_obj_from_inventory(players_object)
         print("{} has been drop in the {}".format(obj_name, room.name))

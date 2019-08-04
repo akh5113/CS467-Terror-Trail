@@ -232,9 +232,7 @@ def play_game(game1, player1):
                 if valid_action is False:
                     print("Error: not a valid action. Type <help> to see valid verbs")
 
-                # Calculate players new health with each move
-                # currently an incorrect room choice will decrease health
-                # currently moved here to prevent non-action commands or incorrect cmds from decresing health
+                # Calculate players new health
                 player1.player_status(moved_rooms)
 
         # Check for game status
