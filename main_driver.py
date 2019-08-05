@@ -241,10 +241,10 @@ def play_game(game1, player1):
                 # Calculate players new health
                 player1.player_status(moved_rooms)
 
-        # Check for game status
-        game1.check_game_status(player1)
-        if game1.game_over is True:
-            break
+            # Check for game status
+            game1.check_game_status(player1)
+            if game1.game_over is True:
+                break
 
 def validate_console_size():
     """
