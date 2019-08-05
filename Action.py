@@ -11,6 +11,9 @@ import data_printer
 from Room import *
 from Player import *
 
+BIKE_MOVE_CMDS = ["ride", "bike"]
+RAFT_MOVE_CMDS = ["launch", "paddle"]
+
 def determine_action(rooms, player1, current_room, command, preposition, use_on):
     """Takes user input and determines which action it will send the appropriate arguments to
     Args:
@@ -27,12 +30,11 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     # ACTION = MOVING ROOMS
     #   Includes Riding bike
     #######################################################################################################
+    # Move Commands
     basic_move_cmds = ["go", "move", "walk", "exit", "travel", "cross"]
-    bike_move_cmds = ["ride", "bike"]
-    raft_move_cmds = ["launch", "paddle"]
-    if command.lower() in basic_move_cmds or command.lower() in bike_move_cmds or command.lower() in raft_move_cmds:
+    if command.lower() in basic_move_cmds or command.lower() in BIKE_MOVE_CMDS or command.lower() in RAFT_MOVE_CMDS:
         # call move room action function to get next room
-        next_room = move_room(use_on, current_room, rooms, player1)
+        next_room = move_room(command, use_on, current_room, rooms, player1)
         
         # call moved_locations to check if it was possible to move to the next room
         return moved_locations(next_room,player1)
@@ -134,7 +136,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     else:
         return False #TODO change to error message
 
-def move_room(go_to, current_room, rooms, player1):
+def move_room(command, go_to, current_room, rooms, player1):
     """
     Get next room object to move to from current room to the user entered room
     args:
@@ -162,7 +164,17 @@ def move_room(go_to, current_room, rooms, player1):
     # Check if next room_room is None
     if next_room is None:
         return None
-    
+
+    # check if command is a specality movement
+    if command.lower() in BIKE_MOVE_CMDS:
+        valid_speciality_movement = check_move_device(current_room, next_room, 1)
+    elif command.lower() in RAFT_MOVE_CMDS:
+        valid_speciality_movement = check_move_device(current_room, next_room, 2)
+    else:
+        valid_speciality_movement = True
+    if valid_speciality_movement is False:
+        return None
+
     # Check if the next_room is a restricted room
     if next_room.restricted is True:
         next_room = current_room.check_room_restriction(next_room, player1)
@@ -188,6 +200,22 @@ def moved_locations(next_room,player1):
         # move player to room
         player1.location = next_room
         return True
+
+def check_move_device(current_room, next_room, command):
+    # Check to see if the user is trying to use raft/paddle in non water room
+    water_rooms = ["Waterfall", "River", "Cave"]
+    non_bike_rooms = ["Waterfall", "River", "Glacier"]
+    # RAFT
+    if command == 2:
+        if current_room.name not in water_rooms or next_room.name not in water_rooms:
+            print("You need to be near water to use a raft.")
+            return False
+    # BIKE
+    elif command == 1:
+        if next_room.name in non_bike_rooms:
+            print("You can't ride your bike through this.")
+            return False
+    return True
 
 def get_room_object(room_name, rooms):
     """
@@ -439,8 +467,10 @@ def ride(player):
         if player.check_inventory("Tire"):
             tire = player.get_object("Tire")
             if tire.used is True:
-                print("You're really movin now!")
+                print("You're really movin' now! This is saving you some energy!")
                 bike.used = True
+                player.energy += 2
+                data_printer.print_health_levels(player)
                 return True
             else:
                 print("You have a tire, you just need to put it on!")
@@ -516,7 +546,7 @@ def drop(player, room, obj_name):
         players_object.used = False
         # remove from players inventory
         player.remove_obj_from_inventory(players_object)
-        print("{} has been drop in the {}".format(obj_name, room.name))
+        print("{} has been dropped in the {}".format(obj_name, room.name))
     else:
         print("You don't have {} in your inventory.".format(obj_name))
 
@@ -542,7 +572,9 @@ def paddle(player, obj1, obj2=None):
                     oar_obj = player.get_object(obj2)
                     if "paddle" in oar_obj.actions:
                         oar_obj.used = True
-                        print("The oar helped you get your raft through the rapids.")
+                        print("The oar helped you get your raft through the rapids and saved you some energy.")
+                        player.energy += 2
+                        data_printer.print_health_levels(player)
                         return True
                     else:
                         print("You can't paddle with {}".format(obj2))
@@ -550,7 +582,9 @@ def paddle(player, obj1, obj2=None):
                     print("You have a raft, but an oar will get you down the river!")
                     return False
             else:
-                print("This raft will help you move a lot faster!")
+                print("This raft will help you move a lot faster and save energy!")
+                player.energy += 2
+                data_printer.print_health_levels(player)
                 return True
         else:
             print("You can't launch a {}".format(obj1))
