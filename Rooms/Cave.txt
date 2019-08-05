@@ -35,7 +35,7 @@
     "east": "",
     "west": "Glacier",
     "long_exit": "Do you want to continue South and explore the cave or are you too scared and want to return North to the mountains?",
-    "north_exits": ["north", "mountain"],
+    "north_exits": ["north", "mountain", "mountains"],
     "south_exits": ["south", "bike trail", "trail"],
     "east_exits": [""],
     "west_exits": ["west", "glacier"],

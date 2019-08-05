@@ -38,7 +38,7 @@
     "north_exits": [""],
     "south_exits": ["south", "river", "rapids"],
     "east_exits": [""],
-    "west_exits": ["west", "mountain"],
+    "west_exits": ["west", "mountain", "mountains"],
     "room_type": "MID_ROOM",
     "restricted": true
 }

@@ -37,7 +37,7 @@
     "long_exit": "Time to start figuring out how to get out of here. There appears to be a Mountain to your East and is that a Glacier to your South?",
     "north_exits": [""],
     "south_exits": ["south", "glacier"],
-    "east_exits": ["east", "mountain"],
+    "east_exits": ["east", "mountain", "mountains"],
     "west_exits": [""],
     "room_type": "START_ROOM",
     "restricted": false
