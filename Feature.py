@@ -6,7 +6,7 @@
 from Action import *
 
 class Feature:
-    def __init__(self, room_name, feature_name, actions, description1, description2):
+    def __init__(self, room_name, feature_name, aliases, actions, description1, description2):
         """Constructor.
 
         Args:
@@ -18,6 +18,7 @@ class Feature:
         """
         self.room_name = room_name
         self.feature_name = feature_name
+        self.aliases = aliases
         self.description_with_objects = description1
         self.description_no_objects = description2
 

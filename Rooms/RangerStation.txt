@@ -5,12 +5,14 @@
     "features": [
         { 
             "name": "Lock",
+            "aliases": ["door"],
             "actions": ["unlock"],
             "description1": "Just your luck the door is locked tight. I wonder if there is a spare key around here somewhere?",
             "description2": "I think you can use a key to get in here now!"
         },
         { 
             "name": "Doormat",
+            "aliases": ["mat"],
             "actions": ["look under"],
             "description1": "Not the most sneaky way to hide a key, but it sure is lucky for you that it was here!",
             "description2": "There is nothing left under this doormat."

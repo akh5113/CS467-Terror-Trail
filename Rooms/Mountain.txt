@@ -1,18 +1,20 @@
 {
     "room_name": "Mountain",
-    "long_intro": "You’ve followed one of the overgrown trails, as you navigate through the thick brush you think it might be getting clearer up ahead, just a few more steps and woaah! The brush cleared out just enough to see that if you had taken one more step you would have stepped right off the edge of the mountain!\n\nYou stop to catch your breath for a minute, maybe if you go to the top you could possibly see more of the landscape around you and make a plan, just watch your step!",
+    "long_intro": "You’ve followed one of the overgrown trails, as you navigate through the thick brush you think it might be getting clearer up ahead, just a few more steps and woaah! The brush cleared out just enough to see that if you had taken one more step you would have stepped right off the edge of the mountain!\n\nYou stop to catch your breath for a minute, maybe if you go to the top you could possibly see more of the landscape around you and make a plan, just watch your step! Looks like there is a nice bench up at the top.",
     "short_intro": "That mountain is really high. I bet if you could get to the top of it you might be able to see where you need to go next.",
     "features": [
         { 
             "name": "Bench",
+            "aliases": [],
             "actions": ["sit", "examine"],
             "description1": "What is that? A compass! Hopefully this will help with getting out of the park.",
             "description2": "This is just a bench."
         },
         { 
             "name": "View from top",
+            "aliases": ["top of mountain"],
             "actions": ["look", "study"],
-            "description1": "Looks like there may be a waterfall and a cave...but what direction are they? Look around for objects that may help!",
+            "description1": "Looks like there may be a waterfall and a cave...but what direction are they? Hopefully someone left some climbing gear around here!",
             "description2": "This compass is helpful! The waterfall is due east and the cave is just south of here."
         }
     ],

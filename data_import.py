@@ -60,11 +60,12 @@ def init_room_features(room_name, data):
     feature_data = data['features']
     for feature in feature_data:
         feature_name = feature['name']
+        aliases = init_list(feature['aliases'])
         actions = init_list(feature['actions'])
         desc1 = feature['description1']
         desc2 = feature['description2']
 
-        new_feature = Feature(room_name, feature_name, actions, desc1, desc2)
+        new_feature = Feature(room_name, feature_name, aliases, actions, desc1, desc2)
         features.append(new_feature)
 
     return features

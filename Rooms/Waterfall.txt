@@ -1,19 +1,21 @@
 {
     "room_name": "Waterfall",
-    "long_intro": "You’ve come up to a loud howling and are blinded by mist, you carefully navigate a little closer and are finally able to see through the mist, you’ve stumbled upon a waterfall, it must be at least 500 ft tall! The crashing of the waterfall is so loud, it’s hard to hear what’s going on around you, on top of the heavy layer of mist where the falls meet the bottom.\n\nYou take a couple of steps to try to get your bearings… woahh! All of the rocks are slick. Best not to stay here too long, you try to look around for how to safely get away from here.",
+    "long_intro": "You’ve come up to a loud howling and are blinded by mist, you carefully navigate a little closer and are finally able to see through the mist. You’ve stumbled upon a waterfall, it must be at least 500 ft tall! The crashing of the waterfall is so loud, it’s hard to hear what’s going on around you, and a thick layer of moisture is coming from the misty pool at the bottom.\n\nYou take a couple of steps to try to get your bearings… woahh! All of the rocks are slick. There looks to be an opening behind the waterfall that could provide some shelter.",
     "short_intro": "The now familiar rushing sound accompanied by a thick mist surrounds you. You’ve found your way back to the waterfall. The visibility has only gotten worse from earlier, but you feel more comfortable here as you work your way across the slick landscape.",
     "features": [
         { 
             "name": "Behind waterfall",
+            "aliases": ["behind the waterfall"],
             "actions": ["check"],
             "description1": "Looks like an old raft lies here - this may be helpful if you have to navigate the waters.",
             "description2": "There is nothing else behind the waterfall."
         },
         { 
-            "name": "Front of waterfall",
+            "name": "Misty pool",
+            "aliases": ["pool of water", "pool"],
             "actions": ["check", "navigate"],
-            "description1": "There is a lot of water here. I think this may lead to the river.",
-            "description2": "It is still pretty wet in front of the falls."
+            "description1": "There is a lot of water pooling here. I think this may lead to the river.",
+            "description2": "It is still pretty misty and wet in the pool."
         }
     ],
     "objects": [
@@ -26,7 +28,7 @@
         {
             "name": "Water", 
             "description": "Use the water from the falls to fill your water bottle.",
-            "original_feature": "Front of waterfall",
+            "original_feature": "Misty Pool",
             "actions": ["fill"]
         }
     ],

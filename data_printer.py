@@ -87,6 +87,9 @@ def print_single_room_details(room):
         if len(f.actions) > 0:
             for a in f.actions:
                 print("-", a)
+        if len(f.aliases) > 0:
+            for a in f.aliases:
+                print("-", a)
         print("Desc with Objects: ", f.description_with_objects)
         print("Desc no Objects: ", f.description_no_objects)
         print("\n")

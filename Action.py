@@ -340,7 +340,7 @@ def look_at(item,player1,room,rooms):
     else:
         # Check if a feature of room
         for feature in room.features:
-            if item.capitalize() == feature.feature_name:
+            if item.capitalize() == feature.feature_name or item.lower() in feature.aliases:
                 # if feature is part of the current room
                 feature.print_description(rooms)
                 # mark the item as viewed

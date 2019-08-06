@@ -5,12 +5,14 @@
     "features": [
         { 
             "name": "Water rapids",
+            "aliases": ["rapids"],
             "actions": ["cross", "look at"],
             "description1": "The rapids are rough, you'll need a raft and an oar to cross. The water here may be helpful though.",
             "description2": "Looks like you can finally cross with your raft and oar, but be careful!"
         },
         { 
             "name": "Wooden structure",
+            "aliases": ["structure"],
             "actions": ["search"],
             "description1": "There is a lot of old boat junk lying around - maybe that oar could be helpful.",
             "description2": "Nothing else on the dock will help with getting home."
