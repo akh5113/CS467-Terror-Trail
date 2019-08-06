@@ -45,8 +45,6 @@ def main():
             # Set up player
             new_player = Player(starting_room)
 
-            data_printer.print_all_room_details(rooms)
-
             # Start Game
             play_game(new_game, new_player)
 
