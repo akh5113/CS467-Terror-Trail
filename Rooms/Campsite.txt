@@ -5,12 +5,14 @@
     "features": [
         { 
             "name": "Tree",
+            "aliases": [],
             "actions": ["look behind"],
             "description1": "There is a nice tent here, seems like too nice of a tent for someone wanting to ditch it completely...",
             "description2": "Looks like you have already picked up everything in this camp area."
         },
         { 
             "name": "Campfire",
+            "aliases": ["fire"],
             "actions": [""],
             "description1": "This campire is still smoldering. The people who were here left so quickly I bet there is something useful here.",
             "description2": "It looks like the smoke is dwindling - a sign that you should probably get out of here soon too."

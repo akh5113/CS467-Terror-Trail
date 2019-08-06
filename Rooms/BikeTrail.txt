@@ -5,12 +5,14 @@
     "features": [
         { 
             "name": "Boulder",
+            "aliases": [],
             "actions": ["search"],
             "description1": "Hey a bike is over here! It looks like the tire is missing. Maybe it is around here somewhere? I thought I saw something over in the brush.",
             "description2": "Alas, you finally are able to venture down this bike path to see where it leads. The path is a little bumpy but without a bike it would have been impossible to maneuver through and not to mention much slower and more tiring."
         },
         { 
             "name": "Brush",
+            "aliases": [],
             "actions": ["search"],
             "description1": "There seems to be something rubbery hidden in the brush! Ah a bike tire! I bet this could be helpful.",
             "description2": "Alas, you finally are able to venture down this bike path to see where it leads. The path is a little bumpy but without a bike it would have been impossible to maneuver through and not to mention much slower and more tiring."

@@ -5,12 +5,14 @@
     "features": [
         { 
             "name": "Water feature",
+            "aliases": ["stream"],
             "actions": ["view"],
             "description1": "This water feature is a little stream with some apple trees around it. There are some water shoes that someone might have lost upstream.",
             "description2": "The bubbling water feature is relaxing to listen to."
         },
         { 
             "name": "The sky getting darker",
+            "aliases": ["the sky", "sky"],
             "actions": ["observe", "view"],
             "description1": "It appears to be getting late, you might want to hurry to get out of the park before you starve or get too thirsty. Quickly look around for something that might be helpful.",
             "description2": "The sky looks even darker now!"
