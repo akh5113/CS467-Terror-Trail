@@ -25,14 +25,15 @@ class Game:
         if current_player.check_inventory("Radio"):
             radio = current_player.get_object("Radio")
             if radio.used is True and current_player.location.room_type is RoomType.END_ROOM:
-                print("YOU WON")
+                print("\nYou made it out of the terror trail!! \n\n WINNER!\n")
                 self.game_over = True
         elif self.game_over is True:
             print("Game Over")
         # If the player's thirst or hunger levels have gotten to 0, they have died
         elif current_player.alive is False:
             self.game_over = True
-            print("You died, game over")
+            print("\nYou died and didn't make it out of the Terror Trail. Better luck next time.\n")
+            print("\nGAME OVER\n")
         # Otherwise, game is still in play
         else:
             self.game_over = False
