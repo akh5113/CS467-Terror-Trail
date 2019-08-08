@@ -408,7 +408,12 @@ def inventory(player):
 #######################################################################################################
 
 def fill(player, room, use_on):
-    """Fills players water bottle if it's in their inventory"""
+    """Fills players water bottle if it's in their inventory
+    Args:
+        player (Player): current player
+        room (Room): current room the player is in
+        use_on (str) object to fill
+    """
     #Check if room has water
     if room.get_object("Water"):
         if use_on.capitalize() == "Water bottle":
@@ -426,7 +431,12 @@ def fill(player, room, use_on):
         print("There's no water in {}".format(room.name))
 
 def drink(player):
-    """Player drinks from water bottle. Increases "thirst" health by 10 pts"""
+    """Player drinks from water bottle. Increases hydration health by 10 pts
+    Args:
+        player (Player): current player of the game
+    Returns:
+        None
+    """
     if player.check_inventory("Water bottle"):
         wb = player.get_object("Water bottle")
         if wb.used is True:
@@ -442,8 +452,21 @@ def drink(player):
         print("Uh Oh! You don't have your water bottle!")
 
 def put(player, obj, preposition):
-    """For player to put on shoe if they exist in inventory"""
+    """Player uses a variation of 'put'
+    Put on - ex: shoes
+    Put in - ex: batteres
+    Put up - ex: tent
+
+    Args:
+        player(Player): current player
+        obj (str): object to use the action on
+        preposition (str): preposition to go with put
+    Returns:
+        None
+    """
+    # Check to see if player has object
     if player.check_inventory(obj.capitalize()):
+        # Get Object
         inv_obj = player.get_object(obj.capitalize())
         # Check to see if object is able to be put on
         if ("put on" in inv_obj.actions) or ("put in" in inv_obj.actions):
@@ -459,9 +482,17 @@ def put(player, obj, preposition):
         print("You don't have any {} to put {}!".format(obj, preposition))
 
 def turn_on(player, obj, room):
-    """Turn on object"""
+    """Turn on object to give player help.
+    Args:
+        player (Player): current player
+        obj (str): Name of object to turn on
+        room (Room): current room of player
+    """
+    # check to see if player has object
     if player.check_inventory(obj.capitalize()):
+        # Get object
         inv_obj = player.get_object(obj.capitalize())
+        # Check to see if the verb is an applicable action
         if "turn on" in inv_obj.actions:
             inv_obj.used = True
             print("{} is on! This extra help gave you a boost!".format(inv_obj.name))
@@ -489,6 +520,7 @@ def ride(player):
     """
     # Check for bike in inventory
     if player.check_inventory("Bike"):
+        # Get bike object
         bike = player.get_object("Bike")
         # Check for tire in inventory
         if player.check_inventory("Tire"):
@@ -496,6 +528,7 @@ def ride(player):
             if tire.used is True:
                 print("You're really movin' now! This is saving you some energy!")
                 bike.used = True
+                # Bike gives player energy
                 player.energy += 2
                 data_printer.print_health_levels(player)
                 return True
@@ -520,7 +553,9 @@ def secure(player, obj):
     """
     # check for object in inventory
     if player.check_inventory(obj.capitalize()):
+        # Get object
         returned_obj = player.get_object(obj.capitalize())
+        # Check to make sure there is a feature that can be secured in the room
         if "secure" in returned_obj.actions:
             returned_obj.used = True
             print("The {} has been secured.".format(obj))
@@ -533,7 +568,12 @@ def secure(player, obj):
 
 def eat(player, obj):
     """Player eats object to increase energy.
-    Once player has eaten object it is removed from inventory
+    Once player has eaten object it is removed from inventory.
+    Args:
+        player (Player): current player
+        obj (str): Name of object to eat
+    Returns:
+        None
     """
     if player.check_inventory(obj.capitalize()):
         food = player.get_object(obj.capitalize())
@@ -551,12 +591,22 @@ def eat(player, obj):
 
 
 def unlock(player, room):
-    """Player unlocks door with key"""
+    """Player unlocks door with key.
+    Args:
+        player (Player): current player
+        room (room): current room the player is in
+    Returns:
+        None
+    """
+    # check to see if the room has a feature to unlock
     if "unlock" in room.get_verbs():
+        # Check to see if player has the key in their inventory
         if player.check_inventory("Key"):
+            # Get the Key object
             key = player.get_object("Key")
+            # Get the feature associated with lock
             lock = room.get_feature(1)
-
+            # Set view/used to true
             lock.viewed = True
             key.used = True
             print("It worked! You made it inside! Go find the blinking light!")
@@ -566,7 +616,14 @@ def unlock(player, room):
         print("There is nothing to unlock here.")
 
 def drop(player, room, obj_name):
-    """drops the object in the current room"""
+    """Drops the specified object in the current room
+    Args:
+        player (Player): current player
+        room (Room): current room the player is in
+        obj_name (str): Name of the object to be dropped
+    Returns:
+        None
+    """
     # Check if object is in Player's inventory
     if player.check_inventory(obj_name.capitalize()):
         # get Object type
@@ -589,21 +646,28 @@ def paddle(player, obj1, obj2=None):
     Args:
         obj1 = raft
         obj2 = oar
+    Returns:
+        If player successfully used objects to move rooms
     """
-    # Check players inventory
+    # Check players inventory for raft
     if player.check_inventory(obj1):
         # get raft object
         raft_obj = player.get_object(obj1.capitalize())
+        # check to see if player used this verb on an applicable object
         if "launch" in raft_obj.actions:
             raft_obj.used = True
+            # Check to see if there is a second object associated with this action
             if obj2 is not None:
-                # check players inventory for paddle
+                # check to see if player has the second object
                 if player.check_inventory(obj2):
-                    # get oar object
+                    # Get this object
                     oar_obj = player.get_object(obj2)
+                    # Check to make sure this verb is applicable on second object
                     if "paddle" in oar_obj.actions:
+                        # Successful action
                         oar_obj.used = True
                         print("The oar helped you get your raft through the rapids and saved you some energy.")
+                        # Give player energy
                         player.energy += 2
                         data_printer.print_health_levels(player)
                         return True
@@ -614,6 +678,7 @@ def paddle(player, obj1, obj2=None):
                     return False
             else:
                 print("This raft will help you move a lot faster and save energy!")
+                # Give player energy
                 player.energy += 2
                 data_printer.print_health_levels(player)
                 return True
@@ -623,7 +688,15 @@ def paddle(player, obj1, obj2=None):
         return False
 
 def call(player, obj, current_room):
-    """User calls using the radio"""
+    """If Player has put it batteries, they can use the radio to call the ranger
+
+    Args:
+        player (Player): current player
+        obj (str): Object name to call with
+        current_room (Room): room the player is in
+    Returns:
+        None
+    """
     # check player is in right room
     if "call" in current_room.get_verbs():
         # Check if lock has been unlocked
@@ -648,7 +721,12 @@ def call(player, obj, current_room):
         print("There is nothing you can use to call for help in the {}.".format(current_room.name))
 
 def check_for_use_on(use_on):
-    """Checks to make sure user entered an object with verb"""
+    """Checks to make sure user entered an object with verb
+    Args:
+        use_on (str): The object the action will be performed on
+    Returns:
+        boolean: if the string is not empty
+    """
     if use_on is "":
         print("You need an object or feature for this to work.")
         return False
