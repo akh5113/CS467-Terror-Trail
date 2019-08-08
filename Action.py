@@ -62,7 +62,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = TAKE
     #######################################################################################################
-    elif command.lower() in ["take", "add", "pick", "grab"]:
+    elif command.lower() in ["take", "add", "pick", "grab", "catch"]:
         if check_for_use_on(use_on):
             # Call function to add object to inventory
             success = take(rooms, current_room, player1, use_on)
