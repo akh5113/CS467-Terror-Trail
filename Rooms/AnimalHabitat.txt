@@ -7,23 +7,23 @@
             "name": "Informational sign",
             "aliases": ["sign"],
             "actions": ["read"],
-            "description1": "It's too dark to make out the sign, maybe these flashlight batteries will help.",
+            "description1": "It's too dark to make out the sign, do you have a flashlight? That will help.",
             "description2": "'A beaver den lies ahead, though their noises may be alarming, they are gentle creatures - feel free to step closer to observe.'"
         },
         { 
             "name": "Beaver den",
             "aliases": ["animal habitat", "mound of sticks"],
             "actions": ["observe", "view"],
-            "description1": "Without reading the sign you may not want to get too close to the noisy creature.",
-            "description2": "Ah a beaver! All those strange noises must have been it chomping on wood for it's home."
+            "description1": "Without reading the sign you may not want to get too close to the noisy creature. Whoever was here last must have dropped their flashlight, the batteries are strewn across the ground. Better grab them just in case.",
+            "description2": "Ah a beaver! The strange noises spooked someone else so much that they dropped thier batteries, grab them just in case."
         }
     ],
     "objects": [
         { 
-            "name": "Flashlight batteries", 
-            "description": "These batteries will be needed if you don't want you flashlight to die.",
-            "original_feature": "Informational sign",
-            "actions": ["Put In"]
+            "name": "Batteries",
+            "description": "These batteries could help your flashlight, or maybe you'll find something else to use them for too.",
+            "original_feature": "Beaver den",
+            "actions": ["put in"]
         }
     ],
     "north": "Forest",

@@ -66,6 +66,9 @@ class Player:
         args:
             player1(Player): current player
             object_name(string): object to check inventory for
+        Returns:
+            tuple:
+                Boolean: if the object is in the
         """
         for i in self.inventory:
             if object_name == i.name:

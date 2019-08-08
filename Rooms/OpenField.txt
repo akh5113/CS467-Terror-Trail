@@ -7,30 +7,30 @@
             "name": "Water feature",
             "aliases": ["stream"],
             "actions": ["view"],
-            "description1": "This water feature is a little stream with some apple trees around it. There are some water shoes that someone might have lost upstream.",
-            "description2": "The bubbling water feature is relaxing to listen to."
+            "description1": "You don't think much of the water feature when you first see it, it looks empty of fish, but wait, there is something shiny down there, a key! Maybe whoever left the water shoes behind was trying to get it too. Better put on your water shoes and take the key, you don't want to miss anything important.",
+            "description2": "There's something shiny at the bottom, maybe a key? Put on your water shoes to find out"
         },
         { 
             "name": "The sky getting darker",
             "aliases": ["the sky", "sky"],
             "actions": ["observe", "view"],
-            "description1": "It appears to be getting late, you might want to hurry to get out of the park before you starve or get too thirsty. Quickly look around for something that might be helpful.",
-            "description2": "The sky looks even darker now!"
+            "description1": "It appears to be getting late, you might want to hurry to get out of the park before you starve or get too thirsty. You are about to book it out of there but notcie the trees aren't just normal thees, they're apple trees!",
+            "description2": "The sky looks even darker now! Quickly eat some apples!"
         }
     ],
     "objects": [
-        {
-            "name": "Water shoes", 
-            "description" : "You may want to save these shoes for any other strange water areas you encounter down the road.",
-            "original_feature": "Water feature",
-            "actions": ["wear", "put on"]
-        },
         {
             "name": "Apples", 
             "description": "These bright red apples are just what you need to feed your hunger.",
             "original_feature": "The sky getting darker",
             "actions": ["eat"]
-        }        
+        },
+        {
+            "name": "Key",
+            "description" : "This key may be your ticket home! It must go to something! Better hold onto it.",
+            "original_feature": "Water feature",
+            "actions": ["unlock"]
+        }
     ],
     "north": "Hot spring",
     "south": "",

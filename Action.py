@@ -8,6 +8,7 @@
 # To be refined when we have decided on our verbs
 #################################################################
 import data_printer
+import time
 from Room import *
 from Player import *
 
@@ -119,6 +120,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     elif command.lower() in ["unlock"]:
         unlock(player1, current_room)
+        return False
 
     #######################################################################################################
     # ACTION = DROP
@@ -131,7 +133,8 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     # ACTION = CALL
     #######################################################################################################
     elif command.lower() in ["call", "radio"]:
-        return call(player1, use_on)
+        call(player1, use_on, current_room)
+        return False
 
     else:
         return False #TODO change to error message
@@ -282,7 +285,7 @@ def take(rooms, room, player, object_name):
                                                                                                              og_feature.feature_name.lower()))
                             return False
 
-    print("That object is not in this room.")
+    print("{} is not here.".format(object_name))
     return False
 
 
@@ -341,16 +344,27 @@ def look_at(item,player1,room,rooms):
         # Check if a feature of room
         for feature in room.features:
             if item.capitalize() == feature.feature_name or item.lower() in feature.aliases:
-                # if feature is part of the current room
-                feature.print_description(rooms)
-                # mark the item as viewed
-                feature.viewed = True
-                # Check for beaver den - decrease energy
-                if feature.feature_name == "Beaver den":
-                    # Decrease health
-                    data_printer.word_wrap("The beaver ended up keeping it to itself, but it really spooked you and took a lot out of you!")
-                    player1.energy -= 10
-                    data_printer.print_health_levels(player1)
+                if feature.feature_name == "Informational sign":
+                    if player1.check_inventory("Flashlight"):
+                        flashlight = player1.get_object("Flashlight")
+                        if flashlight.used:
+                            print(feature.description_no_objects)
+                            feature.viewed = True
+                        else:
+                            print("Turn on your flashlight to be able to read this.")
+                    else:
+                        print(feature.description_with_objects)
+                else:
+                    # if feature is part of the current room
+                    feature.print_description(rooms)
+                    # mark the item as viewed
+                    feature.viewed = True
+                    # Check for beaver den - decrease energy
+                    if feature.feature_name == "Beaver den":
+                        # Decrease health
+                        data_printer.word_wrap("The beaver ended up keeping it to itself, but it really spooked you and took a lot out of you!")
+                        player1.energy -= 10
+                        data_printer.print_health_levels(player1)
                 # call function to check if room has been completed
                 room.check_room_completion()
 
@@ -524,14 +538,21 @@ def eat(player, obj):
 
 
 def unlock(player, room):
-    """Player unlocks door with key, has won game"""
-    if player.check_inventory("Key") and room.name == "Ranger station":
-        key = player.get_object("Key")
-        key.used = True
-        print("You did it! You made it inside! Go find the radio!")
-        return True
+    """Player unlocks door with key"""
+    if room.name == "Ranger station":
+        if player.check_inventory("Key"):
+            key = player.get_object("Key")
+            lock = room.get_feature(1)
+
+            lock.viewed = True
+            key.used = True
+            print("It worked! You made it inside! Go find the blinking light!")
+            return True
+        else:
+            print()
+            return False
     else:
-        print("Unable to use key")
+        print("There is nothing to unlock here.")
         return False
 
 def drop(player, room, obj_name):
@@ -591,23 +612,35 @@ def paddle(player, obj1, obj2=None):
     else:
         return False
 
-def call(player, obj):
+def call(player, obj, current_room):
     """User calls using the radio"""
-    # check users inventory for key and check key is used
-    if player.check_inventory("Key"):
-        # check if key is used
-        key = player.get_object("Key")
-        if key.used:
-            # get radio object
-            player.add_obj_to_inventory(obj)
-            radio = player.get_object(obj)
-            radio.used = True
-            print("You're call for help worked! A ranger is coming!")
-            return True
+    # check player is in right room
+    if current_room.name == "Ranger station":
+        # Check if lock has been unlocked
+        lock = current_room.get_feature(1)
+        if lock.viewed:
+            # Check for batteries
+            if player.check_inventory("Batteries"):
+                # Get batteries object
+                batteries = player.get_object("Batteries")
+                if batteries.used:
+                    radio = current_room.get_object(obj.capitalize())
+                    # get radio object
+                    player.add_obj_to_inventory(radio)
+                    radio.used = True
+                else:
+                    print("Quickly put in the batteries!")
+            else:
+                print("You get to the radio only to find out it's almost dead, do you have any batteries?")
         else:
-            print("You have to use the key to get inside!")
-            return False
-
+            print(lock.description_with_objects)
     else:
-        print("You haven't used the key to get inside!")
+        print("There is nothing you can use to call for help in the {}.".format(current_room.name))
+
+def check_for_object(use_on):
+    """Checks to make sure user entered an object with verb"""
+    if use_on is "":
+        print("You need an object for this to work.")
         return False
+    else:
+        return True

@@ -26,4 +26,16 @@ class Object:
 
         self.used = False       # Has the object been found/used
 
+    def get_original_feature(self):
+
+        return self.original_feature
+
+    def check_restriction(self, object_restriction=None, feature_restriction=None, room_restriction=None):
+        """To use object, checks to see if the restrictions have been met"""
+        ready_to_use = False
+        # Check for any object restrictions
+        if object_restriction is not None:
+            return False
+
+
 

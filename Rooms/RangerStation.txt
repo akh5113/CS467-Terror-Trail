@@ -1,35 +1,29 @@
 {
     "room_name": "Ranger station",
-    "long_intro": "What is that ahead? It looks like the Ranger Station! There’s a light on inside maybe someone is there who can help you. You walk up to the door only to find it is locked. You knock hoping someone might answer but there is no reply. What are you going to do now?\n\nYou’ve almost given up but you keep looking around hoping maybe you missed something. If you could just get inside then you’d at least have shelter for the night. That’s when you look through a small window and notice a blinking light. What is that? It looks like a radio. If you could only get inside you might be able to radio for help.",
+    "long_intro": "What is that ahead? It looks like the Ranger Station! There’s a light on inside maybe someone is there who can help you. You walk up to the door only to find it is locked. You knock hoping someone might answer but there is no reply. What are you going to do now?\n\nYou search all the objects you've picked up along the trail. If you could just get inside then you’d at least have shelter for the night. That’s when you look through a small window and notice a blinking light. What is that? It looks like a radio. If you could only get inside you might be able to radio for help.",
     "short_intro": "It looks like there might be a phone in there. Too bad the door is locked.",
     "features": [
         { 
             "name": "Lock",
             "aliases": ["door"],
             "actions": ["unlock"],
-            "description1": "Just your luck the door is locked tight. I wonder if there is a spare key around here somewhere?",
-            "description2": "I think you can use a key to get in here now!"
+            "description1": "Just your luck the door is locked tight. I wonder if there was a spare key dropped anywhere in the trail?",
+            "description2": "A almost dead radio lies inside!"
         },
         { 
-            "name": "Doormat",
-            "aliases": ["mat"],
-            "actions": ["look under"],
-            "description1": "Not the most sneaky way to hide a key, but it sure is lucky for you that it was here!",
-            "description2": "There is nothing left under this doormat."
+            "name": "Blinking light",
+            "aliases": ["light"],
+            "actions": ["examine", "put in"],
+            "description1": "You finally found the blinking light but you see it's blinking because the radio is about to die! If you have batteries you can put them in and you should have just enough power.",
+            "description2": "Put in batteries to power up the radio"
         }
     ],
     "objects": [
         {
-            "name": "Key", 
-            "description" : "This key may be your ticket home! Hopefully it is the correct key for the lock.",
-            "original_feature": "Doormat",
-            "actions": ["use", "unlock"]
-        },
-        {
             "name": "Radio", 
             "description": "This radio can help you reach someone. Call the radio to find out.",
-            "original_feature": "",
-            "actions": ["pickup", "call"]
+            "original_feature": "Blinking light",
+            "actions": ["call"]
         }        
     ],
     "north": "",

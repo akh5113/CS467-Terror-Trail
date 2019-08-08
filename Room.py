@@ -6,6 +6,7 @@
 from Object import *
 from enum import Enum
 from Feature import *
+import data_printer
 
 
 class RoomType(Enum):
