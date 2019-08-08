@@ -1,7 +1,7 @@
 {
     "room_name": "Ranger station",
     "long_intro": "What is that ahead? It looks like the Ranger Station! There’s a light on inside maybe someone is there who can help you. You walk up to the door only to find it is locked. You knock hoping someone might answer but there is no reply. What are you going to do now?\n\nYou search all the objects you've picked up along the trail. If you could just get inside then you’d at least have shelter for the night. That’s when you look through a small window and notice a blinking light. What is that? It looks like a radio. If you could only get inside you might be able to radio for help.",
-    "short_intro": "It looks like there might be a phone in there. Too bad the door is locked.",
+    "short_intro": "It looks like there might be a phone in there. Can you unlock the door??",
     "features": [
         { 
             "name": "Lock",

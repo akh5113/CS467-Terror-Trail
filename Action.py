@@ -51,19 +51,21 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = LOOK AT
     #######################################################################################################
-    elif (command.lower() == "look" and use_on != "") or command.lower() in \
+    elif (command.lower() == "look" and preposition != "") or command.lower() in \
             ["observe", "read", "view", "search", "examine", "check"]:
-        # call function to explain feature or object
-        if not look_at(use_on, player1, current_room, rooms):
-            print("What you're trying to look at isn't here. Try looking at something else")
+        if check_for_use_on(use_on):
+            # call function to explain feature or object
+            if not look_at(use_on, player1, current_room, rooms):
+                print("What you're trying to look at isn't here. Try looking at something else")
         return False
 
     #######################################################################################################
     # ACTION = TAKE
     #######################################################################################################
     elif command.lower() in ["take", "add", "pick", "grab"]:
-        # Call function to add object to inventory
-        success = take(rooms, current_room, player1, use_on)
+        if check_for_use_on(use_on):
+            # Call function to add object to inventory
+            success = take(rooms, current_room, player1, use_on)
         return False
 
     #######################################################################################################
@@ -77,7 +79,8 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     # ACTION = FILL
     #######################################################################################################
     elif command.lower() in ["fill"]:
-        fill(player1, current_room)
+        if check_for_use_on(use_on):
+            fill(player1, current_room, use_on)
         return False
 
     #######################################################################################################
@@ -91,28 +94,32 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     # ACTION = PUT IN
     #######################################################################################################
     elif command.lower() in ["wear", "put"] and preposition in ["in", "on", "up"]:
-        put(player1, use_on, preposition)
+        if check_for_use_on(use_on):
+            put(player1, use_on, preposition)
         return False
 
     #######################################################################################################
     # ACTION = TURN ON
     #######################################################################################################
     elif command.lower() in ["turn"] and preposition in ["on"]:
-        turn_on(player1, use_on, current_room)
+        if check_for_use_on(use_on):
+            turn_on(player1, use_on, current_room)
         return False
 
     #######################################################################################################
     # ACTION = SECURE
     #######################################################################################################
     elif command.lower() in ["secure", "attach"]:
-        secure(player1, use_on)
+        if check_for_use_on(use_on):
+            secure(player1, use_on)
         return False
 
     #######################################################################################################
     # ACTION = EAT
     #######################################################################################################
     elif command.lower() in ["eat"]:
-        eat(player1, use_on)
+        if check_for_use_on(use_on):
+            eat(player1, use_on)
         return False
 
     #######################################################################################################
@@ -126,14 +133,16 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     # ACTION = DROP
     #######################################################################################################
     elif command.lower() in ["drop", "leave", "abandon"]:
-        drop(player1, current_room, use_on)
+        if check_for_use_on(use_on):
+            drop(player1, current_room, use_on)
         return False
 
     #######################################################################################################
     # ACTION = CALL
     #######################################################################################################
     elif command.lower() in ["call", "radio"]:
-        call(player1, use_on, current_room)
+        if check_for_use_on(use_on):
+            call(player1, use_on, current_room)
         return False
 
     else:
@@ -398,19 +407,21 @@ def inventory(player):
 # OBJECT ACTIONS
 #######################################################################################################
 
-def fill(player, room):
+def fill(player, room, use_on):
     """Fills players water bottle if it's in their inventory"""
     #Check if room has water
     if room.get_object("Water"):
-        if player.check_inventory("Water bottle"):
-            wb = player.get_object("Water bottle")
-            if wb.used is False:
-                wb.used = True
-                print("Filled! This will help keep you hydrated as you find your way, don't forget to drink!")
+        if use_on.capitalize() == "Water bottle":
+            # Check players inventory for water bottle
+            if player.check_inventory(use_on.capitalize()):
+                wb = player.get_object(use_on.capitalize())
+                if wb.used is False:
+                    wb.used = True
+                    print("Filled! This will help keep you hydrated as you find your way, don't forget to drink!")
+                else:
+                    print("You're bottle is already full!")
             else:
-                print("You're bottle is already full!")
-        else:
-            print("Uh Oh! You don't have your water bottle!")
+                print("Uh Oh! You don't have your water bottle!")
     else:
         print("There's no water in {}".format(room.name))
 
@@ -423,6 +434,8 @@ def drink(player):
                   " forget to fill it back up!")
             player.hydration += 10
             data_printer.print_health_levels(player)
+            # reset water bottle so player has to fill again
+            wb.used = False
         else:
             print("Oh no! You forgot to fill your bottle! Looks like you need to find water.")
     else:
@@ -539,7 +552,7 @@ def eat(player, obj):
 
 def unlock(player, room):
     """Player unlocks door with key"""
-    if room.name == "Ranger station":
+    if "unlock" in room.get_verbs():
         if player.check_inventory("Key"):
             key = player.get_object("Key")
             lock = room.get_feature(1)
@@ -547,13 +560,10 @@ def unlock(player, room):
             lock.viewed = True
             key.used = True
             print("It worked! You made it inside! Go find the blinking light!")
-            return True
         else:
             print()
-            return False
     else:
         print("There is nothing to unlock here.")
-        return False
 
 def drop(player, room, obj_name):
     """drops the object in the current room"""
@@ -615,7 +625,7 @@ def paddle(player, obj1, obj2=None):
 def call(player, obj, current_room):
     """User calls using the radio"""
     # check player is in right room
-    if current_room.name == "Ranger station":
+    if "call" in current_room.get_verbs():
         # Check if lock has been unlocked
         lock = current_room.get_feature(1)
         if lock.viewed:
@@ -637,10 +647,10 @@ def call(player, obj, current_room):
     else:
         print("There is nothing you can use to call for help in the {}.".format(current_room.name))
 
-def check_for_object(use_on):
+def check_for_use_on(use_on):
     """Checks to make sure user entered an object with verb"""
     if use_on is "":
-        print("You need an object for this to work.")
+        print("You need an object or feature for this to work.")
         return False
     else:
         return True
