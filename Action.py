@@ -254,7 +254,7 @@ def take(rooms, room, player, object_name):
         Boolean: true if the object was found in the room, False if not
     """
     # Check for max number of objects
-    if len(player.inventory) >= 8:
+    if len(player.inventory) >= 10:
         print("Woah woah you can't carry that much! You must pick something to drop before adding anything else.")
         return False
     # Check if object is unable to be picked up
@@ -580,7 +580,7 @@ def eat(player, obj):
         if "eat" in food.actions:
             food.used = True # possibly unnecessary but keeping it right now for clarity
             # Increase players energy
-            player.energy += 20     # Possibly change depending on food
+            player.energy += 50     # Possibly change depending on food
             print("YUM! The {} was just what you needed to help you get the extra mile.".format(obj.capitalize()))
             # Remove food from inventory
             player.remove_obj_from_inventory(food)
@@ -679,7 +679,7 @@ def paddle(player, obj1, obj2=None):
             else:
                 print("This raft will help you move a lot faster and save energy!")
                 # Give player energy
-                player.energy += 2
+                player.energy += 10
                 data_printer.print_health_levels(player)
                 return True
         else:

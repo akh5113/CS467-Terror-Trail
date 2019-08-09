@@ -15,7 +15,7 @@ class Game:
         self.rooms = rooms
 
         # Verbs to be used within game
-        self.verbs = ["inventory", "look", "look at", "go", "move", "take"]
+        self.verbs = ["inventory", "look", "look at", "go", "move", "take", "travel"]
         # Add additional
         self.get_additional_verbs()
 

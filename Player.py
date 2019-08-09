@@ -24,7 +24,7 @@ class Player:
         """
         if moved_rooms:
             # Energy levels will change by 10 for every move
-            self.energy -= 5
+            self.energy -= 4
 
             # Thirst levels will change by 5 for every move
             self.hydration -= 3
