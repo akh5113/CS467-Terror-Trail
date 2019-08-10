@@ -213,26 +213,40 @@ def play_game(game1, player1):
                     if command.lower() in specific_verbs:
                         moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
                         valid_action = True
+                    else:
+                        # Check command was not an exit name
+                        for room in game1.rooms:
+                            if command.lower() in room.east_exits or command.lower() in room.west_exits or \
+                                    command.lower() in room.north_exits or command.lower() in room.south_exits:
+                                # change command to use_on
+                                use_on = command
+                                # change command to go
+                                command = "go"
+                                # call move_room function in actions to get next room
+                                next_room = move_room(command,use_on,current_room, game1.rooms, player1)
+                                # call moved_locations to try to move to that room
+                                moved_rooms = moved_locations(next_room,player1)
+                                valid_action = True
+
                 elif preposition != "":
                     full_command = command.lower() + " " + preposition
                     if full_command in specific_verbs:
                         moved_rooms = determine_action(game1.rooms, player1, current_room, command, preposition, use_on)
                         valid_action = True
-                    
-                else:
-                    # Check command was not an exit name
-                    for room in game1.rooms:
-                        if command.lower() in room.east_exits or command.lower() in room.west_exits or \
-                                command.lower() in room.north_exits or command.lower() in room.south_exits:
-                            # change command to use_on
-                            use_on = command
-                            # change command to go
-                            command = "go"
-                            # call move_room function in actions to get next room
-                            next_room = move_room(use_on,current_room, game1.rooms, player1)
-                            # call moved_locations to try to move to that room
-                            moved_rooms = moved_locations(next_room,player1)
-                            valid_action = True
+                    else:
+                        # Check command was not an exit name
+                        for room in game1.rooms:
+                            if command.lower() in room.east_exits or command.lower() in room.west_exits or \
+                                    command.lower() in room.north_exits or command.lower() in room.south_exits:
+                                # change command to use_on
+                                use_on = command
+                                # change command to go
+                                command = "go"
+                                # call move_room function in actions to get next room
+                                next_room = move_room(command,use_on,current_room, game1.rooms, player1)
+                                # call moved_locations to try to move to that room
+                                moved_rooms = moved_locations(next_room,player1)
+                                valid_action = True
                     
                 # If action is not in list of verbs or an exit name, print error message
                 if valid_action is False:
