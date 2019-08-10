@@ -13,7 +13,7 @@ from Room import *
 from Player import *
 
 BIKE_MOVE_CMDS = ["ride", "bike"]
-RAFT_MOVE_CMDS = ["launch", "paddle", "cross"]
+RAFT_MOVE_CMDS = ["launch", "paddle"]
 
 def determine_action(rooms, player1, current_room, command, preposition, use_on):
     """Takes user input and determines which action it will send the appropriate arguments to

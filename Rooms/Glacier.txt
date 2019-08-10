@@ -13,7 +13,7 @@
         { 
             "name": "Anchor",
             "aliases": [],
-            "actions": ["secure"],
+            "actions": ["cross"],
             "description1": "This anchor would be helpful to cross but only if you have some good shoes and rope.",
             "description2": "Looks like your ready to use the anchor. Secure the rope and put on your shoes to be able to cross."
         }
