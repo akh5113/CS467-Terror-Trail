@@ -13,7 +13,7 @@
         { 
             "name": "Misty pool",
             "aliases": ["pool of water", "pool"],
-            "actions": ["check", "navigate"],
+            "actions": ["check"],
             "description1": "There is a lot of water pooling here. I think this may lead to the river.",
             "description2": "It is still pretty misty and wet in the pool."
         }

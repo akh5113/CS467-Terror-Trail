@@ -6,14 +6,14 @@
         { 
             "name": "Dock",
             "aliases": [],
-            "actions": ["go on"],
+            "actions": ["search"],
             "description1": "This rickety old dock just appears to have a crate on it, but maybe you can use something to catch some fish from here?",
             "description2": "Looks like all that is left on the dock is this old fishing crate."
         },
         { 
             "name": "Crate",
             "aliases": [],
-            "actions": ["open"],
+            "actions": [],
             "description1": "This must be a fisherman's secret stash. A fishing pole was store here, I bet they won't mind if you borrow it for a bit.",
             "description2": "This is just an old empty fishing crate."
         }
@@ -29,7 +29,7 @@
             "name": "Fishing pole", 
             "description": "Cast this fishing pole and maybe some fish will begin to bite.",
             "original_feature": "Crate",
-            "actions": ["cast", "use"]
+            "actions": ["catch"]
         },
         {
             "name": "Fish", 

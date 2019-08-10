@@ -13,7 +13,7 @@
         { 
             "name": "Hot spring tub",
             "aliases": ["tub"],
-            "actions": ["go in", "swim in"],
+            "actions": ["turn on"],
             "description1": "Oh the water looks nice! Make sure you get on your water shoes before you go in!",
             "description2": "Ready for a relaxing dip?"
         }
