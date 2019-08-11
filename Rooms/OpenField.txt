@@ -7,15 +7,15 @@
             "name": "Water feature",
             "aliases": ["stream"],
             "actions": ["view"],
-            "description1": "You don't think much of the water feature when you first see it, it looks empty of fish, but wait, there is something shiny down there, a key! Maybe whoever left the water shoes behind was trying to get it too. Better put on your water shoes and take the key, you don't want to miss anything important.",
-            "description2": "There's something shiny at the bottom, maybe a key? Put on your water shoes to find out"
+            "description1": "You don't think much of the water feature when you first see it, it looks empty of fish, but wait, there is something shiny down there, a key! Maybe whoever left the water shoes behind was trying to get it too. Better take the key, you don't want to miss anything important.",
+            "description2": "I wonder what this key you picked up goes to..."
         },
         { 
             "name": "The sky getting darker",
             "aliases": ["the sky", "sky"],
             "actions": ["observe", "view"],
             "description1": "It appears to be getting late, you might want to hurry to get out of the park before you starve or get too thirsty. You are about to book it out of there but notcie the trees aren't just normal thees, they're apple trees!",
-            "description2": "The sky looks even darker now! Quickly eat some apples!"
+            "description2": "The sky looks even darker now and all the apples are gone."
         }
     ],
     "objects": [

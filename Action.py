@@ -275,7 +275,6 @@ def take(rooms, room, player, object_name):
                 room.remove_object(obj.name)
                 print("{} has been added to your inventory".format(object_name.capitalize()))
                 # make object used
-                obj.used = True
                 set_removed(obj,room)
                 return True
             # If there is a feature associated with the object
@@ -292,7 +291,6 @@ def take(rooms, room, player, object_name):
                             room.remove_object(obj.name)
                             print("{} has been added to your inventory".format(object_name.capitalize()))
                             # make object used
-                            obj.used = True
                             set_removed(obj, room)
                             return True
                         else:
@@ -338,6 +336,8 @@ def set_removed(obj,room):
     elif room.name == "Lake":
         if obj.name == "Fishing pole":
             room.features[1].obj_removed = True
+        if obj.name == "Fish":
+            room.features[0].obj_removed = True
 
     elif room.name == "Ranger station":
         if obj.name == "Batteries":
@@ -350,10 +350,12 @@ def set_removed(obj,room):
     elif room.name == "Waterfall":
         if obj.name == "Raft":
             room.features[0].obj_removed = True
- 
-    elif room.name == "Ranger Station":
-        if obj.name == "Batteries":
-            room.features[1].obj_removed = True
+            
+    elif room.name == "Open field":
+        if obj.name == "Apples":
+            room.features[1].obj_removed = True 
+        if obj.name == "Key":
+            room.features[0].obj_removed = True
 
 def get_all_features(rooms):
     """ Helper function
@@ -436,6 +438,13 @@ def look_at(item,player1,room,rooms):
                             feature.obj_removed = True
                         else:
                             feature.obj_removed = False
+                    # Check if batteries - remove_obj
+                    if feature.feature_name == "Blinking light":
+                        # If player has both oar and raft
+                        if player1.check_inventory("Batteries"):
+                            feature.obj_removed = True
+                        else:
+                            feature.obj_removed = False 
                     
                     # if feature is part of the current room
                     feature.print_description(rooms)
@@ -457,7 +466,7 @@ def look_at(item,player1,room,rooms):
                         # set obj_remove to true
                         feature.obj_removed = True
                     # Check if fire - remove_obj
-                    if feature.feature_name == "Fire":
+                    if feature.feature_name == "Campfire":
                         # set obj_remove to true
                         feature.obj_removed = True
                     # Check if the sky - remove_obj
@@ -466,10 +475,6 @@ def look_at(item,player1,room,rooms):
                         feature.obj_removed = True
                     # Check if the sky - remove_obj
                     if feature.feature_name == "Water feature":
-                        # set obj_remove to true
-                        feature.obj_removed = True
-                    # Check if the sky - remove_obj
-                    if feature.feature_name == "The sky getting darker":
                         # set obj_remove to true
                         feature.obj_removed = True
                         
@@ -712,6 +717,7 @@ def unlock(player, room):
             # Set view/used to true
             lock.viewed = True
             key.used = True
+            lock.obj_removed = True
             print("It worked! You made it inside! Go find the blinking light!")
         else:
             print()

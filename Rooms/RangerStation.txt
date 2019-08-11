@@ -1,14 +1,14 @@
 {
     "room_name": "Ranger station",
     "long_intro": "What is that ahead? It looks like the Ranger Station! There’s a light on inside maybe someone is there who can help you. You walk up to the door only to find it is locked. You knock hoping someone might answer but there is no reply. What are you going to do now?\n\nYou search all the objects you've picked up along the trail. If you could just get inside then you’d at least have shelter for the night. That’s when you look through a small window and notice a blinking light. What is that? It looks like a radio. If you could only get inside you might be able to radio for help.",
-    "short_intro": "It looks like there might be a phone in there. Can you unlock the door??",
+    "short_intro": "It looks like there might be a radio in there. Can you unlock the door??",
     "features": [
         { 
             "name": "Lock",
             "aliases": ["door"],
             "actions": ["unlock"],
             "description1": "Just your luck the door is locked tight. I wonder if there was a spare key dropped anywhere in the trail?",
-            "description2": "A almost dead radio lies inside!"
+            "description2": "An almost dead radio lies inside!"
         },
         { 
             "name": "Blinking light",
@@ -30,7 +30,7 @@
     "south": "",
     "east": "",
     "west": "Geyser",
-    "long_exit": "You can travel back to the West to the Geyser which you just came from and keep exploring.",
+    "long_exit": "Did you miss something on your journey? You can travel back West to the Geyser which you just came from and keep exploring.",
     "north_exits": [""],
     "south_exits": [""],
     "east_exits": [""],

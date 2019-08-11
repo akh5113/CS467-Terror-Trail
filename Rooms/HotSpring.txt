@@ -24,7 +24,7 @@
     "south": "Open field",
     "east": "Geyser",
     "west": "Campsite",
-    "long_exit": "Ah, now that you’ve relaxed in the springs you are feeling energized and are ready to go. Hopefully the next spot is that Famous Geyser, maybe try heading East?",
+    "long_exit": "Ah, now that you’ve relaxed in the springs and you are ready to go. Hopefully the next spot is that Famous Geyser, maybe try heading East? Or maybe you want to explore the Campsite or Open Field some more?",
     "north_exits": [""],
     "south_exits": ["south", "open field", "green space"],
     "east_exits": ["east", "terror trail geyser", "geyser"],
