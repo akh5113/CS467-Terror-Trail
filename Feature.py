@@ -27,21 +27,16 @@ class Feature:
             self.actions.append(a)
 
         self.viewed = False
+        self.obj_removed = False
 
+        
 
-    def objects_found(self,rooms):
-        """Searches for object within the room"""
-        the_room = get_room_object(self.room_name,rooms)
-        if not the_room.objects:
-            return False
-        else:
-            return True
 
     def print_description(self,rooms):
         """Prints the description of the room based on if it has objects that interact with it, or if those
         objects have been removed
         """
-        if self.objects_found(rooms):
-            data_printer.word_wrap(self.description_with_objects)
-        else:
+        if self.obj_removed:
             data_printer.word_wrap(self.description_no_objects)
+        else:
+            data_printer.word_wrap(self.description_with_objects)

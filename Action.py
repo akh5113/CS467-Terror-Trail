@@ -274,6 +274,9 @@ def take(rooms, room, player, object_name):
                 # remove object from room
                 room.remove_object(obj.name)
                 print("{} has been added to your inventory".format(object_name.capitalize()))
+                # make object used
+                obj.used = True
+                set_removed(obj,room)
                 return True
             # If there is a feature associated with the object
             else:
@@ -288,6 +291,9 @@ def take(rooms, room, player, object_name):
                             #remove object from room
                             room.remove_object(obj.name)
                             print("{} has been added to your inventory".format(object_name.capitalize()))
+                            # make object used
+                            obj.used = True
+                            set_removed(obj, room)
                             return True
                         else:
                             print("You're getting close to the {}, but you need to look at {} first.".format(obj.name.lower(),
@@ -297,6 +303,57 @@ def take(rooms, room, player, object_name):
     print("{} is not here.".format(object_name))
     return False
 
+def set_removed(obj,room):
+    """ Sets feature to viewed after objects have been removed"""
+    if room.name == "Bike trail":
+        if obj.name == "Bike":
+            room.features[0].obj_removed = True 
+        if obj.name == "Tire":
+            room.features[1].obj_removed = True 
+    
+    elif room.name == "Campsite":
+        if obj.name == "Tent":
+            room.features[0].obj_removed = True
+            
+    elif room.name == "Mountain":
+        if obj.name == "Compass":
+            room.features[0].obj_removed = True
+            room.features[1].obj_removed = True
+    
+    elif room.name == "Terror trail":
+        if obj.name == "Flashlight":
+            room.features[1].obj_removed = True
+        if obj.name == "Water bottle":
+            room.features[0].obj_removed = True           
+
+    elif room.name == "Cave":
+        if obj.name == "Map":
+            room.features[1].obj_removed = True
+            
+    elif room.name == "Forest":
+        if obj.name == "Berries":
+            room.features[1].obj_removed = True
+            room.features[0].obj_removed = True
+
+    elif room.name == "Lake":
+        if obj.name == "Fishing pole":
+            room.features[1].obj_removed = True
+
+    elif room.name == "Ranger station":
+        if obj.name == "Batteries":
+            room.features[1].obj_removed = True
+            
+    elif room.name == "River":
+        if obj.name == "Oar":
+            room.features[1].obj_removed = True
+    
+    elif room.name == "Waterfall":
+        if obj.name == "Raft":
+            room.features[0].obj_removed = True
+ 
+    elif room.name == "Ranger Station":
+        if obj.name == "Batteries":
+            room.features[1].obj_removed = True
 
 def get_all_features(rooms):
     """ Helper function
@@ -363,7 +420,23 @@ def look_at(item,player1,room,rooms):
                             print("Turn on your flashlight to be able to read this.")
                     else:
                         print(feature.description_with_objects)
+                        
                 else:
+                    # Check if water rapids - remove_obj
+                    if feature.feature_name == "Water rapids":
+                        # If player has both oar and raft
+                        if player1.check_inventory("Oar") and player1.check_inventory("Raft"):
+                            feature.obj_removed = True
+                        else:
+                            feature.obj_removed = False
+                    # Check if anchor - remove_obj
+                    if feature.feature_name == "Anchor":
+                        # If player has both oar and raft
+                        if player1.check_inventory("Shoes") and player1.check_inventory("Rope"):
+                            feature.obj_removed = True
+                        else:
+                            feature.obj_removed = False
+                    
                     # if feature is part of the current room
                     feature.print_description(rooms)
                     # mark the item as viewed
@@ -374,6 +447,32 @@ def look_at(item,player1,room,rooms):
                         data_printer.word_wrap("The beaver ended up keeping it to itself, but it really spooked you and took a lot out of you!")
                         player1.energy -= 10
                         data_printer.print_health_levels(player1)
+                    
+                    # Check if misty pool - remove_obj
+                    if feature.feature_name == "Misty pool":
+                        # set obj_remove to true
+                        feature.obj_removed = True
+                    # Check if geyser - remove_obj
+                    if feature.feature_name == "Geyser":
+                        # set obj_remove to true
+                        feature.obj_removed = True
+                    # Check if fire - remove_obj
+                    if feature.feature_name == "Fire":
+                        # set obj_remove to true
+                        feature.obj_removed = True
+                    # Check if the sky - remove_obj
+                    if feature.feature_name == "The sky":
+                        # set obj_remove to true
+                        feature.obj_removed = True
+                    # Check if the sky - remove_obj
+                    if feature.feature_name == "Water feature":
+                        # set obj_remove to true
+                        feature.obj_removed = True
+                    # Check if the sky - remove_obj
+                    if feature.feature_name == "The sky getting darker":
+                        # set obj_remove to true
+                        feature.obj_removed = True
+                        
                 # call function to check if room has been completed
                 room.check_room_completion()
 
@@ -423,6 +522,10 @@ def fill(player, room, use_on):
                 if wb.used is False:
                     wb.used = True
                     print("Filled! This will help keep you hydrated as you find your way, don't forget to drink!")
+                    #Check if cave
+                    if room.name == "Cave":
+                        #Set reomve_obj to True
+                        room.features[0].obj_removed = True
                 else:
                     print("You're bottle is already full!")
             else:
