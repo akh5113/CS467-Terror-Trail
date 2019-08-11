@@ -281,10 +281,10 @@ def take(rooms, room, player, object_name):
             else:
                 # Get the feature object
                 for room_feat in get_all_features(rooms):
+                    #room.check_room_completion()
                     if room_feat.feature_name == og_feature_str:
-                        og_feature = room_feat
                         # If original feature has been viewed, it can be added to their inventory
-                        if og_feature.viewed is True:
+                        if room_feat.viewed is True:
                             #add object to inventory
                             player.add_obj_to_inventory(obj)
                             #remove object from room
@@ -294,8 +294,8 @@ def take(rooms, room, player, object_name):
                             set_removed(obj, room)
                             return True
                         else:
-                            print("You're getting close to the {}, but you need to look at {} first.".format(obj.name.lower(),
-                                                                                                             og_feature.feature_name.lower()))
+                            print("You're getting close to the {}, but you need to look at {} first.".format(obj.name,
+                                                                                                             room_feat.feature_name))
                             return False
 
     print("{} is not here.".format(object_name))
@@ -419,11 +419,31 @@ def look_at(item,player1,room,rooms):
                             print(feature.description_no_objects)
                             feature.viewed = True
                         else:
-                            print("Turn on your flashlight to be able to read this.")
+                            print(feature.description_with_objects)
                     else:
                         print(feature.description_with_objects)
-                        
+
+                # Check for beaver den - decrease energy
+                elif feature.feature_name == "Beaver den":
+                    # Check for viewing the sign first
+                    info_sign = room.get_feature(1)
+                    if info_sign.viewed:
+                        # Decrease health
+                        player1.energy -= 10
+                        data_printer.print_health_levels(player1)
+                        feature.viewed = True
+                        print(feature.description_no_objects)
+                        feature.obj_removed = True
+                    else:
+                        print(feature.description_with_objects)
+                        feature.obj_removed = False
+
                 else:
+                    # if feature is part of the current room
+                    feature.print_description(rooms)
+                    # mark the feature as viewed
+                    feature.viewed = True
+
                     # Check if water rapids - remove_obj
                     if feature.feature_name == "Water rapids":
                         # If player has both oar and raft
@@ -444,19 +464,7 @@ def look_at(item,player1,room,rooms):
                         if player1.check_inventory("Batteries"):
                             feature.obj_removed = True
                         else:
-                            feature.obj_removed = False 
-                    
-                    # if feature is part of the current room
-                    feature.print_description(rooms)
-                    # mark the item as viewed
-                    feature.viewed = True
-                    # Check for beaver den - decrease energy
-                    if feature.feature_name == "Beaver den":
-                        # Decrease health
-                        data_printer.word_wrap("The beaver ended up keeping it to itself, but it really spooked you and took a lot out of you!")
-                        player1.energy -= 10
-                        data_printer.print_health_levels(player1)
-                    
+                            feature.obj_removed = False
                     # Check if misty pool - remove_obj
                     if feature.feature_name == "Misty pool":
                         # set obj_remove to true

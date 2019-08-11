@@ -3,6 +3,7 @@
 # Player.py
 # This file defines the Player class
 
+import data_printer
 
 class Player:
     """Class to define the player."""
@@ -44,6 +45,7 @@ class Player:
             self.alive = False
 
         if self.energy <= 25 or self.hydration <= 25:
+            data_printer.print_health_levels(self)
             print("You're starting to get a little lightheaded, better find some water or food.")
 
     def add_obj_to_inventory(self, obj):
