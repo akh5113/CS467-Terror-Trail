@@ -291,6 +291,16 @@ class Room:
                 return next_room
             else:
                 return None
+        elif next_room.name == "Waterfall" and self.name == "Mountain":
+            print("To make it from the mountain to the waterfall, you'll have to secure the climbing gear nearby.")
+            # Check if player has climbing gear
+            if player1.check_inventory("Climbing gear"):
+                # get object
+                climb_gear = player1.get_object("Climbing gear")
+                if climb_gear.used:
+                    return next_room
+                else:
+                    return None
 
         # If current room doesn't need utilize restriction to get to next room
         else:

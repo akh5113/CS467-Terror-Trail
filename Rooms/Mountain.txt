@@ -14,14 +14,14 @@
             "name": "View from top",
             "aliases": ["top of mountain"],
             "actions": ["look at"],
-            "description1": "Looks like there may be a waterfall and a cave...but what direction are they?",
-            "description2": "This compass is helpful! The waterfall is due east and the cave is just south of here."
+            "description1": "Looks like there may be a waterfall and a cave...too get to the waterfall you might need some climbing gear?",
+            "description2": "This climbing gear is helpful! The waterfall is due east and the cave is just south of here."
         }
     ],
     "objects": [
         {
             "name": "Climbing gear", 
-            "description": "This is some high end climbing gear, I wonder why some one left this up here...",
+            "description": "This is some high end climbing gear, this will help you make it to that waterfall...",
             "original_feature": "View from top",
             "actions": ["secure"]
         },
@@ -42,5 +42,5 @@
     "east_exits": ["east", "waterfall", "rushing water"],
     "west_exits": ["west", "terror trail", "beginning", "fell", "fall"],
     "room_type": "MID_ROOM",
-    "restricted": false
+    "restricted": true
 }
