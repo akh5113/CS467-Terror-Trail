@@ -10,8 +10,8 @@ class Player:
 
     def __init__(self, starting_location):
         """Constructor."""
-        self.energy = 10000000 # previously hunger
-        self.hydration  = 1000000
+        self.energy = 100 # previously hunger
+        self.hydration  = 100
         self.inventory = []
         self.alive = True
         self.location = starting_location   # Current location of the player

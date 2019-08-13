@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc74a1f8-8359-4307-8649-9421742b34c6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Action.py" beforeDir="false" afterPath="$PROJECT_DIR$/Action.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rooms/Lake.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rooms/Lake.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +16,8 @@
       <file leaf-file-name="Action.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Action.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="302" column="91" selection-start-line="302" selection-start-column="91" selection-end-line="302" selection-end-column="91" />
+            <state relative-caret-position="626">
+              <caret line="319" column="16" lean-forward="true" selection-start-line="319" selection-start-column="16" selection-end-line="319" selection-end-column="16" />
               <folding>
                 <element signature="e#356#375#0" expanded="true" />
               </folding>
@@ -35,11 +34,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Lake.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Lake.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rooms/Lake.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="544">
               <caret line="35" column="91" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Player.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -96,13 +104,13 @@
         <option value="$PROJECT_DIR$/Rooms/Waterfall.txt" />
         <option value="$PROJECT_DIR$/Rooms/Glacier.txt" />
         <option value="$PROJECT_DIR$/main_driver.py" />
-        <option value="$PROJECT_DIR$/Player.py" />
         <option value="$PROJECT_DIR$/Rooms/RangerStation.txt" />
         <option value="$PROJECT_DIR$/Room.py" />
         <option value="$PROJECT_DIR$/Rooms/BikeTrail.txt" />
         <option value="$PROJECT_DIR$/Rooms/AnimalHabitat.txt" />
-        <option value="$PROJECT_DIR$/Action.py" />
         <option value="$PROJECT_DIR$/Rooms/Lake.txt" />
+        <option value="$PROJECT_DIR$/Action.py" />
+        <option value="$PROJECT_DIR$/Player.py" />
       </list>
     </option>
   </component>
@@ -476,13 +484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Player.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Rooms/HotSpring.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -574,20 +575,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Rooms/Lake.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="35" column="91" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Action.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="302" column="91" selection-start-line="302" selection-start-column="91" selection-end-line="302" selection-end-column="91" />
+        <state relative-caret-position="626">
+          <caret line="319" column="16" lean-forward="true" selection-start-line="319" selection-start-column="16" selection-end-line="319" selection-end-column="16" />
           <folding>
             <element signature="e#356#375#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rooms/Lake.txt">
+    <entry file="file://$PROJECT_DIR$/Player.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="35" column="91" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
+        <state relative-caret-position="204">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
         </state>
       </provider>
     </entry>
