@@ -29,7 +29,7 @@
             "name": "Tire", 
             "description": "This tire must go with a broken bike.",
             "original_feature": "Brush",
-            "actions": ["put on", "put"]
+            "actions": ["put on"]
         }       
     ],
     "north": "Cave",

@@ -592,6 +592,11 @@ def put(player, obj, preposition):
         if ("put on" in inv_obj.actions) or ("put in" in inv_obj.actions):
             if inv_obj.used is True:
                 print("You've already put {} {}!".format(preposition, obj))
+            elif obj.capitalize() == "Tire" and player.check_inventory("Bike"):
+                print("Good decision to put {} {}".format(preposition, obj))
+                inv_obj.used = True
+            elif obj.capitalize() == "Tire" and not player.check_inventory("Bike"):
+                print("You don't have a Bike to put this on")
             else:
                 print("Good decision to put {} {}".format(preposition, obj))
                 inv_obj.used = True

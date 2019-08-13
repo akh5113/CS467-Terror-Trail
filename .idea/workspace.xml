@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc74a1f8-8359-4307-8649-9421742b34c6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Action.py" beforeDir="false" afterPath="$PROJECT_DIR$/Action.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Room.py" beforeDir="false" afterPath="$PROJECT_DIR$/Room.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rooms/RangerStation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Rooms/RangerStation.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +16,8 @@
       <file leaf-file-name="Action.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Action.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="545" column="13" lean-forward="true" selection-start-line="545" selection-start-column="13" selection-end-line="545" selection-end-column="13" />
+            <state relative-caret-position="473">
+              <caret line="598" column="60" selection-start-line="598" selection-start-column="60" selection-end-line="598" selection-end-column="60" />
               <folding>
                 <element signature="e#356#375#0" expanded="true" />
               </folding>
@@ -649,8 +645,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Action.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="545" column="13" lean-forward="true" selection-start-line="545" selection-start-column="13" selection-end-line="545" selection-end-column="13" />
+        <state relative-caret-position="473">
+          <caret line="598" column="60" selection-start-line="598" selection-start-column="60" selection-end-line="598" selection-end-column="60" />
           <folding>
             <element signature="e#356#375#0" expanded="true" />
           </folding>
