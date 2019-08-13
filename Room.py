@@ -127,7 +127,7 @@ class Room:
             if obj_name == room_object.name:
                 return room_object
 
-        return "Not an object in this room"
+        return None
 
     def add_object(self, obj):
         """Adds an object to the room"""

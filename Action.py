@@ -52,7 +52,7 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     # ACTION = LOOK AT
     #######################################################################################################
     elif (command.lower() == "look" and preposition != "") or command.lower() in \
-            ["observe", "read", "view", "search", "examine", "check"]:
+            ["observe", "read", "view", "search", "examine", "check", "inspect"]:
         if check_for_use_on(use_on):
             # call function to explain feature or object
             if not look_at(use_on, player1, current_room, rooms):
@@ -93,7 +93,10 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
     #######################################################################################################
     # ACTION = PUT IN
     #######################################################################################################
-    elif command.lower() in ["wear", "put"] and preposition in ["in", "on", "up"]:
+    elif command.lower() == "wear" or \
+            command.lower() == "put" and preposition in ["in", "on", "up"]:
+        if command.lower() == "wear":
+            preposition = "on"
         if check_for_use_on(use_on):
             put(player1, use_on, preposition)
         return False
@@ -146,7 +149,8 @@ def determine_action(rooms, player1, current_room, command, preposition, use_on)
         return False
 
     else:
-        return False #TODO change to error message
+        print("Action not implemented.")
+        return False
 
 def move_room(command, go_to, current_room, rooms, player1):
     """
@@ -527,7 +531,7 @@ def fill(player, room, use_on):
         use_on (str) object to fill
     """
     #Check if room has water
-    if room.get_object("Water"):
+    if room.get_object("Water") is not None:
         if use_on.capitalize() == "Water bottle":
             # Check players inventory for water bottle
             if player.check_inventory(use_on.capitalize()):
@@ -604,6 +608,7 @@ def turn_on(player, obj, room):
         obj (str): Name of object to turn on
         room (Room): current room of player
     """
+    complete = False
     # check to see if player has object
     if player.check_inventory(obj.capitalize()):
         # Get object
@@ -614,8 +619,7 @@ def turn_on(player, obj, room):
             print("{} is on! This extra help gave you a boost!".format(inv_obj.name))
             player.energy += 5
             data_printer.print_health_levels(player)
-        else:
-            print("You can't turn on {}".format(obj))
+            complete = True
     elif not player.check_inventory(obj.capitalize()):
         # check for feature to turn on
         for feature in room.features:
@@ -624,7 +628,8 @@ def turn_on(player, obj, room):
                     print("{} is on! This extra help gave you a boost!".format(feature.feature_name))
                     player.energy += 5
                     data_printer.print_health_levels(player)
-    else:
+                    complete = True
+    if not complete:
         print("You can't turn on {}".format(obj))
 
 def ride(player):

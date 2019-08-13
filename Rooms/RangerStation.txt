@@ -13,7 +13,7 @@
         { 
             "name": "Blinking light",
             "aliases": ["light"],
-            "actions": ["examine", "put in"],
+            "actions": ["examine"],
             "description1": "You finally found the blinking light but you see it's blinking because the radio is about to die! If you have batteries you can put them in and you should have just enough power.",
             "description2": "Put in batteries to power up the radio"
         }
@@ -23,7 +23,7 @@
             "name": "Radio", 
             "description": "This radio can help you reach someone. Call the radio to find out.",
             "original_feature": "Blinking light",
-            "actions": ["call"]
+            "actions": ["call", "put in"]
         }        
     ],
     "north": "",
