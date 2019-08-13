@@ -27,9 +27,9 @@
         },
         {
             "name": "Fishing pole", 
-            "description": "Cast this fishing pole and maybe some fish will begin to bite.",
+            "description": "If you've picked up the fishing pole you will be able to catch fish.",
             "original_feature": "Crate",
-            "actions": ["catch"]
+            "actions": []
         },
         {
             "name": "Fish", 

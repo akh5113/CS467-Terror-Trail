@@ -289,14 +289,28 @@ def take(rooms, room, player, object_name):
                     if room_feat.feature_name == og_feature_str:
                         # If original feature has been viewed, it can be added to their inventory
                         if room_feat.viewed is True:
-                            #add object to inventory
-                            player.add_obj_to_inventory(obj)
-                            #remove object from room
-                            room.remove_object(obj.name)
-                            print("{} has been added to your inventory".format(object_name.capitalize()))
-                            # make object used
-                            set_removed(obj, room)
-                            return True
+                            if obj.name == "Fish":
+                                if player.check_inventory("Fishing pole"):
+                                    # add object to inventory
+                                    player.add_obj_to_inventory(obj)
+                                    # remove object from room
+                                    room.remove_object(obj.name)
+                                    print("{} has been added to your inventory".format(object_name.capitalize()))
+                                    # make object used
+                                    set_removed(obj, room)
+                                    return True
+                                else:
+                                    print("You don't have a fishing pole to catch any fish")
+                                    return False
+                            else:
+                                #add object to inventory
+                                player.add_obj_to_inventory(obj)
+                                #remove object from room
+                                room.remove_object(obj.name)
+                                print("{} has been added to your inventory".format(object_name.capitalize()))
+                                # make object used
+                                set_removed(obj, room)
+                                return True
                         else:
                             print("You're getting close to the {}, but you need to look at {} first.".format(obj.name,
                                                                                                              room_feat.feature_name))
@@ -589,7 +603,11 @@ def put(player, obj, preposition):
         # Get Object
         inv_obj = player.get_object(obj.capitalize())
         # Check to see if object is able to be put on
-        if ("put on" in inv_obj.actions) or ("put in" in inv_obj.actions):
+        put_action = "put " + preposition
+
+
+        print(put_action)
+        if put_action in inv_obj.actions:
             if inv_obj.used is True:
                 print("You've already put {} {}!".format(preposition, obj))
             elif obj.capitalize() == "Tire" and player.check_inventory("Bike"):
