@@ -713,7 +713,7 @@ def eat(player, obj):
         else:
             print("You cannot eat {}".format(obj))
     else:
-        print("You don't have {} in your inventory! Hope you find some soon!")
+        print("You don't have {} in your inventory! Hope you find some soon!".format(obj))
 
 
 def unlock(player, room):

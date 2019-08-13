@@ -14,7 +14,7 @@
             "name": "Beaver den",
             "aliases": ["animal habitat", "mound of sticks"],
             "actions": ["observe", "view"],
-            "description1": "Without reading the sign you may not want to get too close to the noisy creature.",
+            "description1": "Without reading the informational sign you may not want to get too close to the noisy creature.",
             "description2": "Ah a beaver! The strange noises spooked you and apparently someone else so much that they dropped their batteries, grab them just in case and get out of there!."
         }
     ],
