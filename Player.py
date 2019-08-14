@@ -24,19 +24,24 @@ class Player:
             self.hydration (int): Integer representing players thirst levels
         """
         if moved_rooms:
-            # Energy levels will change by 10 for every move
-            self.energy -= 4
+            # Energy levels will change by 3 for every move
+            self.energy -= 3
 
-            # Thirst levels will change by 5 for every move
-            self.hydration -= 3
+            # Thirst levels will change by 2 for every move
+            self.hydration -= 2
 
         else:
-            # Energy levels will change by 10 for non-moving actions
+            # Energy levels will change by 1 for non-moving actions
             self.energy -= 2
 
-            # Thirst levels will change by 5 for non-moving actions
+            # Thirst levels will change by 1 for non-moving actions
             self.hydration -= 1
 
+        if self.energy > 100:
+            self.energy = 100
+
+        if self.hydration > 100:
+            self.hydration = 100
 
         # Determine if player is still alive
         if self.energy > 0 and self.hydration > 0:

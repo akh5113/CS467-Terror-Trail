@@ -183,9 +183,9 @@ def move_room(command, go_to, current_room, rooms, player1):
 
     # check if command is a specality movement
     if command.lower() in BIKE_MOVE_CMDS:
-        valid_speciality_movement = check_move_device(current_room, next_room, 1)
+        valid_speciality_movement = check_move_device(player1, current_room, next_room, 1)
     elif command.lower() in RAFT_MOVE_CMDS:
-        valid_speciality_movement = check_move_device(current_room, next_room, 2)
+        valid_speciality_movement = check_move_device(player1, current_room, next_room, 2)
     else:
         valid_speciality_movement = True
     if valid_speciality_movement is False:
@@ -217,7 +217,7 @@ def moved_locations(next_room,player1):
         player1.location = next_room
         return True
 
-def check_move_device(current_room, next_room, command):
+def check_move_device(player, current_room, next_room, command):
     # Check to see if the user is trying to use raft/paddle in non water room
     water_rooms = ["Waterfall", "River", "Cave"]
     non_bike_rooms = ["Waterfall", "River", "Glacier"]
@@ -226,12 +226,14 @@ def check_move_device(current_room, next_room, command):
         if current_room.name not in water_rooms or next_room.name not in water_rooms:
             print("You need to be near water to use a raft.")
             return False
+        return paddle(player, "Raft")
+
     # BIKE
     elif command == 1:
         if next_room.name in non_bike_rooms:
             print("You can't ride your bike through this.")
             return False
-    return True
+        return ride(player)
 
 def get_room_object(room_name, rooms):
     """
@@ -662,7 +664,6 @@ def turn_on(player, obj, room):
                 if action == "turn on":
                     print("{} is on! This extra help gave you a boost!".format(feature.feature_name))
                     player.energy += 5
-                    data_printer.print_health_levels(player)
                     complete = True
                     # If hot spring
                     if feature.feature_name == "Faucet":

@@ -14,7 +14,7 @@
             "name": "Cave art",
             "aliases": ["art"],
             "actions": ["look at", "view"],
-            "description1": "Here lies a map of the park, though it looks like it may not be complete... scribble down what you can",
+            "description1": "Here lies a map of the park, though it looks like it may not be complete... take a map to scribble down what you can",
             "description2": "You've already viewed the map."
         }
     ],
