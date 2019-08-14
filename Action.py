@@ -546,6 +546,7 @@ def fill(player, room, use_on):
     """
     #Check if room has water
     if room.get_object("Water") is not None:
+        #Water bottle
         if use_on.capitalize() == "Water bottle":
             # Check players inventory for water bottle
             if player.check_inventory(use_on.capitalize()):
@@ -561,6 +562,17 @@ def fill(player, room, use_on):
                     print("You're bottle is already full!")
             else:
                 print("Uh Oh! You don't have your water bottle!")
+        #Hot tub
+        if use_on.capitalize() == "Hot tub":
+            # Check if facuet has been turned on
+            if room.features[0].obj_removed == True:
+                # Fill hot tub and give energy
+                room.features[1].obj_removed = True
+                print("There Hot tub is filled and that relaxing dip increased your energy.")
+                player.energy += 10
+                data_printer.print_health_levels(player)
+            else:
+                print("You need to turn on the faucet first.")
     else:
         print("There's no water in {}".format(room.name))
 
@@ -652,6 +664,9 @@ def turn_on(player, obj, room):
                     player.energy += 5
                     data_printer.print_health_levels(player)
                     complete = True
+                    # If hot spring
+                    if feature.feature_name == "Faucet":
+                        feature.obj_removed = True
     if not complete:
         print("You can't turn on {}".format(obj))
 

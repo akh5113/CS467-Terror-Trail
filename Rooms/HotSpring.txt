@@ -7,18 +7,24 @@
             "name": "Faucet",
             "aliases": [],
             "actions": ["inspect", "turn on"],
-            "description1": "Looks like you need to turn this faucet on to fill the tub with water!",
-            "description2": "Turn the faucet on to enjoy some time in the hot tub."
+            "description1": "Looks like you need to turn on this faucet to fill the tub with water!",
+            "description2": "You should check out the Hot tub. It should be almost full now."
         },
         { 
             "name": "Hot tub",
             "aliases": ["tub"],
-            "actions": ["turn on"],
-            "description1": "Oh the water looks nice! Make sure you get on your water shoes before you go in!",
+            "actions": ["fill"],
+            "description1": "This Hot tub is nearly empty. You should find a way to fill it up.",
             "description2": "Ready for a relaxing dip?"
         }
     ],
     "objects": [
+        {
+            "name": "Water", 
+            "description": "Use this water to fill the Hot tub.",
+            "original_feature": "",
+            "actions": ["fill"]
+        }
     ],
     "north": "",
     "south": "Open field",
