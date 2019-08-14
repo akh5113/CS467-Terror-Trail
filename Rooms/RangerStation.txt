@@ -11,10 +11,10 @@
             "description2": "An almost dead radio lies inside!"
         },
         { 
-            "name": "Blinking light",
-            "aliases": ["light"],
+            "name": "Blinking lights",
+            "aliases": ["lights"],
             "actions": ["examine"],
-            "description1": "You finally found the blinking light but you see it's blinking because the radio is about to die! If you have batteries you can put them in and you should have just enough power.",
+            "description1": "You finally found the blinking lights but you see it's blinking because the radio is about to die! If you have batteries you can put them in and you should have just enough power.",
             "description2": "Put in batteries to power up the radio"
         }
     ],

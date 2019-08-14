@@ -11,7 +11,7 @@
             "description2": "Turn the faucet on to enjoy some time in the hot tub."
         },
         { 
-            "name": "Hot spring tub",
+            "name": "Hot tub",
             "aliases": ["tub"],
             "actions": ["turn on"],
             "description1": "Oh the water looks nice! Make sure you get on your water shoes before you go in!",
@@ -27,7 +27,7 @@
     "long_exit": "Ah, now that you’ve relaxed in the springs and you are ready to go. Hopefully the next spot is that Famous Geyser, maybe try heading East? Or maybe you want to explore the Campsite or Open Field some more?",
     "north_exits": [""],
     "south_exits": ["south", "open field", "green space"],
-    "east_exits": ["east", "terror trail geyser", "geyser"],
+    "east_exits": ["east", "geyser"],
     "west_exits": ["west", "campsite", "smoke", "flickering light"],
     "room_type": "MID_ROOM",
     "restricted": false

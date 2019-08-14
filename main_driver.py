@@ -26,7 +26,7 @@ def main():
             valid_choice = True
 
             # Enforce only valid console widths
-            validate_console_size()
+#            validate_console_size()
 
             # Load files for Rooms including Features and Objects within rooms
             rooms = data_import.import_room_data()
@@ -52,7 +52,7 @@ def main():
             valid_choice = True
 
             # Enforce only valid console widths
-            validate_console_size()
+#            validate_console_size()
 
             # Load Saved Player Data
             loaded_player = data_import.load_player()
@@ -137,7 +137,7 @@ def play_game(game1, player1):
             else:
                 command = "INVALID"
             # If second word part of location
-            if len(split_input) >=2 and split_input[1] in ["trail", "habitat", "spring", "field", "station"]:
+            if len(split_input) >=2 and split_input[1] in ["trail", "habitat", "spring", "field", "station", "light", "noises", "building", "springs", "space", "waters"]:
                 command = ' '.join(split_input[0:])
                 preposition = ""
                 use_on = ""                

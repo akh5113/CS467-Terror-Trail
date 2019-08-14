@@ -36,10 +36,10 @@
     "south": "Cave",
     "east": "Waterfall",
     "west": "Terror trail",
-    "long_exit": "You can hear rushing water and you notice what looks like a cave you could explore. Or maybe you want to return to the beginning location you first fell into in the West.",
+    "long_exit": "You can hear rushing waters and you notice what looks like a cave you could explore. Or maybe you want to return to the beginning location you first fell into in the West.",
     "north_exits": [""],
     "south_exits": ["south", "cave"],
-    "east_exits": ["east", "waterfall", "rushing water"],
+    "east_exits": ["east", "waterfall", "rushing waters"],
     "west_exits": ["west", "terror trail", "beginning", "fell", "fall"],
     "room_type": "MID_ROOM",
     "restricted": true

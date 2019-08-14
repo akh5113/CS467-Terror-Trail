@@ -32,7 +32,7 @@
     "west": "Animal habitat",
     "long_exit": "Looking for some water? I think I see a body of water just south of here. Or maybe you want to see the hot spring or bike trail instead.",
     "north_exits": ["north", "bike trail"],
-    "south_exits": ["south", "lake", "body of water"],
+    "south_exits": ["south", "lake"],
     "east_exits": ["east", "hot spring"],
     "west_exits": ["west", "odd noises", "noises", "animal habitat"],
     "room_type": "MID_ROOM",
