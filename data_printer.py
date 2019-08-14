@@ -301,6 +301,62 @@ def print_map(rooms):
     print(" ", blank_room, "|", lake, "|",open_field, "|")
     print(" \t\t |---------------|---------------|")
 
+def print_room_features(room):
+    """
+    Prints the names of the features in the room
+
+    Args:
+        room (Room): Current room of the player
+    Returns:
+        none
+    """
+    feat1 = room.get_feature(1)
+    feat2 = room.get_feature(2)
+    print("Features in {}:".format(room.name))
+    print(feat1.feature_name)
+    print(feat2.feature_name)
+
+def print_help():
+    """Required action/verb
+           Prints the help screen for game
+    """
+    help_data = {"help": "Lists verbs used throughout the game.",
+                 "go <direction>": "Moves player to the Room in the specified direction.",
+                 "move <direction>": "Moves player to the Room in the specified direction.",
+                 "look": "States description of the current Room",
+                 "look at <object/feature>": "Gives explanation of object or feature",
+                 "fill <object>": "Fill water bottle to be able to drink from it.",
+                 "drink": "Drink from water bottle to increase hydration levels.",
+                 "turn on <object>": "Turns flashlight on to be used.",
+                 "put on/in/up <object>": "Puts on object if in player's inventory.",
+                 "catch <object>": "Adds object to inventory",
+                 "eat <object>": "Increases players energy levels.",
+                 "unlock": "Unlocks door",
+                 "ride <direction>": "Rides bike to move to a different Room",
+                 "drop <object>": "Drops item in current room if item is in Player's inventory",
+                 "paddle <direction>": "Uses the raft and/or oar to travel on the River",
+                 "launch <direction>": "Uses raft to travel on the River",
+                 "call <object>": "Uses Radio to call the Ranger",
+                 "secure <object>": "Secures object to feature",
+                 "inventory": "Lists the contents of players inventory",
+                 "health": "Displays the player's current energy & hydration levels",
+                 "exit": "Displays the possible exits from a room.",
+                 "features": "Displays the name of the features in a room",
+                 "savegame": "Saves the current state of the game.  ",
+                 "loadgame": "Loads the previously saved game into play.",
+                 "quit": "Exits the game without saving the game state."
+                 }
+    print("{:-^80}".format(" HELP "))
+    print("*** Assumes <object> is in Player's inventory ***")
+    for key, value in help_data.items():
+        if len(key) < 8:
+            print("{}\t\t\t{}".format(key, value))
+        elif len(key) < 16:
+            print("{}\t\t{}".format(key, value))
+        elif len(key) < 24:
+            print("{}\t{}".format(key, value))
+        else:
+            print("{} {}".format(key, value))
 
 def word_wrap(text_to_print):
     """

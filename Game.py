@@ -53,48 +53,6 @@ class Game:
 
         self.verbs = dups_removed
 
-    @staticmethod
-    def help():
-        """Required action/verb
-        Prints the help screen for game
-        """
-        help_data = {'help': 'Lists verbs used throughout the game.',
-                     "go <direction>": "Moves player to the Room in the specified direction.",
-                     "move <direction>": "Moves player to the Room in the specified direction.",
-                     "look": "States description of the current Room",
-                     "look at <object/feature>": "Gives explanation of object or feature",
-                     "fill <object>": "Fill water bottle to be able to drink from it.",
-                     "drink": "Drink from water bottle to increase hydration levels.",
-                     "turn on <object>":"Turns flashlight on to be used.",
-                     "put on/in/up <object>": "Puts on object if in player's inventory.",
-                     "catch <object>": "Adds object to inventory",
-                     "eat <object>": "Increases players energy levels.",
-                     "unlock": "Unlocks door",
-                     "ride <direction>": "Rides bike to move to a different Room",
-                     "drop <object>": "Drops item in current room if item is in Player's inventory",
-                     "paddle <direction>": "Uses the raft and oar to travel on the River",
-                     "launch <direction>": "Uses raft to travel on the River",
-                     "call <object>": "Uses Radio to call the Ranger",
-                     "secure <object>": "Secures object to feature",
-                     "inventory": "Lists the contents of players inventory",
-                     "health": "Displays the player's current energy & hydration levels",
-                     "exit": "Displays the possible exits from a room.",
-                     "savegame": "Saves the current state of the game.  ",
-                     "loadgame": "Loads the previously saved game into play.",
-                     "quit": "Exits the game without saving the game state."
-                    }
-        print("---------------------------------------- HELP ---------------------------------------")
-        print("*** Assumes <object> is in Player's inventory ***")
-        for key, value in help_data.items():
-            if len(key)<8:
-                print("{}\t\t\t{}".format(key, value))
-            elif len(key)<16:
-                print("{}\t\t{}".format(key, value))
-            elif len(key)<24:
-                print("{}\t{}".format(key, value))
-            else:
-                print("{} {}".format(key, value))
-
     def save_game(self, player):
         """
         Saves the state of the game.

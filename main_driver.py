@@ -167,7 +167,7 @@ def play_game(game1, player1):
 
             # If action is help
             if command.lower() == "help":
-                game1.help()
+                data_printer.print_help()
                 moved_rooms = False
 
             # If action is savegame
@@ -180,7 +180,7 @@ def play_game(game1, player1):
                 game1 = data_import.load_game()
                 player1 = data_import.load_player()
 
-                if (not game1 or not player1):
+                if not game1 or not player1:
                     print("Error: Unable to load game!")
                 else:
                     print("Game resumed!")
@@ -188,10 +188,16 @@ def play_game(game1, player1):
             # If action is health
             elif command.lower() == "health":
                 game1.health_status(player1)
-                
+                moved_rooms = False
+
             # If action is exit
             elif command.lower() == "exit":
                 game1.list_exit(player1.location)
+                moved_rooms = False
+
+            elif command.lower() == "features":
+                data_printer.print_room_features(current_room)
+                moved_rooms = False
                 
             # If action is quit
             elif command.lower() == "quit":
