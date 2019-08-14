@@ -89,15 +89,15 @@ def play_game(game1, player1):
     """Implement the game workflow and checks for game ending.
         1. Gets the players current room status
         2. Displays the health of the player
-        4. Prints either long or short into
-        5. Prints exits
-        6. Sets the room to visited
-        7. While the user has not moved rooms, enter while loop
+        3. Prints either long or short into
+        4. Prints exits
+        5. Sets the room to visited
+        6. While the user has not moved rooms, enter while loop
             a. prompt the user and get input
             b. split input
             c. determine if action effects game or player and call appropriate function
             d. calculate players health
-        8. Check the game status
+        7. Check the game status
     """
     prompt = ">>>"
 
