@@ -572,7 +572,6 @@ def fill(player, room, use_on):
                 room.features[1].obj_removed = True
                 print("There Hot tub is filled and that relaxing dip increased your energy.")
                 player.energy += 10
-                data_printer.print_health_levels(player)
             else:
                 print("You need to turn on the faucet first.")
     else:

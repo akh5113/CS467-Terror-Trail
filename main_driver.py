@@ -26,7 +26,7 @@ def main():
             valid_choice = True
 
             # Enforce only valid console widths
-#            validate_console_size()
+            validate_console_size()
 
             # Load files for Rooms including Features and Objects within rooms
             rooms = data_import.import_room_data()
@@ -52,7 +52,7 @@ def main():
             valid_choice = True
 
             # Enforce only valid console widths
-#            validate_console_size()
+            validate_console_size()
 
             # Load Saved Player Data
             loaded_player = data_import.load_player()

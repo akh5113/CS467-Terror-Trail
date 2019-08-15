@@ -6,7 +6,7 @@
         { 
             "name": "Lock",
             "aliases": ["door"],
-            "actions": ["unlock"],
+            "actions": ["unlock", "check"],
             "description1": "Just your luck the door is locked tight. I wonder if there was a spare key dropped anywhere in the trail?",
             "description2": "An almost dead radio lies inside!"
         },
